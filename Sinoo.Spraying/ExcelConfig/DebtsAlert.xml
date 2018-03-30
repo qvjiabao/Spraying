@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Root p1:SpaceType="" p2:PinZhi="" xmlns:p2="无" xmlns:p1="DebtsAlert">
+  <![CDATA[创建时间：2013/9/4 15:04:22；创建者：异步科技。 文件编码：c9f03afa-358a-4cec-98dc-3a18b9059bfe]]>
+  <!--作者：Async-->
+  <field cn="Order No" tb="SA03"   hidden="false"  valid="false"  path="" regex="">OA01002</field>
+  <field cn="Customer Name" tb="SA03"   hidden="false"  valid="false"  path="" regex="">CA01003</field>
+  <field cn="Sales Name" tb="SA03"   hidden="false"  valid="false"  path="" regex="">UA01005</field>
+  <field cn="Amount(RMB)" tb="SA03"   hidden="false" valid="false" path="" regex="">OP01005</field>
+  <field cn="Debts" tb="SA03"   hidden="false"  valid="false"  path="" regex="">OP01016</field>
+  <field cn="Credit Customer(Y/N)" tb="SA03"   hidden="false"  valid="false"  path="" regex="">CA01025</field>
+  <field cn="Invoice Date" tb="SA03"   hidden="false" valid="false" path="" regex="">OC01015</field>
+  <field cn="Delivery Date" tb="SA03"   hidden="false" valid="false" path="" regex="">OC01011</field>
+  <field cn="Promised Payment Days" tb="SA03"   hidden="false" valid="false" path="" regex="">OA01051</field>
+  <field cn="Debts Days" tb="SA03"   hidden="false"  valid="false"  path="" regex="">DebtsDays</field>
+</Root>

@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Root p1:SpaceType="" p2:PinZhi="" xmlns:p2="无" xmlns:p1="发票发货信息" tableName="OC01">
+  <![CDATA[创建时间：2013/9/4 15:04:22；创建者：异步科技。 文件编码：c9f03afa-358a-4cec-98dc-3a18b9059bfe]]>
+  <!--作者：Async-->
+  <field cn="订单号" tb="CA01"   hidden="false" valid="false" path="" regex="">OC01003</field>
+  <field cn="序号" tb="CA01"   hidden="false"  valid="false"  path="" regex="">OC01002</field>
+  <!--<field cn="商品编号" tb="CA01"   hidden="false" valid="false" path="" regex="">OC01003</field>-->
+  <field cn="型号" tb="CA01"   hidden="false"  valid="false"  path="" regex="">OC01005</field>
+  <field cn="数量" tb="CA01"   hidden="false" valid="false" path="" regex="">OC01006</field>
+  <field cn="是否到货" tb="CA01"   hidden="false" valid="true" path="YesNO.xml" regex="">OC01007</field>
+  <field cn="到货批次" tb="CA01"   hidden="false" valid="false" path="" regex="">OC01008</field>
+  <field cn="到货时间" tb="CA01"   hidden="false" valid="false" path="" regex="">OC01009</field>
+  <field cn="是否发货" tb="CA01"   hidden="false" valid="true" path="YesNO.xml" regex="">OC01010</field>
+  <field cn="发货时间" tb="CA01"   hidden="false" valid="false" path="" regex="">OC01011</field>
+  <field cn="快递公司" tb="CA01"   hidden="false" valid="false" path="" regex="">OC01012</field>
+  <field cn="快递包裹号" tb="CA01"   hidden="false" valid="false" path="" regex="">OC01013</field>
+  <field cn="是否开发票" tb="CA01"   hidden="false" valid="true" path="YesNO.xml" regex="">OC01014</field>
+  <field cn="开发票时间" tb="CA01"   hidden="false" valid="false" path="" regex="">OC01015</field>
+  <field cn="退发票时间" tb="CA01"   hidden="false" valid="false" path="" regex="">OC01016</field>
+  <field cn="跟踪包裹" tb="CA01"   hidden="false" valid="false" path="" regex="">OC01017</field>
+  <field cn="创建时间" tb="CA01"   hidden="false" valid="false" path="" regex="">OC01998</field>
+  <field cn="GUID" tb="CA01"   hidden="false" valid="false" path="" regex="">OC01999</field>
+</Root>

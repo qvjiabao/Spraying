@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Root p1:SpaceType="" p2:PinZhi="" xmlns:p2="无" xmlns:p1="SalesbyCTC">
+  <![CDATA[创建时间：2013/9/4 15:04:22；创建者：异步科技。 文件编码：c9f03afa-358a-4cec-98dc-3a18b9059bfe]]>
+  <!--作者：Async-->
+  <field cn="行业分类" tb=""   hidden="false"  valid="true"  path="" regex="">CB02002</field>
+  <field cn="客户数量" tb=""   hidden="false"  valid="true"  path="" regex="">CA01001</field>
+  <field cn="新客户数量" tb=""   hidden="false"  valid="false"  path="" regex="">OA01044</field>
+  <field cn="订单数量" tb=""   hidden="false" valid="false" path="" regex="">OA01002</field>
+  <field cn="订单总金额" tb=""   hidden="false"  valid="true"  path="" regex="">OA01022</field>
+</Root>

@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Root p1:SpaceType="" p2:PinZhi="" xmlns:p2="无" xmlns:p1="发货统计列表">
+  <![CDATA[创建时间：2013/9/4 15:04:22；创建者：异步科技。 文件编码：c9f03afa-358a-4cec-98dc-3a18b9059bfe]]>
+  <!--作者：Async-->
+  <field cn="Delivery Date" tb=""   hidden="false"  valid="true"  path="" regex="">OC01011</field>
+  <field cn="Order No" tb=""   hidden="false"  valid="true"  path="" regex="">OA01002</field>
+  <field cn="Customer Name" tb=""   hidden="false"  valid="false"  path="" regex="">CA01003</field>
+  <field cn="SalesName" tb=""   hidden="false" valid="false" path="" regex="">UA01005</field>
+  <field cn="Goods Delivery" tb=""   hidden="false"  valid="true"  path="" regex="">OA01028</field>
+  <field cn="Part NO" tb=""   hidden="false"  valid="false"  path="" regex="">OB01005</field>
+  <field cn="Qty" tb=""   hidden="false"  valid="true"  path="" regex="">OB01007</field>
+  <field cn="Express Company goods" tb=""   hidden="false"  valid="false"  path="" regex="">OC01012</field>
+  <field cn="Tracking" tb=""   hidden="false" valid="false" path="" regex="">OC01013</field>
+  <field cn="ExpressCo" tb=""   hidden="false"  valid="true"  path="" regex="">OC01018</field>
+  <field cn="Tracking Invoice" tb=""   hidden="false"  valid="false"  path="" regex="">OC01017</field>
+</Root>

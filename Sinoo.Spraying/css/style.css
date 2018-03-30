@@ -1,0 +1,39 @@
+@charset "utf-8";
+/* CSS Document */
+
+*{margin:0px;padding:0px;font-size:12px; font-family:Arial,"微软雅黑"}
+ul,li{margin:0px;padding:0px; list-style:none;}
+a{ text-decoration:none;}
+img{border:none}
+.clear{clear:both}
+table{ border-collapse:collapse}
+
+.table_title{width:300px;height:60px;font-size:28px;line-height:60px;}
+.table_1 tr td{padding:5px 0px}
+.table_2{margin-top:20px;}
+.table_2 tr td{padding:10px 0px; text-align:center;}
+
+.table_bottom{width:100%;height:auto; overflow:hidden;line-height:23px;margin-top:80px;}
+
+.table_bottom input{width:75px;height:22px;background:#d5d5d6;border:none;float:left; cursor:pointer;margin-top:30px;}
+.table_bottom .derive{margin-left:20px;}
+
+/**********/
+.table_logo{width:100%;height:auto; overflow:hidden;margin:10px 0px 20px 0px;}
+.table_1{float:left;}
+.table_r{width:470px;height:90px;float:right;margin-right:2%}
+/**********/
+
+
+
+
+.table_top{width:100%;height:80px;text-align:center;line-height:23px; position:relative}
+.table_top span{font-size:16px;}
+.table_top h2{font-size:21px;padding:5px;line-height: 0px;}
+.table_top .num{width:285px;height:30px;line-height:30px;border:1px solid #666; position:absolute;right:0px;bottom:0px;border-bottom:0px;}
+.table_top .num ul li{display:block;height:30px;float:left;}
+.table_top .num ul .li_01{width:90px;border-right:1px solid #666; height:30px; line-height:30px;}
+.table_top .num ul .li_02{width:180px;float:right;height:30px; line-height:30px;}
+.table_3 tr td{padding:1px 0px;}
+.table_3 tr .table_center{ text-align:center}
+.table_width{  text-align:center;width:50%;}

@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<Root p1:SpaceType="" p2:PinZhi="" xmlns:p2="优" xmlns:p1="Excel配置文件">
+  <![CDATA[创建时间：2013/9/4 15:04:22；创建者：异步科技。 文件编码：c9f03afa-358a-4cec-98dc-3a18b9059bfe]]>
+  <!--作者：Async-->
+  <gs cn="公司名称">Company</gs>
+  <gs cn="NPOI插件">ApplicationName</gs>
+  <gs cn="用户名">Author</gs>
+  <gs cn="最后用户">LastAuthor</gs>
+  <gs cn="文档作者信息描述">Comments</gs>
+  <gs cn="文档标题">Title</gs>
+  <gs cn="文件主题信息">Subject</gs>
+  <gs cn="创建时间">CreateDateTime</gs>
+  <gs cn="版本123">OSVersion</gs>
+</Root>

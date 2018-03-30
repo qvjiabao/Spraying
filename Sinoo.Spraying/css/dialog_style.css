@@ -1,0 +1,25 @@
+@charset "utf-8";
+/* CSS Document */
+
+/* @module dialog */
+
+.eui_overlay{ background:#333; opacity:0.6; filter:alpha(opacity=60); }
+.eui_dialog .dg_wrapper{ background:#3498f0; box-shadow:0 0 4px rgba(0, 0, 0, 0.4); position:relative;border:1px solid #cdcdcd; overflow:hidden; font-size:12px;border-radius:5px; }
+.eui_dialog .dg_header{ height:30px; line-height:30px; overflow:hidden; color:#666;
+text-indent:10px;background-color: #EFEFEF;border-bottom: 1px solid #CDCDCD;
+background-image: -webkit-gradient(linear, 0 0%, 0 100%, from(#fdfdfd), to(#eaeaea));
+background-image: -webkit-linear-gradient(top, #fdfdfd 0%, #eaeaea 100%);
+background-image: -moz-linear-gradient(top, #fdfdfd 0%, #eaeaea 100%);
+background-image: -ms-linear-gradient(top, #fdfdfd 0%, #eaeaea 100%);
+background-image: -o-linear-gradient(top, #fdfdfd 0%, #eaeaea 100%);
+background-image: -linear-gradient(top, #fdfdfd 0%, #eaeaea 100%);
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fdfdfd', endColorstr='#eaeaea',GradientType=0 ); }
+.eui_dialog .dg_btn_close{ width:19px; height:18px; overflow:hidden; display:block; position:absolute; top:7px; right:7px; background:#3498f0 url(../images/icon_close.png) no-repeat 5px 5px; text-indent:-999em; }
+.eui_dialog .dg_btn_close:hover{ background-color:#c75050; }
+.eui_dialog .dg_content{ padding:45px 10px; line-height:22px; background:#fff; }
+.eui_dialog .dg_footer{ width:300; padding:10px; padding-top:0; overflow:hidden; _zoom:1;background-color: whiteSmoke;border-top: 1px solid #DDD; }
+.eui_dialog .dg_btn_no,
+.eui_dialog .dg_btn_yes{ padding:0 18px; *padding:0 9px; height:24px; line-height:24px; background:#eaeaea; cursor:pointer; float:right; margin-left:10px; font-family:"Microsoft yahei",arial; font-size:12px; outline:none; color:#333; text-decoration:none; border:1px solid #acacac;margin-top:8px;border-radius:4px; }
+.eui_dialog .dg_btn_yes{ color:#000; border-color:#3399ff; }
+.eui_dialog .dg_btn_yes:hover,
+.eui_dialog .dg_btn_no:hover{ background:#e0effc; }    

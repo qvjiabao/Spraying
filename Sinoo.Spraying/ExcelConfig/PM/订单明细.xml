@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Root p1:SpaceType="" p2:PinZhi="" xmlns:p2="无" xmlns:p1="订单明细" tableName="OB01">
+  <![CDATA[创建时间：2013/9/4 15:04:22；创建者：异步科技。 文件编码：c9f03afa-358a-4cec-98dc-3a18b9059bfe]]>
+  <!--作者：Async-->
+  <field cn="订单号" tb="CA01"   hidden="false"  valid="false"  path="" regex="">OB01002</field>
+  <field cn="商品ID" tb="CA01"   hidden="false"  valid="false"  path="" regex="">OB01004</field>
+  <field cn="商品编号(型号)" tb="CA01"   hidden="false"  valid="false"  path="" regex="">OB01005</field>
+  <field cn="商品描述" tb="CA01"   hidden="false" valid="false" path="" regex="">OB01006</field>
+  <field cn="商品数量" tb="CA01"   hidden="false" valid="false" path="" regex="">OB01007</field>
+  <field cn="含税单价" tb="CA01"   hidden="false" valid="false" path="" regex="">OB01008</field>
+  <field cn="含税总价" tb="CA01"   hidden="false" valid="false" path="" regex="">OB01009</field>
+  <field cn="不含税单价" tb="CA01"   hidden="false" valid="false" path="" regex="">OB01010</field>
+  <field cn="不含税总价" tb="CA01"   hidden="false" valid="false" path="" regex="">OB01011</field>
+  <field cn="税额" tb="CA01"   hidden="false" valid="false" path="" regex="">OB01012</field>
+  <field cn="单位成本" tb="CA01"   hidden="false" valid="false" path="" regex="">OB01013</field>
+  <field cn="合计成本" tb="CA01"   hidden="false" valid="false" path="" regex="">OB01014</field>
+  <field cn="发货日期" tb="CA01"   hidden="false" valid="false" path="" regex="">OB01015</field>
+  <field cn="到货时间" tb="CA01"   hidden="false" valid="false" path="" regex="">OB01016</field>
+  <field cn="支付日期" tb="CA01"   hidden="false" valid="false" path="" regex="">OB01017</field>
+  <field cn="完成日期" tb="CA01"   hidden="false" valid="false" path="" regex="">OB01018</field>
+  <field cn="创建时间" tb="CA01"   hidden="false" valid="false" path="" regex="">OB01998</field>
+  <field cn="GUID" tb="CA01"   hidden="false" valid="false" path="" regex="">OB01999</field>
+</Root>

@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Root p1:SpaceType="" p2:PinZhi="" xmlns:p2="无" xmlns:p1="客户资料">
+  <![CDATA[创建时间：2013/9/4 15:04:22；创建者：异步科技。 文件编码：c9f03afa-358a-4cec-98dc-3a18b9059bfe]]>
+  <!--作者：Async-->
+  <field cn="CustomerCode" tb="CA01"   hidden="false"  valid="false"  path="" regex="">CA01002</field>
+  <field cn="CustomerName" tb="CA01"   hidden="false"  valid="false"  path="" regex="">CA01003</field>
+  <field cn="CustomerEname" tb="CA01"   hidden="false" valid="false" path="" regex="">CA01004</field>
+  <field cn="BillingAdd/Tel" tb="CA01"   hidden="false"  valid="false"  path="" regex="">CA01005</field>
+  <field cn="BankName" tb="CA01"   hidden="false"  valid="false"  path="" regex="">CA01006</field>
+  <field cn="BankAccount" tb="CA01"   hidden="false" valid="false" path="" regex="">CA01007</field>
+  <field cn="TaxRegistration No" tb="CA01"   hidden="false" valid="false" path="" regex="">CA01008</field>
+  <field cn="Contactperson" tb="CA01"   hidden="false" valid="false" path="" regex="">CA01009</field>
+  <field cn="Tel" tb="CA01"   hidden="false" valid="false" path="" regex="">CA01010</field>
+  <field cn="Fax" tb="CA01"   hidden="false" valid="false" path="" regex="">CA01011</field>
+  <field cn="PostCode" tb="CA01"   hidden="false" valid="false" path="" regex="">CA01012</field>
+  <field cn="Province" tb="CA01"   hidden="false" valid="false" path="" regex="">ProvinceName</field>
+  <field cn="City" tb="CA01"   hidden="false" valid="false" path="" regex="">CityName</field>
+  <field cn="CreditDays" tb="CA01"   hidden="false" valid="false" path="" regex="">CA01014</field>
+  <field cn="CreditAmount" tb="CA01"   hidden="false" valid="false" path="" regex="">CA01015</field>
+  <field cn="Customer Type" tb="CA01"   hidden="false" valid="false" path="" regex="">CB01002</field>
+  <field cn="Grade" tb="CA01"   hidden="false" valid="false" path="" regex="">CA01017</field>
+  <field cn="CTC" tb="CA01"   hidden="false" valid="false" path="" regex="">CB02002</field>
+  <field cn="MDT" tb="CA01"   hidden="false" valid="false" path="" regex="">CB03002</field>
+  <field cn="SIC" tb="CA01"   hidden="false" valid="false" path="" regex="">CB04002</field>
+  <field cn="Devision Code" tb="CA01"   hidden="false" valid="false" path="" regex="">CA01021</field>
+  <field cn="240Category" tb="CA01"   hidden="false" valid="false" path="" regex="">GA05002</field>
+  <field cn="220Category" tb="CA01"   hidden="false" valid="false" path="" regex="">GA06002</field>
+  <field cn="FGD" tb="CA01"   hidden="false" valid="false" path="" regex="">CA01024</field>
+  <field cn="CreditCustomer" tb="CA01"   hidden="false" valid="true" path="" regex="">CA01025</field>
+  <field cn="keycustomer" tb="CA01"   hidden="false" valid="true" path="" regex="">CA01047</field>
+  <field cn="Comment" tb="CA01"   hidden="false" valid="false" path="" regex="">CA01026</field>
+  <field cn="注册地址" tb="CA01"   hidden="false" valid="false" path="" regex="">CA01027</field>
+  <field cn="实际办公地址" tb="CA01"   hidden="false" valid="false" path="" regex="">CA01028</field>
+  <field cn="网址" tb="CA01"   hidden="false" valid="false" path="" regex="">CA01029</field>
+  <field cn="电子信箱" tb="CA01"   hidden="false" valid="false" path="" regex="">CA01030</field>
+  <field cn="成立日期" tb="CA01"   hidden="false" valid="false" path="" regex="">CA01031</field>
+  <field cn="法定代表人" tb="CA01"   hidden="false" valid="false" path="" regex="">CA01032</field>
+  <field cn="注册资本" tb="CA01"   hidden="false" valid="false" path="" regex="">CA01033</field>
+  <field cn="登记机关" tb="CA01"   hidden="false" valid="false" path="" regex="">CA01034</field>
+  <field cn="注册号" tb="CA01"   hidden="false" valid="false" path="" regex="">CA01035</field>
+  <field cn="经营范围" tb="CA01"   hidden="false" valid="false" path="" regex="">CA01036</field>
+  <field cn="经营期限" tb="CA01"   hidden="false" valid="false" path="" regex="">CA01037</field>
+  <field cn="企业类型" tb="CA01"   hidden="false" valid="false" path="" regex="">CA01038</field>
+  <field cn="所属行业" tb="CA01"   hidden="false" valid="false" path="" regex="">CA01039</field>
+  <field cn="上级主管单位或母公司情况" tb="CA01"   hidden="false" valid="false" path="" regex="">CA01040</field>
+  <field cn="股东背景" tb="CA01"   hidden="false" valid="false" path="" regex="">CA01041</field>
+  <field cn="厂区情况" tb="CA01"   hidden="false" valid="false" path="" regex="">CA01042</field>
+  <field cn="仓库情况" tb="CA01"   hidden="false" valid="false" path="" regex="">CA01043</field>
+  <field cn="办公环境" tb="CA01"   hidden="false" valid="false" path="" regex="">CA01044</field>
+  <field cn="员工素质" tb="CA01"   hidden="false" valid="false" path="" regex="">CA01045</field>
+  <field cn="财务状况" tb="CA01"   hidden="false" valid="false" path="" regex="">CA01046</field>
+</Root>

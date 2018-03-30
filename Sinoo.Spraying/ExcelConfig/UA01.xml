@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Root p1:SpaceType="" p2:PinZhi="" xmlns:p2="无" xmlns:p1="Sales enginner">
+	<![CDATA[创建时间：2013/9/4 15:04:22；创建者：异步科技。 文件编码：c9f03afa-358a-4cec-98dc-3a18b9059bfe]]>
+	<!--作者：Async-->
+	<field cn="SalesName" tb="CA01"   hidden="false"  valid="true"  path="" regex="">UA01005</field>
+	<field cn="Amount(US$)" tb="CA01"   hidden="false"  valid="false"  path="" regex="">OA01022</field>
+	<field cn="OrderQty" tb="CA01"   hidden="false" valid="false" path="" regex="">OA01001</field>
+	<field cn="ChangeOrderQty" tb="CA01"   hidden="false"  valid="true"  path="" regex="">OA01003</field>
+	<field cn="ReturnOrderQty" tb="CA01"   hidden="false"  valid="false"  path="" regex="">OA010031</field>
+	<field cn="Customer" tb="CA01"   hidden="false"  valid="false"  path="" regex="">OA01038</field>
+	<field cn="New Customer" tb="CA01"   hidden="false"  valid="false"  path="" regex="">OA01044</field>
+  <field cn="Dormant Customers" tb="CA01"   hidden="false"  valid="false"  path="" regex="">OA01054</field>
+</Root>

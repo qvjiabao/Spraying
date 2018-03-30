@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Root p1:SpaceType="" p2:PinZhi="" xmlns:p2="无" xmlns:p1="WeeklyPending">
+  <![CDATA[创建时间：2013/9/4 15:04:22；创建者：异步科技。 文件编码：c9f03afa-358a-4cec-98dc-3a18b9059bfe]]>
+  <!--作者：Async-->
+  <field cn="Order Date" tb="SA03"   hidden="false"  valid="true"  path="" regex="">OA01009</field>
+  <field cn="Order No" tb="SA03"   hidden="false"  valid="false"  path="" regex="">OA01002</field>
+  <field cn="Agreement No" tb="SA03"   hidden="false"  valid="false"  path="" regex="">OA01053</field>
+  <field cn="Customer Name" tb="SA03"   hidden="false" valid="false" path="" regex="">CA01003</field>
+  <field cn="Sales Name" tb="SA03"   hidden="false"  valid="true"  path="" regex="">UA01005</field>
+  <field cn="PartNo" tb="SA03"   hidden="false"  valid="false"  path="" regex="">OB01005</field>
+  <field cn="Qty" tb="SA03"   hidden="false" valid="false" path="" regex="">OB01007</field>
+  <field cn="Amount" tb="SA03"   hidden="false" valid="false" path="" regex="">OB01009</field>
+  <field cn="Arrival Date" tb="SA03"   hidden="false"  valid="true"  path="" regex="">OC01009</field>
+  <field cn="Invoice Date" tb="SA03"   hidden="false"  valid="true"  path="" regex="">OC01015</field>
+  <field cn="Customer Request Delivery Date" tb="SA03"   hidden="false" valid="false" path="" regex="">OA01010</field>
+  <field cn="Pending Days" tb="SA03"   hidden="false"  valid="true"  path="" regex="">Pendingdays</field>
+
+</Root>

@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Root p1:SpaceType="" p2:PinZhi="" xmlns:p2="无" xmlns:p1="Daliy Collection">
+  <![CDATA[创建时间：2013/9/4 15:04:22；创建者：异步科技。 文件编码：c9f03afa-358a-4cec-98dc-3a18b9059bfe]]>
+  <!--作者：Async-->
+  <field cn="Order Date" tb=""   hidden="false"  valid="true"  path="" regex="">OA01009</field>
+  <field cn="Order No" tb=""   hidden="false"  valid="false"  path="" regex="">OA01002</field>
+  <field cn="Customer Name" tb=""   hidden="false" valid="false" path="" regex="">CA01003</field>
+  <field cn="Amount(RMB)" tb=""   hidden="false"  valid="true"  path="" regex="">OA01020</field>
+  <field cn="SalesName" tb=""   hidden="false"  valid="false"  path="" regex="">UA01005</field>
+  <field cn="Payment1" tb=""   hidden="false" valid="false" path="" regex="">OP01007</field>
+  <field cn="Date1" tb=""   hidden="false" valid="false" path="" regex="">OP01008</field>
+  <field cn="Payment2" tb=""   hidden="false" valid="false" path="" regex="">OP01009</field>
+  <field cn="Date2" tb=""   hidden="false" valid="false" path="" regex="">OP01010</field>
+  <field cn="Payment3" tb=""   hidden="false" valid="false" path="" regex="">OP01011</field>
+  <field cn="Date3" tb=""   hidden="false" valid="false" path="" regex="">OP01012</field>
+  <field cn="Payment4" tb=""   hidden="false" valid="false" path="" regex="">OP01013</field>
+  <field cn="Date4" tb=""   hidden="false" valid="false" path="" regex="">OP01014</field>
+  <field cn="Outsanding" tb=""   hidden="false" valid="false" path="" regex="">OP01015</field>
+</Root>

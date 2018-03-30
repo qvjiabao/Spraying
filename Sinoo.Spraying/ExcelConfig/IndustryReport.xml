@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Root p1:SpaceType="" p2:PinZhi="" xmlns:p2="无" xmlns:p1="IndustryReport">
+  <![CDATA[创建时间：2013/9/4 15:04:22；创建者：异步科技。 文件编码：c9f03afa-358a-4cec-98dc-3a18b9059bfe]]>
+  <!--作者：Async-->
+  <field cn=" Order No" tb="SA03"   hidden="false"  valid="true"  path="" regex="">OA01002</field>
+  <field cn="Customer Name" tb="SA03"   hidden="false"  valid="false"  path="" regex="">CA01003</field>
+  <field cn="Sales Name" tb="SA03"   hidden="false" valid="false" path="" regex="">UA01005</field>
+  <field cn="Amount(US$)" tb="SA03"   hidden="false"  valid="true"  path="" regex="">OA01022</field>
+  <field cn="CTC" tb="SA03"   hidden="false"  valid="false"  path="" regex="">CB02002</field>
+  <field cn="SIC" tb="SA03"   hidden="false" valid="false" path="" regex="">CB04002</field>
+  <field cn="AC" tb="SA03"   hidden="false" valid="false" path="" regex="">OB02002</field>
+  <field cn="220 Category" tb="SA03"   hidden="false"  valid="true"  path="" regex="">get220</field>
+  <field cn="240 Category" tb="SA03"   hidden="false" valid="false" path="" regex="">get240</field>
+  <field cn="Minifogger" tb="SA03"   hidden="false"  valid="true"  path="" regex="">OA01045</field>
+  <field cn="Province" tb="SA03"   hidden="false"  valid="true"  path="" regex="">Province</field>
+  <field cn="Delivery Add(Goods)" tb="SA03"   hidden="false"  valid="true"  path="" regex="">OA01028</field>
+  <field cn="Contact" tb="SA03"   hidden="false"  valid="true"  path="" regex="">CA01009</field>
+  <field cn="Tel" tb="SA03"   hidden="false"  valid="true"  path="" regex="">CA01010</field>
+</Root>

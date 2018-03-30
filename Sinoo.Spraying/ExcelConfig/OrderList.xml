@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Root p1:SpaceType="" p2:PinZhi="" xmlns:p2="无" xmlns:p1="OrderList">
+  <![CDATA[创建时间：2013/9/4 15:04:22；创建者：异步科技。 文件编码：c9f03afa-358a-4cec-98dc-3a18b9059bfe]]>
+  <!--作者：Async-->
+  <field cn="Order Date" tb=""   hidden="false"  valid="true"  path="" regex="">OA01009</field>
+  <field cn="Order No" tb=""   hidden="false"  valid="true"  path="" regex="">OA01002</field>
+  <field cn="Customer Code" tb=""   hidden="false"  valid="false"  path="" regex="">CA01002</field>
+  <field cn="Customer Name" tb=""   hidden="false" valid="false" path="" regex="">CA01003</field>
+  <field cn="Contact Person" tb=""   hidden="false"  valid="true"  path="" regex="">CA01009</field>
+  <field cn="SalesName" tb=""   hidden="false"  valid="false"  path="" regex="">UA01005</field>
+  <field cn="Part NO" tb=""   hidden="false"  valid="true"  path="" regex="">OB01005</field>
+  <field cn="Qty" tb=""   hidden="false"  valid="true"  path="" regex="">OB01007</field>
+  <field cn="price" tb=""   hidden="false"  valid="true"  path="" regex="">OB01008</field>
+  <field cn="Amount(RMB)" tb=""   hidden="false"  valid="false"  path="" regex="">OA01020</field>
+  <field cn="Amount(US$)" tb=""   hidden="false" valid="false" path="" regex="">OA01022</field>
+  <field cn="Exchange Rate" tb=""   hidden="false"  valid="true"  path="" regex="">OA01021</field>
+  <field cn="SIC" tb=""   hidden="false"  valid="false"  path="" regex="">CB04002</field>
+  <field cn="CTC" tb=""   hidden="false"  valid="true"  path="" regex="">CB02002</field>
+  <field cn="AC" tb=""   hidden="false"  valid="true"  path="" regex="">OB02002</field>
+  <field cn="MDT" tb=""   hidden="false"  valid="true"  path="" regex="">CB03002</field>
+  <field cn="Province" tb=""   hidden="false"  valid="false"  path="" regex="">CA01013</field>
+  <field cn="Payment1" tb=""   hidden="false" valid="false" path="" regex="">OP01007</field>
+  <field cn="Date1" tb=""   hidden="false"  valid="true"  path="" regex="">OP01008</field>
+  <field cn="Payment2" tb=""   hidden="false"  valid="false"  path="" regex="">OP01009</field>
+  <field cn="Date2" tb=""   hidden="false"  valid="true"  path="" regex="">OP01010</field>
+  <field cn="Payment3" tb=""   hidden="false"  valid="true"  path="" regex="">OP01011</field>
+  <field cn="Date3" tb=""   hidden="false"  valid="true"  path="" regex="">OP01012</field>
+  <field cn="Payment4" tb=""   hidden="false"  valid="false"  path="" regex="">OP01013</field>
+  <field cn="Date4" tb=""   hidden="false" valid="false" path="" regex="">OP01014</field>
+  <field cn="Ouststanding" tb=""   hidden="false"  valid="true"  path="" regex="">OP01015</field>
+  <field cn="CustomerRequesDate" tb=""   hidden="false"  valid="false"  path="" regex="">OA01010</field>
+  <field cn="Arrival Date" tb=""   hidden="false"  valid="true"  path="" regex="">OC01009</field>
+  <field cn="Arrival No" tb=""   hidden="false"  valid="true"  path="" regex="">OC01008</field>
+  <field cn="Delivery Date" tb=""   hidden="false"  valid="true"  path="" regex="">OC01011</field>
+  <field cn="Invoice Date" tb=""   hidden="false"  valid="true"  path="" regex="">OC01015</field>
+  <field cn="NewCustomer" tb=""   hidden="false"  valid="false"  path="YesNo.xml" regex="">OA01044</field>
+  <field cn="FGD" tb=""   hidden="false" valid="false" path="" regex="">CA01024</field>
+  <field cn="220 Category" tb=""   hidden="false"  valid="true"  path="" regex="">OA01043</field>
+  <field cn="240 Category" tb=""   hidden="false"  valid="false"  path="" regex="">OA01042</field>
+  <field cn="Share1" tb=""   hidden="false"  valid="false"  path="" regex="">OA01015</field>
+  <field cn="SharingRatio1" tb=""   hidden="false"  valid="false"  path="" regex="">OA01016</field>
+  <field cn="Share2" tb=""   hidden="false"  valid="false"  path="" regex="">OA01017</field>
+  <field cn="SharingRatio2" tb=""   hidden="false"  valid="false"  path="" regex="">OA01018</field>
+  <field cn="Customer Type" tb=""   hidden="false"  valid="false"  path="" regex="">CB01002</field>
+  <field cn="City" tb=""   hidden="false"  valid="false"  path="" regex="">GA03002</field>
+</Root>

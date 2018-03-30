@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<Root p1:SpaceType="" p2:PinZhi="" xmlns:p2="优" xmlns:p1="Excel配置文件">
+  <![CDATA[创建时间：2013/9/4 15:04:22；创建者：异步科技。 文件编码：c9f03afa-358a-4cec-98dc-3a18b9059bfe]]>
+  <!--作者：Async-->
+  <state cn="001 Agitation">1</state>
+  <state cn="002 Air Atomizing - General">2</state>
+  <state cn="003 Air Control - Genera">3</state>
+  <state cn="004 Coating">4</state>
+  <state cn="005 Cooling - Continuous Casting">5</state>
+  <state cn="006 Cooling - Evaporative Cooling">6</state>
+  <state cn="007 Cooling - General">7</state>
+  <state cn="008 Cooling - Roll Cooling">8</state>
+  <state cn="009 Descaling">9</state>
+  <state cn="010 Dust Control">10</state>
+  <state cn="011 Fire Protection">11</state>
+  <state cn="012 Gas Cooling/Conditioning">12</state>
+  <state cn="013 Humidifying">13</state>
+  <state cn="014 Lubrication">14</state>
+  <state cn="015 Marking">15</state>
+  <state cn="016 Moisturizing">16</state>
+  <state cn="017 Odor Control">17</state>
+  <state cn="018 Paper Trimming">18</state>
+  <state cn="019 Parts Wash">19</state>
+  <state cn="020 PCB Developing/Etching">20</state>
+  <state cn="021 Pickling">21</state>
+  <state cn="022 Quenching">22</state>
+  <state cn="023 Shower Headers">23</state>
+  <state cn="024 Spray Dry">24</state>
+  <state cn="025 Spraying - General">25</state>
+  <state cn="026 Spray Pond">26</state>
+  <state cn="027 Tank Wash">27</state>
+  <state cn="028 Washing/Cleaning/Rinsing">28</state>
+  <state cn="029 Unknown">29</state>
+</Root>

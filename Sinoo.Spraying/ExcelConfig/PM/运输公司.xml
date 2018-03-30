@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<Root p1:SpaceType="" p2:PinZhi="" xmlns:p2="无" xmlns:p1="运输公司" tableName="BD01" pk="公司名称">
+  <![CDATA[创建时间：2013/9/4 15:04:22；创建者：异步科技。 文件编码：c9f03afa-358a-4cec-98dc-3a18b9059bfe]]>
+  <!--作者：Async-->
+  <field cn="运输公司编码"  tb="BD01"   hidden="false"  valid="false"  path=""  regex="">BD01001</field>
+  <field cn="公司名称"  tb="BD01"   hidden="false"  valid="true"  path=""  regex="001">BD01002</field>
+  <field cn="公司编号"  tb="BD01"   hidden="false"  valid="true"  path=""  regex="001">BD01003</field>
+  <field cn="是否支持头程运输"  tb="BD01"   hidden="false"  valid="true"  path="YesNo.xml"  regex="001">BD01004</field>
+  <field cn="可支持运输方式"  tb="BD01"   hidden="false"  valid="true"  path="DB01005.xml"  regex="001">BD01005</field>
+  <field cn="创建时间"  tb="BD01"   hidden="false"  valid="true"  path=""  regex="001">BD01101</field>
+  <field cn="创建人"  tb="BD01"   hidden="false"  valid="true"  path=""  regex="">BD01102</field>
+  <field cn="删除状态"  tb="BD01"   hidden="false"  valid="true"  path=""  regex="">BD01103</field>
+</Root>

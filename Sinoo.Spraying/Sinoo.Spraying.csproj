@@ -1,0 +1,1342 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{4A9A18D0-98E6-4489-8611-8CE1BE9683E9}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Sinoo.Spraying</RootNamespace>
+    <AssemblyName>Sinoo.Spraying</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkProfile />
+    <UseIISExpress>false</UseIISExpress>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>4.0</OldToolsVersion>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication>enabled</IISExpressAnonymousAuthentication>
+    <IISExpressWindowsAuthentication>disabled</IISExpressWindowsAuthentication>
+    <IISExpressUseClassicPipelineMode>true</IISExpressUseClassicPipelineMode>
+    <UseGlobalApplicationHostFile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AspNetPager, Version=7.4.5.0, Culture=neutral, PublicKeyToken=fb0a0fe055d40fd4, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>dll\AspNetPager.dll</HintPath>
+    </Reference>
+    <Reference Include="ICSharpCode.SharpZipLib">
+      <HintPath>dll\ICSharpCode.SharpZipLib.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=11.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Newtonsoft.Json.11.0.2\lib\net40\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="NPOI, Version=2.0.0.0, Culture=neutral, PublicKeyToken=0df73ec7942b34e1, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>dll\NPOI.dll</HintPath>
+    </Reference>
+    <Reference Include="NPOI.OOXML">
+      <HintPath>dll\NPOI.OOXML.dll</HintPath>
+    </Reference>
+    <Reference Include="NPOI.OpenXml4Net">
+      <HintPath>dll\NPOI.OpenXml4Net.dll</HintPath>
+    </Reference>
+    <Reference Include="NPOI.OpenXmlFormats">
+      <HintPath>dll\NPOI.OpenXmlFormats.dll</HintPath>
+    </Reference>
+    <Reference Include="Sinoo.BLL">
+      <HintPath>..\Sinoo.BLL\bin\Debug\Sinoo.BLL.dll</HintPath>
+    </Reference>
+    <Reference Include="Sinoo.Common.Excel, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Sinoo.Common\dll\Sinoo.Common.Excel.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Xml.Linq" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="500.html" />
+    <Content Include="css\bootstrap-responsive.min.css" />
+    <Content Include="css\bootstrap.min.css" />
+    <Content Include="css\content-style.css" />
+    <Content Include="css\dialog_style.css" />
+    <Content Include="css\fullcalendar.css" />
+    <Content Include="css\jquery-ui.css" />
+    <Content Include="css\jquery.mCustomScrollbar.css" />
+    <Content Include="css\jscrollpane1.css" />
+    <Content Include="css\kindeditor_default.css" />
+    <Content Include="css\PageControl.css" />
+    <Content Include="css\page_style.css" />
+    <Content Include="css\select2.css" />
+    <Content Include="css\style.css" />
+    <Content Include="css\themes\default\accordion.css" />
+    <Content Include="css\themes\default\calendar.css" />
+    <Content Include="css\themes\default\combo.css" />
+    <Content Include="css\themes\default\combobox.css" />
+    <Content Include="css\themes\default\datagrid.css" />
+    <Content Include="css\themes\default\datebox.css" />
+    <Content Include="css\themes\default\dialog.css" />
+    <Content Include="css\themes\default\easyui.css" />
+    <Content Include="css\themes\default\images\accordion_collapse.png" />
+    <Content Include="css\themes\default\images\accordion_expand.png" />
+    <Content Include="css\themes\default\images\button_a_bg.gif" />
+    <Content Include="css\themes\default\images\button_plain_hover.png" />
+    <Content Include="css\themes\default\images\button_span_bg.gif" />
+    <Content Include="css\themes\default\images\calendar_nextmonth.gif" />
+    <Content Include="css\themes\default\images\calendar_nextyear.gif" />
+    <Content Include="css\themes\default\images\calendar_prevmonth.gif" />
+    <Content Include="css\themes\default\images\calendar_prevyear.gif" />
+    <Content Include="css\themes\default\images\combo_arrow.gif" />
+    <Content Include="css\themes\default\images\datagrid_header_bg.gif" />
+    <Content Include="css\themes\default\images\datagrid_row_collapse.gif" />
+    <Content Include="css\themes\default\images\datagrid_row_expand.gif" />
+    <Content Include="css\themes\default\images\datagrid_sort_asc.gif" />
+    <Content Include="css\themes\default\images\datagrid_sort_desc.gif" />
+    <Content Include="css\themes\default\images\datagrid_title_bg.png" />
+    <Content Include="css\themes\default\images\datebox_arrow.png" />
+    <Content Include="css\themes\default\images\layout_button_down.gif" />
+    <Content Include="css\themes\default\images\layout_button_left.gif" />
+    <Content Include="css\themes\default\images\layout_button_right.gif" />
+    <Content Include="css\themes\default\images\layout_button_up.gif" />
+    <Content Include="css\themes\default\images\menu.gif" />
+    <Content Include="css\themes\default\images\menu_downarrow.png" />
+    <Content Include="css\themes\default\images\menu_rightarrow.png" />
+    <Content Include="css\themes\default\images\menu_sep.png" />
+    <Content Include="css\themes\default\images\menu_split_downarrow.png" />
+    <Content Include="css\themes\default\images\messager_error.gif" />
+    <Content Include="css\themes\default\images\messager_info.gif" />
+    <Content Include="css\themes\default\images\messager_question.gif" />
+    <Content Include="css\themes\default\images\messager_warning.gif" />
+    <Content Include="css\themes\default\images\pagination_first.gif" />
+    <Content Include="css\themes\default\images\pagination_last.gif" />
+    <Content Include="css\themes\default\images\pagination_load.png" />
+    <Content Include="css\themes\default\images\pagination_loading.gif" />
+    <Content Include="css\themes\default\images\pagination_next.gif" />
+    <Content Include="css\themes\default\images\pagination_prev.gif" />
+    <Content Include="css\themes\default\images\panel_loading.gif" />
+    <Content Include="css\themes\default\images\panel_title.png" />
+    <Content Include="css\themes\default\images\panel_tools.gif" />
+    <Content Include="css\themes\default\images\panel_tool_collapse.gif" />
+    <Content Include="css\themes\default\images\panel_tool_expand.gif" />
+    <Content Include="css\themes\default\images\spinner_arrow_down.gif" />
+    <Content Include="css\themes\default\images\spinner_arrow_up.gif" />
+    <Content Include="css\themes\default\images\tabs_active.png" />
+    <Content Include="css\themes\default\images\tabs_close.gif" />
+    <Content Include="css\themes\default\images\tabs_enabled.png" />
+    <Content Include="css\themes\default\images\tabs_leftarrow.png" />
+    <Content Include="css\themes\default\images\tabs_rightarrow.png" />
+    <Content Include="css\themes\default\images\tree_arrows.gif" />
+    <Content Include="css\themes\default\images\tree_checkbox_0.gif" />
+    <Content Include="css\themes\default\images\tree_checkbox_1.gif" />
+    <Content Include="css\themes\default\images\tree_checkbox_2.gif" />
+    <Content Include="css\themes\default\images\tree_dnd_no.png" />
+    <Content Include="css\themes\default\images\tree_dnd_yes.png" />
+    <Content Include="css\themes\default\images\tree_file.gif" />
+    <Content Include="css\themes\default\images\tree_folder.gif" />
+    <Content Include="css\themes\default\images\tree_folder_open.gif" />
+    <Content Include="css\themes\default\images\tree_loading.gif" />
+    <Content Include="css\themes\default\images\validatebox_pointer.gif" />
+    <Content Include="css\themes\default\images\validatebox_warning.png" />
+    <Content Include="css\themes\default\layout.css" />
+    <Content Include="css\themes\default\linkbutton.css" />
+    <Content Include="css\themes\default\menu.css" />
+    <Content Include="css\themes\default\menubutton.css" />
+    <Content Include="css\themes\default\messager.css" />
+    <Content Include="css\themes\default\pagination.css" />
+    <Content Include="css\themes\default\panel.css" />
+    <Content Include="css\themes\default\propertygrid.css" />
+    <Content Include="css\themes\default\spinner.css" />
+    <Content Include="css\themes\default\splitbutton.css" />
+    <Content Include="css\themes\default\tabs.css" />
+    <Content Include="css\themes\default\tree.css" />
+    <Content Include="css\themes\default\validatebox.css" />
+    <Content Include="css\themes\default\window.css" />
+    <Content Include="css\themes\gray\accordion.css" />
+    <Content Include="css\themes\gray\calendar.css" />
+    <Content Include="css\themes\gray\combo.css" />
+    <Content Include="css\themes\gray\combobox.css" />
+    <Content Include="css\themes\gray\datagrid.css" />
+    <Content Include="css\themes\gray\datebox.css" />
+    <Content Include="css\themes\gray\dialog.css" />
+    <Content Include="css\themes\gray\easyui.css" />
+    <Content Include="css\themes\gray\images\accordion_collapse.png" />
+    <Content Include="css\themes\gray\images\accordion_expand.png" />
+    <Content Include="css\themes\gray\images\button_a_bg.gif" />
+    <Content Include="css\themes\gray\images\button_plain_hover.png" />
+    <Content Include="css\themes\gray\images\button_span_bg.gif" />
+    <Content Include="css\themes\gray\images\calendar_nextmonth.gif" />
+    <Content Include="css\themes\gray\images\calendar_nextyear.gif" />
+    <Content Include="css\themes\gray\images\calendar_prevmonth.gif" />
+    <Content Include="css\themes\gray\images\calendar_prevyear.gif" />
+    <Content Include="css\themes\gray\images\combo_arrow.gif" />
+    <Content Include="css\themes\gray\images\datagrid_header_bg.gif" />
+    <Content Include="css\themes\gray\images\datagrid_row_collapse.gif" />
+    <Content Include="css\themes\gray\images\datagrid_row_expand.gif" />
+    <Content Include="css\themes\gray\images\datagrid_sort_asc.gif" />
+    <Content Include="css\themes\gray\images\datagrid_sort_desc.gif" />
+    <Content Include="css\themes\gray\images\datagrid_title_bg.gif" />
+    <Content Include="css\themes\gray\images\datebox_arrow.png" />
+    <Content Include="css\themes\gray\images\layout_button_down.gif" />
+    <Content Include="css\themes\gray\images\layout_button_left.gif" />
+    <Content Include="css\themes\gray\images\layout_button_right.gif" />
+    <Content Include="css\themes\gray\images\layout_button_up.gif" />
+    <Content Include="css\themes\gray\images\menu.gif" />
+    <Content Include="css\themes\gray\images\menu_downarrow.png" />
+    <Content Include="css\themes\gray\images\menu_rightarrow.png" />
+    <Content Include="css\themes\gray\images\menu_sep.png" />
+    <Content Include="css\themes\gray\images\menu_split_downarrow.png" />
+    <Content Include="css\themes\gray\images\messager_error.gif" />
+    <Content Include="css\themes\gray\images\messager_info.gif" />
+    <Content Include="css\themes\gray\images\messager_question.gif" />
+    <Content Include="css\themes\gray\images\messager_warning.gif" />
+    <Content Include="css\themes\gray\images\pagination_first.gif" />
+    <Content Include="css\themes\gray\images\pagination_last.gif" />
+    <Content Include="css\themes\gray\images\pagination_load.png" />
+    <Content Include="css\themes\gray\images\pagination_loading.gif" />
+    <Content Include="css\themes\gray\images\pagination_next.gif" />
+    <Content Include="css\themes\gray\images\pagination_prev.gif" />
+    <Content Include="css\themes\gray\images\panel_loading.gif" />
+    <Content Include="css\themes\gray\images\panel_title.gif" />
+    <Content Include="css\themes\gray\images\panel_tools.gif" />
+    <Content Include="css\themes\gray\images\panel_tool_collapse.gif" />
+    <Content Include="css\themes\gray\images\panel_tool_expand.gif" />
+    <Content Include="css\themes\gray\images\spinner_arrow_down.gif" />
+    <Content Include="css\themes\gray\images\spinner_arrow_up.gif" />
+    <Content Include="css\themes\gray\images\tabs_close.gif" />
+    <Content Include="css\themes\gray\images\tabs_enabled.gif" />
+    <Content Include="css\themes\gray\images\tabs_leftarrow.png" />
+    <Content Include="css\themes\gray\images\tabs_rightarrow.png" />
+    <Content Include="css\themes\gray\images\tree_arrows.gif" />
+    <Content Include="css\themes\gray\images\tree_checkbox_0.gif" />
+    <Content Include="css\themes\gray\images\tree_checkbox_1.gif" />
+    <Content Include="css\themes\gray\images\tree_checkbox_2.gif" />
+    <Content Include="css\themes\gray\images\tree_dnd_no.png" />
+    <Content Include="css\themes\gray\images\tree_dnd_yes.png" />
+    <Content Include="css\themes\gray\images\tree_file.gif" />
+    <Content Include="css\themes\gray\images\tree_folder.gif" />
+    <Content Include="css\themes\gray\images\tree_folder_open.gif" />
+    <Content Include="css\themes\gray\images\tree_loading.gif" />
+    <Content Include="css\themes\gray\images\validatebox_pointer.gif" />
+    <Content Include="css\themes\gray\images\validatebox_warning.png" />
+    <Content Include="css\themes\gray\layout.css" />
+    <Content Include="css\themes\gray\linkbutton.css" />
+    <Content Include="css\themes\gray\menu.css" />
+    <Content Include="css\themes\gray\menubutton.css" />
+    <Content Include="css\themes\gray\messager.css" />
+    <Content Include="css\themes\gray\pagination.css" />
+    <Content Include="css\themes\gray\panel.css" />
+    <Content Include="css\themes\gray\propertygrid.css" />
+    <Content Include="css\themes\gray\spinner.css" />
+    <Content Include="css\themes\gray\splitbutton.css" />
+    <Content Include="css\themes\gray\tabs.css" />
+    <Content Include="css\themes\gray\tree.css" />
+    <Content Include="css\themes\gray\validatebox.css" />
+    <Content Include="css\themes\gray\window.css" />
+    <Content Include="css\themes\icon.css" />
+    <Content Include="css\themes\icons\back.png" />
+    <Content Include="css\themes\icons\blank.gif" />
+    <Content Include="css\themes\icons\cancel.png" />
+    <Content Include="css\themes\icons\cut.png" />
+    <Content Include="css\themes\icons\edit_add.png" />
+    <Content Include="css\themes\icons\edit_remove.png" />
+    <Content Include="css\themes\icons\filesave.png" />
+    <Content Include="css\themes\icons\help.png" />
+    <Content Include="css\themes\icons\no.png" />
+    <Content Include="css\themes\icons\ok.png" />
+    <Content Include="css\themes\icons\pencil.png" />
+    <Content Include="css\themes\icons\print.png" />
+    <Content Include="css\themes\icons\redo.png" />
+    <Content Include="css\themes\icons\reload.png" />
+    <Content Include="css\themes\icons\search.png" />
+    <Content Include="css\themes\icons\sum.png" />
+    <Content Include="css\themes\icons\undo.png" />
+    <Content Include="css\unicorn.blue.css" />
+    <Content Include="css\unicorn.grey.css" />
+    <Content Include="css\unicorn.login.css" />
+    <Content Include="css\unicorn.main.css" />
+    <Content Include="css\unicorn.red.css" />
+    <Content Include="css\uniform.css" />
+    <Content Include="css\unipop.css" />
+    <Content Include="css\zTreeStyle\img\diy\1_close.png" />
+    <Content Include="css\zTreeStyle\img\diy\1_open.png" />
+    <Content Include="css\zTreeStyle\img\diy\2.png" />
+    <Content Include="css\zTreeStyle\img\diy\3.png" />
+    <Content Include="css\zTreeStyle\img\diy\4.png" />
+    <Content Include="css\zTreeStyle\img\diy\5.png" />
+    <Content Include="css\zTreeStyle\img\diy\6.png" />
+    <Content Include="css\zTreeStyle\img\diy\7.png" />
+    <Content Include="css\zTreeStyle\img\diy\8.png" />
+    <Content Include="css\zTreeStyle\img\diy\9.png" />
+    <Content Include="css\zTreeStyle\img\line_conn.gif" />
+    <Content Include="css\zTreeStyle\img\loading.gif" />
+    <Content Include="css\zTreeStyle\img\zTreeStandard.gif" />
+    <Content Include="css\zTreeStyle\img\zTreeStandard.png" />
+    <Content Include="css\zTreeStyle\zTreeStyle.css" />
+    <Content Include="dll\AspNetPager.dll" />
+    <Content Include="dll\ICSharpCode.SharpZipLib.dll" />
+    <Content Include="dll\itextsharp.dll" />
+    <Content Include="dll\Newtonsoft.Json.dll" />
+    <Content Include="ExcelConfig\AD.xml" />
+    <Content Include="ExcelConfig\ArrivalNotice.xml" />
+    <Content Include="ExcelConfig\ByCustomerName.xml" />
+    <Content Include="ExcelConfig\CA01.xml" />
+    <Content Include="ExcelConfig\CA02.xml" />
+    <Content Include="ExcelConfig\CB01.xml" />
+    <Content Include="ExcelConfig\CB04.xml" />
+    <Content Include="ExcelConfig\CompanyConfig.xml" />
+    <Content Include="ExcelConfig\DaliyCollection.xml" />
+    <Content Include="ExcelConfig\DaliyShipment.xml" />
+    <Content Include="ExcelConfig\NewArrival.xml" />
+    <Content Include="ExcelConfig\OrderList.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="ExcelConfig\PA01.xml" />
+    <Content Include="ExcelConfig\DebtsAlert.xml" />
+    <Content Include="ExcelConfig\PA02.xml" />
+    <Content Include="ExcelConfig\PA03.xml" />
+    <Content Include="ExcelConfig\PendingAlert.xml" />
+    <Content Include="ExcelConfig\PM\订单明细.xml" />
+    <Content Include="ExcelConfig\PM\发票发货信息.xml" />
+    <Content Include="ExcelConfig\PM\付款信息.xml" />
+    <Content Include="ExcelConfig\PM\OrderType.xml" />
+    <Content Include="ExcelConfig\PM\YesNo.xml" />
+    <Content Include="ExcelConfig\PM\订单信息.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="ExcelConfig\PM\运输公司.xml" />
+    <Content Include="ExcelConfig\Profit.xml" />
+    <Content Include="ExcelConfig\SalebyProvince.xml" />
+    <Content Include="ExcelConfig\SalesbyCity.xml" />
+    <Content Include="ExcelConfig\SalesbyCTC.xml" />
+    <Content Include="ExcelConfig\SalesbyMDT.xml" />
+    <Content Include="ExcelConfig\UA01.xml" />
+    <Content Include="ExcelConfig\WeeklyDebts.xml" />
+    <Content Include="ExcelConfig\WeeklyPending.xml" />
+    <Content Include="ExcelConfig\WeeklySales.xml" />
+    <Content Include="ExcelConfig\IndustryReport.xml" />
+    <Content Include="ExcelConfig\InvoicesAmountOfMoney.xml" />
+    <Content Include="ExcelConfig\LateDelivery.xml" />
+    <Content Include="ExcelConfig\SleepCustomer.xml" />
+    <Content Include="ExcelConfig\SalesYear.xml" />
+    <Content Include="ExcelConfig\UnpaidFirstShipment.xml" />
+    <Content Include="ExcelConfig\AC.xml" />
+    <Content Include="ExcelConfig\OA01.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="ExcelConfig\TopCustomerTwo.xml" />
+    <Content Include="ExcelConfig\KeyCustomer.xml" />
+    <Content Include="ExcelConfig\SalesbySIC.xml" />
+    <Content Include="ExcelConfig\TopCustomer.xml" />
+    <Content Include="ExcelConfig\YesNO.xml" />
+    <Content Include="ExcelConfig\OrderType.xml" />
+    <Content Include="ExcelConfig\DormantCustomersTwo.xml" />
+    <Content Include="img\add.png" />
+    <Content Include="img\bb.png" />
+    <Content Include="img\breadcrumb.png" />
+    <Content Include="img\default.png" />
+    <Content Include="img\delete.png" />
+    <Content Include="img\edit.png" />
+    <Content Include="img\glyphicons-halflings-white.png" />
+    <Content Include="img\glyphicons-halflings.png" />
+    <Content Include="img\icons\16\calendar.png" />
+    <Content Include="img\icons\16\database.png" />
+    <Content Include="img\icons\16\lock.png" />
+    <Content Include="img\icons\16\people.png" />
+    <Content Include="img\icons\16\piechart.png" />
+    <Content Include="img\icons\16\shopping-bag.png" />
+    <Content Include="img\icons\32\calendar.png" />
+    <Content Include="img\icons\32\database.png" />
+    <Content Include="img\icons\32\lock.png" />
+    <Content Include="img\icons\32\people.png" />
+    <Content Include="img\icons\32\piechart.png" />
+    <Content Include="img\icons\32\shopping-bag.png" />
+    <Content Include="img\icon_close.png" />
+    <Content Include="img\jquery-ui\ui-icons_222222_256x240.png" />
+    <Content Include="img\jquery-ui\ui-icons_454545_256x240.png" />
+    <Content Include="img\jquery-ui\ui-icons_888888_256x240.png" />
+    <Content Include="img\login.png" />
+    <Content Include="img\logo.png" />
+    <Content Include="img\logoprint.png" />
+    <Content Include="img\main.png" />
+    <Content Include="img\paixu.png" />
+    <Content Include="img\riqi-tip.png" />
+    <Content Include="img\search.png" />
+    <Content Include="img\select2.png" />
+    <Content Include="img\sinoo_01.png" />
+    <Content Include="img\sinoo_02.png" />
+    <Content Include="img\sinoo_03.png" />
+    <Content Include="img\sinoo_05.png" />
+    <Content Include="img\sprite.png" />
+    <Content Include="img\s_img.png" />
+    <Content Include="img\s_img_a.png" />
+    <Content Include="Index.aspx" />
+    <Content Include="IsRole.aspx" />
+    <Content Include="Login.aspx" />
+    <Content Include="Page\CustomerManagement\CA0101Edit.aspx" />
+    <Content Include="Page\CustomerManagement\CA0101Import.aspx" />
+    <Content Include="Page\CustomerManagement\CA0101List.aspx" />
+    <Content Include="Page\CustomerManagement\CA0101New.aspx" />
+    <Content Include="Page\CustomerManagement\CA0101View.aspx" />
+    <Content Include="Page\CustomerManagement\CB0401Edit.aspx" />
+    <Content Include="Page\CustomerManagement\CB0401List.aspx" />
+    <Content Include="Page\CustomerManagement\CB0401New.aspx" />
+    <Content Include="Page\CustomerManagement\GA0701List.aspx" />
+    <Content Include="Page\CustomerManagement\GA0701New.aspx" />
+    <Content Include="Page\DataManagement\GA0301Edit.aspx" />
+    <Content Include="Page\DataManagement\GA0301List.aspx" />
+    <Content Include="Page\DataManagement\GA0301New.aspx" />
+    <Content Include="Page\DataManagement\GA0302Edit.aspx" />
+    <Content Include="Page\DataManagement\GA0302List.aspx" />
+    <Content Include="Page\DataManagement\GA0302New.aspx" />
+    <Content Include="Page\ReportManagement\DailyReport\ArrivalNotice.aspx" />
+    <Content Include="Page\ReportManagement\DailyReport\ArrivalNoticePrint.aspx" />
+    <Content Include="Page\ReportManagement\DailyReport\DailyShipment.aspx" />
+    <Content Include="Page\ReportManagement\DailyReport\DaliyCollection.aspx" />
+    <Content Include="Page\ReportManagement\DailyReport\NewArrival.aspx" />
+    <Content Include="Page\ReportManagement\DailyReport\OrderList.aspx" />
+    <Content Include="Page\ReportManagement\MonthlyReport\ByCustomerName.aspx" />
+    <Content Include="Page\ReportManagement\MonthlyReport\CustomerByType.aspx" />
+    <Content Include="Page\ReportManagement\MonthlyReport\HotPartListTwo.aspx" />
+    <Content Include="Page\ReportManagement\MonthlyReport\HotPartList.aspx" />
+    <Content Include="Page\ReportManagement\MonthlyReport\IndustryReport.aspx" />
+    <Content Include="Page\ReportManagement\MonthlyReport\InvoicesAmountOfMoney.aspx" />
+    <Content Include="Page\ReportManagement\MonthlyReport\KeyCustomer.aspx" />
+    <Content Include="Page\ReportManagement\MonthlyReport\LateDelivery.aspx" />
+    <Content Include="Page\ReportManagement\MonthlyReport\ReportInfo.aspx" />
+    <Content Include="Page\ReportManagement\MonthlyReport\SakesByGP.aspx" />
+    <Content Include="Page\ReportManagement\MonthlyReport\SalesbyCity.aspx" />
+    <Content Include="Page\ReportManagement\MonthlyReport\SalesbyCTC.aspx" />
+    <Content Include="Page\ReportManagement\MonthlyReport\SalesbyMDT.aspx" />
+    <Content Include="Page\ReportManagement\MonthlyReport\SalesbyProvince.aspx" />
+    <Content Include="Page\ReportManagement\MonthlyReport\SalesbySIC.aspx" />
+    <Content Include="Page\ReportManagement\MonthlyReport\SalesStatistics.aspx" />
+    <Content Include="Page\ReportManagement\MonthlyReport\SalesYear.aspx" />
+    <Content Include="Page\ReportManagement\MonthlyReport\SleepCustomer.aspx" />
+    <Content Include="Page\ReportManagement\MonthlyReport\TopCustomerTwo.aspx" />
+    <Content Include="Page\ReportManagement\MonthlyReport\UnpaidFirstShipment.aspx" />
+    <Content Include="Page\ReportManagement\MonthlyReport\DormantCustomersTwo.aspx" />
+    <Content Include="Page\SalesManagement\OA0101CrystalReport.aspx" />
+    <Content Include="Page\SalesManagement\OA0101Import.aspx" />
+    <Content Include="Scripts\jquery.easyui.min.js" />
+    <Content Include="Scripts\layer\com\bootstrap-table-zh-CN.js" />
+    <Content Include="Scripts\layer\com\bootstrap-table.css" />
+    <Content Include="Scripts\layer\com\bootstrap-table.js" />
+    <Content Include="Scripts\layer\com\bootstrap-table.min.js" />
+    <Content Include="Scripts\layer\com\bootstrap.css" />
+    <Content Include="Scripts\layer\com\bootstrap.js" />
+    <Content Include="Scripts\layer\com\bootstrap.min.js" />
+    <Content Include="Scripts\layer\com\jquery.min.js" />
+    <Content Include="Scripts\layer\layer.js" />
+    <Content Include="Scripts\layer\mobile\layer.js" />
+    <Content Include="Scripts\layer\mobile\need\layer.css" />
+    <Content Include="Scripts\layer\theme\default\icon-ext.png" />
+    <Content Include="Scripts\layer\theme\default\icon.png" />
+    <Content Include="Scripts\layer\theme\default\layer.css" />
+    <Content Include="Scripts\layer\theme\default\loading-0.gif" />
+    <Content Include="Scripts\layer\theme\default\loading-1.gif" />
+    <Content Include="Scripts\layer\theme\default\loading-2.gif" />
+    <Content Include="Scripts\page\Page_CustomerByType.js" />
+    <Content Include="Scripts\page\Page_KeyCustomer.js" />
+    <Content Include="Scripts\page\Page_OA0101CrystalReport.js" />
+    <Content Include="Scripts\page\Page_SalesbyCTC.js" />
+    <Content Include="Scripts\page\Page_SalesbyMDT.js" />
+    <Content Include="Scripts\page\Page_SalesStatistics.js" />
+    <Content Include="Scripts\page\Page_SleepCustomer.js" />
+    <Content Include="Page\ReportManagement\MonthlyReport\TopCustomer.aspx" />
+    <Content Include="Page\ReportManagement\WeeklyReport\DebtsAlert.aspx" />
+    <Content Include="Page\ReportManagement\WeeklyReport\PendingAlert.aspx" />
+    <Content Include="Page\ReportManagement\WeeklyReport\WeeklyDebts.aspx" />
+    <Content Include="Page\ReportManagement\WeeklyReport\WeeklyPending.aspx" />
+    <Content Include="Page\ReportManagement\WeeklyReport\WeeklySales.aspx" />
+    <Content Include="Page\SalesManagement\OA0101Edit.aspx" />
+    <Content Include="Page\SalesManagement\OA0101List.aspx" />
+    <Content Include="Page\SalesManagement\OA0101New.aspx" />
+    <Content Include="Page\SalesManagement\OA0101Share.aspx" />
+    <Content Include="Page\SalesManagement\OA0101View.aspx" />
+    <Content Include="Page\SalesManagement\OA0102Edit.aspx" />
+    <Content Include="Page\SalesManagement\OA0102List.aspx" />
+    <Content Include="Page\SalesManagement\OA0102New.aspx" />
+    <Content Include="Page\SalesManagement\OA0102View.aspx" />
+    <Content Include="Page\SalesManagement\OA0103List.aspx" />
+    <Content Include="Page\SalesManagement\OA0103New.aspx" />
+    <Content Include="Page\SalesManagement\PA0101Edit.aspx" />
+    <Content Include="Page\SalesManagement\PA0101Import.aspx" />
+    <Content Include="Page\SalesManagement\PA0101List.aspx" />
+    <Content Include="Page\SalesManagement\PA0101New.aspx" />
+    <Content Include="Page\SalesManagement\PA0101View.aspx" />
+    <Content Include="Page\UserManagement\GA0201Edit.aspx" />
+    <Content Include="Page\UserManagement\GA0201List.aspx" />
+    <Content Include="Page\UserManagement\GA0201New.aspx" />
+    <Content Include="Page\UserManagement\GA0201View.aspx" />
+    <Content Include="Page\UserManagement\UA0101Edit.aspx" />
+    <Content Include="Page\UserManagement\UA0101List.aspx" />
+    <Content Include="Page\UserManagement\UA0101New.aspx" />
+    <Content Include="Page\UserManagement\UA0101View.aspx" />
+    <Content Include="Scripts\233905874.js" />
+    <Content Include="Scripts\base\base.card.js" />
+    <Content Include="Scripts\base\base.check.js" />
+    <Content Include="Scripts\base\base.convert.js" />
+    <Content Include="Scripts\base\base.getdata.js" />
+    <Content Include="Scripts\base\base.validate.js" />
+    <Content Include="Scripts\behavior.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Scripts\easy.js" />
+    <Content Include="Scripts\easydialog.js" />
+    <Content Include="Scripts\easydialog.min.js" />
+    <Content Include="Scripts\ga.js" />
+    <Content Include="Scripts\jquery-1.4.2.min.js" />
+    <Content Include="Scripts\jquery-ui.js" />
+    <Content Include="Scripts\jquery.contextmenu.r2.js" />
+    <Content Include="Scripts\jquery.dataTables.min.js" />
+    <Content Include="Scripts\jquery.jscrollpane.min.js" />
+    <Content Include="Scripts\jquery.mCustomScrollbar.concat.min.js" />
+    <Content Include="Scripts\jquery.min.js" />
+    <Content Include="Scripts\jquery.mousewheel.js" />
+    <Content Include="Scripts\jquery.ui.custom.js" />
+    <Content Include="Scripts\jquery.uniform.js" />
+    <Content Include="Scripts\jquery.ztree.all-3.5.js" />
+    <Content Include="Scripts\jquery.ztree.all-3.5.min.js" />
+    <Content Include="Scripts\jquery.ztree.core-3.5.js" />
+    <Content Include="Scripts\jquery.ztree.core-3.5.min.js" />
+    <Content Include="Scripts\jquery.ztree.excheck-3.5.js" />
+    <Content Include="Scripts\jquery.ztree.excheck-3.5.min.js" />
+    <Content Include="Scripts\jquery.ztree.exedit-3.5.js" />
+    <Content Include="Scripts\jquery.ztree.exedit-3.5.min.js" />
+    <Content Include="Scripts\jquery.ztree.exhide-3.5.js" />
+    <Content Include="Scripts\jquery.ztree.exhide-3.5.min.js" />
+    <Content Include="Scripts\kindeditor-min.js" />
+    <Content Include="Scripts\My97DatePicker\calendar.js" />
+    <Content Include="Scripts\My97DatePicker\lang\en.js" />
+    <Content Include="Scripts\My97DatePicker\lang\zh-cn.js" />
+    <Content Include="Scripts\My97DatePicker\lang\zh-tw.js" />
+    <Content Include="Scripts\My97DatePicker\skin\datePicker.gif" />
+    <Content Include="Scripts\My97DatePicker\skin\default\datepicker.css" />
+    <Content Include="Scripts\My97DatePicker\skin\default\img.gif" />
+    <Content Include="Scripts\My97DatePicker\skin\twoer\datepicker-dev.css" />
+    <Content Include="Scripts\My97DatePicker\skin\twoer\datepicker.css" />
+    <Content Include="Scripts\My97DatePicker\skin\twoer\img.gif" />
+    <Content Include="Scripts\My97DatePicker\skin\twoer\img.png" />
+    <Content Include="Scripts\My97DatePicker\skin\WdatePicker.css" />
+    <Content Include="Scripts\My97DatePicker\skin\whyGreen\bg.jpg" />
+    <Content Include="Scripts\My97DatePicker\skin\whyGreen\datepicker.css" />
+    <Content Include="Scripts\My97DatePicker\skin\whyGreen\img.gif" />
+    <Content Include="Scripts\My97DatePicker\WdatePicker.js" />
+    <Content Include="Scripts\My97DatePicker\开发包\lang\en.js" />
+    <Content Include="Scripts\My97DatePicker\开发包\lang\zh-cn.js" />
+    <Content Include="Scripts\My97DatePicker\开发包\lang\zh-tw.js" />
+    <Content Include="Scripts\My97DatePicker\开发包\readme.txt" />
+    <Content Include="Scripts\My97DatePicker\开发包\skin\datePicker.gif" />
+    <Content Include="Scripts\My97DatePicker\开发包\skin\default\datepicker.css" />
+    <Content Include="Scripts\My97DatePicker\开发包\skin\default\img.gif" />
+    <Content Include="Scripts\My97DatePicker\开发包\skin\WdatePicker.css" />
+    <Content Include="Scripts\My97DatePicker\开发包\skin\whyGreen\bg.jpg" />
+    <Content Include="Scripts\My97DatePicker\开发包\skin\whyGreen\datepicker.css" />
+    <Content Include="Scripts\My97DatePicker\开发包\skin\whyGreen\img.gif" />
+    <Content Include="Scripts\page\Page_ArrivalNotice.js" />
+    <Content Include="Scripts\page\Page_CA0101Edit.js" />
+    <Content Include="Scripts\page\Page_CA0101List.js" />
+    <Content Include="Scripts\page\Page_CA0101New.js" />
+    <Content Include="Scripts\page\Page_CA0101View.js" />
+    <Content Include="Scripts\page\Page_CB0401Edit.js" />
+    <Content Include="Scripts\page\Page_DaliyCollection.js" />
+    <Content Include="Scripts\page\Page_DaliyShipment.js" />
+    <Content Include="Scripts\page\Page_GA0201New.js" />
+    <Content Include="Scripts\page\Page_GA0201View.js" />
+    <Content Include="Scripts\page\Page_GA0301Edit.js" />
+    <Content Include="Scripts\page\Page_GA0301New.js" />
+    <Content Include="Scripts\page\Page_GA0302Edit.js" />
+    <Content Include="Scripts\page\Page_GA0302New.js" />
+    <Content Include="Scripts\page\Page_GA0701List.js" />
+    <Content Include="Scripts\page\Page_HostPartListTwo.js" />
+    <Content Include="Scripts\page\Page_HotPartList.js" />
+    <Content Include="Scripts\page\Page_NewArrival.js" />
+    <Content Include="Scripts\page\Page_OA0101Edit.js" />
+    <Content Include="Scripts\page\Page_OA0101List.js" />
+    <Content Include="Scripts\page\Page_OA0101New.js" />
+    <Content Include="Scripts\page\Page_OA0101Share.js" />
+    <Content Include="Scripts\page\Page_OA0102Edit.js" />
+    <Content Include="Scripts\page\Page_OA0102New.js" />
+    <Content Include="Scripts\page\Page_OA0103List.js" />
+    <Content Include="Scripts\page\Page_OrderList.js" />
+    <Content Include="Scripts\page\Page_PA0101Edit.js" />
+    <Content Include="Scripts\page\Page_PA0101List.js" />
+    <Content Include="Scripts\page\Page_PA0101New.js" />
+    <Content Include="Scripts\page\Page_SakesByGP.js" />
+    <Content Include="Scripts\page\Page_SalesbySIC.js" />
+    <Content Include="Scripts\page\Page_TopCustomer.js" />
+    <Content Include="Scripts\page\Page_UA0101Edit.js" />
+    <Content Include="Scripts\page\Page_UA0101List.js" />
+    <Content Include="Scripts\page\Page_UA0101New.js" />
+    <Content Include="Scripts\page\Page_GA0201List.js" />
+    <Content Include="Scripts\page\Page_OA0102List.js" />
+    <Content Include="Scripts\page\Page_UserControl.js" />
+    <Content Include="Scripts\page\Page_WeeklySales.js" />
+    <Content Include="Scripts\page\Page_DebtsAlert.js" />
+    <Content Include="Scripts\page\Page_PendingAlert.js" />
+    <Content Include="Scripts\page\Page_WeeklyDebts.js" />
+    <Content Include="Scripts\page\Page_WeeklyPending.js" />
+    <Content Include="Scripts\page\Page_IndustryReport.js" />
+    <Content Include="Scripts\page\Page_LateDelivery.js" />
+    <Content Include="Scripts\page\Page_SalesYear.js" />
+    <Content Include="Scripts\page\Page_UnpaidFirstShipment.js" />
+    <Content Include="Scripts\page\Page_TopCustomerTwo.js" />
+    <Content Include="Scripts\page\Page_ByCustomerName.js" />
+    <Content Include="Scripts\page\Page_CB0401List.js" />
+    <Content Include="Scripts\page\Page_GA0301List.js" />
+    <Content Include="Scripts\page\Page_GA0302List.js" />
+    <Content Include="Scripts\page\Page_SalesbyProvince.js" />
+    <Content Include="Scripts\page\Page_SalesbyCity.js" />
+    <Content Include="Scripts\page\Page_Welcome.js" />
+    <Content Include="Scripts\script.js" />
+    <Content Include="Scripts\scroll-startstop.events.jquery.js" />
+    <Content Include="Scripts\select2.min.js" />
+    <Content Include="Scripts\shbrushjscript.js" />
+    <Content Include="Scripts\unicorn.js" />
+    <Content Include="Scripts\unicorn.login.js" />
+    <Content Include="Scripts\unicorn.tables.js" />
+    <Content Include="Scripts\validator\images\loading.gif" />
+    <Content Include="Scripts\validator\images\validator_default.png" />
+    <Content Include="Scripts\validator\images\validator_simple.png" />
+    <Content Include="Scripts\validator\jquery.validator.css" />
+    <Content Include="Scripts\validator\jquery.validator.js" />
+    <Content Include="Scripts\validator\local\en.js" />
+    <Content Include="Scripts\validator\local\ja.js" />
+    <Content Include="Scripts\validator\local\zh_CN.js" />
+    <Content Include="Scripts\validator\local\zh_TW.js" />
+    <Content Include="Scripts\zh_CN.js" />
+    <Content Include="TipList.aspx" />
+    <Content Include="UserControl\UserControl.ascx" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="WelCome.htm" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="cs\MyHttpModule.cs" />
+    <Compile Include="Handler\BindMenuHandler.ashx.cs">
+      <DependentUpon>BindMenuHandler.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="Handler\BindPowerHandler.ashx.cs">
+      <DependentUpon>BindPowerHandler.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="Handler\GetDataHandler.ashx.cs">
+      <DependentUpon>GetDataHandler.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="Handler\LinkageHandler.ashx.cs">
+      <DependentUpon>LinkageHandler.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="Handler\UniquenessHandler.ashx.cs">
+      <DependentUpon>UniquenessHandler.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="Handler\UserChengPwdHandler.ashx.cs">
+      <DependentUpon>UserChengPwdHandler.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="Handler\UserControlHandler.ashx.cs">
+      <DependentUpon>UserControlHandler.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="Handler\UserOB02lHandler.ashx.cs">
+      <DependentUpon>UserOB02lHandler.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="ImportExport\DataTableHelper.cs" />
+    <Compile Include="ImportExport\ExportHelper.cs" />
+    <Compile Include="ImportExport\ImportHelper.cs" />
+    <Compile Include="ImportExport\ImportValidate.cs" />
+    <Compile Include="Index.aspx.cs">
+      <DependentUpon>Index.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Index.aspx.designer.cs">
+      <DependentUpon>Index.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="IsRole.aspx.cs">
+      <DependentUpon>IsRole.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="IsRole.aspx.designer.cs">
+      <DependentUpon>IsRole.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Login.aspx.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Login.aspx.designer.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Page\CustomerManagement\CA0101Edit.aspx.cs">
+      <DependentUpon>CA0101Edit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Page\CustomerManagement\CA0101Edit.aspx.designer.cs">
+      <DependentUpon>CA0101Edit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Page\CustomerManagement\CA0101Import.aspx.cs">
+      <DependentUpon>CA0101Import.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Page\CustomerManagement\CA0101Import.aspx.designer.cs">
+      <DependentUpon>CA0101Import.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Page\CustomerManagement\CA0101List.aspx.cs">
+      <DependentUpon>CA0101List.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Page\CustomerManagement\CA0101List.aspx.designer.cs">
+      <DependentUpon>CA0101List.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Page\CustomerManagement\CA0101New.aspx.cs">
+      <DependentUpon>CA0101New.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Page\CustomerManagement\CA0101New.aspx.designer.cs">
+      <DependentUpon>CA0101New.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Page\CustomerManagement\CA0101View.aspx.cs">
+      <DependentUpon>CA0101View.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Page\CustomerManagement\CA0101View.aspx.designer.cs">
+      <DependentUpon>CA0101View.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Page\CustomerManagement\CB0401Edit.aspx.cs">
+      <DependentUpon>CB0401Edit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Page\CustomerManagement\CB0401Edit.aspx.designer.cs">
+      <DependentUpon>CB0401Edit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Page\CustomerManagement\CB0401List.aspx.cs">
+      <DependentUpon>CB0401List.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Page\CustomerManagement\CB0401List.aspx.designer.cs">
+      <DependentUpon>CB0401List.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Page\CustomerManagement\CB0401New.aspx.cs">
+      <DependentUpon>CB0401New.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Page\CustomerManagement\CB0401New.aspx.designer.cs">
+      <DependentUpon>CB0401New.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Page\CustomerManagement\GA0701List.aspx.cs">
+      <DependentUpon>GA0701List.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Page\CustomerManagement\GA0701List.aspx.designer.cs">
+      <DependentUpon>GA0701List.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Page\CustomerManagement\GA0701New.aspx.cs">
+      <DependentUpon>GA0701New.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Page\CustomerManagement\GA0701New.aspx.designer.cs">
+      <DependentUpon>GA0701New.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Page\DataManagement\GA0301Edit.aspx.cs">
+      <DependentUpon>GA0301Edit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Page\DataManagement\GA0301Edit.aspx.designer.cs">
+      <DependentUpon>GA0301Edit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Page\DataManagement\GA0301List.aspx.cs">
+      <DependentUpon>GA0301List.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Page\DataManagement\GA0301List.aspx.designer.cs">
+      <DependentUpon>GA0301List.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Page\DataManagement\GA0301New.aspx.cs">
+      <DependentUpon>GA0301New.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Page\DataManagement\GA0301New.aspx.designer.cs">
+      <DependentUpon>GA0301New.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Page\DataManagement\GA0302Edit.aspx.cs">
+      <DependentUpon>GA0302Edit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Page\DataManagement\GA0302Edit.aspx.designer.cs">
+      <DependentUpon>GA0302Edit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Page\DataManagement\GA0302List.aspx.cs">
+      <DependentUpon>GA0302List.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Page\DataManagement\GA0302List.aspx.designer.cs">
+      <DependentUpon>GA0302List.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Page\DataManagement\GA0302New.aspx.cs">
+      <DependentUpon>GA0302New.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Page\DataManagement\GA0302New.aspx.designer.cs">
+      <DependentUpon>GA0302New.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Page\ReportManagement\DailyReport\ArrivalNotice.aspx.cs">
+      <DependentUpon>ArrivalNotice.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Page\ReportManagement\DailyReport\ArrivalNotice.aspx.designer.cs">
+      <DependentUpon>ArrivalNotice.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Page\ReportManagement\DailyReport\ArrivalNoticePrint.aspx.cs">
+      <DependentUpon>ArrivalNoticePrint.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Page\ReportManagement\DailyReport\ArrivalNoticePrint.aspx.designer.cs">
+      <DependentUpon>ArrivalNoticePrint.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Page\ReportManagement\DailyReport\DailyShipment.aspx.cs">
+      <DependentUpon>DailyShipment.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Page\ReportManagement\DailyReport\DailyShipment.aspx.designer.cs">
+      <DependentUpon>DailyShipment.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Page\ReportManagement\DailyReport\DaliyCollection.aspx.cs">
+      <DependentUpon>DaliyCollection.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Page\ReportManagement\DailyReport\DaliyCollection.aspx.designer.cs">
+      <DependentUpon>DaliyCollection.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Page\ReportManagement\DailyReport\NewArrival.aspx.cs">
+      <DependentUpon>NewArrival.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Page\ReportManagement\DailyReport\NewArrival.aspx.designer.cs">
+      <DependentUpon>NewArrival.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Page\ReportManagement\DailyReport\OrderList.aspx.cs">
+      <DependentUpon>OrderList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Page\ReportManagement\DailyReport\OrderList.aspx.designer.cs">
+      <DependentUpon>OrderList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Page\ReportManagement\MonthlyReport\ByCustomerName.aspx.cs">
+      <DependentUpon>ByCustomerName.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Page\ReportManagement\MonthlyReport\ByCustomerName.aspx.designer.cs">
+      <DependentUpon>ByCustomerName.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Page\ReportManagement\MonthlyReport\CustomerByType.aspx.cs">
+      <DependentUpon>CustomerByType.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Page\ReportManagement\MonthlyReport\CustomerByType.aspx.designer.cs">
+      <DependentUpon>CustomerByType.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Page\ReportManagement\MonthlyReport\HotPartListTwo.aspx.cs">
+      <DependentUpon>HotPartListTwo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Page\ReportManagement\MonthlyReport\HotPartListTwo.aspx.designer.cs">
+      <DependentUpon>HotPartListTwo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Page\ReportManagement\MonthlyReport\HotPartList.aspx.cs">
+      <DependentUpon>HotPartList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Page\ReportManagement\MonthlyReport\HotPartList.aspx.designer.cs">
+      <DependentUpon>HotPartList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Page\ReportManagement\MonthlyReport\IndustryReport.aspx.cs">
+      <DependentUpon>IndustryReport.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Page\ReportManagement\MonthlyReport\IndustryReport.aspx.designer.cs">
+      <DependentUpon>IndustryReport.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Page\ReportManagement\MonthlyReport\InvoicesAmountOfMoney.aspx.cs">
+      <DependentUpon>InvoicesAmountOfMoney.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Page\ReportManagement\MonthlyReport\InvoicesAmountOfMoney.aspx.designer.cs">
+      <DependentUpon>InvoicesAmountOfMoney.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Page\ReportManagement\MonthlyReport\KeyCustomer.aspx.cs">
+      <DependentUpon>KeyCustomer.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Page\ReportManagement\MonthlyReport\KeyCustomer.aspx.designer.cs">
+      <DependentUpon>KeyCustomer.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Page\ReportManagement\MonthlyReport\LateDelivery.aspx.cs">
+      <DependentUpon>LateDelivery.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Page\ReportManagement\MonthlyReport\LateDelivery.aspx.designer.cs">
+      <DependentUpon>LateDelivery.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Page\ReportManagement\MonthlyReport\ReportInfo.aspx.cs">
+      <DependentUpon>ReportInfo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Page\ReportManagement\MonthlyReport\ReportInfo.aspx.designer.cs">
+      <DependentUpon>ReportInfo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Page\ReportManagement\MonthlyReport\SakesByGP.aspx.cs">
+      <DependentUpon>SakesByGP.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Page\ReportManagement\MonthlyReport\SakesByGP.aspx.designer.cs">
+      <DependentUpon>SakesByGP.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Page\ReportManagement\MonthlyReport\SalesbyCity.aspx.cs">
+      <DependentUpon>SalesbyCity.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Page\ReportManagement\MonthlyReport\SalesbyCity.aspx.designer.cs">
+      <DependentUpon>SalesbyCity.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Page\ReportManagement\MonthlyReport\SalesbyCTC.aspx.cs">
+      <DependentUpon>SalesbyCTC.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Page\ReportManagement\MonthlyReport\SalesbyCTC.aspx.designer.cs">
+      <DependentUpon>SalesbyCTC.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Page\ReportManagement\MonthlyReport\SalesbyMDT.aspx.cs">
+      <DependentUpon>SalesbyMDT.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Page\ReportManagement\MonthlyReport\SalesbyMDT.aspx.designer.cs">
+      <DependentUpon>SalesbyMDT.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Page\ReportManagement\MonthlyReport\SalesbyProvince.aspx.cs">
+      <DependentUpon>SalesbyProvince.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Page\ReportManagement\MonthlyReport\SalesbyProvince.aspx.designer.cs">
+      <DependentUpon>SalesbyProvince.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Page\ReportManagement\MonthlyReport\SalesbySIC.aspx.cs">
+      <DependentUpon>SalesbySIC.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Page\ReportManagement\MonthlyReport\SalesbySIC.aspx.designer.cs">
+      <DependentUpon>SalesbySIC.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Page\ReportManagement\MonthlyReport\SalesStatistics.aspx.cs">
+      <DependentUpon>SalesStatistics.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Page\ReportManagement\MonthlyReport\SalesStatistics.aspx.designer.cs">
+      <DependentUpon>SalesStatistics.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Page\ReportManagement\MonthlyReport\SalesYear.aspx.cs">
+      <DependentUpon>SalesYear.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Page\ReportManagement\MonthlyReport\SalesYear.aspx.designer.cs">
+      <DependentUpon>SalesYear.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Page\ReportManagement\MonthlyReport\SleepCustomer.aspx.cs">
+      <DependentUpon>SleepCustomer.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Page\ReportManagement\MonthlyReport\SleepCustomer.aspx.designer.cs">
+      <DependentUpon>SleepCustomer.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Page\ReportManagement\MonthlyReport\TopCustomer.aspx.cs">
+      <DependentUpon>TopCustomer.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Page\ReportManagement\MonthlyReport\TopCustomer.aspx.designer.cs">
+      <DependentUpon>TopCustomer.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Page\ReportManagement\MonthlyReport\TopCustomerTwo.aspx.cs">
+      <DependentUpon>TopCustomerTwo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Page\ReportManagement\MonthlyReport\TopCustomerTwo.aspx.designer.cs">
+      <DependentUpon>TopCustomerTwo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Page\ReportManagement\MonthlyReport\UnpaidFirstShipment.aspx.cs">
+      <DependentUpon>UnpaidFirstShipment.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Page\ReportManagement\MonthlyReport\UnpaidFirstShipment.aspx.designer.cs">
+      <DependentUpon>UnpaidFirstShipment.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Page\ReportManagement\MonthlyReport\DormantCustomersTwo.aspx.cs">
+      <DependentUpon>DormantCustomersTwo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Page\ReportManagement\MonthlyReport\DormantCustomersTwo.aspx.designer.cs">
+      <DependentUpon>DormantCustomersTwo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Page\ReportManagement\WeeklyReport\DebtsAlert.aspx.cs">
+      <DependentUpon>DebtsAlert.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Page\ReportManagement\WeeklyReport\DebtsAlert.aspx.designer.cs">
+      <DependentUpon>DebtsAlert.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Page\ReportManagement\WeeklyReport\PendingAlert.aspx.cs">
+      <DependentUpon>PendingAlert.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Page\ReportManagement\WeeklyReport\PendingAlert.aspx.designer.cs">
+      <DependentUpon>PendingAlert.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Page\ReportManagement\WeeklyReport\WeeklyDebts.aspx.cs">
+      <DependentUpon>WeeklyDebts.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Page\ReportManagement\WeeklyReport\WeeklyDebts.aspx.designer.cs">
+      <DependentUpon>WeeklyDebts.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Page\ReportManagement\WeeklyReport\WeeklyPending.aspx.cs">
+      <DependentUpon>WeeklyPending.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Page\ReportManagement\WeeklyReport\WeeklyPending.aspx.designer.cs">
+      <DependentUpon>WeeklyPending.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Page\ReportManagement\WeeklyReport\WeeklySales.aspx.cs">
+      <DependentUpon>WeeklySales.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Page\ReportManagement\WeeklyReport\WeeklySales.aspx.designer.cs">
+      <DependentUpon>WeeklySales.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Page\SalesManagement\OA0101CrystalReport.aspx.cs">
+      <DependentUpon>OA0101CrystalReport.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Page\SalesManagement\OA0101CrystalReport.aspx.designer.cs">
+      <DependentUpon>OA0101CrystalReport.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Page\SalesManagement\OA0101Edit.aspx.cs">
+      <DependentUpon>OA0101Edit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Page\SalesManagement\OA0101Edit.aspx.designer.cs">
+      <DependentUpon>OA0101Edit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Page\SalesManagement\OA0101Import.aspx.cs">
+      <DependentUpon>OA0101Import.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Page\SalesManagement\OA0101Import.aspx.designer.cs">
+      <DependentUpon>OA0101Import.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Page\SalesManagement\OA0101List.aspx.cs">
+      <DependentUpon>OA0101List.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Page\SalesManagement\OA0101List.aspx.designer.cs">
+      <DependentUpon>OA0101List.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Page\SalesManagement\OA0101New.aspx.cs">
+      <DependentUpon>OA0101New.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Page\SalesManagement\OA0101New.aspx.designer.cs">
+      <DependentUpon>OA0101New.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Page\SalesManagement\OA0101Share.aspx.cs">
+      <DependentUpon>OA0101Share.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Page\SalesManagement\OA0101Share.aspx.designer.cs">
+      <DependentUpon>OA0101Share.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Page\SalesManagement\OA0101View.aspx.cs">
+      <DependentUpon>OA0101View.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Page\SalesManagement\OA0101View.aspx.designer.cs">
+      <DependentUpon>OA0101View.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Page\SalesManagement\OA0102Edit.aspx.cs">
+      <DependentUpon>OA0102Edit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Page\SalesManagement\OA0102Edit.aspx.designer.cs">
+      <DependentUpon>OA0102Edit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Page\SalesManagement\OA0102List.aspx.cs">
+      <DependentUpon>OA0102List.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Page\SalesManagement\OA0102List.aspx.designer.cs">
+      <DependentUpon>OA0102List.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Page\SalesManagement\OA0102New.aspx.cs">
+      <DependentUpon>OA0102New.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Page\SalesManagement\OA0102New.aspx.designer.cs">
+      <DependentUpon>OA0102New.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Page\SalesManagement\OA0102View.aspx.cs">
+      <DependentUpon>OA0102View.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Page\SalesManagement\OA0102View.aspx.designer.cs">
+      <DependentUpon>OA0102View.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Page\SalesManagement\OA0103List.aspx.cs">
+      <DependentUpon>OA0103List.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Page\SalesManagement\OA0103List.aspx.designer.cs">
+      <DependentUpon>OA0103List.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Page\SalesManagement\OA0103New.aspx.cs">
+      <DependentUpon>OA0103New.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Page\SalesManagement\OA0103New.aspx.designer.cs">
+      <DependentUpon>OA0103New.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Page\SalesManagement\PA0101Edit.aspx.cs">
+      <DependentUpon>PA0101Edit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Page\SalesManagement\PA0101Edit.aspx.designer.cs">
+      <DependentUpon>PA0101Edit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Page\SalesManagement\PA0101Import.aspx.cs">
+      <DependentUpon>PA0101Import.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Page\SalesManagement\PA0101Import.aspx.designer.cs">
+      <DependentUpon>PA0101Import.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Page\SalesManagement\PA0101List.aspx.cs">
+      <DependentUpon>PA0101List.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Page\SalesManagement\PA0101List.aspx.designer.cs">
+      <DependentUpon>PA0101List.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Page\SalesManagement\PA0101New.aspx.cs">
+      <DependentUpon>PA0101New.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Page\SalesManagement\PA0101New.aspx.designer.cs">
+      <DependentUpon>PA0101New.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Page\SalesManagement\PA0101View.aspx.cs">
+      <DependentUpon>PA0101View.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Page\SalesManagement\PA0101View.aspx.designer.cs">
+      <DependentUpon>PA0101View.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Page\UserManagement\GA0201Edit.aspx.cs">
+      <DependentUpon>GA0201Edit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Page\UserManagement\GA0201Edit.aspx.designer.cs">
+      <DependentUpon>GA0201Edit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Page\UserManagement\GA0201List.aspx.cs">
+      <DependentUpon>GA0201List.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Page\UserManagement\GA0201List.aspx.designer.cs">
+      <DependentUpon>GA0201List.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Page\UserManagement\GA0201New.aspx.cs">
+      <DependentUpon>GA0201New.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Page\UserManagement\GA0201New.aspx.designer.cs">
+      <DependentUpon>GA0201New.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Page\UserManagement\GA0201View.aspx.cs">
+      <DependentUpon>GA0201View.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Page\UserManagement\GA0201View.aspx.designer.cs">
+      <DependentUpon>GA0201View.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Page\UserManagement\UA0101Edit.aspx.cs">
+      <DependentUpon>UA0101Edit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Page\UserManagement\UA0101Edit.aspx.designer.cs">
+      <DependentUpon>UA0101Edit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Page\UserManagement\UA0101List.aspx.cs">
+      <DependentUpon>UA0101List.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Page\UserManagement\UA0101List.aspx.designer.cs">
+      <DependentUpon>UA0101List.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Page\UserManagement\UA0101New.aspx.cs">
+      <DependentUpon>UA0101New.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Page\UserManagement\UA0101New.aspx.designer.cs">
+      <DependentUpon>UA0101New.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Page\UserManagement\UA0101View.aspx.cs">
+      <DependentUpon>UA0101View.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Page\UserManagement\UA0101View.aspx.designer.cs">
+      <DependentUpon>UA0101View.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Handler\TipHandler.ashx.cs">
+      <DependentUpon>TipHandler.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="TipList.aspx.cs">
+      <DependentUpon>TipList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TipList.aspx.designer.cs">
+      <DependentUpon>TipList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControl\UserControl.ascx.cs">
+      <DependentUpon>UserControl.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControl\UserControl.ascx.designer.cs">
+      <DependentUpon>UserControl.ascx</DependentUpon>
+    </Compile>
+    <Content Include="Scripts\page\Page_CB0401New.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Handler\LinkageHandler.ashx" />
+    <Content Include="Handler\UniquenessHandler.ashx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Scripts\page\Page_GA0201Edit.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Sinoo.Common\Sinoo.Common.csproj">
+      <Project>{D8B15AD6-C0D5-4841-B2AF-A725BB1C7A47}</Project>
+      <Name>Sinoo.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Sinoo.Model\Sinoo.Model.csproj">
+      <Project>{0F312D2C-A594-4869-B5ED-1FD0F5AE70C0}</Project>
+      <Name>Sinoo.Model</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Handler\BindMenuHandler.ashx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Handler\BindPowerHandler.ashx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="ExcelConfig\OB01.xml" />
+    <Content Include="ExcelConfig\OC01.xml" />
+    <Content Include="ExcelConfig\OP01.xml" />
+    <None Include="css\themes\default\images\Thumbs.db" />
+    <None Include="css\themes\gray\images\Thumbs.db" />
+    <Content Include="Handler\GetDataHandler.ashx" />
+    <Content Include="Handler\UserChengPwdHandler.ashx" />
+    <Content Include="Handler\UserControlHandler.ashx" />
+    <Content Include="Handler\UserOB02lHandler.ashx" />
+    <Content Include="Scripts\page\Page_InvoicesAmountOfMoney.js" />
+    <Content Include="packages.config" />
+    <None Include="Properties\PublishProfiles\配置文件1.pubxml" />
+    <Content Include="Handler\TipHandler.ashx" />
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="stdole">
+      <Guid>{00020430-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>2</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{C0C07587-41A7-46C8-8FBD-3F9C8EBE2DDC}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="File\" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>False</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>8809</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>
+          </IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

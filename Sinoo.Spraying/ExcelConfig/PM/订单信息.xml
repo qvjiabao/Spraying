@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Root p1:SpaceType="" p2:PinZhi="" xmlns:p2="无" xmlns:p1="订单信息" pk="订单号" tableName="OA01">
+  <![CDATA[创建时间：2013/9/4 15:04:22；创建者：异步科技。 文件编码：c9f03afa-358a-4cec-98dc-3a18b9059bfe]]>
+  <!--作者：Async-->
+  <field cn="订单号" tb="OA01"   hidden="false"  valid="false"  path="" regex="">OA01002</field>
+  <field cn="订单类型" tb="OA01"   hidden="false"  valid="true"  path="OrderType.xml" regex="">OA01003</field>
+  <field cn="订单模式(系统订单)" tb="OA01"   hidden="false"  valid="true"  path="YesNO.xml" regex="">OA01005</field>
+  <field cn="发票号" tb="OA01"   hidden="false" valid="false" path="" regex="">OA01008</field>
+  <field cn="订单日期" tb="OA01"   hidden="false" valid="false" path="" regex="">OA01009</field>
+  <field cn="要求交货日期" tb="OA01"   hidden="false" valid="false" path="" regex="">OA01010</field>
+  <field cn="承诺交货日期" tb="OA01"   hidden="false" valid="false" path="" regex="">OA01011</field>
+  <field cn="报价号" tb="OA01"   hidden="false" valid="false" path="" regex="">OA01012</field>
+  <field cn="销售员" tb="OA01"   hidden="false" valid="false" path="" regex="">OA01013</field>
+  <field cn="特殊要求" tb="OA01"   hidden="false" valid="false" path="" regex="">OA01014</field>
+  <field cn="分享人名称1" tb="OA01"   hidden="false" valid="false" path="" regex="">OA01015</field>
+  <field cn="分享比例1" tb="OA01"   hidden="false" valid="false" path="" regex="">OA01016</field>
+  <field cn="分享人名称2" tb="OA01"   hidden="false" valid="false" path="" regex="">OA01017</field>
+  <field cn="分享比例2" tb="OA01"   hidden="false" valid="false" path="" regex="">OA01018</field>
+  <field cn="总成本" tb="OA01"   hidden="false" valid="false" path="" regex="">OA01019</field>
+  <field cn="总金额RMB" tb="OA01"   hidden="false" valid="false" path="" regex="">OA01020</field>
+  <field cn="汇率" tb="OA01"   hidden="false" valid="false" path="" regex="">OA01021</field>
+  <field cn="总金额US" tb="OA01"   hidden="false" valid="false" path="" regex="">OA01022</field>
+  <field cn="利润率" tb="OA01"   hidden="false" valid="false" path="" regex="">OA01023</field>
+  <field cn="新应用" tb="OA01"   hidden="false" valid="false" path="" regex="">OA01024</field>
+  <field cn="应用代码" tb="OA01"   hidden="false" valid="false" path="" regex="">OA01025</field>
+  <field cn="付款条款" tb="OA01"   hidden="false" valid="false" path="" regex="">OA01026</field>
+  <field cn="备注" tb="OA01"   hidden="false" valid="false" path="" regex="">OA01027</field>
+  <field cn="发货地址" tb="OA01"   hidden="false" valid="false" path="" regex="">OA01028</field>
+  <field cn="收货人" tb="OA01"   hidden="false" valid="false" path="" regex="">OA01029</field>
+  <field cn="收货人电话" tb="OA01"   hidden="false" valid="false" path="" regex="">OA01030</field>
+  <field cn="收货邮编" tb="OA01"   hidden="false" valid="false" path="" regex="">OA01031</field>
+  <field cn="寄发票地址" tb="OA01"   hidden="false" valid="false" path="" regex="">OA01032</field>
+  <field cn="收发票人" tb="OA01"   hidden="false" valid="false" path="" regex="">OA01033</field>
+  <field cn="收发票人电话" tb="OA01"   hidden="false" valid="false" path="" regex="">OA01034</field>
+  <field cn="收发票邮编" tb="OA01"   hidden="false" valid="false" path="" regex="">OA01035</field>
+  <field cn="客户名称" tb="OA01"   hidden="false" valid="false" path="" regex="">OA01038</field>
+  <field cn="是否为新客户" tb="OA01"   hidden="false" valid="true" path="YesNO.xml" regex="">OA01044</field>
+  <field cn="Minifogger/是否" tb="OA01"   hidden="false" valid="true" path="YesNO.xml" regex="">OA01045</field>
+  <field cn="最终用户" tb="OA01"   hidden="false" valid="false" path="" regex="">OA01046</field>
+  <field cn="应用描述" tb="OA01"   hidden="false" valid="false" path="" regex="">OA01047</field>
+  <field cn="是否应用分享" tb="OA01"   hidden="false" valid="false" path="" regex="">OA01048</field>
+  <field cn="其它分享人一" tb="OA01"   hidden="false" valid="false" path="" regex="">OA01049</field>
+  <field cn="其它分享人二" tb="OA01"   hidden="false" valid="false" path="" regex="">OA01050</field>
+  <field cn="客户承诺付款日期" tb="OA01"   hidden="false" valid="false" path="" regex="">OA01051</field>
+  <field cn="创建时间" tb="OA01"   hidden="false" valid="false" path="" regex="">OA01998</field>
+  <field cn="GUID" tb="OA01"   hidden="false" valid="false" path="" regex="">OA01999</field>
+</Root>

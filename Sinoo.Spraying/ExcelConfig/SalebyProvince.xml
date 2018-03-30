@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Root p1:SpaceType="" p2:PinZhi="" xmlns:p2="无" xmlns:p1="SalesbyProvince">
+  <![CDATA[创建时间：2013/9/4 15:04:22；创建者：异步科技。 文件编码：c9f03afa-358a-4cec-98dc-3a18b9059bfe]]>
+  <!--作者：Async-->
+  <field cn="所属省份" tb=""   hidden="false"  valid="true"  path="" regex="">ProvinceName</field>
+  <field cn="客户数量" tb=""   hidden="false"  valid="true"  path="" regex="">CustomerNum</field>
+  <field cn="新客户数量" tb=""   hidden="false"  valid="false"  path="" regex="">NewCustomerNum</field>
+  <field cn="订单数量" tb=""   hidden="false" valid="false" path="" regex="">OrderNum</field>
+  <field cn="订单总金额" tb=""   hidden="false"  valid="true"  path="" regex="">Amout</field>
+</Root>
