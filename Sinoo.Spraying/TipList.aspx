@@ -16,8 +16,8 @@
 <body style="padding-top: 10px">
     <!-- Nav tabs -->
     <ul id="myTab" class="nav nav-tabs" role="tablist" style="margin: 0px 20px 10px 20px;">
-        <li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">欠款订单</a></li>
-        <li role="presentation"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">未发货订单</a></li>
+        <li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">Debts</a></li>
+        <li role="presentation"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">Pending goods</a></li>
     </ul>
     <!-- Tab panes -->
     <div class="tab-content">
@@ -65,21 +65,40 @@
 
         var oTable = new TableInit(); //初始化列表
         var tabQueryParams = function (params) {
-            debugger;
             var temp = {
                 limit: params.limit,   //每页多少条
                 offset: params.offset  //第几页
             };
             return temp;
         };
-        var tabColumns = [{ field: "OA01002", title: "OrderNo", width: "12%" }
-            , { field: "CA01003", title: "CustomerName", width: "33%" }
-            , { field: "OB01005", title: "PartNo", width: "15%" }
+
+        var tabColumns = [{ field: "OA01002", title: "Order No", width: "12%" }
+            , { field: "CA01003", title: "Customer Name", width: "33%" }
+            , { field: "OP01005", title: "Amount(RMB)", width: "15%" }
+            , { field: "OP01016", title: "Debts Amount", width: "15%" }
+            , { field: "DebtsDays", title: "Debts Days", width: "15%" }];
+
+        var tabColumns2 = [{ field: "OA01002", title: "Order No", width: "12%" }
+            , { field: "CA01003", title: "Customer Name", width: "33%" }
+            , { field: "OB01005", title: "Part No", width: "15%" }
             , { field: "OB01007", title: "Qty", width: "15%" }
             , { field: "OB01009", title: "Amount", width: "15%" }
-            , { field: "Pendingdays", title: "PendingDays", width: "15%" }];
+            , { field: "Pendingdays", title: "Pending Days", width: "15%" }];
 
-        oTable.Init("/Handler/TipHandler.ashx?flag=pending", tabColumns, tabQueryParams, "tabList2");
+        oTable.Init("/Handler/TipHandler.ashx?flag=debts", tabColumns, tabQueryParams, "tabList");
+        oTable.Init("/Handler/TipHandler.ashx?flag=pending", tabColumns2, tabQueryParams, "tabList2");
+        var parameter = getQueryString("parameter");
+        if (parameter.indexOf('2') > -1) {
+            $('#myTab a:last').tab('show');
+        }
+        if (parameter.indexOf('1') > -1) {
+            $('#myTab a:first').tab('show');
+        }
+        function getQueryString(name) {
+            var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
+            var r = window.location.search.substr(1).match(reg);
+            if (r != null) return unescape(r[2]); return null;
+        }
     </script>
 </body>
 </html>

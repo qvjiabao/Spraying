@@ -21,8 +21,48 @@ namespace Sinoo.Spraying.Handler
             var flag = context.Request["flag"];
             if (flag.Equals("debts"))
                 GetDebtsList(context);
-            else
+            else if (flag.Equals("pending"))
                 GetPendingList(context);
+            else if (flag.Equals("checkOrders"))
+                CheckOrders(context);
+        }
+
+        public void CheckOrders(HttpContext context)
+        {
+            var user = (context.Session["USER_SESSION"] as UserBase);
+            if (user.UA01024 != 42 && user.UA01024 != 43 && user.UA01024 != 44)
+            {
+                context.Response.Write("0");
+                return;
+            }
+            string where = user.UA01024 == 42 ? "and OA01013 = '" + user.UA01001 + "'" : "and UA01013 = '" + user.UA01013 + "'";
+            if (user.UA01013 == "全区域")
+            {
+                where = string.Empty;
+            }
+            object RowCount = null;
+            var dtDebts = new OrderBLL().GetDebtsList(1, 1, where, ref RowCount);
+            var debtsCount = dtDebts.Rows.Count;
+            var dtPending = new OrderBLL().GetPengdingList(1, 1, where, ref RowCount);
+            var pendingCount = dtPending.Rows.Count;
+            if (debtsCount > 0 && pendingCount > 0)
+            {
+                context.Response.Write("1,2");
+                return;
+            }
+            if (debtsCount > 0 && pendingCount == 0)
+            {
+                context.Response.Write("1");
+                return;
+            }
+            if (debtsCount == 0 && pendingCount > 0)
+            {
+                context.Response.Write("2");
+            }
+            else
+            {
+                context.Response.Write("0");
+            }
         }
 
         /// <summary>
@@ -31,15 +71,35 @@ namespace Sinoo.Spraying.Handler
         /// <param name="context"></param>
         public void GetDebtsList(HttpContext context)
         {
-
-
+            var pageSize = 5;
+            var pageIndex = 1;
+            if (!string.IsNullOrEmpty(context.Request["limit"]))
+            {
+                pageSize = int.Parse(context.Request["limit"]);
+            }
+            if (!string.IsNullOrEmpty(context.Request["offset"]))
+            {
+                pageIndex = int.Parse(context.Request["offset"]) + 1;
+            }
+            object RowCount = null;
             var user = (context.Session["USER_SESSION"] as UserBase);
+            if (user.UA01024 != 42 && user.UA01024 != 43 && user.UA01024 != 44)
+            {
+                context.Response.Write("0");
+                return;
+            }
+            string where = user.UA01024 == 42 ? "and OA01013 = '" + user.UA01001 + "'" : "and UA01013 = '" + user.UA01013 + "'";
+            if (user.UA01013 == "全区域")
+            {
+                where = string.Empty;
+            }
+            DataTable dt = new OrderBLL().GetDebtsList(pageIndex, pageSize, where, ref RowCount);
+            var list = new DataTableHandler().ToList<Debts>(dt);
             Hashtable tab = new Hashtable();
-            tab["total"] = 3;
-            tab["rows"] = new List<object>() { new { TITLE = "未发货订单1" }, new { TITLE = "未发货订单2" } };
+            tab["total"] = RowCount;
+            tab["rows"] = list;
             var json = JsonConvert.SerializeObject(tab);
             context.Response.Write(json);
-
         }
 
         /// <summary>
@@ -56,13 +116,23 @@ namespace Sinoo.Spraying.Handler
             }
             if (!string.IsNullOrEmpty(context.Request["offset"]))
             {
-                pageIndex = int.Parse(context.Request["offset"])+1;
+                pageIndex = int.Parse(context.Request["offset"]) + 1;
             }
             object RowCount = null;
             var user = (context.Session["USER_SESSION"] as UserBase);
-            Hashtable tab = new Hashtable();
-            DataTable dt = new OrderBLL().GetDebtsList(pageIndex, pageSize, user.UA01001, ref RowCount);
+            if (user.UA01024 != 42 && user.UA01024 != 43 && user.UA01024 != 44)
+            {
+                context.Response.Write("0");
+                return;
+            }
+            string where = user.UA01024 == 42 ? "and OA01013 = '" + user.UA01001 + "'" : "and UA01013 = '" + user.UA01013 + "'";
+            if (user.UA01013 == "全区域")
+            {
+                where = string.Empty;
+            }
+            DataTable dt = new OrderBLL().GetPengdingList(pageIndex, pageSize, where, ref RowCount);
             var list = new DataTableHandler().ToList<Pending>(dt);
+            Hashtable tab = new Hashtable();
             tab["total"] = RowCount;
             tab["rows"] = list;
             var json = JsonConvert.SerializeObject(tab);

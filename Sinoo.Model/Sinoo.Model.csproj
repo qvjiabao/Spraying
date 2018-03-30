@@ -50,6 +50,7 @@
     <Compile Include="CustomerTradeCode.cs" />
     <Compile Include="CustomerTradeType.cs" />
     <Compile Include="CustomerType.cs" />
+    <Compile Include="Debts.cs" />
     <Compile Include="ElectronType.cs" />
     <Compile Include="FGDCode.cs" />
     <Compile Include="OrderBase.cs" />
