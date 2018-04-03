@@ -139,6 +139,14 @@ namespace Sinoo.Spraying.Page.CustomerManagement
                 {
                     this.rbtnCA01047No.Checked = true;
                 }
+                if (dt.Rows[0]["CA01052"].ToString().Trim() == "1")
+                {
+                    this.rbtnCA01052Yes.Checked = true;
+                }
+                else if (dt.Rows[0]["CA01052"].ToString().Trim() == "0")
+                {
+                    this.rbtnCA01052No.Checked = true;
+                }
             }
             catch
             {
@@ -282,6 +290,8 @@ namespace Sinoo.Spraying.Page.CustomerManagement
             _CustomerBase.CA01051 = this.txtCA01051.Text.Trim();
             if (this.rbtnCA01047Yes.Checked) _CustomerBase.CA01047 = 1;
             if (this.rbtnCA01047No.Checked) _CustomerBase.CA01047 = 0;
+            if (this.rbtnCA01052Yes.Checked) _CustomerBase.CA01052 = 1;
+            if (this.rbtnCA01052No.Checked) _CustomerBase.CA01052 = 0;
 
             //成功失败提示
             new Sinoo.Common.MessageShow().UpdateMessage(this, Math.Abs(_CustomerManagementLogic.UpdateCustomerBase(_CustomerBase)), string.Format("window.location.href='{0}'", LinkReturn()));

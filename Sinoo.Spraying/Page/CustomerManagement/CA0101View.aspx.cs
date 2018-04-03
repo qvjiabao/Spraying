@@ -77,6 +77,7 @@ namespace Sinoo.Spraying.Page.CustomerManagement
             this.labCA01023.Text = dt.Rows[0]["GA06003"].ToString();
             this.labCA01024.Text = dt.Rows[0]["CA01024"].ToString() == "1" ? "是" : dt.Rows[0]["CA01024"].ToString() == "0" ? "否" : "";
             this.labCA01025.Text = dt.Rows[0]["CA01025"].ToString() == "1" ? "是" : dt.Rows[0]["CA01025"].ToString() == "0" ? "否" : "";
+            this.labCA01052.Text = dt.Rows[0]["CA01052"].ToString() == "1" ? "是" : dt.Rows[0]["CA01052"].ToString() == "0" ? "否" : "";
             this.labCA01047.Text = dt.Rows[0]["CA01047"].ToString() == "1" ? "是" : dt.Rows[0]["CA01047"].ToString() == "0" ? "否" : "";
         }
 

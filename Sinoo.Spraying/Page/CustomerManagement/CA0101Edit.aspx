@@ -229,6 +229,17 @@
                                         <asp:TextBox ID="txtCA01026" runat="server" data-rule="length[1~500, true]" TextMode="MultiLine"></asp:TextBox>
                                     </label>
                                 </div>
+                                <div class="control-group">
+                                    <label>
+                                        <span>Black List：</span>
+                                        <label class="radio inline">
+                                            <asp:RadioButton GroupName="rbtnCA01052" ID="rbtnCA01052Yes" runat="server" />是
+                                        </label>
+                                        <label class="radio inline">
+                                            <asp:RadioButton GroupName="rbtnCA01052" ID="rbtnCA01052No" runat="server" />否
+                                        </label>
+                                    </label>
+                                </div>
                             </div>
                             <div class="tab-pane" id="xiangxi">
                                 <div class="control-group">

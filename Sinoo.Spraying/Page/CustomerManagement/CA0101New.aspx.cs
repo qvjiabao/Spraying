@@ -84,6 +84,9 @@ namespace Sinoo.Spraying.Page.CustomerManagement
             _CustomerBase.CA01051 = this.txtCA01051.Text.Trim();
             if (this.rbtnCA01047Yes.Checked) _CustomerBase.CA01047 = 1;
             if (this.rbtnCA01047No.Checked) _CustomerBase.CA01047 = 0;
+
+            if (this.rbtnCA01052Yes.Checked) _CustomerBase.CA01052 = 1;
+            if (this.rbtnCA01052No.Checked) _CustomerBase.CA01052 = 0;
             _CustomerBase.CA01999 = Guid.NewGuid().ToString();
             int result = 0;
             try

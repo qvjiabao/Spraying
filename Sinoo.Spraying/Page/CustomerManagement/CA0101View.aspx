@@ -204,6 +204,13 @@
                                         <asp:Label ID="labCA01026" runat="server" Text="Label"></asp:Label>
                                     </label>
                                 </div>
+                                
+                                <div class="control-group">
+                                    <label>
+                                        <span>Black List：</span>
+                                        <asp:Label ID="labCA01052" runat="server" Text="Label"></asp:Label>
+                                    </label>
+                                </div>
                             </div>
                             <div class="tab-pane" id="xiangxi">
                                 <div class="control-group">

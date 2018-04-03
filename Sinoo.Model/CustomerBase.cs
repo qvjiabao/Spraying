@@ -64,6 +64,7 @@ namespace Sinoo.Model
         private string _ca01049;
         private string _ca01050;
         private string _ca01051;
+        private int? _ca01052;
         private int? _ca01047;
         private int? _ca01997;
         private DateTime? _ca01998;
@@ -475,6 +476,14 @@ namespace Sinoo.Model
         {
             set { _ca01051 = value; }
             get { return _ca01051; }
+        }
+        /// <summary>
+        /// 黑名单
+        /// </summary>
+        public int? CA01052
+        {
+            set { _ca01052 = value; }
+            get { return _ca01052; }
         }
         /// <summary>
         /// 是否删除
