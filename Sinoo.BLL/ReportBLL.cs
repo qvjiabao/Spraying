@@ -2943,6 +2943,7 @@ namespace Sinoo.BLL
             }
             return ds.Tables[0];
         }
+
         /// <summary>
         /// 按客户代码统计
         /// </summary>
@@ -3135,6 +3136,110 @@ namespace Sinoo.BLL
         /// <param name="obj"></param>
         /// <returns></returns>
         public DataTable SelectMonthlyProvincePage(int PageSize, int PageIndex, string strWhereAdd, bool blInvoice, ref object obj)
+        {
+            DataSet ds;
+            try
+            {
+                string strColumn = @" *,ROW_NUMBER() OVER(ORDER BY Amout DESC ) AS RowNumber  ";
+                string strTableName = string.Empty;
+               
+                    strTableName = string.Format(@"
+                        (
+                            SELECT GA03001,GA03002 ProvinceName,COUNT(distinct CustomerNum) CustomerNum
+                                    ,SUM(CASE  WHEN NewCustomerNum = 1 THEN 1 ELSE 0 END ) NewCustomerNum
+                                    ,count(OrderNum) OrderNum  ,SUM(Amout) Amout
+                            FROM (
+	                            SELECT * FROM (
+		                            SELECT P.GA03001,P.GA03002 , OA01038 AS  CustomerNum,
+			                               OA01044 AS NewCustomerNum,
+			                               OA01002 AS OrderNum,
+			                               OA01022 AS Amout,
+			                               ROW_NUMBER() OVER(PARTITION BY OA01002 ORDER BY OA01002 ASC ) AS NUM
+		                            FROM dbo.OA01 
+		                            JOIN dbo.CA01 ON OA01038 = CA01001
+		                            JOIN dbo.UA01 ON UA01001 = OA01013 	
+		                            JOIN dbo.OB01 ON OA01999 = OB01002
+		                            JOIN dbo.OC01 ON OB01999 = OC01003
+                                    JOIN dbo.GA03 ON GA03001 = CA01013
+                                    JOIN dbo.GA03 P ON GA03.GA03003 = P.GA03001
+		                            WHERE OA01997 = 0 AND OA01003 <> 3  AND  OA01016 = 0 AND OA01018 = 0  {0}
+	                            ) A WHERE NUM =1
+	                            UNION ALL
+	                            SELECT * FROM (
+		                            SELECT OA01055 GA03001,OA01057 GA03002 , OA01038 AS  CustomerNum,
+				                               OA01044 AS NewCustomerNum,
+				                               OA01002 AS OrderNum,
+				                               (OA01022*OA01016) AS Amout,
+				                               ROW_NUMBER() OVER(PARTITION BY OA01002 ORDER BY OA01002 ASC ) AS NUM
+		                            FROM dbo.OA01  
+		                            JOIN dbo.CA01 ON OA01038 = CA01001
+		                            JOIN dbo.UA01 ON UA01004 = OA01015 	
+		                            JOIN dbo.OB01 ON OA01999 = OB01002
+		                            JOIN dbo.OC01 ON OB01999 = OC01003
+		                            WHERE OA01997 = 0 AND OA01003 <> 3 and OA01055 <> '' and OA01016 <> 0 {0}
+	                            ) B WHERE NUM =1
+	                            UNION ALL
+	                            SELECT * 
+	                            FROM (
+	                            SELECT OA01056 GA03001,OA01058 GA03002, OA01038 AS  CustomerNum,
+				                               OA01044 AS NewCustomerNum,
+				                               OA01002 AS OrderNum,
+				                               OA01022*OA01018 AS Amout,
+				                               ROW_NUMBER() OVER(PARTITION BY OA01002 ORDER BY OA01002 ASC ) AS NUM
+	                                FROM dbo.OA01 
+		                            JOIN dbo.CA01 ON OA01038 = CA01001
+		                            JOIN dbo.UA01 ON UA01004 = OA01015 	
+		                            JOIN dbo.OB01 ON OA01999 = OB01002
+		                            JOIN dbo.OC01 ON OB01999 = OC01003
+		                            WHERE OA01997 = 0 AND OA01003 <> 3 and OA01056 <> '' and OA01018 <> 0 {0}
+		                            AND   (OA01017 <> '' AND OA01017 IS NOT NULL) 
+	                            ) C WHERE NUM =1
+	                            UNION ALL
+	                            SELECT * FROM 
+	                            (
+		                            SELECT  P.GA03001,P.GA03002 , OA01038 AS  CustomerNum,
+					                               OA01044 AS NewCustomerNum,
+					                               OA01002 AS OrderNum,
+					                               OA01022*(1-OA01016-OA01018) AS Amout,
+					                               ROW_NUMBER() OVER(PARTITION BY OA01002 ORDER BY OA01002 ASC ) AS NUM
+		                            FROM dbo.OA01 
+		                            JOIN dbo.CA01 ON OA01038 = CA01001
+                                    JOIN dbo.GA03 ON GA03001=CA01013
+                                    JOIN dbo.GA03 P ON GA03.GA03003 = P.GA03001
+		                            JOIN dbo.UA01 ON UA01001 = OA01013 	
+		                            JOIN dbo.OB01 ON OA01999 = OB01002
+		                            JOIN dbo.OC01 ON OB01999 = OC01003
+		                            WHERE OA01997 = 0 AND OA01003 <> 3 AND  (OA01016 <> 0 OR OA01018<>0) {0}
+	                            ) D WHERE NUM =1
+                            ) ABCD
+                            GROUP BY GA03001,GA03002
+                ) A", strWhereAdd);
+                string strWhere = "";
+                ds = Provider.ReturnDataSetByDataAdapter("PRO_Page", 1, ref obj, new SqlParameter[]{
+                new SqlParameter(){ParameterName=@"PageIndex",Value=PageIndex, DbType=DbType.Int32},
+                new SqlParameter(){ParameterName=@"PageSize",Value=PageSize, DbType=DbType.Int32},
+                new SqlParameter(){ParameterName=@"Column", Value=strColumn,DbType=DbType.String},
+                new SqlParameter(){ParameterName=@"TableName", Value=strTableName,DbType=DbType.String},
+                new SqlParameter(){ParameterName=@"Where", Value=strWhere,DbType=DbType.String},
+                new SqlParameter(){ParameterName=@"Order", Value="",DbType=DbType.String}
+            });
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return ds.Tables[0];
+        }
+
+        /// <summary>
+        /// 按所属省份统计
+        /// </summary>
+        /// <param name="PageSize"></param>
+        /// <param name="PageIndex"></param>
+        /// <param name="strWhereAdd"></param>
+        /// <param name="obj"></param>
+        /// <returns></returns>
+        public DataTable SelectMonthlyProvincePage1(int PageSize, int PageIndex, string strWhereAdd, bool blInvoice, ref object obj)
         {
             DataSet ds;
             try

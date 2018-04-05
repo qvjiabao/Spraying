@@ -68,6 +68,10 @@ namespace Sinoo.Model
         private int? _oa01052;
         private string _oa01053;
         private int? _oa01054;
+        private string _oa01055;
+        private string _oa01056;
+        private string _oa01057;
+        private string _oa01058;
         private int? _oa01997;
         private DateTime? _oa01998;
         private string _oa01999;
@@ -528,7 +532,36 @@ namespace Sinoo.Model
             set { _oa01999 = value; }
             get { return _oa01999; }
         }
-
+        /// <summary>
+        /// 分享省份1
+        /// </summary>
+        public string OA01055
+        {
+            set { _oa01055 = value; }
+            get { return _oa01055; }
+        } /// <summary>
+          /// 分享省份2
+          /// </summary>
+        public string OA01056
+        {
+            set { _oa01056 = value; }
+            get { return _oa01056; }
+        }
+        /// <summary>
+        /// 分享省份1
+        /// </summary>
+        public string OA01057
+        {
+            set { _oa01057 = value; }
+            get { return _oa01057; }
+        } /// <summary>
+          /// 分享省份2
+          /// </summary>
+        public string OA01058
+        {
+            set { _oa01058 = value; }
+            get { return _oa01058; }
+        }
 
         #endregion Model
 

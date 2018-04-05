@@ -104,6 +104,8 @@ namespace Sinoo.Spraying.Page.SalesManagement
             this.labOA01051.Text = string.IsNullOrEmpty(dt.Rows[0]["OA01051"].ToString()) ? "" : Convert.ToDateTime(dt.Rows[0]["OA01051"]).ToString("yyyy-MM-dd");
             this.labOA01053.Text = string.IsNullOrEmpty(dt.Rows[0]["OA01053"].ToString()) ? "" : dt.Rows[0]["OA01053"].ToString();
             this.labOA01054.Text = string.IsNullOrEmpty(dt.Rows[0]["OA01054"].ToString()) || dt.Rows[0]["OA01054"].ToString() == "0" ? "否" : "是";
+            this.labOA01055.Text = dt.Rows[0]["OA01057"].ToString();
+            this.labOA01056.Text = dt.Rows[0]["OA01058"].ToString();
             #endregion
 
             #region 付款信息

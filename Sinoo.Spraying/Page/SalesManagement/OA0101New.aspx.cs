@@ -18,8 +18,9 @@ namespace Sinoo.Spraying.Page.SalesManagement
         CustomerBLL _CustomerBLL = new CustomerBLL();
 
         OrderBLL _OrderBLL = new OrderBLL();
-
-
+        
+        //实例化省市逻辑层
+        AreaBLL _AreaBLL = new AreaBLL();
 
         #endregion
 
@@ -104,6 +105,8 @@ namespace Sinoo.Spraying.Page.SalesManagement
             _OrderBase.OA01033 = this.txtOA01033.Text.Trim();
             _OrderBase.OA01034 = this.txtOA01034.Text.Trim();
             _OrderBase.OA01035 = this.txtOA01035.Text.Trim();
+            _OrderBase.OA01055 = this.ddlUA01.SelectedValue;
+            _OrderBase.OA01013 = this.ddlUA01.SelectedValue;
 
             #region 获取客户的信息
             DataTable dt = new CustomerBLL().SelectCustomerBase(string.Format(" AND CA01001 = '{0}'", Request.QueryString["CA01001"]));
@@ -147,7 +150,10 @@ namespace Sinoo.Spraying.Page.SalesManagement
             if (!string.IsNullOrEmpty(this.txtOA01051.Text.Trim()))
                 _OrderBase.OA01051 = Convert.ToDateTime(this.txtOA01051.Text.Trim());
             _OrderBase.OA01999 = Guid.NewGuid().ToString();
-
+            _OrderBase.OA01055 = this.ddlOA01055.SelectedValue;
+            _OrderBase.OA01056 = this.ddlOA01056.SelectedValue;
+            _OrderBase.OA01057 = this.ddlOA01055.SelectedItem.Text.Equals("请选择") ? string.Empty : this.ddlOA01055.SelectedItem.Text;
+            _OrderBase.OA01058 = this.ddlOA01056.SelectedItem.Text.Equals("请选择") ? string.Empty : this.ddlOA01056.SelectedItem.Text;
             #endregion
 
             #region 销售单明细
@@ -353,6 +359,22 @@ namespace Sinoo.Spraying.Page.SalesManagement
         /// </summary>
         private void BindPage()
         {
+            #region 分享省份
+
+            DataTable dtGA03 = _AreaBLL.SelectSystemAreaForProvince();
+            this.ddlOA01055.DataSource = dtGA03;
+            this.ddlOA01055.DataTextField = "GA03002";
+            this.ddlOA01055.DataValueField = "GA03001";
+            this.ddlOA01055.DataBind();
+            this.ddlOA01055.Items.Insert(0, new ListItem("请选择", ""));
+            
+            this.ddlOA01056.DataSource = dtGA03;
+            this.ddlOA01056.DataTextField = "GA03002";
+            this.ddlOA01056.DataValueField = "GA03001";
+            this.ddlOA01056.DataBind();
+            this.ddlOA01056.Items.Insert(0, new ListItem("请选择", ""));
+
+            #endregion
 
             #region 销售员
 

@@ -166,7 +166,7 @@
                                 </div>
                                 <div class="control-group">
                                     <label>
-                                        <span>share%1：</span>
+                                        <span>Share%1：</span>
                                         <asp:DropDownList ID="ddlOA01016" runat="server" disabled>
                                             <asp:ListItem Value="">请选择</asp:ListItem>
                                             <asp:ListItem Value="0.1">10%</asp:ListItem>
@@ -183,6 +183,13 @@
                                 </div>
                                 <div class="control-group">
                                     <label>
+                                        <span>Share Area1：</span>
+                                        <asp:DropDownList ID="ddlOA01055" runat="server" >
+                                        </asp:DropDownList>
+                                    </label>
+                                </div>
+                                <div class="control-group">
+                                    <label>
                                         <label onclick="return false;">
                                             <span>Share Name2：</span>
                                             <asp:TextBox ID="txtOA01017" runat="server" Style="width: 94px;" ReadOnly="true"
@@ -194,7 +201,7 @@
                                 </div>
                                 <div class="control-group">
                                     <label>
-                                        <span>share%2：</span>
+                                        <span>Share%2：</span>
                                         <asp:DropDownList ID="ddlOA01018" runat="server" disabled>
                                             <asp:ListItem Value="">请选择</asp:ListItem>
                                             <asp:ListItem Value="0.1">10%</asp:ListItem>
@@ -206,6 +213,13 @@
                                             <asp:ListItem Value="0.7">70%</asp:ListItem>
                                             <asp:ListItem Value="0.8">80%</asp:ListItem>
                                             <asp:ListItem Value="0.9">90%</asp:ListItem>
+                                        </asp:DropDownList>
+                                    </label>
+                                </div>
+                                <div class="control-group">
+                                    <label>
+                                        <span>Share Area2：</span>
+                                        <asp:DropDownList ID="ddlOA01056" runat="server" >
                                         </asp:DropDownList>
                                     </label>
                                 </div>
@@ -388,7 +402,7 @@
                                 <div class="control-group">
                                     <label>
                                         <span>Dormant Customers：<font style="color: Red">*</font></span>
-                                         <asp:DropDownList ID="ddlOA01054" runat="server" data-rule="Dormant Customers: required">
+                                        <asp:DropDownList ID="ddlOA01054" runat="server" data-rule="Dormant Customers: required">
                                             <asp:ListItem Value="">请选择</asp:ListItem>
                                             <asp:ListItem Value="1">是</asp:ListItem>
                                             <asp:ListItem Value="0">否</asp:ListItem>

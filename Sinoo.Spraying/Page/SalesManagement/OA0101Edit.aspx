@@ -166,7 +166,7 @@
                                 </div>
                                 <div class="control-group">
                                     <label>
-                                        <span>share%1：</span>
+                                        <span>Share%1：</span>
                                         <asp:DropDownList ID="ddlOA01016" runat="server" disabled>
                                             <asp:ListItem Value="">请选择</asp:ListItem>
                                             <asp:ListItem Value="0.1">10%</asp:ListItem>
@@ -178,6 +178,13 @@
                                             <asp:ListItem Value="0.7">70%</asp:ListItem>
                                             <asp:ListItem Value="0.8">80%</asp:ListItem>
                                             <asp:ListItem Value="0.9">90%</asp:ListItem>
+                                        </asp:DropDownList>
+                                    </label>
+                                </div>
+                                <div class="control-group">
+                                    <label>
+                                        <span>Share Area1：</span>
+                                        <asp:DropDownList ID="ddlOA01055" runat="server">
                                         </asp:DropDownList>
                                     </label>
                                 </div>
@@ -206,6 +213,13 @@
                                             <asp:ListItem Value="0.7">70%</asp:ListItem>
                                             <asp:ListItem Value="0.8">80%</asp:ListItem>
                                             <asp:ListItem Value="0.9">90%</asp:ListItem>
+                                        </asp:DropDownList>
+                                    </label>
+                                </div>
+                                <div class="control-group">
+                                    <label>
+                                        <span>Share Area2：</span>
+                                        <asp:DropDownList ID="ddlOA01056" runat="server">
                                         </asp:DropDownList>
                                     </label>
                                 </div>
