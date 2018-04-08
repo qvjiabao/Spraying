@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Data;
 using System.Web;
@@ -25,6 +26,42 @@ namespace Sinoo.Spraying.Handler
                 GetPendingList(context);
             else if (flag.Equals("checkOrders"))
                 CheckOrders(context);
+            else if (flag.Equals("customerTip"))
+                CustomerTip(context);
+
+
+        }
+
+        /// <summary>
+        /// 客户下单时提醒
+        /// </summary>
+        /// <param name="context"></param>
+        public void CustomerTip(HttpContext context)
+        {
+            var customerId = context.Request["customerId"];
+            if (string.IsNullOrEmpty(customerId))
+            {
+                context.Response.Write("0");
+                return;
+            }
+            var customerModel = new CustomerBLL().SelectCustomerBaseByID(int.Parse(customerId));
+            var customerName = customerModel.Rows[0]["CA01003"].ToString();
+            var html = "<p style='margin: 20px 0 10px 20px;text-align:center;'>" + customerName + "</p>";
+            //查询客户是否黑名单
+            var balckList = customerModel.Rows[0]["CA01052"].ToString();
+            html += "<p style='margin: 20px 0 10px 20px;'>黑名单：" + "<span style='color:red;margin-right:30%'>" + (balckList == "0" ? "否" : "是") + "</span>";
+            //未提货订单
+            html += "未提货订单：" + "<span style='color:red;'>" + (balckList == "0" ? "否" : "是") + "</span></p>";
+            //信用金额
+            html += "<p style='margin: 20px 0 10px 20px;'>信用金额：<span style='color:red;'>100</span>，信用天数：<span style='color:red;'>5</span>，";
+            html += "剩余信用金额：<span style='color:red;'>100</span>，剩余信用天数：<span style='color:red;'>5</span></p>";
+
+            //欠款金额   
+            var where = " and CA01001 = " + customerId;
+            var debts = new OrderBLL().GetDebtsAmountAndDay(where);
+            html += "<p style='margin: 20px 0 10px 20px;'>欠款总金额(US$)：<span style='color:red;'>" + Convert.ToDouble(debts.Rows[0]["OA01022"]) + "</span>，欠款最长天数："
+                + "<span style='color:red;'>" + debts.Rows[0]["DebtsDays"] + "</span>天</p>";
+            context.Response.Write(html);
         }
 
         public void CheckOrders(HttpContext context)

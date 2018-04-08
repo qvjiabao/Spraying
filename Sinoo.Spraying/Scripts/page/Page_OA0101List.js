@@ -54,7 +54,8 @@
 
             var strHtml = "";
             for (var i = 0; i < $(List).length; i++) {
-                strHtml += "<tr><td>" + List[i].CA01002 + "</td><td>" + List[i].CA01003 + "</td><td><a href=\"OA0101New.aspx?Type=Order&PageIndex=" + $("#PageIndex").val() + "&CA01001=" + List[i].CA01001 + "\" >新增</a></td></tr>";
+                strHtml += "<tr><td>" + List[i].CA01002 + "</td><td>" + List[i].CA01003 + "</td><td><a href=\"OA0101New.aspx?Type=Order&PageIndex=" + $("#PageIndex").val() + "&CA01001=" + List[i].CA01001 + "\" >新增</a>" +
+                    "&nbsp;<a href='javascript:void()' onclick='CustomerTip(" + List[i].CA01001 + ")'>客户提醒</a></td></tr>";
             }
             $("#TableBodyCustomer").html(strHtml);
         });
@@ -68,6 +69,18 @@
 //    $("#myIframe").attr("src", "CA0101Import.aspx");
 //    $('#myModal').modal({ show: true });
 //}
+
+function CustomerTip(parameters) {
+    $.post("/Handler/TipHandler.ashx", { customerId: parameters, flag: "customerTip" }, function (result) {
+        layer.open({
+            title: "提醒",
+            type: 1,
+            skin: "layui-layer-rim", //加上边框
+            area: ["550px", "240px"], //宽高
+            content: result !== "0" ? result : "数据异常！"
+        });
+    });
+}
 
 function SaveCityCustomer() {
     $("#ddlGA03Value").val($("#ddlGA03City").find('option:selected').val());

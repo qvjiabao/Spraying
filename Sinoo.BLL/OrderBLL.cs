@@ -1883,7 +1883,7 @@ namespace Sinoo.BLL
         #region 2018-3-29 欠款订单、未发货订单
 
         /// <summary>
-        /// 获取全部付款数据
+        /// 欠款订单
         /// </summary>
         /// <returns></returns>
         public DataTable GetDebtsList(int pageIndex, int pageSize, string where, ref object obj)
@@ -1931,6 +1931,39 @@ namespace Sinoo.BLL
             {
                 throw ex;
             }
+            DataTable dt = ds.Tables[0];
+            return dt;
+        }
+
+
+        /// <summary>
+        /// 欠款订单
+        /// </summary>
+        /// <returns></returns>
+        public DataTable GetDebtsAmountAndDay(string where)
+        {
+            object obj = null;
+            DataSet ds = Provider.ReturnDataSetByDataAdapter(@" 
+                SELECT ISNULL(SUM(OA01022),0) OA01022,ISNULL(MAX(DATEDIFF(day,b.DebtsDays,getdate())),0) DebtsDays
+                FROM OA01 a
+                INNER JOIN CA01 ON CA01001 = OA01038
+                INNER JOIN UA01 ON UA01001 = OA01013
+                INNER JOIN OP01 ON OA01999 = OP01003
+                INNER JOIN(SELECT OA01999, MAX(OC01015) OC01015, MAX(OC01011) OC01011, MIN(OC01009) OC01009
+                            , CASE WHEN MIN(OC01015) >= MIN(OC01011)
+                                   THEN MIN(OC01011)
+                                   WHEN MIN(OC01015) < MIN(OC01011)
+                                   THEN MIN(OC01011)
+                                   WHEN MIN(OC01015) IS NULL AND MIN(OC01011) IS NOT NULL
+                                   THEN MIN(OC01011)
+                                   WHEN MIN(OC01015) IS NOT NULL AND MIN(OC01011) IS NULL
+                                   THEN MIN(OC01015) END DebtsDays
+                        FROM OC01
+                        INNER JOIN OB01 ON OB01999 = OC01003
+                        INNER JOIN OA01 ON OA01999 = OB01002
+                        GROUP BY oa01999
+                        )b ON a.oa01999 = b.oa01999
+                WHERE OA01997 = 0 AND  OA01003 = 1 AND OP01016 > 0 " + where, 0, ref obj, null);
             DataTable dt = ds.Tables[0];
             return dt;
         }
