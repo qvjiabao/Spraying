@@ -76,7 +76,7 @@ function CustomerTip(parameters) {
             title: "提醒",
             type: 1,
             skin: "layui-layer-rim", //加上边框
-            area: ["550px", "240px"], //宽高
+            area: ["600px", "240px"], //宽高
             content: result !== "0" ? result : "数据异常！"
         });
     });

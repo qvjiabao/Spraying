@@ -51,16 +51,22 @@ namespace Sinoo.Spraying.Handler
             var balckList = customerModel.Rows[0]["CA01052"].ToString();
             html += "<p style='margin: 20px 0 10px 20px;'>黑名单：" + "<span style='color:red;margin-right:30%'>" + (balckList == "0" ? "否" : "是") + "</span>";
             //未提货订单
-            html += "未提货订单：" + "<span style='color:red;'>" + (balckList == "0" ? "否" : "是") + "</span></p>";
+            int count = new OrderBLL().GetFailDelivery(int.Parse(customerId));
+            html += "未提货订单：" + "<span style='color:red;'>" + (count > 0 ? "是" : "否") + "</span></p>";
             //信用金额
-            html += "<p style='margin: 20px 0 10px 20px;'>信用金额：<span style='color:red;'>100</span>，信用天数：<span style='color:red;'>5</span>，";
-            html += "剩余信用金额：<span style='color:red;'>100</span>，剩余信用天数：<span style='color:red;'>5</span></p>";
+            var ca01014 = customerModel.Rows[0]["CA01014"].ToString() == "" ? 0 : Convert.ToInt32(customerModel.Rows[0]["CA01014"].ToString());
+            var ca01015 = customerModel.Rows[0]["CA01015"].ToString() == "" ? 0 : Convert.ToDecimal(customerModel.Rows[0]["CA01015"]);
+            var deliveredAmount = new OrderBLL().GetDeliveredAmount(int.Parse(customerId));
+            var ob01009 = deliveredAmount.Rows[0]["OB01009"].ToString() == "" ? 0 : Convert.ToDecimal(deliveredAmount.Rows[0]["OB01009"]);
+            var debtsDays = deliveredAmount.Rows[0]["DebtsDays"].ToString() == "" ? 0 : Convert.ToInt32(deliveredAmount.Rows[0]["DebtsDays"]);
+            html += "<p style='margin: 20px 0 10px 20px;'>信用金额：<span style='color:red;'>" + Math.Round((ca01015), 2) + "</span>，信用天数：<span style='color:red;'>" + ca01014 + "</span>，";
+            html += "剩余信用金额：<span style='color:red;'>" + Math.Round((ca01015 - ob01009), 2) + "</span>，剩余信用天数：<span style='color:red;'>" + (ca01014 - debtsDays) + "</span></p>";
 
             //欠款金额   
             var where = " and CA01001 = " + customerId;
             var debts = new OrderBLL().GetDebtsAmountAndDay(where);
-            html += "<p style='margin: 20px 0 10px 20px;'>欠款总金额(US$)：<span style='color:red;'>" + Convert.ToDouble(debts.Rows[0]["OA01022"]) + "</span>，欠款最长天数："
-                + "<span style='color:red;'>" + debts.Rows[0]["DebtsDays"] + "</span>天</p>";
+            html += "<p style='margin: 20px 0 10px 20px;'>欠款总金额：<span style='color:red;'>" + Convert.ToDouble(debts.Rows[0]["OA01022"]) + "</span>，欠款最长天数："
+                + "<span style='color:red;'>" + debts.Rows[0]["DebtsDays"] + "</span></p>";
             context.Response.Write(html);
         }
 

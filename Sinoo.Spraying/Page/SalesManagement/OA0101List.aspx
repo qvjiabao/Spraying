@@ -345,7 +345,7 @@
         <script src="/Scripts/unicorn.js" type="text/javascript"></script>
         <script src="/Scripts/base/base.getdata.js" type="text/javascript"></script>
         <script src="/Scripts/layer/layer.js" type="text/javascript"></script>
-        <script src="/Scripts/page/Page_OA0101List.js?v=2.0" type="text/javascript"></script>
+        <script src="/Scripts/page/Page_OA0101List.js?v=1.3" type="text/javascript"></script>
         <script src="/Scripts/My97DatePicker/WdatePicker.js" type="text/javascript"></script>
     </form>
 </body>

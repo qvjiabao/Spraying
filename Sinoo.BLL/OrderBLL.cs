@@ -1935,6 +1935,20 @@ namespace Sinoo.BLL
             return dt;
         }
 
+        /// <summary>
+        /// 是否有未提货订单
+        /// </summary>
+        public int GetFailDelivery(int ca01001)
+        {
+            string strSql = string.Format(@"select COUNT(1) rows from OA01
+                INNER JOIN OB01 on OB01002 = OA01999 
+                INNER JOIN OC01 on OC01003 = OB01999
+                where OA01997 = 0 AND  OA01003 = 1 and OC01010 = 1 and OC01007 = 0 and OA01038={0}", ca01001);
+            object obj = null;//用于接收存储过程返回值
+            DataSet ds = Provider.ReturnDataSetByDataAdapter(strSql, 0, ref obj, null);
+            int count = Convert.ToInt32(ds.Tables[0].Rows[0]["rows"]);
+            return count;
+        }
 
         /// <summary>
         /// 欠款订单
@@ -1966,6 +1980,34 @@ namespace Sinoo.BLL
                 WHERE OA01997 = 0 AND  OA01003 = 1 AND OP01016 > 0 " + where, 0, ref obj, null);
             DataTable dt = ds.Tables[0];
             return dt;
+        }
+
+        public DataTable GetDeliveredAmount(int ca01001)
+        {
+            string strSql = string.Format(@"SELECT ISNULL(SUM(OB01009),0) OB01009,ISNULL(MAX(DATEDIFF(day,b.DebtsDays,getdate())),0) DebtsDays
+                        FROM OA01 a
+                        INNER JOIN CA01 ON CA01001 = OA01038
+                        INNER JOIN UA01 ON UA01001 = OA01013
+                        INNER JOIN OP01 ON OA01999 = OP01003
+                        INNER JOIN OB01 ON a.OA01999 = OB01002
+                        INNER JOIN OC01 ON OB01999 = OC01003
+                        INNER JOIN(SELECT OA01999,CASE WHEN MIN(OC01015) >= MIN(OC01011)
+                                           THEN MIN(OC01011)
+                                           WHEN MIN(OC01015) < MIN(OC01011)
+                                           THEN MIN(OC01011)
+                                           WHEN MIN(OC01015) IS NULL AND MIN(OC01011) IS NOT NULL
+                                           THEN MIN(OC01011)
+                                           WHEN MIN(OC01015) IS NOT NULL AND MIN(OC01011) IS NULL
+                                           THEN MIN(OC01015) END DebtsDays
+                                FROM OC01
+                                INNER JOIN OB01 ON OB01999 = OC01003
+                                INNER JOIN OA01 ON OA01999 = OB01002
+                                GROUP BY oa01999
+                                )b ON a.oa01999 = b.oa01999
+                        WHERE OA01997 = 0 AND  OA01003 = 1 and OC01010 = 1 AND OP01016 > 0 and OA01038={0}", ca01001);
+            object obj = null;//用于接收存储过程返回值
+            DataSet ds = Provider.ReturnDataSetByDataAdapter(strSql, 0, ref obj, null);
+            return ds.Tables[0];
         }
 
         /// <summary>
