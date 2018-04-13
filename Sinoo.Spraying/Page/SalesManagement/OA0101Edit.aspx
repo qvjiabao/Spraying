@@ -816,7 +816,7 @@
         <script src="/Scripts/validator/jquery.validator.js" type="text/javascript"></script>
         <script src="/Scripts/validator/local/zh_CN.js" type="text/javascript"></script>
         <script src="/Scripts/base/base.getdata.js" type="text/javascript"></script>
-        <script src="/Scripts/page/Page_OA0101Edit.js" type="text/javascript"></script>
+        <script src="/Scripts/page/Page_OA0101Edit.js?v=1.0" type="text/javascript"></script>
         <script src="/Scripts/My97DatePicker/WdatePicker.js" type="text/javascript"></script>
     </form>
 </body>

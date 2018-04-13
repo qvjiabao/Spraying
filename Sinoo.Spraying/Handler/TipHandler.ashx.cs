@@ -73,12 +73,12 @@ namespace Sinoo.Spraying.Handler
         public void CheckOrders(HttpContext context)
         {
             var user = (context.Session["USER_SESSION"] as UserBase);
-            if (user.UA01024 != 42 && user.UA01024 != 43 && user.UA01024 != 44)
+            if (user.UA01024 != 42 && user.UA01024 != 43 && user.UA01024 != 44 && user.UA01024 != 47)
             {
                 context.Response.Write("0");
                 return;
             }
-            string where = user.UA01024 == 42 ? "and OA01013 = '" + user.UA01001 + "'" : "and UA01013 = '" + user.UA01013 + "'";
+            string where = user.UA01024 == 43 ? "and OA01013 = '" + user.UA01001 + "'" : "and UA01013 = '" + user.UA01013 + "'";
             if (user.UA01013 == "全区域")
             {
                 where = string.Empty;
@@ -122,16 +122,16 @@ namespace Sinoo.Spraying.Handler
             }
             if (!string.IsNullOrEmpty(context.Request["offset"]))
             {
-                pageIndex = int.Parse(context.Request["offset"]) + 1;
+                pageIndex = int.Parse(context.Request["offset"]);
             }
             object RowCount = null;
             var user = (context.Session["USER_SESSION"] as UserBase);
-            if (user.UA01024 != 42 && user.UA01024 != 43 && user.UA01024 != 44)
+            if (user.UA01024 != 42 && user.UA01024 != 43 && user.UA01024 != 44 && user.UA01024 != 47)
             {
                 context.Response.Write("0");
                 return;
             }
-            string where = user.UA01024 == 42 ? "and OA01013 = '" + user.UA01001 + "'" : "and UA01013 = '" + user.UA01013 + "'";
+            string where = user.UA01024 == 43 ? "and OA01013 = '" + user.UA01001 + "'" : "and UA01013 = '" + user.UA01013 + "'";
             if (user.UA01013 == "全区域")
             {
                 where = string.Empty;
@@ -159,16 +159,16 @@ namespace Sinoo.Spraying.Handler
             }
             if (!string.IsNullOrEmpty(context.Request["offset"]))
             {
-                pageIndex = int.Parse(context.Request["offset"]) + 1;
+                pageIndex = int.Parse(context.Request["offset"]);
             }
             object RowCount = null;
             var user = (context.Session["USER_SESSION"] as UserBase);
-            if (user.UA01024 != 42 && user.UA01024 != 43 && user.UA01024 != 44)
+            if (user.UA01024 != 42 && user.UA01024 != 43 && user.UA01024 != 44 && user.UA01024 != 47)
             {
                 context.Response.Write("0");
                 return;
             }
-            string where = user.UA01024 == 42 ? "and OA01013 = '" + user.UA01001 + "'" : "and UA01013 = '" + user.UA01013 + "'";
+            string where = user.UA01024 == 43 ? "and OA01013 = '" + user.UA01001 + "'" : "and UA01013 = '" + user.UA01013 + "'";
             if (user.UA01013 == "全区域")
             {
                 where = string.Empty;

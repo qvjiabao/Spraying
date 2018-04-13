@@ -1891,7 +1891,7 @@ namespace Sinoo.BLL
             DataSet ds;
             try
             {
-                string strColumn = @" *,ROW_NUMBER() OVER(ORDER BY OA01009 ASC ) AS RowNumber ";
+                string strColumn = @" *,ROW_NUMBER() OVER(ORDER BY OA01009 DESC ) AS RowNumber ";
                 string strTableName = string.Format(@" (
                                 SELECT OA01001,OA01002,OA01009,OA01013,CA01001,CA01003, 
 	                                   OA01020,OA01021,OA01022,OA01044, OA01051 ,CA01025,
@@ -2021,7 +2021,7 @@ namespace Sinoo.BLL
             {
                 string strColumn = @"  OA01002,OB01005,OB01007,OB01008,OB01009,OC01009,
                                        OA01010, CA01001,CA01003, UA01004,UA01013,OC01015,UA01005,
-                                       ROW_NUMBER() OVER(ORDER BY OA01009 ASC ) AS RowNumber,
+                                       ROW_NUMBER() OVER(ORDER BY OA01009 DESC ) AS RowNumber,
                                        DATEDIFF(day,OA01010,getdate()) Pendingdays ";
                 string strTableName = @" OB01 
                                 INNER JOIN OA01 ON(OB01002=OA01999)

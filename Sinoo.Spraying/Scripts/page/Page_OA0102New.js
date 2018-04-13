@@ -118,7 +118,7 @@ function AddProduct(obj, type) {
     $("#txtOA01020").val(money);
 
     if ($("#txtOA01021").val() != "") {    //订单总金额(US$)
-        $("#txtOA01022").val(Number(Number(money) / Number($("#txtOA01021").val()) / 1.17).toFixed(2));  //订单总金额(US$)
+        $("#txtOA01022").val(Number(Number(money) / Number($("#txtOA01021").val()) / 1.16).toFixed(2));  //订单总金额(US$)
     }
 
 
@@ -212,7 +212,7 @@ function RemoveProduct(obj) {
     $("#txtOA01020").val(money);
 
     if ($("#txtOA01021").val() != "") {    //订单总金额(US$)
-        $("#txtOA01022").val(Number(Number(money) / Number($("#txtOA01021").val()) / 1.17).toFixed(2));  //订单总金额(US$)
+        $("#txtOA01022").val(Number(Number(money) / Number($("#txtOA01021").val()) / 1.16).toFixed(2));  //订单总金额(US$)
     }
 
 }
@@ -252,11 +252,11 @@ function Sum(obj) {
 
     if ($.trim(td1.eq(2).children().val()) != "" && $.trim(td1.eq(3).children().val()) != "") {
         td1.eq(4).children().text(Number(Number($.trim(td1.eq(2).children().val())) * Number($.trim(td1.eq(3).children().val()))).toFixed(2)); //含税合计
-        td1.eq(6).children().text(Number((Number($.trim(td1.eq(3).children().val())) / 1.17) * Number($.trim(td1.eq(2).children().val()))).toFixed(2)); //不含税合计
+        td1.eq(6).children().text(Number((Number($.trim(td1.eq(3).children().val())) / 1.16) * Number($.trim(td1.eq(2).children().val()))).toFixed(2)); //不含税合计
         td1.eq(7).children().text(Number((Number($.trim(td1.eq(6).children().text())) * 0.17)).toFixed(2)); //税额
     }
     if ($.trim(td1.eq(3).children().val()) != "") {
-        td1.eq(5).children().text(Number(Number($.trim(td1.eq(3).children().val())) / 1.17).toFixed(2));
+        td1.eq(5).children().text(Number(Number($.trim(td1.eq(3).children().val())) / 1.16).toFixed(2));
     }
     if ($.trim(td1.eq(8).children().val()) != "" && $.trim(td1.eq(3).children().val()) != "") {
         td1.eq(9).children().text(Number(Number($.trim(td1.eq(8).children().val())) * Number($.trim(td1.eq(2).children().val()))).toFixed(2));
@@ -374,7 +374,7 @@ function EditInvoice(obj) {
 
 function USblur() {
     if ($("#txtOA01020").val() != "")
-        $("#txtOA01022").val(Number(Number($("#txtOA01020").val()) / Number($("#txtOA01021").val()) / 1.17).toFixed(2));  //订单总金额(US$)
+        $("#txtOA01022").val(Number(Number($("#txtOA01020").val()) / Number($("#txtOA01021").val()) / 1.16).toFixed(2));  //订单总金额(US$)
 }
 
 function btnClientSave() {
