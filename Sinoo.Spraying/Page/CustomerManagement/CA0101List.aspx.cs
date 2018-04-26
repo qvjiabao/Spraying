@@ -55,7 +55,8 @@ namespace Sinoo.Spraying.Page.CustomerManagement
             if (this.rbtnCA01025No.Checked) strWhere += " AND CA01025 = '0' ";
             if (this.rbtnCA01047Yes.Checked) strWhere += " AND CA01047 = '1' ";
             if (this.rbtnCA01047No.Checked) strWhere += " AND CA01047 = '0' ";
-
+            if (this.rbtnCA01052Yes.Checked) strWhere += " AND CA01052 = '1' ";
+            if (this.rbtnCA01052No.Checked) strWhere += " AND CA01052 = '0' ";
             return strWhere;
         }
 

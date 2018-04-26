@@ -126,6 +126,17 @@
                                 </label>
                             </label>
                         </div>
+                        <div class="control-group">
+                            <label>
+                                <span>Black List：</span>
+                                <label class="radio inline">
+                                    <asp:RadioButton GroupName="rbtnCA01052" ID="rbtnCA01052Yes" runat="server" />是
+                                </label>
+                                <label class="radio inline">
+                                    <asp:RadioButton GroupName="rbtnCA01052" ID="rbtnCA01052No" runat="server" />否
+                                </label>
+                            </label>
+                        </div>
                         <div class="clear" style="clear: both">
                         </div>
                         <div class="control-group">
