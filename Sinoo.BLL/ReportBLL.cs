@@ -203,7 +203,7 @@ namespace Sinoo.BLL
                                      ,(CASE OA01018 WHEN 0 THEN '无' ELSE CAST(OA01018*100 AS VARCHAR(20)) +'%' END ) OA01018 
                                      ,OA01009,OA01002,CA01002,CA01003,CA01009 
 	                                 ,UA01004,UA01005,OB01005,OB01007,CAST(OB01008 as decimal(18,2)) OB01008, (OB01007* OB01008) OA01020
-	                                 ,round((OB01007* OB01008 /OA01021/1.17),2) OA01022,OA01021,OA01041,CA01018,OA01025
+	                                 ,round((OB01007* OB01008 /OA01021/1.16),2) OA01022,OA01021,OA01041,CA01018,OA01025
 	                                 ,OA01040,OP01007,OP01008,CAST(OP01009 as decimal(18,2)) OP01009
 	                                 ,OP01010,CAST(OP01011 as decimal(18,2)) OP01011,OP01012
                                      ,CAST(OP01013 as decimal(18,2)) OP01013 ,OP01014
