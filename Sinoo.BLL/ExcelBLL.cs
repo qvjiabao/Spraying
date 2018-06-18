@@ -1036,7 +1036,7 @@ namespace Sinoo.BLL
         /// </summary>
         /// <param name="strWhere"></param>
         /// <returns></returns>
-        public DataSet ExportSakesByGP(string strWhere,bool blInvoice)
+        public DataSet ExportSakesByGP(string strWhere, bool blInvoice)
         {
             DataSet ds;
             try
@@ -1405,7 +1405,7 @@ namespace Sinoo.BLL
 											,SUM(DISTINCT(CASE WHEN OA01044=1 THEN OA01044 ELSE 0 END )) OA01044
 											,SUM(DISTINCT(CASE WHEN OA01054=1 THEN OA01054 ELSE 0 END )) OA01054
 									   FROM (
-											SELECT  UA01005,round((OB01009/OA01021/1.17),2) OA01022,OA01003,OA01038,OA01044,OA01054,OA01013,OA01002
+											SELECT  UA01005,round((OB01009/OA01021/1.16),2) OA01022,OA01003,OA01038,OA01044,OA01054,OA01013,OA01002
 											FROM OA01
 											JOIN CA01 ON CA01001 = OA01038
 											LEFT JOIN CB04 ON CB04001 = CA01020
@@ -1429,7 +1429,7 @@ namespace Sinoo.BLL
 											,0 OA01044
 											,SUM(DISTINCT(CASE WHEN OA01054=1 THEN OA01054 ELSE 0 END )) OA01054
 									   FROM (
-											SELECT  UA01005,round((OB01009/OA01021/1.17),2)*OA01016 AS OA01022,OA01003,OA01038,OA01044,OA01054,OA01013,OA01002,OA01016
+											SELECT  UA01005,round((OB01009/OA01021/1.16),2)*OA01016 AS OA01022,OA01003,OA01038,OA01044,OA01054,OA01013,OA01002,OA01016
 											FROM OA01
 											JOIN CA01 ON CA01001 = OA01038
 											LEFT JOIN CB04 ON CB04001 = CA01020
@@ -1451,7 +1451,7 @@ namespace Sinoo.BLL
 											,0 OA01044
 											,SUM(DISTINCT(CASE WHEN OA01054=1 THEN OA01054 ELSE 0 END )) OA01054
 									   FROM (
-											SELECT  UA01005,round((OB01009/OA01021/1.17),2)*OA01018 AS OA01022,OA01003,OA01038,OA01044,OA01054,OA01013,OA01002,OA01018
+											SELECT  UA01005,round((OB01009/OA01021/1.16),2)*OA01018 AS OA01022,OA01003,OA01038,OA01044,OA01054,OA01013,OA01002,OA01018
 											FROM OA01
 											JOIN CA01 ON CA01001 = OA01038
 											LEFT JOIN CB04 ON CB04001 = CA01020
@@ -1474,7 +1474,7 @@ namespace Sinoo.BLL
 												,SUM(DISTINCT(CASE WHEN OA01044=1 THEN OA01044 ELSE 0 END )) OA01044
 											    ,SUM(DISTINCT(CASE WHEN OA01054=1 THEN OA01054 ELSE 0 END )) OA01054
 											FROM (
-												SELECT  UA01005,round((OB01009/OA01021/1.17),2)*(1-OA01016-OA01018) AS OA01022,OA01003,OA01038,OA01044,OA01054,OA01013,OA01018,OA01016,OA01002
+												SELECT  UA01005,round((OB01009/OA01021/1.16),2)*(1-OA01016-OA01018) AS OA01022,OA01003,OA01038,OA01044,OA01054,OA01013,OA01018,OA01016,OA01002
 												FROM OA01
 												JOIN CA01 ON CA01001 = OA01038
 												LEFT JOIN CB04 ON CB04001 = CA01020
@@ -1747,7 +1747,7 @@ namespace Sinoo.BLL
                         GROUP BY CB01002   ", strWhere);
                 }
 
-                
+
 
                 object obj = null;//用于接收存储过程返回值
                 ds = Provider.ReturnDataSetByDataAdapter(strSql, 0, ref obj, null);
@@ -1763,7 +1763,7 @@ namespace Sinoo.BLL
         /// 导出行业报告/Industry report
         /// </summary>
         /// <returns></returns>
-        public DataSet ExportIndustryReportPage(string strWhereAdd,bool blInvoice)
+        public DataSet ExportIndustryReportPage(string strWhereAdd, bool blInvoice)
         {
             DataSet ds;
             try
@@ -1965,7 +1965,7 @@ namespace Sinoo.BLL
                         ) A 
                         WHERE NUM =1  ", strWhereAdd);
                 }
-               
+
 
 
                 ds = Provider.ReturnDataSetByDataAdapter(strsql, 0, ref obj, null);
@@ -2361,7 +2361,7 @@ namespace Sinoo.BLL
                                         ) ABCD", strWhereAdd);
                 }
 
-                
+
                 ds = Provider.ReturnDataSetByDataAdapter(strsql, 0, ref obj, null);
             }
             catch (Exception ex)
@@ -2745,79 +2745,10 @@ namespace Sinoo.BLL
             try
             {
                 string strSql = string.Empty;
-                if (blInvoice)
-                {
-                    strSql = string.Format(@" 
-                            SELECT GA03001,GA03002 ProvinceName,COUNT(distinct CustomerNum) CustomerNum
+                strSql = string.Format(@" 
+                             SELECT GA03001,GA03002 ProvinceName,COUNT(distinct CustomerNum) CustomerNum
                                     ,SUM(CASE  WHEN NewCustomerNum = 1 THEN 1 ELSE 0 END ) NewCustomerNum
-                                    ,count(distinct OrderNum) OrderNum  ,SUM(Amout) Amout
-                            FROM (
-		                            SELECT P.GA03001,P.GA03002 , OA01038 AS  CustomerNum,
-			                               OA01044 AS NewCustomerNum,
-			                               OA01002 AS OrderNum,
-			                               round((OB01009/OA01021/1.17),2) AS Amout
-		                            FROM dbo.OA01 
-		                            JOIN dbo.CA01 ON OA01038 = CA01001
-		                            JOIN dbo.UA01 ON UA01001 = OA01013 	
-		                            JOIN dbo.OB01 ON OA01999 = OB01002
-		                            JOIN dbo.OC01 ON OB01999 = OC01003
-                                    JOIN dbo.GA03 ON GA03001=CA01013
-                                    JOIN dbo.GA03 P ON GA03.GA03003 = P.GA03001
-		                            WHERE OA01997 = 0 AND OA01003 <> 3    {0}
-			                            AND  (OA01015 = '' or OA01015 is null) 
-			                            AND  (OA01017 = '' or OA01017 is null) 
-                                        AND  OA01016 = 0 AND OA01018 = 0 
-	                            UNION ALL
-		                            SELECT P.GA03001,P.GA03002 , OA01038 AS  CustomerNum,
-				                               OA01044 AS NewCustomerNum,
-				                               OA01002 AS OrderNum,
-				                               round((OB01009/OA01021/1.17),2)*OA01016 AS Amout
-		                            FROM dbo.OA01  
-		                            JOIN dbo.CA01 ON OA01038 = CA01001
-		                            JOIN dbo.UA01 ON UA01004 = OA01015 	
-		                            JOIN dbo.OB01 ON OA01999 = OB01002
-		                            JOIN dbo.OC01 ON OB01999 = OC01003
-                                    JOIN dbo.GA03 ON GA03001=CA01013
-                                    JOIN dbo.GA03 P ON GA03.GA03003 = P.GA03001
-		                            WHERE OA01997 = 0 AND OA01003 <> 3   {0}
-			                            AND   (OA01015 <> '' AND OA01015 IS NOT NULL)
-	                            UNION ALL
-	                            SELECT P.GA03001,P.GA03002 , OA01038 AS  CustomerNum,
-				                               OA01044 AS NewCustomerNum,
-				                               OA01002 AS OrderNum,
-				                               round((OB01009/OA01021/1.17),2)*OA01018 AS Amout
-	                            FROM dbo.OA01 
-	                            JOIN dbo.CA01 ON OA01038 = CA01001
-                                JOIN dbo.GA03 ON GA03001=CA01013
-                                JOIN dbo.GA03 P ON GA03.GA03003 = P.GA03001
-	                            JOIN dbo.UA01 ON UA01004 = OA01017 	
-	                            JOIN dbo.OB01 ON OA01999 = OB01002
-	                            JOIN dbo.OC01 ON OB01999 = OC01003
-	                            WHERE OA01997 = 0 AND OA01003 <> 3    {0}
-		                            AND   (OA01017 <> '' AND OA01017 IS NOT NULL) 
-	                            UNION ALL
-		                            SELECT  P.GA03001,P.GA03002 , OA01038 AS  CustomerNum,
-					                               OA01044 AS NewCustomerNum,
-					                               OA01002 AS OrderNum,
-					                               round((OB01009/OA01021/1.17),2)*(1-OA01016-OA01018) AS Amout
-		                            FROM dbo.OA01 
-		                            JOIN dbo.CA01 ON OA01038 = CA01001
-                                    JOIN dbo.GA03 ON GA03001=CA01013
-                                    JOIN dbo.GA03 P ON GA03.GA03003 = P.GA03001
-		                            JOIN dbo.UA01 ON UA01001 = OA01013 	
-		                            JOIN dbo.OB01 ON OA01999 = OB01002
-		                            JOIN dbo.OC01 ON OB01999 = OC01003
-		                            WHERE OA01997 = 0 AND OA01003 <> 3   {0}
-			                            AND  (OA01016 <> 0 OR OA01018<>0) 
-                            ) ABCD
-                            GROUP BY GA03001,GA03002 ", strWhere);
-                }
-                else
-                {
-                    strSql = string.Format(@" 
-                            SELECT GA03001,GA03002 ProvinceName,COUNT(distinct CustomerNum) CustomerNum
-                                    ,SUM(CASE  WHEN NewCustomerNum = 1 THEN 1 ELSE 0 END ) NewCustomerNum
-                                    ,count(distinct OrderNum) OrderNum  ,CAST(SUM(Amout) AS DECIMAL(18,2)) Amout
+                                    ,count(OrderNum) OrderNum  ,SUM(Amout) Amout
                             FROM (
 	                            SELECT * FROM (
 		                            SELECT P.GA03001,P.GA03002 , OA01038 AS  CustomerNum,
@@ -2830,16 +2761,13 @@ namespace Sinoo.BLL
 		                            JOIN dbo.UA01 ON UA01001 = OA01013 	
 		                            JOIN dbo.OB01 ON OA01999 = OB01002
 		                            JOIN dbo.OC01 ON OB01999 = OC01003
-                                    JOIN dbo.GA03 ON GA03001=CA01013
+                                    JOIN dbo.GA03 ON GA03001 = CA01013
                                     JOIN dbo.GA03 P ON GA03.GA03003 = P.GA03001
-		                            WHERE OA01997 = 0 AND OA01003 <> 3    {0}
-			                            AND  (OA01015 = '' or OA01015 is null) 
-			                            AND  (OA01017 = '' or OA01017 is null) 
-                                        AND  OA01016 = 0 AND OA01018 = 0 
+		                            WHERE OA01997 = 0 AND OA01003 <> 3  AND  OA01016 = 0 AND OA01018 = 0  {0}
 	                            ) A WHERE NUM =1
 	                            UNION ALL
 	                            SELECT * FROM (
-		                            SELECT P.GA03001,P.GA03002 , OA01038 AS  CustomerNum,
+		                            SELECT OA01055 GA03001,OA01057 GA03002 , OA01038 AS  CustomerNum,
 				                               OA01044 AS NewCustomerNum,
 				                               OA01002 AS OrderNum,
 				                               (OA01022*OA01016) AS Amout,
@@ -2849,27 +2777,22 @@ namespace Sinoo.BLL
 		                            JOIN dbo.UA01 ON UA01004 = OA01015 	
 		                            JOIN dbo.OB01 ON OA01999 = OB01002
 		                            JOIN dbo.OC01 ON OB01999 = OC01003
-                                    JOIN dbo.GA03 ON GA03001=CA01013
-                                    JOIN dbo.GA03 P ON GA03.GA03003 = P.GA03001
-		                            WHERE OA01997 = 0 AND OA01003 <> 3   {0}
-			                            AND   (OA01015 <> '' AND OA01015 IS NOT NULL)
+		                            WHERE OA01997 = 0 AND OA01003 <> 3 and OA01055 <> '' and OA01016 <> 0 {0}
 	                            ) B WHERE NUM =1
 	                            UNION ALL
 	                            SELECT * 
 	                            FROM (
-	                            SELECT P.GA03001,P.GA03002 , OA01038 AS  CustomerNum,
+	                            SELECT OA01056 GA03001,OA01058 GA03002, OA01038 AS  CustomerNum,
 				                               OA01044 AS NewCustomerNum,
 				                               OA01002 AS OrderNum,
 				                               OA01022*OA01018 AS Amout,
 				                               ROW_NUMBER() OVER(PARTITION BY OA01002 ORDER BY OA01002 ASC ) AS NUM
-	                            FROM dbo.OA01 
-	                            JOIN dbo.CA01 ON OA01038 = CA01001
-                                JOIN dbo.GA03 ON GA03001=CA01013
-                                JOIN dbo.GA03 P ON GA03.GA03003 = P.GA03001
-	                            JOIN dbo.UA01 ON UA01004 = OA01017 	
-	                            JOIN dbo.OB01 ON OA01999 = OB01002
-	                            JOIN dbo.OC01 ON OB01999 = OC01003
-	                            WHERE OA01997 = 0 AND OA01003 <> 3    {0}
+	                                FROM dbo.OA01 
+		                            JOIN dbo.CA01 ON OA01038 = CA01001
+		                            JOIN dbo.UA01 ON UA01004 = OA01015 	
+		                            JOIN dbo.OB01 ON OA01999 = OB01002
+		                            JOIN dbo.OC01 ON OB01999 = OC01003
+		                            WHERE OA01997 = 0 AND OA01003 <> 3 and OA01056 <> '' and OA01018 <> 0 {0}
 		                            AND   (OA01017 <> '' AND OA01017 IS NOT NULL) 
 	                            ) C WHERE NUM =1
 	                            UNION ALL
@@ -2887,13 +2810,10 @@ namespace Sinoo.BLL
 		                            JOIN dbo.UA01 ON UA01001 = OA01013 	
 		                            JOIN dbo.OB01 ON OA01999 = OB01002
 		                            JOIN dbo.OC01 ON OB01999 = OC01003
-		                            WHERE OA01997 = 0 AND OA01003 <> 3   {0}
-			                            AND  (OA01016 <> 0 OR OA01018<>0) 
+		                            WHERE OA01997 = 0 AND OA01003 <> 3 AND  (OA01016 <> 0 OR OA01018<>0) {0}
 	                            ) D WHERE NUM =1
                             ) ABCD
-                            GROUP BY GA03001,GA03002 ", strWhere);
-                }
-
+                            GROUP BY GA03001,GA03002", strWhere);
 
                 object obj = null;//用于接收存储过程返回值
                 ds = Provider.ReturnDataSetByDataAdapter(strSql, 0, ref obj, null);
@@ -3477,7 +3397,7 @@ namespace Sinoo.BLL
                              )A 
                              GROUP BY CA01001,CA01003 ", strWhere);
                 }
-                 
+
 
                 object obj = null;//用于接收存储过程返回值
                 ds = Provider.ReturnDataSetByDataAdapter(strSql, 0, ref obj, null);
@@ -3665,7 +3585,7 @@ namespace Sinoo.BLL
         /// </summary>
         /// <param name="strWhereAdd">查询条件</param>
         /// <returns></returns>
-        public DataSet ExportWeeklySalesPage(string strWhereAdd,bool blInvoice)
+        public DataSet ExportWeeklySalesPage(string strWhereAdd, bool blInvoice)
         {
             DataSet ds;
             try
