@@ -269,7 +269,7 @@ namespace Sinoo.BLL
                                         SELECT *  FROM
                                         (   SELECT  OA01001,OA01002,OA01009,OA01013,CA01001,CA01003,UA01004,UA01005,UA01013 ,
                                                     CA01013 ProvinceId ,CA01013 ProvinceName,CB04002,OA01021,OA01015,OA01017,OA01044,
-                                                    OB01007*OB01008 OA01020,round((OB01009/OA01021/1.17),2) OA01022
+                                                    OB01007*OB01008 OA01020,round((OB01009/OA01021/1.16),2) OA01022
                                             FROM OA01 
                                                    INNER JOIN OB01 ON OA01999 = OB01002
                                                    INNER JOIN OC01 ON OB01999 = OC01003
@@ -283,7 +283,7 @@ namespace Sinoo.BLL
                                         SELECT *  FROM
                                         (   SELECT  OA01001,OA01002,OA01009,OA01013,CA01001,CA01003,UA01004,UA01005,UA01013 ,
                                                    CA01013 ProvinceId ,CA01013 ProvinceName,CB04002,OA01021,OA01015,OA01017,OA01044,
-                                                   OB01007*OB01008*OA01016 AS OA01020,round((OB01009/OA01021/1.17),2)*OA01016 AS OA01022
+                                                   OB01007*OB01008*OA01016 AS OA01020,round((OB01009/OA01021/1.16),2)*OA01016 AS OA01022
                                             FROM OA01 
                                                 INNER JOIN OB01 ON OA01999 = OB01002
                                                 INNER JOIN OC01 ON OB01999 = OC01003
@@ -296,7 +296,7 @@ namespace Sinoo.BLL
                                         SELECT *  FROM
                                         (    SELECT  OA01001,OA01002,OA01009,OA01013,CA01001,CA01003,UA01004,UA01005,UA01013 ,
                                                    CA01013 ProvinceId ,CA01013 ProvinceName,CB04002,OA01021,OA01015,OA01017,OA01044,
-                                                   OB01007*OB01008*OA01018 AS OA01020,round((OB01009/OA01021/1.17),2)*OA01018 AS OA01022
+                                                   OB01007*OB01008*OA01018 AS OA01020,round((OB01009/OA01021/1.16),2)*OA01018 AS OA01022
                                             FROM OA01 
                                             INNER JOIN OB01 ON OA01999 = OB01002
                                             INNER JOIN OC01 ON OB01999 = OC01003
@@ -309,7 +309,7 @@ namespace Sinoo.BLL
                                          SELECT *  FROM
                                          (    SELECT  OA01001,OA01002,OA01009,OA01013,CA01001,CA01003,UA01004,UA01005,UA01013 ,
                                                    CA01013 ProvinceId ,CA01013 ProvinceName,CB04002,OA01021,OA01015,OA01017,OA01044,
-                                                   OB01007*OB01008*(1-OA01016-OA01018) AS OA01020,round((OB01009/OA01021/1.17),2)*(1-OA01016-OA01018) AS OA01022
+                                                   OB01007*OB01008*(1-OA01016-OA01018) AS OA01020,round((OB01009/OA01021/1.16),2)*(1-OA01016-OA01018) AS OA01022
                                             FROM OA01 
                                                 INNER JOIN OB01 ON OA01999 = OB01002
                                                 INNER JOIN OC01 ON OB01999 = OC01003
@@ -658,7 +658,7 @@ namespace Sinoo.BLL
 	                        COUNT(DISTINCT OA01002) OA01002,COUNT(DISTINCT CA01001) CA01001,
 	                        SUM(CASE WHEN OA01044=1 THEN OA01044 ELSE 0 END ) as OA01044  
                         FROM (
-		                        SELECT CB04002,OB01007*OB01008 OA01020,round((OB01009/OA01021/1.17),2) OA01022,OA01002,CA01001,OA01044
+		                        SELECT CB04002,OB01007*OB01008 OA01020,round((OB01009/OA01021/1.16),2) OA01022,OA01002,CA01001,OA01044
 		                        FROM OA01 
 		                        INNER JOIN OB01 ON OA01999 = OB01002
 		                        INNER JOIN OC01 ON OB01999 = OC01003
@@ -670,7 +670,7 @@ namespace Sinoo.BLL
 			                        AND  (OA01017 = '' or OA01017 is null)
 			                        AND  OA01016 = 0 AND OA01018 = 0
 	                        UNION ALL
-		                        SELECT CB04002,OB01007*OB01008*OA01016 AS OA01020,round((OB01009/OA01021/1.17),2)*OA01016 AS OA01022
+		                        SELECT CB04002,OB01007*OB01008*OA01016 AS OA01020,round((OB01009/OA01021/1.16),2)*OA01016 AS OA01022
 			                        , OA01002,CA01001,OA01044
 		                        FROM OA01 
 		                        INNER JOIN OB01 ON OA01999 = OB01002
@@ -681,7 +681,7 @@ namespace Sinoo.BLL
 		                        WHERE OA01997 = 0 AND OA01003 <> 3   {0}
 			                        AND (OA01015 <> '' and OA01015 is not null)
 	                        UNION ALL
-		                        SELECT CB04002,OB01007*OB01008*OA01018 AS OA01020,round((OB01009/OA01021/1.17),2)*OA01018 AS OA01022, OA01002,CA01001,OA01044
+		                        SELECT CB04002,OB01007*OB01008*OA01018 AS OA01020,round((OB01009/OA01021/1.16),2)*OA01018 AS OA01022, OA01002,CA01001,OA01044
 		                        FROM OA01 
 		                        INNER JOIN OB01 ON OA01999 = OB01002
 		                        INNER JOIN OC01 ON OB01999 = OC01003
@@ -691,7 +691,7 @@ namespace Sinoo.BLL
 		                        WHERE OA01997 = 0 AND OA01003 <> 3   {0}
 			                        AND (OA01017 <> '' and OA01017 is not null) 
 	                        UNION ALL
-		                        SELECT CB04002,OB01007*OB01008*(1-OA01016-OA01018) AS OA01020,round((OB01009/OA01021/1.17),2)*(1-OA01016-OA01018) AS OA01022,OA01002 ,CA01001,OA01044
+		                        SELECT CB04002,OB01007*OB01008*(1-OA01016-OA01018) AS OA01020,round((OB01009/OA01021/1.16),2)*(1-OA01016-OA01018) AS OA01022,OA01002 ,CA01001,OA01044
 		                        FROM OA01 
 		                        INNER JOIN OB01 ON OA01999 = OB01002
 		                        INNER JOIN OC01 ON OB01999 = OC01003
@@ -830,7 +830,7 @@ namespace Sinoo.BLL
 							SELECT OA01002 ,CA01003 ,UA01004 ,UA01005,OA01019,OA01009,SUM(OA01022) OA01022
 							FROM (
 		                        SELECT OA01002 ,CA01003 ,UA01004 ,UA01005,OA01019,OA01009
-                                ,round((OB01009/OA01021/1.17),2) OA01022
+                                ,round((OB01009/OA01021/1.16),2) OA01022
 		                        FROM OA01 
 		                        INNER JOIN OB01 ON OA01999 = OB01002
 		                        INNER JOIN OC01 ON OB01999 = OC01003
@@ -842,7 +842,7 @@ namespace Sinoo.BLL
 			                        AND  OA01016 = 0 AND OA01018 = 0
 	                            UNION ALL
 		                        SELECT OA01002 ,CA01003 ,UA01004 ,UA01005,OA01019,OA01009
-                                ,round((OB01009/OA01021/1.17),2)*OA01016 OA01022
+                                ,round((OB01009/OA01021/1.16),2)*OA01016 OA01022
 		                        FROM OA01 
 		                        INNER JOIN OB01 ON OA01999 = OB01002
 		                        INNER JOIN OC01 ON OB01999 = OC01003
@@ -852,7 +852,7 @@ namespace Sinoo.BLL
 			                        AND (OA01015 <> '' and OA01015 is not null)
 	                            UNION ALL
 								SELECT OA01002 ,CA01003 ,UA01004 ,UA01005,OA01019,OA01009
-                                ,round((OB01009/OA01021/1.17),2)*OA01018 OA01022		                        
+                                ,round((OB01009/OA01021/1.16),2)*OA01018 OA01022		                        
                                 FROM OA01 
 		                        INNER JOIN OB01 ON OA01999 = OB01002
 		                        INNER JOIN OC01 ON OB01999 = OC01003
@@ -862,7 +862,7 @@ namespace Sinoo.BLL
 			                        AND (OA01017 <> '' and OA01017 is not null) 
 	                            UNION ALL
 							    SELECT OA01002 ,CA01003 ,UA01004 ,UA01005,OA01019,OA01009
-                                ,round((OB01009/OA01021/1.17),2)*(1-OA01016-OA01018) OA01022		                        
+                                ,round((OB01009/OA01021/1.16),2)*(1-OA01016-OA01018) OA01022		                        
                                 FROM OA01 
 		                        INNER JOIN OB01 ON OA01999 = OB01002
 		                        INNER JOIN OC01 ON OB01999 = OC01003
@@ -944,7 +944,7 @@ namespace Sinoo.BLL
 			                        ,UA01005 
 	                        FROM (
 		                         SELECT CA01001,CA01003,CA01004,UA01001,UA01004,UA01005
-			                        ,CB04002,OB01007*OB01008 OA01020,round((OB01009/OA01021/1.17),2) OA01022,OA01002,OA01003
+			                        ,CB04002,OB01007*OB01008 OA01020,round((OB01009/OA01021/1.16),2) OA01022,OA01002,OA01003
 		                         FROM OA01
 		                         INNER JOIN OB01 on OB01002 = OA01999 
 		                         INNER JOIN OC01 on OC01003 = OB01999
@@ -964,7 +964,7 @@ namespace Sinoo.BLL
 			                        ,UA01005 
 	                        FROM (
 		                         SELECT CA01001,CA01003,CA01004,UA01001,UA01004,UA01005
-			                        ,CB04002,OB01007*OB01008*OA01016 AS OA01020,round((OB01009/OA01021/1.17),2)*OA01016 AS OA01022,OA01002,OA01003
+			                        ,CB04002,OB01007*OB01008*OA01016 AS OA01020,round((OB01009/OA01021/1.16),2)*OA01016 AS OA01022,OA01002,OA01003
 		                         FROM OA01
 		                         INNER JOIN OB01 on OB01002 = OA01999 
 		                         INNER JOIN OC01 on OC01003 = OB01999
@@ -982,7 +982,7 @@ namespace Sinoo.BLL
 			                        ,UA01005 
 	                        FROM (
 		                         SELECT CA01001,CA01003,CA01004,UA01001,UA01004,UA01005
-			                        ,CB04002,OB01007*OB01008*OA01018 AS OA01020,round((OB01009/OA01021/1.17),2)*OA01018 AS OA01022 ,OA01002,OA01003
+			                        ,CB04002,OB01007*OB01008*OA01018 AS OA01020,round((OB01009/OA01021/1.16),2)*OA01018 AS OA01022 ,OA01002,OA01003
 		                         FROM OA01
 		                         INNER JOIN OB01 on OB01002 = OA01999 
 		                         INNER JOIN OC01 on OC01003 = OB01999
@@ -1000,7 +1000,7 @@ namespace Sinoo.BLL
 			                        ,UA01005 
 	                        FROM (
 		                         SELECT CA01001,CA01003,CA01004,UA01001,UA01004,UA01005
-			                        ,CB04002,OB01007*OB01008*(1-OA01016-OA01018) AS OA01020,round((OB01009/OA01021/1.17),2)*(1-OA01016-OA01018) AS OA01022,OA01002,OA01003
+			                        ,CB04002,OB01007*OB01008*(1-OA01016-OA01018) AS OA01020,round((OB01009/OA01021/1.16),2)*(1-OA01016-OA01018) AS OA01022,OA01002,OA01003
 		                         FROM OA01
 		                         INNER JOIN OB01 on OB01002 = OA01999 
 		                         INNER JOIN OC01 on OC01003 = OB01999
@@ -1533,7 +1533,7 @@ namespace Sinoo.BLL
 	                        COUNT(DISTINCT OA01002) OA01002,COUNT(DISTINCT CA01001) CA01001,
 	                        COUNT(DISTINCT CASE WHEN OA01044=1 THEN CA01001 ELSE 0 END)-1  as OA01044 
                         FROM (
-		                        SELECT CB01002,OB01007*OB01008 OA01020,round((OB01009/OA01021/1.17),2) OA01022,OA01002,CA01001,OA01044
+		                        SELECT CB01002,OB01007*OB01008 OA01020,round((OB01009/OA01021/1.16),2) OA01022,OA01002,CA01001,OA01044
 		                        FROM OA01 
 		                        INNER JOIN OB01 ON OA01999 = OB01002
 		                        INNER JOIN OC01 ON OB01999 = OC01003
@@ -1546,7 +1546,7 @@ namespace Sinoo.BLL
 			                        AND  OA01016 = 0 AND OA01018 = 0
 	                        UNION ALL 
 		                        SELECT CB01002,OB01007*OB01008*OA01016 AS OA01020
-			                        ,round((OB01009/OA01021/1.17),2)*OA01016 AS OA01022
+			                        ,round((OB01009/OA01021/1.16),2)*OA01016 AS OA01022
 			                        , OA01002,CA01001,OA01044
 		                        FROM OA01 
 		                        INNER JOIN OB01 ON OA01999 = OB01002
@@ -1558,7 +1558,7 @@ namespace Sinoo.BLL
 			                        AND (OA01015 <> '' and OA01015 is not null)
 	                        UNION ALL 
 		                        SELECT CB01002,OB01007*OB01008*OA01018 AS OA01020
-			                        ,round((OB01009/OA01021/1.17),2)*OA01018 AS OA01022
+			                        ,round((OB01009/OA01021/1.16),2)*OA01018 AS OA01022
 			                        , OA01002,CA01001,OA01044
 		                        FROM OA01 
 		                        INNER JOIN OB01 ON OA01999 = OB01002
@@ -1570,7 +1570,7 @@ namespace Sinoo.BLL
 			                        AND (OA01017 <> '' and OA01017 is not null) 
 	                        UNION ALL 
 		                        SELECT CB01002,OB01007*OB01008*(1-OA01016-OA01018) AS OA01020
-			                        ,round((OB01009/OA01021/1.17),2)*(1-OA01016-OA01018) AS OA01022
+			                        ,round((OB01009/OA01021/1.16),2)*(1-OA01016-OA01018) AS OA01022
 			                        ,OA01002
 			                        ,CA01001,OA01044
 		                        FROM OA01 
@@ -1701,7 +1701,7 @@ namespace Sinoo.BLL
 	                        SELECT  UA01001,UA01004,UA01005,COUNT(DISTINCT OA01002) count,
 				                        sum(OA01020) sumrmb ,sum(OA01022) sumus 
 	                        FROM(
-		                        SELECT  UA01001,UA01004,UA01005,UA01013,OB01007*OB01008 OA01020,round((OB01009/OA01021/1.17),2) OA01022,OA01002
+		                        SELECT  UA01001,UA01004,UA01005,UA01013,OB01007*OB01008 OA01020,round((OB01009/OA01021/1.16),2) OA01022,OA01002
 		                        FROM OA01  
 		                        INNER JOIN UA01 ON UA01001 = OA01013
 		                        INNER JOIN OB01 ON OB01002=OA01999 
@@ -1717,7 +1717,7 @@ namespace Sinoo.BLL
 	                        SELECT  UA01001,UA01004,UA01005,COUNT(DISTINCT OA01002) count,
 				                        sum(OA01020) sumrmb ,sum(OA01022) sumus 
 	                        FROM(
-		                        SELECT  UA01001,UA01004,UA01005,UA01013,OB01007*OB01008*OA01016 AS OA01020,round((OB01009/OA01021/1.17),2)*OA01016 AS OA01022,OA01016,OA01002
+		                        SELECT  UA01001,UA01004,UA01005,UA01013,OB01007*OB01008*OA01016 AS OA01020,round((OB01009/OA01021/1.16),2)*OA01016 AS OA01022,OA01016,OA01002
 		                        FROM OA01  
 		                        INNER JOIN UA01 ON UA01004 = OA01015
 		                        INNER JOIN OB01 ON OB01002=OA01999 
@@ -1731,7 +1731,7 @@ namespace Sinoo.BLL
 	                        SELECT  UA01001,UA01004,UA01005,COUNT(DISTINCT OA01002) count,
 				                        sum(OA01020) sumrmb ,sum(OA01022) sumus 
 	                        FROM(
-		                        SELECT  UA01001,UA01004,UA01005,UA01013,OB01007*OB01008*OA01018 AS OA01020,round((OB01009/OA01021/1.17),2)*OA01018 AS OA01022,OA01018,OA01002
+		                        SELECT  UA01001,UA01004,UA01005,UA01013,OB01007*OB01008*OA01018 AS OA01020,round((OB01009/OA01021/1.16),2)*OA01018 AS OA01022,OA01018,OA01002
 		                        FROM OA01  
 		                        INNER JOIN UA01 ON UA01004 = OA01017
 		                        INNER JOIN OB01 ON OB01002=OA01999 
@@ -1745,7 +1745,7 @@ namespace Sinoo.BLL
 	                        SELECT  UA01001,UA01004,UA01005,COUNT(DISTINCT OA01002) count,
 				                        sum(OA01020) sumrmb ,sum(OA01022) sumus 
 	                        FROM(
-		                        SELECT  UA01001,UA01004,UA01005,UA01013,OB01007*OB01008*(1-OA01016-OA01018) AS OA01020,round((OB01009/OA01021/1.17),2)*(1-OA01016-OA01018) AS OA01022,OA01018,OA01016,OA01002
+		                        SELECT  UA01001,UA01004,UA01005,UA01013,OB01007*OB01008*(1-OA01016-OA01018) AS OA01020,round((OB01009/OA01021/1.16),2)*(1-OA01016-OA01018) AS OA01022,OA01018,OA01016,OA01002
 		                        FROM OA01  
 		                        INNER JOIN UA01 ON UA01001 = OA01013
 		                        INNER JOIN OB01 ON OB01002=OA01999 
@@ -1861,7 +1861,7 @@ namespace Sinoo.BLL
             //            try
             //            {
             //                string strColumn = @" UA01004 ,count(1) count,SUM(OB01009) sumrmb,
-            //	                CAST(ROUND(SUM(OB01009)/1.17, 2) as decimal(38,2)) sumus,UA01013,
+            //	                CAST(ROUND(SUM(OB01009)/1.16, 2) as decimal(38,2)) sumus,UA01013,
             //                    ROW_NUMBER() OVER(ORDER BY UA01004) RowNumber  ";
             //                string strTableName = @" OA01  
             //			        INNER JOIN UA01 ON UA01001 = OA01013
@@ -1906,7 +1906,7 @@ namespace Sinoo.BLL
 	                        SELECT  UA01001,UA01004,UA01005,COUNT(DISTINCT OA01002) count,
 				                        sum(OA01020) sumrmb ,sum(OA01022) sumus 
 	                        FROM(
-		                        SELECT  UA01001,UA01004,UA01005,UA01013,OB01007*OB01008 OA01020,round((OB01009/OA01021/1.17),2) OA01022,OA01002
+		                        SELECT  UA01001,UA01004,UA01005,UA01013,OB01007*OB01008 OA01020,round((OB01009/OA01021/1.16),2) OA01022,OA01002
 		                        FROM OA01  
 		                        INNER JOIN UA01 ON UA01001 = OA01013
 		                        INNER JOIN OB01 ON OB01002=OA01999 
@@ -1922,7 +1922,7 @@ namespace Sinoo.BLL
 	                        SELECT  UA01001,UA01004,UA01005,COUNT(DISTINCT OA01002) count,
 				                        sum(OA01020) sumrmb ,sum(OA01022) sumus 
 	                        FROM(
-		                        SELECT  UA01001,UA01004,UA01005,UA01013,OB01007*OB01008*OA01016 AS OA01020,round((OB01009/OA01021/1.17),2)*OA01016 AS OA01022,OA01016,OA01002
+		                        SELECT  UA01001,UA01004,UA01005,UA01013,OB01007*OB01008*OA01016 AS OA01020,round((OB01009/OA01021/1.16),2)*OA01016 AS OA01022,OA01016,OA01002
 		                        FROM OA01  
 		                        INNER JOIN UA01 ON UA01004 = OA01015
 		                        INNER JOIN OB01 ON OB01002=OA01999 
@@ -1936,7 +1936,7 @@ namespace Sinoo.BLL
 	                        SELECT  UA01001,UA01004,UA01005,COUNT(DISTINCT OA01002) count,
 				                        sum(OA01020) sumrmb ,sum(OA01022) sumus 
 	                        FROM(
-		                        SELECT  UA01001,UA01004,UA01005,UA01013,OB01007*OB01008*OA01018 AS OA01020,round((OB01009/OA01021/1.17),2)*OA01018 AS OA01022,OA01018,OA01002
+		                        SELECT  UA01001,UA01004,UA01005,UA01013,OB01007*OB01008*OA01018 AS OA01020,round((OB01009/OA01021/1.16),2)*OA01018 AS OA01022,OA01018,OA01002
 		                        FROM OA01  
 		                        INNER JOIN UA01 ON UA01004 = OA01017
 		                        INNER JOIN OB01 ON OB01002=OA01999 
@@ -1950,7 +1950,7 @@ namespace Sinoo.BLL
 	                        SELECT  UA01001,UA01004,UA01005,COUNT(DISTINCT OA01002) count,
 				                        sum(OA01020) sumrmb ,sum(OA01022) sumus 
 	                        FROM(
-		                        SELECT  UA01001,UA01004,UA01005,UA01013,OB01007*OB01008*(1-OA01016-OA01018) AS OA01020,round((OB01009/OA01021/1.17),2)*(1-OA01016-OA01018) AS OA01022,OA01018,OA01016,OA01002
+		                        SELECT  UA01001,UA01004,UA01005,UA01013,OB01007*OB01008*(1-OA01016-OA01018) AS OA01020,round((OB01009/OA01021/1.16),2)*(1-OA01016-OA01018) AS OA01022,OA01018,OA01016,OA01002
 		                        FROM OA01  
 		                        INNER JOIN UA01 ON UA01001 = OA01013
 		                        INNER JOIN OB01 ON OB01002=OA01999 
@@ -2104,7 +2104,7 @@ namespace Sinoo.BLL
                                             SELECT OA01002,CA01003,UA01001,UA01005,SUM(OA01022) OA01022,CB02002,CB04002,OB02002,OA01045
                                                    ,Province,get240,get220,OA01028,CA01009,CA01010
                                             FROM (
-	                                            SELECT OA01002,CA01003,UA01001,UA01005,round((OB01009/OA01021/1.17),2) OA01022
+	                                            SELECT OA01002,CA01003,UA01001,UA01005,round((OB01009/OA01021/1.16),2) OA01022
                                                     ,CB02002,CB04002,OB02002,OA01045,P.GA03002 Province ,GA05003 get240,GA06003 get220
                                                     ,OA01028,CA01009,CA01010
 	                                            FROM OA01
@@ -2130,7 +2130,7 @@ namespace Sinoo.BLL
                                             SELECT OA01002,CA01003,UA01001,UA01005,SUM(OA01022) OA01022,CB02002,CB04002,OB02002,OA01045
                                                    ,Province,get240,get220,OA01028,CA01009,CA01010
                                             FROM (
-	                                            SELECT OA01002,CA01003,UA01001,UA01005,round((OB01009/OA01021/1.17),2)*OA01016 AS OA01022,CB02002
+	                                            SELECT OA01002,CA01003,UA01001,UA01005,round((OB01009/OA01021/1.16),2)*OA01016 AS OA01022,CB02002
 				                                            ,CB04002,OB02002,OA01045,P.GA03002 Province ,GA05003 get240
 				                                            ,GA06003 get220,OA01028,CA01009,CA01010
 	                                            FROM OA01
@@ -2154,7 +2154,7 @@ namespace Sinoo.BLL
                                             SELECT  OA01002,CA01003,UA01001,UA01005,SUM(OA01022) OA01022,CB02002,CB04002,OB02002,OA01045
                                                    ,Province,get240,get220,OA01028,CA01009,CA01010
                                             FROM (
-	                                            SELECT OA01002,CA01003,UA01001,UA01005,round((OB01009/OA01021/1.17),2)*OA01018 AS OA01022,CB02002
+	                                            SELECT OA01002,CA01003,UA01001,UA01005,round((OB01009/OA01021/1.16),2)*OA01018 AS OA01022,CB02002
 				                                            ,CB04002,OB02002,OA01045,P.GA03002 Province ,GA05003 get240
 				                                            ,GA06003 get220,OA01028,CA01009,CA01010
 	                                            FROM OA01
@@ -2178,7 +2178,7 @@ namespace Sinoo.BLL
                                             SELECT OA01002,CA01003,UA01001,UA01005,SUM(OA01022) OA01022,CB02002,CB04002,OB02002,OA01045
                                                    ,Province,get240,get220,OA01028,CA01009,CA01010
                                             FROM (
-	                                            SELECT OA01002,CA01003,UA01001,UA01005,round((OB01009/OA01021/1.17),2)*(1-OA01016-OA01018) AS OA01022,CB02002
+	                                            SELECT OA01002,CA01003,UA01001,UA01005,round((OB01009/OA01021/1.16),2)*(1-OA01016-OA01018) AS OA01022,CB02002
 				                                            ,CB04002,OB02002,OA01045,P.GA03002 Province ,GA05003 get240
 				                                            ,GA06003 get220,OA01028,CA01009,CA01010
 	                                            FROM OA01
@@ -2379,7 +2379,7 @@ namespace Sinoo.BLL
 				                                           OA01038 AS CustomerNum,
 			                                               OA01044 AS NewCustomerNum,
 			                                               OA01002 AS OrderNum,
-			                                              round((OB01009/OA01021/1.17),2) OA01022 ,OB01007*OB01008 OA01020
+			                                              round((OB01009/OA01021/1.16),2) OA01022 ,OB01007*OB01008 OA01020
 		                                            FROM dbo.OA01 
 		                                            JOIN dbo.CA01 ON OA01038 = CA01001
 		                                            JOIN dbo.UA01 ON UA01001 = OA01013 	
@@ -2394,7 +2394,7 @@ namespace Sinoo.BLL
 				                                           OA01038 AS  CustomerNum,
 				                                           OA01044 AS NewCustomerNum,
 				                                           OA01002 AS OrderNum,
-				                                           round((OB01009/OA01021/1.17),2)*OA01016 AS OA01022,
+				                                           round((OB01009/OA01021/1.16),2)*OA01016 AS OA01022,
 				                                           (OB01007*OB01008*OA01016) AS OA01020
 		                                            FROM dbo.OA01  
 		                                            JOIN dbo.CA01 ON OA01038 = CA01001
@@ -2408,7 +2408,7 @@ namespace Sinoo.BLL
 				                                         OA01038 AS  CustomerNum,
 				                                         OA01044 AS NewCustomerNum,
 				                                         OA01002 AS OrderNum,
-				                                         round((OB01009/OA01021/1.17),2)*OA01018 AS OA01022,
+				                                         round((OB01009/OA01021/1.16),2)*OA01018 AS OA01022,
 				                                         OB01007*OB01008*OA01018 AS OA01020
 	                                              FROM dbo.OA01 
 	                                              JOIN dbo.CA01 ON OA01038 = CA01001
@@ -2422,7 +2422,7 @@ namespace Sinoo.BLL
 				                                         OA01038 AS  CustomerNum,
 				                                         OA01044 AS NewCustomerNum,
 				                                         OA01002 AS OrderNum,
-				                                         round((OB01009/OA01021/1.17),2)*(1-OA01016-OA01018) AS OA01022,
+				                                         round((OB01009/OA01021/1.16),2)*(1-OA01016-OA01018) AS OA01022,
 				                                         OB01007*OB01008*(1-OA01016-OA01018) AS OA01020
 		                                          FROM dbo.OA01 
 		                                          JOIN dbo.CA01 ON OA01038 = CA01001
@@ -2608,7 +2608,7 @@ namespace Sinoo.BLL
 	                            COUNT(DISTINCT OA01002) OA01002,COUNT(DISTINCT CA01001) CA01001,
 	                            SUM(CASE WHEN OA01044=1 THEN OA01044 ELSE 0 END ) as OA01044  
                             FROM (
-		                            SELECT CB03002, OB01007*OB01008 OA01020,round((OB01009/OA01021/1.17),2) OA01022,OA01002,CA01001,OA01044
+		                            SELECT CB03002, OB01007*OB01008 OA01020,round((OB01009/OA01021/1.16),2) OA01022,OA01002,CA01001,OA01044
 		                            FROM OA01 
 		                            INNER JOIN OB01 ON OA01999 = OB01002
 		                            INNER JOIN OC01 ON OB01999 = OC01003
@@ -2623,7 +2623,7 @@ namespace Sinoo.BLL
 	                            UNION ALL 
 	                 
 		                            SELECT CB03002,OB01007*OB01008*OA01016 AS OA01020
-			                            ,round((OB01009/OA01021/1.17),2)*OA01016 AS OA01022
+			                            ,round((OB01009/OA01021/1.16),2)*OA01016 AS OA01022
 			                            , OA01002,CA01001,OA01044
 		                            FROM OA01 
 		                            INNER JOIN OB01 ON OA01999 = OB01002
@@ -2635,7 +2635,7 @@ namespace Sinoo.BLL
 			                            AND (OA01015 <> '' and OA01015 is not null)
 	                            UNION ALL 
 		                            SELECT CB03002,OB01007*OB01008*OA01018 AS OA01020
-			                            ,round((OB01009/OA01021/1.17),2)*OA01018 AS OA01022
+			                            ,round((OB01009/OA01021/1.16),2)*OA01018 AS OA01022
 			                            , OA01002,CA01001,OA01044
 		                            FROM OA01 
 		                            INNER JOIN OB01 ON OA01999 = OB01002
@@ -2647,7 +2647,7 @@ namespace Sinoo.BLL
 			                            AND (OA01017 <> '' and OA01017 is not null) 
 	                            UNION ALL 
 		                            SELECT CB03002,OB01007*OB01008*(1-OA01016-OA01018) AS OA01020
-			                            ,round((OB01009/OA01021/1.17),2)*(1-OA01016-OA01018) AS OA01022
+			                            ,round((OB01009/OA01021/1.16),2)*(1-OA01016-OA01018) AS OA01022
 			                            ,OA01002,CA01001,OA01044
 		                            FROM OA01 
 		                            INNER JOIN OB01 ON OA01999 = OB01002
@@ -2787,7 +2787,7 @@ namespace Sinoo.BLL
 									FROM(
 										SELECT UA01005,SUM(OA01022) OA01022,SUM(DISTINCT(CASE WHEN OA01054=1 THEN OA01054 ELSE 0 END )) OA01054
 									   FROM (
-											SELECT  UA01005,round((OB01009/OA01021/1.17),2) OA01022,OA01054
+											SELECT  UA01005,round((OB01009/OA01021/1.16),2) OA01022,OA01054
 											FROM OA01
 											JOIN CA01 ON CA01001 = OA01038
 											LEFT JOIN CB04 ON CB04001 = CA01020
@@ -2805,7 +2805,7 @@ namespace Sinoo.BLL
 										FROM (
 											SELECT UA01005,SUM(OA01022) OA01022,SUM(DISTINCT(CASE WHEN OA01054=1 THEN OA01054 ELSE 0 END )) OA01054
 									   FROM (
-											SELECT  UA01005,round((OB01009/OA01021/1.17),2)*OA01016 AS OA01022,OA01054
+											SELECT  UA01005,round((OB01009/OA01021/1.16),2)*OA01016 AS OA01022,OA01054
 											FROM OA01
 											JOIN CA01 ON CA01001 = OA01038
 											LEFT JOIN CB04 ON CB04001 = CA01020
@@ -2821,7 +2821,7 @@ namespace Sinoo.BLL
 										FROM (
 											SELECT UA01005,SUM(OA01022) OA01022,SUM(DISTINCT(CASE WHEN OA01054=1 THEN OA01054 ELSE 0 END )) OA01054
 									   FROM (
-											SELECT  UA01005,round((OB01009/OA01021/1.17),2)*OA01018 AS OA01022,OA01054
+											SELECT  UA01005,round((OB01009/OA01021/1.16),2)*OA01018 AS OA01022,OA01054
 											FROM OA01
 											JOIN CA01 ON CA01001 = OA01038
 											LEFT JOIN CB04 ON CB04001 = CA01020
@@ -2837,7 +2837,7 @@ namespace Sinoo.BLL
 										FROM (
 											SELECT UA01005,SUM(OA01022) OA01022,SUM(DISTINCT(CASE WHEN OA01054=1 THEN OA01054 ELSE 0 END )) OA01054
 											FROM (
-												SELECT  UA01005,round((OB01009/OA01021/1.17),2)*(1-OA01016-OA01018) AS OA01022,OA01054
+												SELECT  UA01005,round((OB01009/OA01021/1.16),2)*(1-OA01016-OA01018) AS OA01022,OA01054
 												FROM OA01
 												JOIN CA01 ON CA01001 = OA01038
 												LEFT JOIN CB04 ON CB04001 = CA01020
@@ -2969,7 +2969,7 @@ namespace Sinoo.BLL
 	                            COUNT(DISTINCT OA01002) OA01002,COUNT(DISTINCT CA01001) CA01001,
 	                            SUM(CASE WHEN OA01044=1 THEN OA01044 ELSE 0 END ) as OA01044  
                             FROM (
-		                            SELECT CB02002, OB01007*OB01008 OA01020,round((OB01009/OA01021/1.17),2) OA01022,OA01002,CA01001,OA01044
+		                            SELECT CB02002, OB01007*OB01008 OA01020,round((OB01009/OA01021/1.16),2) OA01022,OA01002,CA01001,OA01044
 			                            ,ROW_NUMBER() OVER(PARTITION BY OA01002 ORDER BY OA01009 DESC) NUM
 		                            FROM OA01 
 		                            INNER JOIN OB01 ON OA01999 = OB01002
@@ -2984,7 +2984,7 @@ namespace Sinoo.BLL
 	                          
 	                            UNION ALL 
 		                            SELECT CB02002,OB01007*OB01008*OA01016 AS OA01020
-			                            ,round((OB01009/OA01021/1.17),2)*OA01016 AS OA01022
+			                            ,round((OB01009/OA01021/1.16),2)*OA01016 AS OA01022
 			                            , OA01002,CA01001,OA01044
 			                            ,ROW_NUMBER() OVER(PARTITION BY OA01002 ORDER BY OA01009 DESC) NUM
 		                            FROM OA01 
@@ -2997,7 +2997,7 @@ namespace Sinoo.BLL
 			                            AND (OA01015 <> '' and OA01015 is not null)
 	                            UNION ALL 
 		                            SELECT CB02002,OB01007*OB01008*OA01018 AS OA01020
-			                            ,round((OB01009/OA01021/1.17),2)*OA01018 AS OA01022
+			                            ,round((OB01009/OA01021/1.16),2)*OA01018 AS OA01022
 			                            , OA01002,CA01001,OA01044
 			                            ,ROW_NUMBER() OVER(PARTITION BY OA01002 ORDER BY OA01009 DESC) NUM
 		                            FROM OA01 
@@ -3010,7 +3010,7 @@ namespace Sinoo.BLL
 			                            AND (OA01017 <> '' and OA01017 is not null) 
 	                            UNION ALL 
 		                            SELECT CB02002,OB01007*OB01008*(1-OA01016-OA01018) AS OA01020
-			                            ,round((OB01009/OA01021/1.17),2)*(1-OA01016-OA01018) AS OA01022
+			                            ,round((OB01009/OA01021/1.16),2)*(1-OA01016-OA01018) AS OA01022
 			                            ,OA01002
 			                            ,CA01001,OA01044
 			                            ,ROW_NUMBER() OVER(PARTITION BY OA01002 ORDER BY OA01009 DESC) NUM
@@ -3145,74 +3145,67 @@ namespace Sinoo.BLL
                
                     strTableName = string.Format(@"
                         (
-                            SELECT GA03001,GA03002 ProvinceName,COUNT(distinct CustomerNum) CustomerNum
-                                    ,SUM(CASE  WHEN NewCustomerNum = 1 THEN 1 ELSE 0 END ) NewCustomerNum
-                                    ,count(OrderNum) OrderNum  ,SUM(Amout) Amout
-                            FROM (
-	                            SELECT * FROM (
-		                            SELECT P.GA03001,P.GA03002 , OA01038 AS  CustomerNum,
-			                               OA01044 AS NewCustomerNum,
-			                               OA01002 AS OrderNum,
-			                               OA01022 AS Amout,
-			                               ROW_NUMBER() OVER(PARTITION BY OA01002 ORDER BY OA01002 ASC ) AS NUM
-		                            FROM dbo.OA01 
-		                            JOIN dbo.CA01 ON OA01038 = CA01001
-		                            JOIN dbo.UA01 ON UA01001 = OA01013 	
-		                            JOIN dbo.OB01 ON OA01999 = OB01002
-		                            JOIN dbo.OC01 ON OB01999 = OC01003
-                                    JOIN dbo.GA03 ON GA03001 = CA01013
-                                    JOIN dbo.GA03 P ON GA03.GA03003 = P.GA03001
-		                            WHERE OA01997 = 0 AND OA01003 <> 3  AND  OA01016 = 0 AND OA01018 = 0  {0}
-	                            ) A WHERE NUM =1
-	                            UNION ALL
-	                            SELECT * FROM (
-		                            SELECT OA01055 GA03001,OA01057 GA03002 , OA01038 AS  CustomerNum,
-				                               OA01044 AS NewCustomerNum,
-				                               OA01002 AS OrderNum,
-				                               (OA01022*OA01016) AS Amout,
-				                               ROW_NUMBER() OVER(PARTITION BY OA01002 ORDER BY OA01002 ASC ) AS NUM
-		                            FROM dbo.OA01  
-		                            JOIN dbo.CA01 ON OA01038 = CA01001
-		                            JOIN dbo.UA01 ON UA01004 = OA01015 	
-		                            JOIN dbo.OB01 ON OA01999 = OB01002
-		                            JOIN dbo.OC01 ON OB01999 = OC01003
-		                            WHERE OA01997 = 0 AND OA01003 <> 3 and OA01055 <> '' and OA01016 <> 0 {0}
-	                            ) B WHERE NUM =1
-	                            UNION ALL
-	                            SELECT * 
-	                            FROM (
-	                            SELECT OA01056 GA03001,OA01058 GA03002, OA01038 AS  CustomerNum,
-				                               OA01044 AS NewCustomerNum,
-				                               OA01002 AS OrderNum,
-				                               OA01022*OA01018 AS Amout,
-				                               ROW_NUMBER() OVER(PARTITION BY OA01002 ORDER BY OA01002 ASC ) AS NUM
-	                                FROM dbo.OA01 
-		                            JOIN dbo.CA01 ON OA01038 = CA01001
-		                            JOIN dbo.UA01 ON UA01004 = OA01015 	
-		                            JOIN dbo.OB01 ON OA01999 = OB01002
-		                            JOIN dbo.OC01 ON OB01999 = OC01003
-		                            WHERE OA01997 = 0 AND OA01003 <> 3 and OA01056 <> '' and OA01018 <> 0 {0}
-		                            AND   (OA01017 <> '' AND OA01017 IS NOT NULL) 
-	                            ) C WHERE NUM =1
-	                            UNION ALL
-	                            SELECT * FROM 
-	                            (
-		                            SELECT  P.GA03001,P.GA03002 , OA01038 AS  CustomerNum,
-					                               OA01044 AS NewCustomerNum,
-					                               OA01002 AS OrderNum,
-					                               OA01022*(1-OA01016-OA01018) AS Amout,
-					                               ROW_NUMBER() OVER(PARTITION BY OA01002 ORDER BY OA01002 ASC ) AS NUM
-		                            FROM dbo.OA01 
-		                            JOIN dbo.CA01 ON OA01038 = CA01001
-                                    JOIN dbo.GA03 ON GA03001=CA01013
-                                    JOIN dbo.GA03 P ON GA03.GA03003 = P.GA03001
-		                            JOIN dbo.UA01 ON UA01001 = OA01013 	
-		                            JOIN dbo.OB01 ON OA01999 = OB01002
-		                            JOIN dbo.OC01 ON OB01999 = OC01003
-		                            WHERE OA01997 = 0 AND OA01003 <> 3 AND  (OA01016 <> 0 OR OA01018<>0) {0}
-	                            ) D WHERE NUM =1
-                            ) ABCD
-                            GROUP BY GA03001,GA03002
+                            SELECT GA03001,GA03002 ProvinceName, COUNT(distinct CustomerNum) CustomerNum
+                                            ,SUM(CASE  WHEN NewCustomerNum = 1 THEN 1 ELSE 0 END ) NewCustomerNum
+                                            ,COUNT(distinct OrderNum) OrderNum  ,SUM(OA01022) Amout
+                                        FROM (
+			                                        SELECT P.GA03001,P.GA03002, 
+				                                           OA01038 AS CustomerNum,
+			                                               OA01044 AS NewCustomerNum,
+			                                               OA01002 AS OrderNum,
+			                                              round((OB01009/OA01021/1.16),2) OA01022 
+		                                            FROM dbo.OA01 
+		                                            JOIN dbo.CA01 ON OA01038 = CA01001
+		                                            JOIN dbo.OB01 ON OA01999 = OB01002
+		                                            JOIN dbo.OC01 ON OB01999 = OC01003
+													JOIN dbo.GA03 ON GA03001 = CA01013
+													JOIN dbo.GA03 P ON GA03.GA03003 = P.GA03001
+		                                            WHERE OA01997 = 0 AND OA01003 <> 3  
+					                                        AND  (OA01015 = '' or OA01015 is null)   
+					                                        AND  (OA01017 = '' or OA01017 is null) 
+                                                            AND  OA01016 = 0 AND OA01018 = 0  {0}
+	                                          UNION ALL 
+		                                            SELECT OA01055 GA03001,OA01057 GA03002 ,
+				                                           OA01038 AS  CustomerNum,
+				                                           OA01044 AS NewCustomerNum,
+				                                           OA01002 AS OrderNum,
+				                                           round((OB01009/OA01021/1.16),2)*OA01016 AS OA01022
+		                                            FROM dbo.OA01  
+		                                            JOIN dbo.CA01 ON OA01038 = CA01001
+		                                            JOIN dbo.OB01 ON OA01999 = OB01002
+		                                            JOIN dbo.OC01 ON OB01999 = OC01003
+		                                            WHERE OA01997 = 0 AND OA01003 <> 3  
+				                                        AND   (OA01015 <> '' AND OA01015 IS NOT NULL)   {0}
+	                                         UNION ALL 
+	                                              SELECT OA01056 GA03001,OA01058 GA03002 , 
+				                                         OA01038 AS  CustomerNum,
+				                                         OA01044 AS NewCustomerNum,
+				                                         OA01002 AS OrderNum,
+				                                         round((OB01009/OA01021/1.16),2)*OA01018 AS OA01022
+	                                              FROM dbo.OA01 
+	                                              JOIN dbo.CA01 ON OA01038 = CA01001
+	                                              JOIN dbo.UA01 ON UA01004 = OA01017 	
+	                                              JOIN dbo.OB01 ON OA01999 = OB01002
+	                                              JOIN dbo.OC01 ON OB01999 = OC01003
+	                                              WHERE OA01997 = 0 AND OA01003 <> 3  
+		                                                   AND   (OA01017 <> '' AND OA01017 IS NOT NULL)  {0} 
+	                                         UNION ALL 
+		                                          SELECT P.GA03001,P.GA03002,
+				                                         OA01038 AS  CustomerNum,
+				                                         OA01044 AS NewCustomerNum,
+				                                         OA01002 AS OrderNum,
+				                                         round((OB01009/OA01021/1.16),2)*(1-OA01016-OA01018) AS OA01022
+		                                          FROM dbo.OA01 
+		                                          JOIN dbo.CA01 ON OA01038 = CA01001
+		                                          JOIN dbo.UA01 ON UA01001 = OA01013 	
+		                                          JOIN dbo.OB01 ON OA01999 = OB01002
+		                                          JOIN dbo.OC01 ON OB01999 = OC01003
+												  JOIN dbo.GA03 ON GA03001 = CA01013
+											      JOIN dbo.GA03 P ON GA03.GA03003 = P.GA03001
+		                                          WHERE OA01997 = 0 AND OA01003 <> 3  
+			                                                 AND  (OA01016 <> 0 OR OA01018<>0)   {0}
+                                        ) ABCD 
+                    group by GA03001,GA03002
                 ) A", strWhereAdd);
                 string strWhere = "";
                 ds = Provider.ReturnDataSetByDataAdapter("PRO_Page", 1, ref obj, new SqlParameter[]{
@@ -3257,7 +3250,7 @@ namespace Sinoo.BLL
 		                            SELECT P.GA03001,P.GA03002 , OA01038 AS  CustomerNum,
 			                               OA01044 AS NewCustomerNum,
 			                               OA01002 AS OrderNum,
-			                               round((OB01009/OA01021/1.17),2) AS Amout
+			                               round((OB01009/OA01021/1.16),2) AS Amout
 		                            FROM dbo.OA01 
 		                            JOIN dbo.CA01 ON OA01038 = CA01001
 		                            JOIN dbo.UA01 ON UA01001 = OA01013 	
@@ -3273,7 +3266,7 @@ namespace Sinoo.BLL
 		                            SELECT P.GA03001,P.GA03002 , OA01038 AS  CustomerNum,
 				                               OA01044 AS NewCustomerNum,
 				                               OA01002 AS OrderNum,
-				                               round((OB01009/OA01021/1.17),2)*OA01016 AS Amout
+				                               round((OB01009/OA01021/1.16),2)*OA01016 AS Amout
 		                            FROM dbo.OA01  
 		                            JOIN dbo.CA01 ON OA01038 = CA01001
 		                            JOIN dbo.UA01 ON UA01004 = OA01015 	
@@ -3287,7 +3280,7 @@ namespace Sinoo.BLL
 	                            SELECT P.GA03001,P.GA03002 , OA01038 AS  CustomerNum,
 				                               OA01044 AS NewCustomerNum,
 				                               OA01002 AS OrderNum,
-				                               round((OB01009/OA01021/1.17),2)*OA01018 AS Amout
+				                               round((OB01009/OA01021/1.16),2)*OA01018 AS Amout
 	                            FROM dbo.OA01 
 	                            JOIN dbo.CA01 ON OA01038 = CA01001
                                 JOIN dbo.GA03 ON GA03001=CA01013
@@ -3301,7 +3294,7 @@ namespace Sinoo.BLL
 		                            SELECT  P.GA03001,P.GA03002 , OA01038 AS  CustomerNum,
 					                               OA01044 AS NewCustomerNum,
 					                               OA01002 AS OrderNum,
-					                               round((OB01009/OA01021/1.17),2)*(1-OA01016-OA01018) AS Amout
+					                               round((OB01009/OA01021/1.16),2)*(1-OA01016-OA01018) AS Amout
 		                            FROM dbo.OA01 
 		                            JOIN dbo.CA01 ON OA01038 = CA01001
                                     JOIN dbo.GA03 ON GA03001=CA01013
@@ -3445,7 +3438,7 @@ namespace Sinoo.BLL
 										   GA03.GA03002 CityName,
 			                               OA01044 AS NewCustomerNum,
 			                               OA01002 AS OrderNum,
-			                               round((OB01009/OA01021/1.17),2) AS Amout
+			                               round((OB01009/OA01021/1.16),2) AS Amout
 		                            FROM dbo.OA01 
 		                            JOIN dbo.CA01 ON OA01038 = CA01001
 		                            JOIN dbo.UA01 ON UA01001 = OA01013 	
@@ -3462,7 +3455,7 @@ namespace Sinoo.BLL
 											  GA03.GA03002 CityName,
 				                                (case when OA01044=1 then OA01044 else 0 end )  AS NewCustomerNum,
 				                               OA01002 AS OrderNum,
-				                               round((OB01009/OA01021/1.17),2)*OA01016 AS Amout
+				                               round((OB01009/OA01021/1.16),2)*OA01016 AS Amout
 		                            FROM dbo.OA01  
 		                            JOIN dbo.CA01 ON OA01038 = CA01001
 		                            JOIN dbo.UA01 ON UA01004 = OA01015 	
@@ -3477,7 +3470,7 @@ namespace Sinoo.BLL
 											 GA03.GA03002 CityName,
 				                              (case when OA01044=1 then OA01044 else 0 end )  AS NewCustomerNum,
 				                               OA01002 AS OrderNum,
-				                               round((OB01009/OA01021/1.17),2)*OA01018 AS Amout
+				                               round((OB01009/OA01021/1.16),2)*OA01018 AS Amout
 	                            FROM dbo.OA01 
 	                            JOIN dbo.CA01 ON OA01038 = CA01001
                                 JOIN dbo.GA03 ON GA03001=CA01013
@@ -3492,7 +3485,7 @@ namespace Sinoo.BLL
 													GA03.GA03002 CityName,
 					                               (case when OA01044=1 then OA01044 else 0 end )  AS NewCustomerNum,
 					                               OA01002 AS OrderNum,
-					                               round((OB01009/OA01021/1.17),2)*(1-OA01016-OA01018) AS Amout
+					                               round((OB01009/OA01021/1.16),2)*(1-OA01016-OA01018) AS Amout
 		                            FROM dbo.OA01 
 		                            JOIN dbo.CA01 ON OA01038 = CA01001
                                     JOIN dbo.GA03 ON GA03001=CA01013
@@ -3906,7 +3899,7 @@ namespace Sinoo.BLL
                             SELECT CA01001,CA01003,SUM(OrderMoney) OrderMoney,
 	                               COUNT(DISTINCT OrderCount) OrderCount,MAX(InvoicedCount) InvoicedCount
                             FROM (SELECT CA01001 , CA01003 ,
-                                         SUM(round((OB01009/OA01021/1.17),2)) OrderMoney,
+                                         SUM(round((OB01009/OA01021/1.16),2)) OrderMoney,
                                           OA01002 OrderCount,
                                          SUM(CASE WHEN OC01014 = 1 THEN 1 ELSE 0 END) InvoicedCount
                                   FROM ( SELECT CA01001,CA01003,OA01002,OC01014,OA01022,OB01009,OA01021 
@@ -3923,7 +3916,7 @@ namespace Sinoo.BLL
                                   GROUP BY CA01001 , CA01003 ,OA01002
                                   UNION ALL 
                                   SELECT CA01001 , CA01003 ,
-                                         SUM(round((OB01009/OA01021/1.17),2)*OA01016) OrderMoney,
+                                         SUM(round((OB01009/OA01021/1.16),2)*OA01016) OrderMoney,
                                          OA01002 OrderCount,
                                          SUM(CASE WHEN OC01014 = 1 THEN 1 ELSE 0 END) InvoicedCount
                                   FROM ( SELECT CA01001,CA01003,OA01002,OC01014,OA01022,OB01009,OA01021,OA01016
@@ -3938,7 +3931,7 @@ namespace Sinoo.BLL
                                    GROUP BY CA01001 , CA01003  ,OA01002   
 	                               UNION ALL
                                    SELECT CA01001 , CA01003 ,
-                                          SUM(round((OB01009/OA01021/1.17),2)*OA01018) OrderMoney,
+                                          SUM(round((OB01009/OA01021/1.16),2)*OA01018) OrderMoney,
                                           OA01002 OrderCount,
                                           SUM(CASE WHEN OC01014 = 1 THEN 1 ELSE 0 END) InvoicedCount
                                    FROM ( SELECT CA01001,CA01003,OA01002,OC01014,OA01022,OB01009,OA01021,OA01018
@@ -3953,7 +3946,7 @@ namespace Sinoo.BLL
                                    GROUP BY CA01001 , CA01003 ,OA01002   
                                    UNION ALL                        
                                    SELECT CA01001 , CA01003 ,
-                                          SUM(round((OB01009/OA01021/1.17),2)*(1-OA01016-OA01018)) OrderMoney,
+                                          SUM(round((OB01009/OA01021/1.16),2)*(1-OA01016-OA01018)) OrderMoney,
                                           OA01002 OrderCount,
                                           SUM(CASE WHEN OC01014 = 1 THEN 1 ELSE 0 END) InvoicedCount
                                    FROM ( SELECT CA01001,CA01003,OA01002,OC01014,OA01022,OB01009,OA01021,OA01016,OA01018
@@ -4073,7 +4066,7 @@ namespace Sinoo.BLL
                 string strSql = string.Format(@"
                     select SUM(OA01020) OA01020,SUM(OA01022) OA01022
                     from (
-	                    SELECT OB01007*OB01008 OA01020,round((OB01009/OA01021/1.17),2) OA01022
+	                    SELECT OB01007*OB01008 OA01020,round((OB01009/OA01021/1.16),2) OA01022
 	                    FROM OA01 
 	                    INNER JOIN OB01 ON OA01999 = OB01002
 	                    INNER JOIN OC01 ON OB01999 = OC01003
@@ -4083,7 +4076,7 @@ namespace Sinoo.BLL
 	                    WHERE OA01997 = 0 AND OA01003 <> 3 AND  (OA01015 = '' or OA01015 is null)
 		                    AND  (OA01017 = '' or OA01017 is null) AND  OA01016 = 0 AND OA01018 = 0 and OA01002 = '{0}'
 	                    UNION ALL 
-	                    SELECT OB01007*OB01008*OA01016 AS OA01020,round((OB01009/OA01021/1.17),2)*OA01016 AS OA01022
+	                    SELECT OB01007*OB01008*OA01016 AS OA01020,round((OB01009/OA01021/1.16),2)*OA01016 AS OA01022
 	                    FROM OA01 
 	                    INNER JOIN OB01 ON OA01999 = OB01002
 	                    INNER JOIN OC01 ON OB01999 = OC01003
@@ -4092,7 +4085,7 @@ namespace Sinoo.BLL
 	                    LEFT JOIN CB03 ON CB03001 = OA01040
 	                    WHERE OA01997 = 0 AND OA01003 <> 3 AND (OA01015 <> '' and OA01015 is not null)  and OA01002 = '{0}'
 	                    UNION ALL 
-	                    SELECT OB01007*OB01008*OA01018 AS OA01020,round((OB01009/OA01021/1.17),2)*OA01018 AS OA01022
+	                    SELECT OB01007*OB01008*OA01018 AS OA01020,round((OB01009/OA01021/1.16),2)*OA01018 AS OA01022
 	                    FROM OA01 
 	                    INNER JOIN OB01 ON OA01999 = OB01002
 	                    INNER JOIN OC01 ON OB01999 = OC01003
@@ -4101,7 +4094,7 @@ namespace Sinoo.BLL
 	                    LEFT JOIN CB03 ON CB03001 = OA01040
 	                    WHERE OA01997 = 0 AND OA01003 <> 3 AND (OA01017 <> '' and OA01017 is not null)  and OA01002 = '{0}'
 	                    UNION ALL 
-	                    SELECT OB01007*OB01008*(1-OA01016-OA01018) AS OA01020,round((OB01009/OA01021/1.17),2)*(1-OA01016-OA01018) AS OA01022
+	                    SELECT OB01007*OB01008*(1-OA01016-OA01018) AS OA01020,round((OB01009/OA01021/1.16),2)*(1-OA01016-OA01018) AS OA01022
 	                    FROM OA01 
 	                    INNER JOIN OB01 ON OA01999 = OB01002
 	                    INNER JOIN OC01 ON OB01999 = OC01003

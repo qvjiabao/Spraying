@@ -14,7 +14,7 @@
             $("#btnReturn").hide();
         }
                 function btnReturns() {
-            location.href = "OA0101List.aspx?PageIndex=<%=ViewState["PageIndex"] %> "
+            location.href = "OA0101List.aspx?PageIndex=<%=ViewState["PageIndex"] %> ";
         }
 
         $(function(){

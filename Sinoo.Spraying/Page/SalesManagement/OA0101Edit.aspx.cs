@@ -349,11 +349,11 @@ namespace Sinoo.Spraying.Page.SalesManagement
             _OrderBase.OA01050 = this.txtOA01050.Text.Trim();
             _OrderBase.OA01053 = this.txtOA01053.Text.Trim();
             _OrderBase.OA01054 = int.Parse(this.ddlOA01054.SelectedValue);
-            _OrderBase.OA01057 = this.ddlOA01055.SelectedItem.Text.Equals("请选择") ? string.Empty : this.ddlOA01055.SelectedItem.Text;
-            _OrderBase.OA01058 = this.ddlOA01056.SelectedItem.Text.Equals("请选择") ? string.Empty : this.ddlOA01056.SelectedItem.Text;
             if (!string.IsNullOrEmpty(this.txtOA01051.Text.Trim()))
                 _OrderBase.OA01051 = Convert.ToDateTime(this.txtOA01051.Text.Trim());
             _OrderBase.OA01999 = ViewState["OA01999"].ToString();
+            _OrderBase.OA01055 = this.ddlOA01055.SelectedValue;
+            _OrderBase.OA01056 = this.ddlOA01056.SelectedValue;
             _OrderBase.OA01057 = this.ddlOA01055.SelectedItem.Text.Equals("请选择") ? string.Empty : this.ddlOA01055.SelectedItem.Text;
             _OrderBase.OA01058 = this.ddlOA01056.SelectedItem.Text.Equals("请选择") ? string.Empty : this.ddlOA01056.SelectedItem.Text;
 
