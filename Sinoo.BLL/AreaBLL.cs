@@ -23,6 +23,52 @@ namespace Sinoo.BLL
         #region 系统区域表
 
         /// <summary>
+        /// 获取汇率
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        public DataTable GetSettings()
+        {
+            DataSet ds;
+            try
+            {
+                object obj = null;
+
+                string strsql = " select top 1 SettingId, Value from Settings order by ModifyOn desc";
+
+                ds = Provider.ReturnDataSetByDataAdapter(strsql, 0, ref obj, null);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+
+            return ds.Tables[0];
+        }
+
+        /// <summary>
+        /// 更新汇率
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="value"></param>
+        /// <returns></returns>
+        public int UpdateSettings(string id, string value)
+        {
+            var sql = string.Format(" update  Settings set ModifyOn = GETDATE(),Value = '{0}' where SettingId = '{1}' ",value,id);
+
+            try
+            {
+                int num = Provider.ExecuteNonQuery(sql, 0, null);
+                return num;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+
+        /// <summary>
         /// 查询全部省市
         /// </summary>
         /// <param name="PageSize">每页显示数</param>

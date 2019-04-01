@@ -13,11 +13,13 @@ namespace Sinoo.Spraying.Handler
     /// </summary>
     public class UniquenessHandler : IHttpHandler
     {
-        
+
         public void ProcessRequest(HttpContext context)
         {
             context.Response.ContentType = "text/plain";
             string value = context.Request.Form[0];
+
+            if (context.Request.Form.Count == 1) return;
 
             Dictionary<string, string> d = new Dictionary<string, string>();
 

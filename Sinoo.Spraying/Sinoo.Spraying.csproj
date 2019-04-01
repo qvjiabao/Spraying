@@ -426,6 +426,7 @@
     <Content Include="Page\DataManagement\GA0302Edit.aspx" />
     <Content Include="Page\DataManagement\GA0302List.aspx" />
     <Content Include="Page\DataManagement\GA0302New.aspx" />
+    <Content Include="Page\DataManagement\Setting.aspx" />
     <Content Include="Page\ReportManagement\DailyReport\ArrivalNotice.aspx" />
     <Content Include="Page\ReportManagement\DailyReport\ArrivalNoticePrint.aspx" />
     <Content Include="Page\ReportManagement\DailyReport\DailyShipment.aspx" />
@@ -817,6 +818,13 @@
     </Compile>
     <Compile Include="Page\DataManagement\GA0302New.aspx.designer.cs">
       <DependentUpon>GA0302New.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Page\DataManagement\Setting.aspx.cs">
+      <DependentUpon>Setting.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Page\DataManagement\Setting.aspx.designer.cs">
+      <DependentUpon>Setting.aspx</DependentUpon>
     </Compile>
     <Compile Include="Page\ReportManagement\DailyReport\ArrivalNotice.aspx.cs">
       <DependentUpon>ArrivalNotice.aspx</DependentUpon>
