@@ -4,7 +4,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-    <title>编辑汇率</title>
+    <title>编辑税率</title>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="/css/bootstrap.min.css" />
@@ -27,7 +27,7 @@
         <div id="breadcrumb">
             <a href="#" title="" class="tip-bottom" data-original-title="Data Management"><i
                 class="icon-home"></i>Data Management </a><a href="#" title="" class="tip-bottom"
-                    data-original-title="Exchange Rate">Exchange Rate </a><a href="#" class="current">Edit Exchange Rate </a>
+                    data-original-title="Tax Rate">Tax Rate </a><a href="#" class="current">Edit Tax Rate </a>
         </div>
         <div class="container-fluid">
             <div class="row-fluid">
@@ -41,7 +41,7 @@
                         <div class="xz">
                             <div class="control-group">
                                 <label>
-                                    <span>Exchange Rate：<font style="color: Red">*</font></span>
+                                    <span>Tax Rate：<font style="color: Red">*</font></span>
                                     <asp:TextBox ID="txtValue" data-rule="required;float4" runat="server"></asp:TextBox>
                                     <input type="hidden" name="SettingId" id="SettingId" runat="server" />
                                 </label>
