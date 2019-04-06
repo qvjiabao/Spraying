@@ -680,7 +680,7 @@ namespace Sinoo.BLL
             try
             {
                 System.Text.StringBuilder sb = new StringBuilder();
-                sb.Append("SELECT  UA01001 , UA01004    FROM  UA01   WHERE UA01997 = 0 ");
+                sb.Append("SELECT  UA01001 , UA01004, UA01005    FROM  UA01  WHERE UA01997 = 0 ORDER BY UA01005 ");
                                                           
                 if (UA01013 != "全区域")
                 {

@@ -71,7 +71,7 @@ namespace Sinoo.Spraying.Page.SalesManagement
                     }
                     this.labOA01032.Text = dt1.Rows[0]["OA01032"].ToString();
                     this.labOA01028.Text = dt1.Rows[0]["OA01028"].ToString();
-                    this.labUA01004.Text = dt1.Rows[0]["UA01004"].ToString();
+                    this.labUA01004.Text = dt1.Rows[0]["UA01005"].ToString();
                     if (dt1.Rows[0]["OB02002"].ToString() != "")
                         this.labOB02002.Text = dt1.Rows[0]["OB02002"].ToString().Substring(0, 3);
 

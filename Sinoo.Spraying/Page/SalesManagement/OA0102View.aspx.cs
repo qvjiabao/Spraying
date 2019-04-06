@@ -68,7 +68,7 @@ namespace Sinoo.Spraying.Page.SalesManagement
                 this.labOA01039.Text = dt.Rows[0]["OA01039"].ToString();
                 this.labOA01049.Text = string.IsNullOrEmpty(dt.Rows[0]["OA01049"].ToString()) ? "" : "其它人1：" + dt.Rows[0]["OA01049"].ToString();
                 this.labOA01050.Text = string.IsNullOrEmpty(dt.Rows[0]["OA01050"].ToString()) ? "" : "其它人2：" + dt.Rows[0]["OA01050"].ToString();
-                this.labOA01013.Text = dt.Rows[0]["UA01004"].ToString();
+                this.labOA01013.Text = dt.Rows[0]["UA01005"].ToString();
                 if (!(dt.Rows[0]["OA01016"] == "" || dt.Rows[0]["OA01016"] is DBNull))
                     this.labOA01016.Text = Convert.ToInt32((Convert.ToDecimal(dt.Rows[0]["OA01016"]) * 100)).ToString() + "%";
                 if (!(dt.Rows[0]["OA01018"] == "" || dt.Rows[0]["OA01018"] is DBNull))

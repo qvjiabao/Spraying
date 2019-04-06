@@ -72,7 +72,7 @@ namespace Sinoo.Spraying.Page.SalesManagement
             this.txtOA01039.Text = dt2.Rows[0]["OA01039"].ToString();
             this.txtOA01049.Text = dt2.Rows[0]["OA01049"].ToString();
             this.txtOA01050.Text = dt2.Rows[0]["OA01050"].ToString();
-            this.labOA01013.Text = dt2.Rows[0]["UA01004"].ToString();
+            this.labOA01013.Text = dt2.Rows[0]["UA01005"].ToString();
             this.txtOA01013.Value = dt2.Rows[0]["OA01013"].ToString();
             ddlOA01016.SelectedValue = dt2.Rows[0]["OA01016"].ToString();
             ddlOA01018.SelectedValue = dt2.Rows[0]["OA01018"].ToString();

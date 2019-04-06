@@ -10,7 +10,7 @@
   <field cn="要求交货日期" tb="CA01"   hidden="false" valid="false" path="" regex="">OA01010</field>
   <field cn="承诺交货日期" tb="CA01"   hidden="false" valid="false" path="" regex="">OA01011</field>
   <field cn="报价号" tb="CA01"   hidden="false" valid="false" path="" regex="">OA01012</field>
-  <field cn="销售员" tb="CA01"   hidden="false" valid="false" path="" regex="">UA01004</field>
+  <field cn="销售员" tb="CA01"   hidden="false" valid="false" path="" regex="">UA01005</field>
   <field cn="特殊要求" tb="CA01"   hidden="false" valid="false" path="" regex="">OA01014</field>
   <field cn="分享人名称1" tb="CA01"   hidden="false" valid="false" path="" regex="">OA01015</field>
   <field cn="分享比例1" tb="CA01"   hidden="false" valid="false" path="" regex="">OA01016</field>

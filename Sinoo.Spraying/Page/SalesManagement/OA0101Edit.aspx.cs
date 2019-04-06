@@ -594,7 +594,7 @@ namespace Sinoo.Spraying.Page.SalesManagement
             if (dt1.Rows.Count > 0)
             {
                 this.ddlUA01.DataSource = dt1;
-                this.ddlUA01.DataTextField = "UA01004";
+                this.ddlUA01.DataTextField = "UA01005";
                 this.ddlUA01.DataValueField = "UA01001";
                 this.ddlUA01.DataBind();
                 this.ddlUA01.Items.Insert(0, new ListItem("请选择", ""));

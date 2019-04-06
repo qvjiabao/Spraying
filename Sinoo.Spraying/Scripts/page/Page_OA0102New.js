@@ -510,7 +510,7 @@ function ShowSalesName() {
             $("#txtOA01013").val("");
         }
         else {
-            $("#labOA01013").html($.parseJSON(data)[0]["UA01004"]);
+            $("#labOA01013").html($.parseJSON(data)[0]["UA01005"]);
             $("#txtOA01013").val($.parseJSON(data)[0]["OA01013"]);
         }
 

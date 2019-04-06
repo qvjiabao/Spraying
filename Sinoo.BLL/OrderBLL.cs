@@ -286,9 +286,9 @@ namespace Sinoo.BLL
             DataSet ds;
             try
             {
-                string strSql = string.Format(@"SELECT UA01001 ,UA01004 
+                string strSql = string.Format(@"SELECT UA01001 ,UA01004 ,UA01005
                                                 FROM UA01
-                                                WHERE UA01997 = 0 AND UA01013 = '{0}'
+                                                WHERE UA01997 = 0 AND UA01013 = '{0}' order by UA01005
                                                 ", _UA01013);
 
                 object obj = null;//用于接收存储过程返回值
@@ -310,9 +310,9 @@ namespace Sinoo.BLL
             DataSet ds;
             try
             {
-                string strSql = string.Format(@"SELECT UA01001 ,UA01004 
+                string strSql = string.Format(@"SELECT UA01001 ,UA01004  ,UA01005
                                                 FROM UA01
-                                                WHERE UA01997 = 0 ");
+                                                WHERE UA01997 = 0 order by UA01005");
 
                 object obj = null;//用于接收存储过程返回值
                 ds = Provider.ReturnDataSetByDataAdapter(strSql, 0, ref obj, null);
@@ -532,7 +532,7 @@ namespace Sinoo.BLL
                                 ,OA01041,OA01042,OA01043,OA01044,OA01045
                                 ,OA01046,OA01047,OA01048,OA01049,OA01050
                                 ,OA01051,OA01997,OA01998,OA01999,OB02002
-                                ,UA01004
+                                ,UA01004,UA01005
                                 FROM OA01
                                 INNER JOIN OB02 ON OB02001 = OA01025
                                 INNER JOIN UA01 ON UA01001 = OA01013
@@ -604,7 +604,7 @@ namespace Sinoo.BLL
                                 ,OA01041,OA01042,OA01043,OA01044,OA01045
                                 ,OA01046,OA01047,OA01048,OA01049,OA01050
                                 ,OA01051,OA01053,OA01997,OA01998,OA01999
-                                ,OB02001,OB02002,UA01001,UA01004,OD01003,OA01054,OA01055,OA01056,OA01057,OA01058
+                                ,OB02001,OB02002,UA01001,UA01004,UA01005,OD01003,OA01054,OA01055,OA01056,OA01057,OA01058
                                 FROM OA01
                                 INNER JOIN OB02 ON OB02001 = OA01025
                                 INNER JOIN UA01 ON UA01001 = OA01013
@@ -758,7 +758,7 @@ namespace Sinoo.BLL
                 string strTableName = string.Format(@" (
                                           SELECT * FROM (
                                                         SELECT  CA01002,OA01001,CA01003,OA01008,OA01002, OA01009,OA01020
-                                                                    ,CA01001,UA01004,ProvinceName,CityName,OP01015
+                                                                    ,CA01001,UA01005,ProvinceName,CityName,OP01015
                                                                     ,ROW_NUMBER() OVER(PARTITION BY OA01002 ORDER BY OA01998 DESC ) AS NUM
                                                         FROM dbo.OA01 JOIN dbo.CA01 ON CA01001 = OA01.OA01038
 		                                                LEFT JOIN dbo.CD02 ON CD02.CD02001 = CA01.CA01025
@@ -971,7 +971,7 @@ namespace Sinoo.BLL
                         ,OA01051,OA01053,OA01997,OA01998,OA01999,CA01003
                         ,dbo.FX_GetProvinceByCityId(CA01013) as ProvinceName
                         ,dbo.FX_GetProvinceIdByCityId(CA01013) as ProvinceId
-                        ,UA01004,ROW_NUMBER() OVER(ORDER BY OA01998 DESC ) AS RowNumber
+                        ,UA01005,ROW_NUMBER() OVER(ORDER BY OA01998 DESC ) AS RowNumber
                         ,GA03002";
                 string strTableName = @" OA01 
                         inner join CA01 on CA01001 = OA01038   
@@ -1300,7 +1300,7 @@ namespace Sinoo.BLL
             try
             {
                 string strSql = string.Format(@" 
-                    SELECT OA01013,UA01004 FROM OA01
+                    SELECT OA01013,UA01004,UA01005 FROM OA01
                     INNER JOIN UA01 ON(UA01001=OA01013)
                     WHERE OA01997=0 AND OA01002 = '{0}'", value);
                 object obj = null;//用于接收存储过程返回值
@@ -1990,19 +1990,17 @@ namespace Sinoo.BLL
                                        ROW_NUMBER() OVER(ORDER BY OA01009 DESC ) AS RowNumber,
                                        DATEDIFF(day,OA01010,getdate()) Pendingdays ";
                 string strTableName = @" OB01 
-                                INNER JOIN OA01 ON(OB01002=OA01999)
-                                INNER JOIN CA01 ON CA01001 = OA01038 
-                                INNER JOIN UA01 ON UA01001 = OA01013
-                                INNER JOIN OC01 ON(OC01003=OB01999) ";
-                string strWhere = @" WHERE OB01997 = 0 AND NOT EXISTS(
-                        		SELECT TOP 1 1
-                        		FROM dbo.OC01  
-                        		JOIN dbo.OB01 ON (OC01003=OB01999) 
-                        		JOIN OA01 t1 ON(OB01002=OA01999) 
-                        		WHERE (OC01010<>0 or oc01007<>1) 
-                        		AND oa01999=oa01.OA01999
-                        	    )
-                                AND (OA01003 = 1 OR OA01003 =3)  " + where;
+                                INNER JOIN OA01 ON (OB01002 = OA01999)
+                                INNER JOIN CA01 ON (CA01001 = OA01038) 
+                                INNER JOIN UA01 ON (UA01001 = OA01013)
+                                INNER JOIN OC01 ON (OC01003 = OB01999) 
+                                LEFT JOIN (SELECT OA01999 as TempOA01999
+                        			FROM dbo.OC01  
+                        			JOIN dbo.OB01 ON (OC01003=OB01999) 
+                        			JOIN dbo.OA01 ON (OB01002=OA01999) 
+                        			WHERE (OC01010<>0 or oc01007<>1) 
+                        		) TEMP ON (OA01.OA01999 = TEMP.TempOA01999)";
+                string strWhere = @" WHERE OB01997 = 0 AND (OA01003 = 1 OR OA01003 =3) AND TempOA01999 is null " + where;
 
                 ds = Provider.ReturnDataSetByDataAdapter("PRO_Page", 1, ref obj, new SqlParameter[]{
                 new SqlParameter(){ParameterName=@"PageIndex",Value=pageIndex, DbType=DbType.Int32},

@@ -60,7 +60,7 @@ namespace Sinoo.Spraying.Page.SalesManagement
             this.labOA01010.Text = string.IsNullOrEmpty(dt.Rows[0]["OA01010"].ToString()) ? "" : Convert.ToDateTime(dt.Rows[0]["OA01010"]).ToString("yyyy-MM-dd");
             this.labOA01011.Text = string.IsNullOrEmpty(dt.Rows[0]["OA01011"].ToString()) ? "" : Convert.ToDateTime(dt.Rows[0]["OA01011"]).ToString("yyyy-MM-dd");
             this.labOA01012.Text = dt.Rows[0]["OA01012"].ToString();
-            this.labOA01013.Text = dt.Rows[0]["UA01004"].ToString();
+            this.labOA01013.Text = dt.Rows[0]["UA01005"].ToString();
             this.labOA01014.Text = dt.Rows[0]["OA01014"].ToString();
             this.labOA01015.Text = dt.Rows[0]["OA01015"].ToString();
             this.labOA01016.Text = string.IsNullOrEmpty(dt.Rows[0]["OA01016"].ToString()) ? "" : dt.Rows[0]["OA01016"].ToString() == "0" ? "" : Convert.ToDecimal(dt.Rows[0]["OA01016"]) * 100 + "%";

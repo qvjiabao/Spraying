@@ -256,7 +256,7 @@
                                             <%# Eval("OA01020") == DBNull.Value ? "" : Math.Round(Convert.ToDecimal(Eval("OA01020")), 2).ToString()%>
                                         </td>
                                         <td>
-                                            <%# Eval("UA01004")%>
+                                            <%# Eval("UA01005")%>
                                         </td>
                                         <td>
                                             <%# Eval("ProvinceName")%>

@@ -149,7 +149,7 @@
                                             <%# Convert.ToDateTime(Eval("OA01009")).ToString("yyyy-MM-dd")%>
                                         </td>
                                         <td>
-                                            <%# Eval("UA01004")%>
+                                            <%# Eval("UA01005")%>
                                         </td>
                                         <td>
                                             <%# Eval("ProvinceName")%>

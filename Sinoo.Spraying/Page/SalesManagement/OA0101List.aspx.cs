@@ -239,7 +239,7 @@ namespace Sinoo.Spraying.Page.SalesManagement
             _UserBase = Session["USER_SESSION"] as UserBase;
             DataTable dtUA01 = _UserBLL.SelectUserBaseByArea(_UserBase.UA01013);
             this.ddlUA01.DataSource = dtUA01;
-            this.ddlUA01.DataTextField = "UA01004";
+            this.ddlUA01.DataTextField = "UA01005";
             this.ddlUA01.DataValueField = "UA01001";
             this.ddlUA01.DataBind();
             this.ddlUA01.Items.Insert(0, new ListItem("请选择", ""));
