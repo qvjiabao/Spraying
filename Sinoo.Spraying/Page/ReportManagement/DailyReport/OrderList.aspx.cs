@@ -13,7 +13,7 @@ namespace Sinoo.Spraying.Page.ReportManagement.DailyReport
     /// <summary>
     /// 到货统计
     /// </summary>
-    public partial class OrderList : System.Web.UI.Page
+    public partial class OrderList : BasePage
     {
 
         ReportBLL _ReportBLL = new ReportBLL();
@@ -124,10 +124,19 @@ namespace Sinoo.Spraying.Page.ReportManagement.DailyReport
             {
                 sqlWhere += "AND OA01044 = '0' ";
             }
-            if (!string.IsNullOrEmpty(this.ddlUA01013.SelectedValue))
+
+            if (!string.IsNullOrEmpty(this.ddlUA01013.SelectedValue) && this.ddlUA01013.SelectedValue != "全区域")
             {
-                sqlWhere += string.Format(" AND UA01013 = '{0}'", this.ddlUA01013.SelectedValue);
+                if (this.ddlUA01013.SelectedValue == "North")
+                {
+                    sqlWhere += " AND UA01013 not in ('Fluid Air','BOF')";
+                }
+                else
+                {
+                    sqlWhere += string.Format(" AND UA01013 = '{0}'", this.ddlUA01013.SelectedValue);
+                }
             }
+
             if (!string.IsNullOrEmpty(Request.Form["ddlUA01"]))
             {
                 sqlWhere += string.Format(" AND UA01001 = '{0}'", Request.Form["ddlUA01"]);
@@ -141,7 +150,8 @@ namespace Sinoo.Spraying.Page.ReportManagement.DailyReport
                 sqlWhere += string.Format(" AND OA01002 LIKE 'A%'");
             }
 
-            if (_UserBase.UA01024 == 44) //Leader权限：customer file、order file、arrival notice、order list、pending alert、weekly pending只能看到自己区域内的
+            if (_UserBase.UA01024 == 44)
+            //Leader权限：customer file、order file、arrival notice、order list、pending alert、weekly pending只能看到自己区域内的
             {
                 if (!_UserBase.UA01013.Equals("全区域"))
                     sqlWhere += string.Format(" AND UA01013 = '{0}' ", _UserBase.UA01013);
@@ -155,6 +165,7 @@ namespace Sinoo.Spraying.Page.ReportManagement.DailyReport
         /// </summary>
         private void InitData(int Index, bool bl)
         {
+
             string strSqlWhere = getSqlStr();
 
             AspNetPager1.AlwaysShow = false;
@@ -216,6 +227,12 @@ namespace Sinoo.Spraying.Page.ReportManagement.DailyReport
         {
             if (!IsPostBack)
             {
+                //获取团队
+                this.ddlUA01013.DataSource = this.GetTeamData();
+                this.ddlUA01013.DataTextField = "Value";
+                this.ddlUA01013.DataValueField = "Key";
+                this.ddlUA01013.DataBind();
+
                 DateTime now = DateTime.Now;
                 this.txtOC01011Start.Text = now.ToString("yyyy-MM-dd");
                 this.txtOC01011End.Text = now.ToString("yyyy-MM-dd");

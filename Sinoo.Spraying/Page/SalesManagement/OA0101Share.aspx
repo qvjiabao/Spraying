@@ -24,13 +24,7 @@
                         <div class="control-group">
                             <label>
                                 <span>Area：</span>
-                                <select id="ddlUA01013">
-                                    <option value="">请选择</option>
-                                    <option value="北京">北京</option>
-                                    <option value="天津">天津</option>
-                                    <option value="西安">西安</option>
-                                    <option value="沈阳">沈阳</option>
-                                    <option value="钢铁">钢铁</option>
+                                <select id="ddlUA01013" runat="server">
                                 </select>
                             </label>
                         </div>

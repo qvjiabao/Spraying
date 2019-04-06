@@ -10,7 +10,7 @@ using System.IO;
 
 namespace Sinoo.Spraying.Page.SalesManagement
 {
-    public partial class OA0103List : System.Web.UI.Page
+    public partial class OA0103List : BasePage
     {
         OrderBLL _OrderBLL = new OrderBLL();
         AreaBLL _AreaBLL = new AreaBLL();

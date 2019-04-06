@@ -10,7 +10,7 @@ using Sinoo.BLL;
 
 namespace Sinoo.Spraying.Page.SalesManagement
 {
-    public partial class PA0101Import : System.Web.UI.Page
+    public partial class PA0101Import : BasePage
     {
         ExcelBLL _ExcelBLL = new ExcelBLL();  //实例化
 

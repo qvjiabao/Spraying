@@ -10,7 +10,7 @@ using System.Data;
 
 namespace Sinoo.Spraying.Page.CustomerManagement
 {
-    public partial class CB0401New : IsRole
+    public partial class CB0401New : BasePage
     {
         CustomerBLL _CustomerBLL = new CustomerBLL();  //实例对象
 

@@ -11,7 +11,7 @@ using Sinoo.Model;
 
 namespace Sinoo.Spraying
 {
-    public partial class Login : System.Web.UI.Page
+    public partial class Login : BasePage
     {
 
         UserBLL _UserBLL = new UserBLL();

@@ -9,7 +9,7 @@ using Sinoo.Model;
 
 namespace Sinoo.Spraying.Page.DataManagement
 {
-    public partial class GA0301New : IsRole
+    public partial class GA0301New : BasePage
     {
 
         AreaBLL _AreaBLL = new AreaBLL();  //实例化

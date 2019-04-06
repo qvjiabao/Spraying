@@ -11,7 +11,7 @@ using Saas.Common;
 
 namespace Sinoo.Spraying
 {
-    public partial class Index : System.Web.UI.Page
+    public partial class Index : BasePage
     {
         //实例化用户逻辑层
         UserBLL _UserBLL = new UserBLL();

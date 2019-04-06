@@ -10,7 +10,7 @@ using Sinoo.Model;
 
 namespace Sinoo.Spraying.Page.CustomerManagement
 {
-    public partial class CA0101Edit : IsRole
+    public partial class CA0101Edit : BasePage
     {
         #region 实例化逻辑层
 

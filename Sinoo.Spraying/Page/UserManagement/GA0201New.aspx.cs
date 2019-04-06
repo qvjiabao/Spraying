@@ -10,7 +10,7 @@ using System.Data.SqlClient;
 
 namespace Sinoo.Spraying.Page.UserManagement
 {
-    public partial class GA0201New : IsRole
+    public partial class GA0201New : BasePage
     {
         UserBLL _UserBLL = new UserBLL();  //实例化
 

@@ -10,7 +10,7 @@ using Sinoo.Model;
 
 namespace Sinoo.Spraying.Page.SalesManagement
 {
-    public partial class OA0102View : IsRole
+    public partial class OA0102View : BasePage
     {
 
         OrderBLL _OrderBLL = new OrderBLL();

@@ -12,7 +12,7 @@ using System.Threading;
 
 namespace Sinoo.Spraying.Page.SalesManagement
 {
-    public partial class OA0101CrystalReport : System.Web.UI.Page
+    public partial class OA0101CrystalReport : BasePage
     {
         OrderBLL _OrderBLL = new OrderBLL();
         protected void Page_Load(object sender, EventArgs e)

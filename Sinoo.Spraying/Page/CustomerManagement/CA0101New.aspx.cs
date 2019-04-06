@@ -11,7 +11,7 @@ using System.IO;
 
 namespace Sinoo.Spraying.Page.CustomerManagement
 {
-    public partial class CA0101New : IsRole
+    public partial class CA0101New : BasePage
     {
         #region 实例化逻辑层
 

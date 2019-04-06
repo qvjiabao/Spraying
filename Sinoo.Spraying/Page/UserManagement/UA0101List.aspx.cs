@@ -9,7 +9,7 @@ using Sinoo.BLL;
 
 namespace Sinoo.Spraying.Page.UserManagement
 {
-    public partial class UA0101List : System.Web.UI.Page
+    public partial class UA0101List : BasePage
     {
 
         // 实例化用户逻辑层

@@ -9,7 +9,7 @@ using System.Data;
 
 namespace Sinoo.Spraying.Page.CustomerManagement
 {
-    public partial class CA0101View : IsRole
+    public partial class CA0101View : BasePage
     {
         //实例化逻辑层
         CustomerBLL _CustomerBLL = new CustomerBLL();

@@ -13,7 +13,7 @@ namespace Sinoo.Spraying.Page.ReportManagement.MonthlyReport
     /// <summary>
     /// 未付款先发货
     /// </summary>
-    public partial class UnpaidFirstShipment : System.Web.UI.Page
+    public partial class UnpaidFirstShipment : BasePage
     {
 
         ReportBLL _ReportBLL = new ReportBLL();  //对象实例
@@ -32,9 +32,9 @@ namespace Sinoo.Spraying.Page.ReportManagement.MonthlyReport
         {
 
             //保存下拉框查询条件
-            if (!string.IsNullOrEmpty(Request.Form["ddlProvince"]) && Request.Form["ddlProvince"] != "")
+            if (!string.IsNullOrEmpty(Request.Form["ddlUA01013"]) && Request.Form["ddlUA01013"] != "")
             {
-                DataTable dtUserBaseByAera = _UserBLL.SelectUserBaseByAera(string.Format("  AND UA01009 = 1 AND UA01013 = '{0}'", Request.Form["ddlProvince"]));
+                DataTable dtUserBaseByAera = _UserBLL.SelectUserBaseByAera(string.Format("  AND UA01009 = 1 AND UA01013 = '{0}'", Request.Form["ddlUA01013"]));
                 this.ddlUA01004.DataSource = dtUserBaseByAera;
                 this.ddlUA01004.DataTextField = "UA01004";
                 this.ddlUA01004.DataValueField = "UA01001";
@@ -87,6 +87,12 @@ namespace Sinoo.Spraying.Page.ReportManagement.MonthlyReport
         {
             if (!IsPostBack)
             {
+                //获取团队
+                this.ddlUA01013.DataSource = this.GetTeamData();
+                this.ddlUA01013.DataTextField = "Value";
+                this.ddlUA01013.DataValueField = "Key";
+                this.ddlUA01013.DataBind();
+
                 ViewState["PageIndex"] = string.IsNullOrEmpty(Request["PageIndex"])
                     ? "1"
                     : Request["PageIndex"];
@@ -214,12 +220,19 @@ namespace Sinoo.Spraying.Page.ReportManagement.MonthlyReport
             {
                 strWhereAdd += string.Format(" AND OA01013 = {0}", Request.Form["ddlUA01004"]);
             }
-            if (!string.IsNullOrEmpty(Request.Form["ddlProvince"]) && Request.Form["ddlProvince"] != "")
+
+            if (!string.IsNullOrEmpty(Request.Form["ddlUA01013"]) && Request.Form["ddlUA01013"] != "全区域")
             {
-                strWhereAdd += string.Format(" AND UA01013 = '{0}'", Request.Form["ddlProvince"]);
+                if (Request.Form["ddlUA01013"] == "North")
+                {
+                    strWhereAdd += " AND UA01013 not in ('Fluid Air','BOF')";
+                }
+                else
+                {
+                    strWhereAdd += string.Format(" AND UA01013 = '{0}'", Request.Form["ddlUA01013"]);
+                }
             }
-
-
+            
             return strWhereAdd;
         }
 

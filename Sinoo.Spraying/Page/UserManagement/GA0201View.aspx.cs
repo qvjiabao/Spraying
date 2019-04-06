@@ -10,7 +10,7 @@ using System.Data;
 
 namespace Sinoo.Spraying.Page.UserManagement
 {
-    public partial class GA0201View : IsRole
+    public partial class GA0201View : BasePage
     {
 
         UserBLL _UserBLL = new UserBLL(); //实例化

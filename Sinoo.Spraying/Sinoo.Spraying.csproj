@@ -94,6 +94,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="500.html" />
+    <Content Include="BasePage.aspx" />
     <Content Include="css\bootstrap-responsive.min.css" />
     <Content Include="css\bootstrap.min.css" />
     <Content Include="css\content-style.css" />
@@ -408,7 +409,6 @@
     <Content Include="img\s_img.png" />
     <Content Include="img\s_img_a.png" />
     <Content Include="Index.aspx" />
-    <Content Include="IsRole.aspx" />
     <Content Include="Login.aspx" />
     <Content Include="Page\CustomerManagement\CA0101Edit.aspx" />
     <Content Include="Page\CustomerManagement\CA0101Import.aspx" />
@@ -657,6 +657,13 @@
     <Content Include="WelCome.htm" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BasePage.aspx.cs">
+      <DependentUpon>BasePage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="BasePage.aspx.designer.cs">
+      <DependentUpon>BasePage.aspx</DependentUpon>
+    </Compile>
     <Compile Include="cs\MyHttpModule.cs" />
     <Compile Include="Handler\BindMenuHandler.ashx.cs">
       <DependentUpon>BindMenuHandler.ashx</DependentUpon>
@@ -692,13 +699,6 @@
     </Compile>
     <Compile Include="Index.aspx.designer.cs">
       <DependentUpon>Index.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="IsRole.aspx.cs">
-      <DependentUpon>IsRole.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="IsRole.aspx.designer.cs">
-      <DependentUpon>IsRole.aspx</DependentUpon>
     </Compile>
     <Compile Include="Login.aspx.cs">
       <DependentUpon>Login.aspx</DependentUpon>

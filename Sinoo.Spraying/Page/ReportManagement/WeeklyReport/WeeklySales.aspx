@@ -68,13 +68,7 @@
                         <div class="control-group">
                             <label>
                                 <span>Team：</span>
-                                <select id="ddlProvince" runat="server">
-                                    <option value="">All</option>
-                                    <option value="北京">BeiJing</option>
-                                    <option value="天津">TianJin</option>
-                                    <option value="沈阳">ShenYang</option>
-                                    <option value="西安">XiAn</option>
-                                    <option value="钢铁">Steelteam</option>
+                                <select id="ddlUA01013" runat="server">
                                 </select>
                             </label>
                         </div>
@@ -248,7 +242,7 @@
     <script src="/Scripts/My97DatePicker/WdatePicker.js" type="text/javascript"></script>
     <script src="/Scripts/base/base.getdata.js" type="text/javascript"></script>
     <script src="/Scripts/page/Page_UserControl.js" type="text/javascript"></script>
-    <script src="/Scripts/page/Page_WeeklySales.js" type="text/javascript"></script>
+    <script src="/Scripts/page/Page_WeeklySales.js?v=1.0" type="text/javascript"></script>
     </form>
 </body>
 </html>

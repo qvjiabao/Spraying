@@ -11,7 +11,7 @@ using Saas.Common;
 
 namespace Sinoo.Spraying.Page.UserManagement
 {
-    public partial class UA0101Edit : IsRole
+    public partial class UA0101Edit : BasePage
     {
 
         //实例化逻辑层
@@ -30,6 +30,13 @@ namespace Sinoo.Spraying.Page.UserManagement
             DataTable dt = _UserBLL.SelectUserBase(string.Format(" AND UA01001 = '{0}'", Request.QueryString["UA01001"]));
             try
             {
+
+                //获取团队
+                this.ddlUA01013.DataSource = this.GetTeamData();
+                this.ddlUA01013.DataTextField = "Value";
+                this.ddlUA01013.DataValueField = "Key";
+                this.ddlUA01013.DataBind();
+
                 this.UA01001.Value = dt.Rows[0]["UA01001"].ToString();
                 this.txtUA01002.Text = dt.Rows[0]["UA01002"].ToString();
                 this.txtUA01003.Text = dt.Rows[0]["UA01003"].ToString();

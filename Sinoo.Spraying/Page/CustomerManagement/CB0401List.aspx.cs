@@ -10,7 +10,7 @@ using Sinoo.Model;
 
 namespace Sinoo.Spraying.Page.CustomerManagement
 {
-    public partial class CB0401List : System.Web.UI.Page
+    public partial class CB0401List : BasePage
     {
 
         CustomerBLL _CustomerBLL = new CustomerBLL();

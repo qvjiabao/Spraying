@@ -10,7 +10,7 @@ using System.Data;
 
 namespace Sinoo.Spraying.Page.CustomerManagement
 {
-    public partial class GA0701List : System.Web.UI.Page
+    public partial class GA0701List : BasePage
     {
         CustomerBLL _CustomerBLL = new CustomerBLL();
         AreaBLL _AreaBLL = new AreaBLL();

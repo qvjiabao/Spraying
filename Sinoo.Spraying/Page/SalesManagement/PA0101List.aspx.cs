@@ -11,7 +11,7 @@ using Sinoo.Common;
 
 namespace Sinoo.Spraying.Page.SalesManagement
 {
-    public partial class PA0101List : System.Web.UI.Page
+    public partial class PA0101List : BasePage
     {
 
         ProductBLL _ProductBLL = new ProductBLL();

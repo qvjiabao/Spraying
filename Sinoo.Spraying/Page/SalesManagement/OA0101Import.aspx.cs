@@ -13,7 +13,7 @@ using System.Diagnostics;
 
 namespace Sinoo.Spraying.Page.SalesManagement
 {
-    public partial class OA0101Import : System.Web.UI.Page
+    public partial class OA0101Import : BasePage
     {
         ExcelBLL _ExcelBLL = new ExcelBLL();
         UserBLL _UserBll = new UserBLL();

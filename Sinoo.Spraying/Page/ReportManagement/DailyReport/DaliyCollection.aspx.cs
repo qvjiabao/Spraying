@@ -14,7 +14,7 @@ namespace Sinoo.Spraying.Page.ReportManagement.DailyReport
     /// <summary>
     /// 到货统计
     /// </summary>
-    public partial class DaliyCollection : System.Web.UI.Page
+    public partial class DaliyCollection : BasePage
     {
 
         ReportBLL _ReportBLL = new ReportBLL();
@@ -92,9 +92,7 @@ namespace Sinoo.Spraying.Page.ReportManagement.DailyReport
                 sqlWhere += string.Format(" AND OA01025 in({0})", OA01025);
             }
             #endregion
-
-
-
+            
             if (!string.IsNullOrEmpty(this.txtOP01DateStart.Text.Trim()))
             {
                 sqlWhere += string.Format(" AND {0} >= '{1}'", sqlwhere2, this.txtOP01DateStart.Text.Trim());
@@ -112,10 +110,19 @@ namespace Sinoo.Spraying.Page.ReportManagement.DailyReport
             {
                 sqlWhere += "AND OA01044 = '0' ";
             }
-            if (!string.IsNullOrEmpty(this.ddlUA01013.SelectedValue))
+
+            if (!string.IsNullOrEmpty(this.ddlUA01013.SelectedValue) && this.ddlUA01013.SelectedValue != "全区域")
             {
-                sqlWhere += string.Format(" AND UA01013 = '{0}'", this.ddlUA01013.SelectedValue);
+                if (this.ddlUA01013.SelectedValue == "North")
+                {
+                    sqlWhere += " AND UA01013 not in ('Fluid Air','BOF')";
+                }
+                else
+                {
+                    sqlWhere += string.Format(" AND UA01013 = '{0}'", this.ddlUA01013.SelectedValue);
+                }
             }
+
             UserBase _UserBase = Session["USER_SESSION"] as UserBase;
             if (_UserBase.UA01024 == 43)  //登录人是销售员只能看到自己的订单  --按销售员查询不好使
             {
@@ -203,6 +210,12 @@ namespace Sinoo.Spraying.Page.ReportManagement.DailyReport
         {
             if (!IsPostBack)
             {
+                //获取团队
+                this.ddlUA01013.DataSource = this.GetTeamData();
+                this.ddlUA01013.DataTextField = "Value";
+                this.ddlUA01013.DataValueField = "Key";
+                this.ddlUA01013.DataBind();
+
                 this.txtOP01DateStart.Text = DateTime.Now.ToString("yyyy-MM-dd");  //到货时间
                 this.txtOP01DateEnd.Text = DateTime.Now.ToString("yyyy-MM-dd");   //到货截至时间
 

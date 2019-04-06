@@ -14,7 +14,7 @@ namespace Sinoo.Spraying.Page.ReportManagement.DailyReport
     /// <summary>
     /// 到货统计
     /// </summary>
-    public partial class DailyShipment : System.Web.UI.Page
+    public partial class DailyShipment : BasePage
     {
 
         ReportBLL _ReportBLL = new ReportBLL();
@@ -117,9 +117,17 @@ namespace Sinoo.Spraying.Page.ReportManagement.DailyReport
                     sqlWhere += string.Format(" AND UA01001 = '{0}'", Request.Form["ddlUA01"]);
                 }
             }
-            if (!string.IsNullOrEmpty(this.ddlUA01013.SelectedValue))
+
+            if (!string.IsNullOrEmpty(this.ddlUA01013.SelectedValue) && this.ddlUA01013.SelectedValue != "全区域")
             {
-                sqlWhere += string.Format(" AND UA01013 = '{0}'", this.ddlUA01013.SelectedValue);
+                if (this.ddlUA01013.SelectedValue == "North")
+                {
+                    sqlWhere += " AND UA01013 not in ('Fluid Air','BOF')";
+                }
+                else
+                {
+                    sqlWhere += string.Format(" AND UA01013 = '{0}'", this.ddlUA01013.SelectedValue);
+                }
             }
 
             if (this.rbtnOA010031.Checked == true)
@@ -146,6 +154,7 @@ namespace Sinoo.Spraying.Page.ReportManagement.DailyReport
         /// </summary>
         private void InitData(int Index, bool bl)
         {
+
             string strSqlWhere = getSqlStr();
 
             AspNetPager1.AlwaysShow = false;
@@ -205,6 +214,12 @@ namespace Sinoo.Spraying.Page.ReportManagement.DailyReport
         {
             if (!IsPostBack)
             {
+                //获取团队
+                this.ddlUA01013.DataSource = this.GetTeamData();
+                this.ddlUA01013.DataTextField = "Value";
+                this.ddlUA01013.DataValueField = "Key";
+                this.ddlUA01013.DataBind();
+
                 this.txtOC01011End.Text = DateTime.Now.ToString("yyyy-MM-dd");  //发货时间
                 this.txtOC01011Start.Text = DateTime.Now.ToString("yyyy-MM-dd");   //发货时间
                 if (string.IsNullOrEmpty(Request["PageIndex"]))  //判断当前页

@@ -66,13 +66,7 @@
                         <div class="control-group">
                             <label>
                                 <span>Team：</span>
-                                <select id="ddlProvince" runat="server">
-                                    <option value="">All</option>
-                                    <option value="北京">BeiJin</option>
-                                    <option value="天津">TianJin</option>
-                                    <option value="沈阳">ShenYang</option>
-                                    <option value="西安">XiAn</option>
-                                    <option value="钢铁">Steelteam</option>
+                                <select id="ddlUA01013" runat="server">
                                 </select>
                             </label>
                         </div>

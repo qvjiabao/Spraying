@@ -14,7 +14,7 @@ namespace Sinoo.Spraying.Page.ReportManagement.DailyReport
     /// <summary>
     /// 到货统计
     /// </summary>
-    public partial class NewArrival : System.Web.UI.Page
+    public partial class NewArrival : BasePage
     {
 
         ReportBLL _ReportBLL = new ReportBLL();
@@ -85,8 +85,7 @@ namespace Sinoo.Spraying.Page.ReportManagement.DailyReport
                 sqlWhere += string.Format(" AND OA01025 in({0})", OA01025);
             }
             #endregion
-
-
+            
             if (!string.IsNullOrEmpty(this.txtOA01009Start.Text.Trim()))
             {
                 sqlWhere += string.Format(" AND MAX(OC01009)  >= '{0}'", this.txtOA01009Start.Text.Trim());
@@ -108,9 +107,17 @@ namespace Sinoo.Spraying.Page.ReportManagement.DailyReport
             {
                 sqlWhere += "AND OA01044 = '0' ";
             }
-            if (!string.IsNullOrEmpty(this.ddlUA01013.SelectedValue))
+
+            if (!string.IsNullOrEmpty(this.ddlUA01013.SelectedValue) && this.ddlUA01013.SelectedValue != "全区域")
             {
-                sqlWhere += string.Format(" AND UA01013 = '{0}'", this.ddlUA01013.SelectedValue);
+                if (this.ddlUA01013.SelectedValue == "North")
+                {
+                    sqlWhere += " AND UA01013 not in ('Fluid Air','BOF')";
+                }
+                else
+                {
+                    sqlWhere += string.Format(" AND UA01013 = '{0}'", this.ddlUA01013.SelectedValue);
+                }
             }
 
             UserBase _UserBase = Session["USER_SESSION"] as UserBase;
@@ -125,8 +132,7 @@ namespace Sinoo.Spraying.Page.ReportManagement.DailyReport
                     sqlWhere += string.Format(" AND UA01001 = '{0}'", Request.Form["ddlUA01"]);
                 }
             }
-
-     
+            
             if (this.rbtnOA010031.Checked == true)
             {
                 sqlWhere += string.Format(" AND OA01002 NOT LIKE 'A%'");
@@ -143,6 +149,7 @@ namespace Sinoo.Spraying.Page.ReportManagement.DailyReport
         /// </summary>
         private void InitData(int Index, bool bl)
         {
+
             string strSqlWhere = getSqlStr();
 
             AspNetPager1.AlwaysShow = false;
@@ -190,6 +197,12 @@ namespace Sinoo.Spraying.Page.ReportManagement.DailyReport
             {
                 this.txtOA01009Start.Text = DateTime.Now.ToString("yyyy-MM-dd");  //到货时间
                 this.txtOA01009End.Text = DateTime.Now.ToString("yyyy-MM-dd");   //到货截至时间
+                
+                //获取团队
+                this.ddlUA01013.DataSource = this.GetTeamData();
+                this.ddlUA01013.DataTextField = "Value";
+                this.ddlUA01013.DataValueField = "Key";
+                this.ddlUA01013.DataBind();
 
                 if (string.IsNullOrEmpty(Request["PageIndex"]))  //判断当前页
                 {
@@ -225,6 +238,18 @@ namespace Sinoo.Spraying.Page.ReportManagement.DailyReport
         /// <param name="e"></param>
         protected void btnSelect_Click(object sender, EventArgs e)
         {
+
+            if (string.IsNullOrEmpty(this.txtOA01009Start.Text) || string.IsNullOrEmpty(this.txtOA01009End.Text))
+            {
+
+                new Sinoo.Common.MessageShow().CommonMessage(this,"请输入到货时间");
+                return;
+                
+            }
+
+            this.txtOA01009Start.Text = DateTime.Now.ToString("yyyy-MM-dd");  //到货时间
+            this.txtOA01009End.Text = DateTime.Now.ToString("yyyy-MM-dd");   //到货截至时间
+
             InitData(1, false);
         }
 

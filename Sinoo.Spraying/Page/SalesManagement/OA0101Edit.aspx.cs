@@ -10,7 +10,7 @@ using Sinoo.BLL;
 
 namespace Sinoo.Spraying.Page.SalesManagement
 {
-    public partial class OA0101Edit : IsRole
+    public partial class OA0101Edit : BasePage
     {
         #region 实例化逻辑层
 

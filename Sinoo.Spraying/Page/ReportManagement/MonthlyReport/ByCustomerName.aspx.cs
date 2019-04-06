@@ -10,7 +10,7 @@ using Sinoo.Common;
 
 namespace Sinoo.Spraying.Page.ReportManagement.MonthlyReport
 {
-    public partial class ByCustomerName : System.Web.UI.Page
+    public partial class ByCustomerName : BasePage
     {
         ReportBLL _ReportBLL = new ReportBLL();  //对象实例
         ExcelBLL _ExcelBLL = new ExcelBLL();
@@ -123,10 +123,19 @@ namespace Sinoo.Spraying.Page.ReportManagement.MonthlyReport
             {
                 strWhereAdd += string.Format(" AND UA01001 = {0}", Request.Form["ddlUA01"]);
             }
-            if (!string.IsNullOrEmpty(this.ddlUA01013.SelectedValue))
+            
+            if (!string.IsNullOrEmpty(this.ddlUA01013.SelectedValue) && this.ddlUA01013.SelectedValue != "全区域")
             {
-                strWhereAdd += string.Format(" AND UA01013 = '{0}'", Request.Form["ddlUA01013"]);
+                if (this.ddlUA01013.SelectedValue == "North")
+                {
+                    strWhereAdd += " AND UA01013 not in ('Fluid Air','BOF')";
+                }
+                else
+                {
+                    strWhereAdd += string.Format(" AND UA01013 = '{0}'", this.ddlUA01013.SelectedValue);
+                }
             }
+
             return strWhereAdd;
         }
         /// <summary>
@@ -138,9 +147,9 @@ namespace Sinoo.Spraying.Page.ReportManagement.MonthlyReport
             string strWhere = GetSqlWhere();
             AspNetPager1.AlwaysShow = false;
             AspNetPager1.PageSize = 15;
-            object RowCount = null; 
+            object RowCount = null;
             bool blInvoice = (!string.IsNullOrEmpty(this.txtBeginInvoiceTime.Text.Trim()) || !string.IsNullOrEmpty(this.txtEndInvoiceTime.Text.Trim()));
-            DataTable dt = _ReportBLL.SelectByCustomerName(AspNetPager1.PageSize, Index, strWhere,blInvoice, ref RowCount);
+            DataTable dt = _ReportBLL.SelectByCustomerName(AspNetPager1.PageSize, Index, strWhere, blInvoice, ref RowCount);
             if (dt.Rows.Count > 0)
             {
                 DataCount = string.Empty;
@@ -187,6 +196,13 @@ namespace Sinoo.Spraying.Page.ReportManagement.MonthlyReport
         {
             if (!IsPostBack)
             {
+
+                //获取团队
+                this.ddlUA01013.DataSource = this.GetTeamData();
+                this.ddlUA01013.DataTextField = "Value";
+                this.ddlUA01013.DataValueField = "Key";
+                this.ddlUA01013.DataBind();
+
                 ViewState["PageIndex"] = string.IsNullOrEmpty(Request["PageIndex"])
                     ? "1"
                     : Request["PageIndex"];

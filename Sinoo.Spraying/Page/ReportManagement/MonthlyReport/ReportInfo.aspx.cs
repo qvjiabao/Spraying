@@ -11,7 +11,7 @@ using Sinoo.Model;
 
 namespace Sinoo.Spraying.Page.ReportManagement.MonthlyReport
 {
-    public partial class ReportInfo : System.Web.UI.Page
+    public partial class ReportInfo : BasePage
     {
         //实例化逻辑层
         OrderBLL _OrderBLL = new OrderBLL();

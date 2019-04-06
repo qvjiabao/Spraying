@@ -10,7 +10,7 @@ using Sinoo.Model;
 
 namespace Sinoo.Spraying.Page.UserManagement
 {
-    public partial class GA0201Edit : IsRole
+    public partial class GA0201Edit : BasePage
     {
 
         UserBLL _UserBLL = new UserBLL();  //实例化

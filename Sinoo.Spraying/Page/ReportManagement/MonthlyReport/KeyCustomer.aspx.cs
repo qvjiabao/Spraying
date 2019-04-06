@@ -10,7 +10,7 @@ using Sinoo.Common;
 
 namespace Sinoo.Spraying.Page.ReportManagement.MonthlyReport
 {
-    public partial class KeyCustomer : System.Web.UI.Page
+    public partial class KeyCustomer : BasePage
     {
         ReportBLL _ReportBLL = new ReportBLL();  //对象实例
         ExcelBLL _ExcelBLL = new ExcelBLL();
@@ -113,9 +113,17 @@ namespace Sinoo.Spraying.Page.ReportManagement.MonthlyReport
             {
                 strWhereAdd += string.Format(" AND OA01013 = {0}", Request.Form["ddlUA01"]);
             }
-            if (!string.IsNullOrEmpty(this.ddlUA01013.SelectedValue))
+            
+            if (!string.IsNullOrEmpty(this.ddlUA01013.SelectedValue) && this.ddlUA01013.SelectedValue != "全区域")
             {
-                strWhereAdd += string.Format(" AND UA01013 = '{0}'", Request.Form["ddlUA01013"]);
+                if (this.ddlUA01013.SelectedValue == "North")
+                {
+                    strWhereAdd += " AND UA01013 not in ('Fluid Air','BOF')";
+                }
+                else
+                {
+                    strWhereAdd += string.Format(" AND UA01013 = '{0}'", this.ddlUA01013.SelectedValue);
+                }
             }
             return strWhereAdd;
         }
@@ -178,6 +186,12 @@ namespace Sinoo.Spraying.Page.ReportManagement.MonthlyReport
         {
             if (!IsPostBack)
             {
+                //获取团队
+                this.ddlUA01013.DataSource = this.GetTeamData();
+                this.ddlUA01013.DataTextField = "Value";
+                this.ddlUA01013.DataValueField = "Key";
+                this.ddlUA01013.DataBind();
+
                 ViewState["PageIndex"] = string.IsNullOrEmpty(Request["PageIndex"])
                     ? "1"
                     : Request["PageIndex"];

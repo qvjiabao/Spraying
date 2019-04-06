@@ -10,7 +10,7 @@ using Sinoo.Model;
 
 namespace Sinoo.Spraying.Page.UserManagement
 {
-    public partial class GA0201List : System.Web.UI.Page
+    public partial class GA0201List : BasePage
     {
 
         UserBLL _UserBLL = new UserBLL();  //实例化对象

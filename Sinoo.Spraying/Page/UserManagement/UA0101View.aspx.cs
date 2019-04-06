@@ -9,7 +9,7 @@ using System.Data;
 
 namespace Sinoo.Spraying.Page.UserManagement
 {
-    public partial class UA0101View : IsRole
+    public partial class UA0101View : BasePage
     {
         //实例化逻辑层
         UserBLL _UserManagementLogic = new UserBLL();
@@ -24,6 +24,7 @@ namespace Sinoo.Spraying.Page.UserManagement
             {
                 Response.Redirect("UA0101List.ASPX");
             }
+            
             DataTable dt = _UserManagementLogic.SelectUserBase(string.Format(" AND UA01001 = '{0}'", Request.QueryString["UA01001"]));
 
             this.labUA01002.Text = dt.Rows[0]["UA01002"].ToString();
@@ -36,7 +37,7 @@ namespace Sinoo.Spraying.Page.UserManagement
             this.labUA01010.Text = dt.Rows[0]["UA01010"].ToString();
             this.labUA01011.Text = dt.Rows[0]["UA01011"].ToString();
             this.labUA01012.Text = dt.Rows[0]["UA01012"].ToString();
-            this.labUA01013.Text = dt.Rows[0]["UA01013"].ToString();
+            this.labUA01013.Text = this.GetTeamData()[dt.Rows[0]["UA01013"].ToString()];
             this.labUA01014.Text = dt.Rows[0]["UA01014"].ToString();
             this.labUA01015.Text = dt.Rows[0]["UA01015"].ToString();
             this.labUA01018.Text = dt.Rows[0]["UA01018"].ToString();

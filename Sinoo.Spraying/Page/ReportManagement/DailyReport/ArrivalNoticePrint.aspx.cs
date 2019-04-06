@@ -10,7 +10,7 @@ using Sinoo.Model;
 
 namespace Sinoo.Spraying.Page.ReportManagement.DailyReport
 {
-    public partial class ArrivalNoticePrint : System.Web.UI.Page
+    public partial class ArrivalNoticePrint : BasePage
     {
         ReportBLL _ReportBLL = new ReportBLL();
 

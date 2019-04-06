@@ -9,7 +9,7 @@ using Sinoo.Model;
 
 namespace Sinoo.Spraying.Page.SalesManagement
 {
-    public partial class PA0101New : IsRole
+    public partial class PA0101New : BasePage
     {
 
         ProductBLL _ProductBLL = new ProductBLL();

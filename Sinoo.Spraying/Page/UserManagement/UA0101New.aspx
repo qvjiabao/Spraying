@@ -106,13 +106,6 @@
                             <label>
                                 <span>所属区域：<font style="color: Red">*</font></span>
                                 <asp:DropDownList ID="ddlUA01013" runat="server" data-rule="required" data-msg-required="请选择所属区域">
-                                    <asp:ListItem Value="">请选择</asp:ListItem>
-                                    <asp:ListItem Value="全区域">AllAera</asp:ListItem>
-                                    <asp:ListItem Value="北京">Beijing</asp:ListItem>
-                                    <asp:ListItem Value="天津">TianJin</asp:ListItem>
-                                    <asp:ListItem Value="西安">XiAn</asp:ListItem>
-                                    <asp:ListItem Value="沈阳">ShenYang</asp:ListItem>
-                                    <asp:ListItem Value="钢铁">Steelteam</asp:ListItem>
                                 </asp:DropDownList>
                             </label>
                         </div>

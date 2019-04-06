@@ -9,7 +9,7 @@ using Sinoo.Model;
 using System.Data;
 namespace Sinoo.Spraying.Page.CustomerManagement
 {
-    public partial class GA0701New : IsRole
+    public partial class GA0701New : BasePage
     {
         CustomerBLL _CustomerBLL = new CustomerBLL();
         /// <summary>

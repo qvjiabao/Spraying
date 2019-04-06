@@ -11,7 +11,7 @@ using Saas.Common;
 
 namespace Sinoo.Spraying.Page.UserManagement
 {
-    public partial class UA0101New : IsRole
+    public partial class UA0101New : BasePage
     {
         //实例化逻辑层
         UserBLL _UserBLL = new UserBLL();
@@ -73,14 +73,11 @@ namespace Sinoo.Spraying.Page.UserManagement
             this.ddlUA01009.DataBind();
             this.ddlUA01009.Items.Insert(0, new ListItem("请选择", ""));
 
-            //获取市
-            //DataTable dtGA03 = _AreaBLL.SelectSystemAreaForCity();
-
-            //this.ddlUA01013.DataSource = dtGA03;
-            //this.ddlUA01013.DataTextField = "GA03002";
-            //this.ddlUA01013.DataValueField = "GA03001";
-            //this.ddlUA01013.DataBind();
-            //this.ddlUA01013.Items.Insert(0, new ListItem("请选择", ""));
+            //获取团队
+            this.ddlUA01013.DataSource = this.GetTeamData();
+            this.ddlUA01013.DataTextField = "Value";
+            this.ddlUA01013.DataValueField = "Key";
+            this.ddlUA01013.DataBind();
 
             //获取角色
             DataTable dtGA02 = _UserBLL.SelectSystemRole();
