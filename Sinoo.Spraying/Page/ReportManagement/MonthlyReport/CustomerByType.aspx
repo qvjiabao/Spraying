@@ -225,7 +225,7 @@
     <script src="/Scripts/unicorn.js" type="text/javascript"></script>
     <script src="/Scripts/My97DatePicker/WdatePicker.js" type="text/javascript"></script>
     <script src="/Scripts/base/base.getdata.js" type="text/javascript"></script>
-    <script src="/Scripts/page/Page_CustomerByType.js" type="text/javascript"></script>
+    <script src="/Scripts/page/Page_CustomerByType.js?v=1.0" type="text/javascript"></script>
     <script src="/Scripts/page/Page_UserControl.js" type="text/javascript"></script>
     </form>
 </body>

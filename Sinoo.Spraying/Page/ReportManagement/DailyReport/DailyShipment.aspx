@@ -262,7 +262,7 @@
     <script type="text/javascript" src="/Scripts/jquery.ztree.excheck-3.5.js"></script>
     <script src="/Scripts/unicorn.js" type="text/javascript"></script>
     <script src="/Scripts/base/base.getdata.js" type="text/javascript"></script>
-    <script src="/Scripts/page/Page_DaliyShipment.js" type="text/javascript"></script>
+    <script src="/Scripts/page/Page_DaliyShipment.js?v=1.0" type="text/javascript"></script>
     <script src="/Scripts/page/Page_UserControl.js" type="text/javascript"></script>
     <script src="/Scripts/My97DatePicker/WdatePicker.js" type="text/javascript"></script>
     </form>

@@ -513,7 +513,7 @@ namespace Sinoo.BLL
                                                        [UA01997] , [UA01998] , [UA01999] , [UA01025]
                                                   FROM [dbo].[UA01] 
                                                
-                                                 WHERE UA01997 = 0 {0} 
+                                                 WHERE UA01997 = 0 {0} order by UA01005
                                                  ", strWhere);
 
                 object obj = null;//用于接收存储过程返回值

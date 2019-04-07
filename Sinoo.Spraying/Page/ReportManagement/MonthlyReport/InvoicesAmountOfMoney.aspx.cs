@@ -33,7 +33,7 @@ namespace Sinoo.Spraying.Page.ReportManagement.MonthlyReport
             {
                 DataTable dtUserBaseByAera = _UserBLL.SelectUserBaseByAera(string.Format("  AND UA01009 = 1 AND UA01013 = '{0}'", Request.Form["ddlUA01013"]));
                 this.ddlUA01004.DataSource = dtUserBaseByAera;
-                this.ddlUA01004.DataTextField = "UA01004";
+                this.ddlUA01004.DataTextField = "UA01005";
                 this.ddlUA01004.DataValueField = "UA01001";
                 this.ddlUA01004.DataBind();
                 this.ddlUA01004.Items.Insert(0, new ListItem("请选择", ""));

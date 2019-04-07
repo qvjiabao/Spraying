@@ -914,7 +914,7 @@ namespace Sinoo.BLL
 		                        INNER JOIN OB01 ON OA01999 = OB01002
 		                        INNER JOIN OC01 ON OB01999 = OC01003
 		                        INNER JOIN CA01 ON CA01001 = OA01038                                       
-		                        INNER JOIN UA01 ON UA01004 = OA01015
+		                        INNER JOIN UA01 ON UA01005 = OA01015 
 		                        LEFT JOIN CB04 ON CB04001 = OA01041
 		                        WHERE OA01997 = 0 AND OA01003 <> 3   {0}
 			                        AND (OA01015 <> '' and OA01015 is not null)
@@ -924,7 +924,7 @@ namespace Sinoo.BLL
 		                        INNER JOIN OB01 ON OA01999 = OB01002
 		                        INNER JOIN OC01 ON OB01999 = OC01003
 		                        INNER JOIN CA01 ON CA01001 = OA01038                                       
-		                        INNER JOIN UA01 ON UA01004 = OA01017
+		                        INNER JOIN UA01 ON UA01005 = OA01017 
 		                        LEFT JOIN CB04 ON CB04001 = OA01041
 		                        WHERE OA01997 = 0 AND OA01003 <> 3   {0}
 			                        AND (OA01017 <> '' and OA01017 is not null) 
@@ -976,7 +976,7 @@ namespace Sinoo.BLL
 		                                                INNER JOIN OB01 ON OA01999 = OB01002
 		                                                INNER JOIN OC01 ON OB01999 = OC01003
 		                                                INNER JOIN CA01 ON CA01001 = OA01038                                       
-		                                                INNER JOIN UA01 ON UA01004 = OA01015
+		                                                INNER JOIN UA01 ON UA01005 = OA01015 
 		                                                LEFT JOIN CB04 ON CB04001 = OA01041
 		                                                WHERE OA01997 = 0 AND OA01003 <> 3     
 			                                                AND (OA01015 <> '' and OA01015 is not null) {0}
@@ -993,7 +993,7 @@ namespace Sinoo.BLL
 		                                                INNER JOIN OB01 ON OA01999 = OB01002
 		                                                INNER JOIN OC01 ON OB01999 = OC01003
 		                                                INNER JOIN CA01 ON CA01001 = OA01038                                       
-		                                                INNER JOIN UA01 ON UA01004 = OA01017
+		                                                INNER JOIN UA01 ON UA01005 = OA01017 
 		                                                LEFT JOIN CB04 ON CB04001 = OA01041
 		                                                WHERE OA01997 = 0 AND OA01003 <> 3   
 			                                                AND (OA01017 <> '' and OA01017 is not null)  {0}
@@ -1066,7 +1066,7 @@ namespace Sinoo.BLL
 		                        INNER JOIN OB01 ON OA01999 = OB01002
 		                        INNER JOIN OC01 ON OB01999 = OC01003
 		                        INNER JOIN CA01 ON CA01001 = OA01038  
-							    INNER JOIN UA01 ON UA01004 = OA01015
+							    INNER JOIN UA01 ON UA01005 = OA01015 
 		                        WHERE OA01997 = 0 AND OA01003 <> 3 {0}
 			                        AND (OA01015 <> '' and OA01015 is not null)
 	                            UNION ALL
@@ -1076,7 +1076,7 @@ namespace Sinoo.BLL
 		                        INNER JOIN OB01 ON OA01999 = OB01002
 		                        INNER JOIN OC01 ON OB01999 = OC01003
 		                        INNER JOIN CA01 ON CA01001 = OA01038                                       
-		                        INNER JOIN UA01 ON UA01004 = OA01017
+		                        INNER JOIN UA01 ON UA01005 = OA01017 
 		                        WHERE OA01997 = 0 AND OA01003 <> 3 {0}
 			                        AND (OA01017 <> '' and OA01017 is not null) 
 	                            UNION ALL
@@ -1169,7 +1169,7 @@ namespace Sinoo.BLL
 		                         FROM OA01
 		                         INNER JOIN OB01 on OB01002 = OA01999 
 		                         INNER JOIN OC01 on OC01003 = OB01999
-		                         INNER JOIN UA01 ON UA01004 = OA01015
+		                         INNER JOIN UA01 ON UA01005 = OA01015 
 		                         INNER JOIN CA01 ON CA01001 = OA01038
 		                         LEFT JOIN CB04 ON CB04001 = CA01020
 		                         Where OA01003 <> 3 and OA01997 = 0  {0}
@@ -1187,7 +1187,7 @@ namespace Sinoo.BLL
 		                         FROM OA01
 		                         INNER JOIN OB01 on OB01002 = OA01999 
 		                         INNER JOIN OC01 on OC01003 = OB01999
-		                         INNER JOIN UA01 ON UA01004 = OA01017
+		                         INNER JOIN UA01 ON UA01005 = OA01017 
 		                         INNER JOIN CA01 ON CA01001 = OA01038
 		                         LEFT JOIN CB04 ON CB04001 = CA01020
 		                         Where OA01003 <> 3 and OA01997 = 0   {0}
@@ -1254,7 +1254,7 @@ namespace Sinoo.BLL
 		                         FROM OA01
 		                         INNER JOIN OB01 on OB01002 = OA01999 
 		                         INNER JOIN OC01 on OC01003 = OB01999
-		                         INNER JOIN UA01 ON UA01004 = OA01015
+		                         INNER JOIN UA01 ON UA01005 = OA01015 
 		                         INNER JOIN CA01 ON CA01001 = OA01038
 		                         LEFT JOIN CB04 ON CB04001 = CA01020
 		                         Where OA01003 <> 3 and OA01997 = 0    {0}
@@ -1274,7 +1274,7 @@ namespace Sinoo.BLL
 		                         FROM OA01
 		                         INNER JOIN OB01 on OB01002 = OA01999 
 		                         INNER JOIN OC01 on OC01003 = OB01999
-		                         INNER JOIN UA01 ON UA01004 = OA01017
+		                         INNER JOIN UA01 ON UA01005 = OA01017 
 		                         INNER JOIN CA01 ON CA01001 = OA01038
 		                         LEFT JOIN CB04 ON CB04001 = CA01020
 		                         Where OA01003 <> 3 and OA01997 = 0   {0}
@@ -1433,7 +1433,7 @@ namespace Sinoo.BLL
 											FROM OA01
 											JOIN CA01 ON CA01001 = OA01038
 											LEFT JOIN CB04 ON CB04001 = CA01020
-											JOIN UA01 ON UA01004 = OA01015 
+											JOIN UA01 ON UA01005 = OA01015  
 											JOIN OB01 ON OA01999 = OB01002
 											JOIN OC01 ON OB01999 = OC01003
 											WHERE OA01997 = 0 AND (OA01015 <> '' and OA01015 is not null)  {0}
@@ -1455,7 +1455,7 @@ namespace Sinoo.BLL
 											FROM OA01
 											JOIN CA01 ON CA01001 = OA01038
 											LEFT JOIN CB04 ON CB04001 = CA01020
-											JOIN UA01 ON UA01004 = OA01017
+											JOIN UA01 ON UA01005 = OA01017 
 											JOIN OB01 ON OA01999 = OB01002
 											JOIN OC01 ON OB01999 = OC01003
 											WHERE OA01997 = 0 AND (OA01017 <> '' and OA01017 is not null) {0}
@@ -1534,7 +1534,7 @@ namespace Sinoo.BLL
 											FROM OA01
 											JOIN CA01 ON CA01001 = OA01038
 											LEFT JOIN CB04 ON CB04001 = CA01020
-											JOIN UA01 ON UA01004 = OA01015 
+											JOIN UA01 ON UA01005 = OA01015  
 											JOIN OB01 ON OA01999 = OB01002
 											JOIN OC01 ON OB01999 = OC01003
 											WHERE OA01997 = 0 AND (OA01015 <> '' and OA01015 is not null)  {0}
@@ -1556,7 +1556,7 @@ namespace Sinoo.BLL
 											FROM OA01
 											JOIN CA01 ON CA01001 = OA01038
 											LEFT JOIN CB04 ON CB04001 = CA01020
-											JOIN UA01 ON UA01004 = OA01017
+											JOIN UA01 ON UA01005 = OA01017 
 											JOIN OB01 ON OA01999 = OB01002
 											JOIN OC01 ON OB01999 = OC01003
 											WHERE OA01997 = 0 AND (OA01017 <> '' and OA01017 is not null) {0}
@@ -1636,7 +1636,7 @@ namespace Sinoo.BLL
 		                        INNER JOIN OB01 ON OA01999 = OB01002
 		                        INNER JOIN OC01 ON OB01999 = OC01003
 		                        INNER JOIN CA01 ON CA01001 = OA01038                                       
-		                        INNER JOIN UA01 ON UA01004 = OA01015
+		                        INNER JOIN UA01 ON UA01005 = OA01015 
 		                        LEFT JOIN CB01 ON CB01001=CA01016 
 		                        WHERE OA01997 = 0 AND OA01003 <> 3   {0}
 			                        AND (OA01015 <> '' and OA01015 is not null)
@@ -1648,7 +1648,7 @@ namespace Sinoo.BLL
 		                        INNER JOIN OB01 ON OA01999 = OB01002
 		                        INNER JOIN OC01 ON OB01999 = OC01003
 		                        INNER JOIN CA01 ON CA01001 = OA01038                                       
-		                        INNER JOIN UA01 ON UA01004 = OA01017
+		                        INNER JOIN UA01 ON UA01005 = OA01017 
 		                        LEFT JOIN CB01 ON CB01001 = CA01016 
 		                        WHERE OA01997 = 0 AND OA01003 <> 3   {0}
 			                        AND (OA01017 <> '' and OA01017 is not null) 
@@ -1702,7 +1702,7 @@ namespace Sinoo.BLL
 		                        INNER JOIN OB01 ON OA01999 = OB01002
 		                        INNER JOIN OC01 ON OB01999 = OC01003
 		                        INNER JOIN CA01 ON CA01001 = OA01038                                       
-		                        INNER JOIN UA01 ON UA01004 = OA01015
+		                        INNER JOIN UA01 ON UA01005 = OA01015 
 		                        LEFT JOIN CB01 ON CB01001=CA01016 
 		                        WHERE OA01997 = 0 AND OA01003 <> 3   {0}
 			                        AND (OA01015 <> '' and OA01015 is not null)
@@ -1719,7 +1719,7 @@ namespace Sinoo.BLL
 		                        INNER JOIN OB01 ON OA01999 = OB01002
 		                        INNER JOIN OC01 ON OB01999 = OC01003
 		                        INNER JOIN CA01 ON CA01001 = OA01038                                       
-		                        INNER JOIN UA01 ON UA01004 = OA01017
+		                        INNER JOIN UA01 ON UA01005 = OA01017 
 		                        LEFT JOIN CB01 ON CB01001 = CA01016 
 		                        WHERE OA01997 = 0 AND OA01003 <> 3   {0}
 			                        AND (OA01017 <> '' and OA01017 is not null) 
@@ -1805,7 +1805,7 @@ namespace Sinoo.BLL
 				                                            ,CB04002,OB02002,OA01045,P.GA03002 Province ,GA05003 get240
 				                                            ,GA06003 get220,OA01028,CA01009,CA01010
 	                                            FROM OA01
-	                                            INNER JOIN UA01 ON UA01004 = OA01015 
+	                                            INNER JOIN UA01 ON UA01005 = OA01015  
 	                                            INNER JOIN CA01 ON CA01001 = OA01038 	
 	                                            LEFT JOIN CB02 ON CA01018 = CB02001
 	                                            LEFT JOIN CB04 ON CA01020 = CB04001
@@ -1829,7 +1829,7 @@ namespace Sinoo.BLL
 				                                            ,CB04002,OB02002,OA01045,P.GA03002 Province ,GA05003 get240
 				                                            ,GA06003 get220,OA01028,CA01009,CA01010
 	                                            FROM OA01
-	                                            INNER JOIN UA01 ON UA01004 = OA01017 
+	                                            INNER JOIN UA01 ON UA01005 = OA01017  
 	                                            INNER JOIN CA01 ON CA01001 = OA01038 	
 	                                            LEFT JOIN CB02 ON CA01018 = CB02001
 	                                            LEFT JOIN CB04 ON CA01020 = CB04001
@@ -1903,7 +1903,7 @@ namespace Sinoo.BLL
 				                        ,GA06003 get220,OA01028,CA01009
 				                        ,CA01010,ROW_NUMBER() OVER(PARTITION BY OA01002 ORDER BY OA01022) NUM
 	                        FROM OA01
-	                        INNER JOIN UA01 ON UA01004 = OA01015 
+	                        INNER JOIN UA01 ON UA01005 = OA01015  
 	                        INNER JOIN CA01 ON CA01001 = OA01038 	
 	                        LEFT JOIN CB02 ON CA01018 = CB02001
 	                        LEFT JOIN CB04 ON CA01020 = CB04001
@@ -1926,7 +1926,7 @@ namespace Sinoo.BLL
 				                        ,GA06003 get220,OA01028,CA01009
 				                        ,CA01010,ROW_NUMBER() OVER(PARTITION BY OA01002 ORDER BY OA01022) NUM
 	                        FROM OA01
-	                        INNER JOIN UA01 ON UA01004 = OA01017 
+	                        INNER JOIN UA01 ON UA01005 = OA01017  
 	                        INNER JOIN CA01 ON CA01001 = OA01038 	
 	                        LEFT JOIN CB02 ON CA01018 = CB02001
 	                        LEFT JOIN CB04 ON CA01020 = CB04001
@@ -2014,7 +2014,7 @@ namespace Sinoo.BLL
 	                        FROM(
 		                        SELECT  UA01001,UA01004,UA01005,UA01013,OB01007*OB01008*OA01016 AS OA01020,round((OB01009/OA01021/1.16),2)*OA01016 AS OA01022,OA01016,OA01002
 		                        FROM OA01  
-		                        INNER JOIN UA01 ON UA01004 = OA01015
+		                        INNER JOIN UA01 ON UA01005 = OA01015 
 		                        INNER JOIN OB01 ON OB01002=OA01999 
 		                        INNER JOIN OC01 ON OC01003=OB01999
 		                        INNER JOIN CA01 ON OA01038=CA01001
@@ -2028,7 +2028,7 @@ namespace Sinoo.BLL
 	                        FROM(
 		                        SELECT  UA01001,UA01004,UA01005,UA01013,OB01007*OB01008*OA01018 AS OA01020,round((OB01009/OA01021/1.16),2)*OA01018 AS OA01022,OA01018,OA01002
 		                        FROM OA01  
-		                        INNER JOIN UA01 ON UA01004 = OA01017
+		                        INNER JOIN UA01 ON UA01005 = OA01017 
 		                        INNER JOIN OB01 ON OB01002=OA01999 
 		                        INNER JOIN OC01 ON OC01003=OB01999
 		                        INNER JOIN CA01 ON OA01038=CA01001
@@ -2083,7 +2083,7 @@ namespace Sinoo.BLL
 		                        SELECT  UA01001,UA01004,UA01005,UA01013, OA01020,OA01022,OA01016,OA01002
 			                        ,ROW_NUMBER() OVER(PARTITION BY OA01002 ORDER BY OA01009) num
 		                        FROM OA01  
-		                        INNER JOIN UA01 ON UA01004 = OA01015
+		                        INNER JOIN UA01 ON UA01005 = OA01015 
 		                        INNER JOIN OB01 ON OB01002=OA01999 
 		                        INNER JOIN OC01 ON OC01003=OB01999
 		                        INNER JOIN CA01 ON OA01038=CA01001
@@ -2100,7 +2100,7 @@ namespace Sinoo.BLL
 		                        SELECT  UA01001,UA01004,UA01005,UA01013, OA01020,OA01022,OA01018,OA01002
 			                        ,ROW_NUMBER() OVER(PARTITION BY OA01002 ORDER BY OA01009) num
 		                        FROM OA01  
-		                        INNER JOIN UA01 ON UA01004 = OA01017
+		                        INNER JOIN UA01 ON UA01005 = OA01017 
 		                        INNER JOIN OB01 ON OB01002=OA01999 
 		                        INNER JOIN OC01 ON OC01003=OB01999
 		                        INNER JOIN CA01 ON OA01038=CA01001
@@ -2243,7 +2243,7 @@ namespace Sinoo.BLL
 				                                           (OB01007*OB01008*OA01016) AS OA01020
 		                                            FROM dbo.OA01  
 		                                            JOIN dbo.CA01 ON OA01038 = CA01001
-		                                            JOIN dbo.UA01 ON UA01004 = OA01015 	
+		                                            JOIN dbo.UA01 ON UA01005 = OA01015  	
 		                                            JOIN dbo.OB01 ON OA01999 = OB01002
 		                                            JOIN dbo.OC01 ON OB01999 = OC01003
 		                                            WHERE OA01997 = 0 AND OA01003 <> 3  
@@ -2257,7 +2257,7 @@ namespace Sinoo.BLL
 				                                         OB01007*OB01008*OA01018 AS OA01020
 	                                              FROM dbo.OA01 
 	                                              JOIN dbo.CA01 ON OA01038 = CA01001
-	                                              JOIN dbo.UA01 ON UA01004 = OA01017 	
+	                                              JOIN dbo.UA01 ON UA01005 = OA01017  	
 	                                              JOIN dbo.OB01 ON OA01999 = OB01002
 	                                              JOIN dbo.OC01 ON OB01999 = OC01003
 	                                              WHERE OA01997 = 0 AND OA01003 <> 3  
@@ -2316,7 +2316,7 @@ namespace Sinoo.BLL
 					                                        ROW_NUMBER() OVER(PARTITION BY OA01002 ORDER BY OA01009 ASC ) AS NUM
 		                                            FROM dbo.OA01  
 		                                            JOIN dbo.CA01 ON OA01038 = CA01001
-		                                            JOIN dbo.UA01 ON UA01004 = OA01015 	
+		                                            JOIN dbo.UA01 ON UA01005 = OA01015  	
 		                                            JOIN dbo.OB01 ON OA01999 = OB01002
 		                                            JOIN dbo.OC01 ON OB01999 = OC01003
 		                                            WHERE OA01997 = 0 AND OA01003 <> 3  
@@ -2334,7 +2334,7 @@ namespace Sinoo.BLL
 				                                         ROW_NUMBER() OVER(PARTITION BY OA01002 ORDER BY OA01009 ASC ) AS NUM
 	                                              FROM dbo.OA01 
 	                                              JOIN dbo.CA01 ON OA01038 = CA01001
-	                                              JOIN dbo.UA01 ON UA01004 = OA01017 	
+	                                              JOIN dbo.UA01 ON UA01005 = OA01017  	
 	                                              JOIN dbo.OB01 ON OA01999 = OB01002
 	                                              JOIN dbo.OC01 ON OB01999 = OC01003
 	                                              WHERE OA01997 = 0 AND OA01003 <> 3  
@@ -2452,7 +2452,7 @@ namespace Sinoo.BLL
 		                            INNER JOIN OB01 ON OA01999 = OB01002
 		                            INNER JOIN OC01 ON OB01999 = OC01003
 		                            INNER JOIN CA01 ON CA01001 = OA01038                                       
-		                            INNER JOIN UA01 ON UA01004 = OA01015
+		                            INNER JOIN UA01 ON UA01005 = OA01015 
 		                            LEFT JOIN CB03 ON CB03001 = OA01040
 		                            WHERE OA01997 = 0 AND OA01003 <> 3       {0}  
 			                            AND (OA01015 <> '' and OA01015 is not null)
@@ -2464,7 +2464,7 @@ namespace Sinoo.BLL
 		                            INNER JOIN OB01 ON OA01999 = OB01002
 		                            INNER JOIN OC01 ON OB01999 = OC01003
 		                            INNER JOIN CA01 ON CA01001 = OA01038                                       
-		                            INNER JOIN UA01 ON UA01004 = OA01017
+		                            INNER JOIN UA01 ON UA01005 = OA01017 
 		                            LEFT JOIN CB03 ON CB03001 = OA01040
 		                            WHERE OA01997 = 0 AND OA01003 <> 3      {0}
 			                            AND (OA01017 <> '' and OA01017 is not null) 
@@ -2517,7 +2517,7 @@ namespace Sinoo.BLL
 		                            INNER JOIN OB01 ON OA01999 = OB01002
 		                            INNER JOIN OC01 ON OB01999 = OC01003
 		                            INNER JOIN CA01 ON CA01001 = OA01038                                       
-		                            INNER JOIN UA01 ON UA01004 = OA01015
+		                            INNER JOIN UA01 ON UA01005 = OA01015 
 		                            LEFT JOIN CB03 ON CB03001 = OA01040
 		                            WHERE OA01997 = 0 AND OA01003 <> 3       {0}  
 			                            AND (OA01015 <> '' and OA01015 is not null)
@@ -2534,7 +2534,7 @@ namespace Sinoo.BLL
 		                            INNER JOIN OB01 ON OA01999 = OB01002
 		                            INNER JOIN OC01 ON OB01999 = OC01003
 		                            INNER JOIN CA01 ON CA01001 = OA01038                                       
-		                            INNER JOIN UA01 ON UA01004 = OA01017
+		                            INNER JOIN UA01 ON UA01005 = OA01017 
 		                            LEFT JOIN CB03 ON CB03001 = OA01040
 		                            WHERE OA01997 = 0 AND OA01003 <> 3      {0}
 			                            AND (OA01017 <> '' and OA01017 is not null) 
@@ -2610,7 +2610,7 @@ namespace Sinoo.BLL
 		                            INNER JOIN OB01 ON OA01999 = OB01002
 		                            INNER JOIN OC01 ON OB01999 = OC01003
 		                            INNER JOIN CA01 ON CA01001 = OA01038                                       
-		                            INNER JOIN UA01 ON UA01004 = OA01015
+		                            INNER JOIN UA01 ON UA01005 = OA01015 
 		                            LEFT JOIN CB02 ON CB02001 = CA01018
 		                            WHERE OA01997 = 0 AND OA01003 <> 3       {0}  
 			                            AND (OA01015 <> '' and OA01015 is not null)
@@ -2623,7 +2623,7 @@ namespace Sinoo.BLL
 		                            INNER JOIN OB01 ON OA01999 = OB01002
 		                            INNER JOIN OC01 ON OB01999 = OC01003
 		                            INNER JOIN CA01 ON CA01001 = OA01038                                       
-		                            INNER JOIN UA01 ON UA01004 = OA01017
+		                            INNER JOIN UA01 ON UA01005 = OA01017 
 		                            LEFT JOIN CB02 ON CB02001 = CA01018
 		                            WHERE OA01997 = 0 AND OA01003 <> 3      {0}
 			                            AND (OA01017 <> '' and OA01017 is not null) 
@@ -2679,7 +2679,7 @@ namespace Sinoo.BLL
 		                            INNER JOIN OB01 ON OA01999 = OB01002
 		                            INNER JOIN OC01 ON OB01999 = OC01003
 		                            INNER JOIN CA01 ON CA01001 = OA01038                                       
-		                            INNER JOIN UA01 ON UA01004 = OA01015
+		                            INNER JOIN UA01 ON UA01005 = OA01015 
 		                            LEFT JOIN CB02 ON CB02001 = CA01018
 		                            WHERE OA01997 = 0 AND OA01003 <> 3       {0}  
 			                            AND (OA01015 <> '' and OA01015 is not null)
@@ -2696,7 +2696,7 @@ namespace Sinoo.BLL
 		                            INNER JOIN OB01 ON OA01999 = OB01002
 		                            INNER JOIN OC01 ON OB01999 = OC01003
 		                            INNER JOIN CA01 ON CA01001 = OA01038                                       
-		                            INNER JOIN UA01 ON UA01004 = OA01017
+		                            INNER JOIN UA01 ON UA01005 = OA01017 
 		                            LEFT JOIN CB02 ON CB02001 = CA01018
 		                            WHERE OA01997 = 0 AND OA01003 <> 3      {0}
 			                            AND (OA01017 <> '' and OA01017 is not null) 
@@ -2785,7 +2785,7 @@ namespace Sinoo.BLL
 				                                         round((OB01009/OA01021/1.16),2)*OA01018 AS OA01022
 	                                              FROM dbo.OA01 
 	                                              JOIN dbo.CA01 ON OA01038 = CA01001
-	                                              JOIN dbo.UA01 ON UA01004 = OA01017 	
+	                                              JOIN dbo.UA01 ON UA01005 = OA01017  	
 	                                              JOIN dbo.OB01 ON OA01999 = OB01002
 	                                              JOIN dbo.OC01 ON OB01999 = OC01003
 	                                              WHERE OA01997 = 0 AND OA01003 <> 3  
@@ -2893,7 +2893,7 @@ namespace Sinoo.BLL
 				                               round((OB01009/OA01021/1.16),2)*OA01016 AS Amout
 		                            FROM dbo.OA01  
 		                            JOIN dbo.CA01 ON OA01038 = CA01001
-		                            JOIN dbo.UA01 ON UA01004 = OA01015 	
+		                            JOIN dbo.UA01 ON UA01005 = OA01015  	
 		                            JOIN dbo.OB01 ON OA01999 = OB01002
 		                            JOIN dbo.OC01 ON OB01999 = OC01003
                                     JOIN dbo.GA03 ON GA03001=CA01013
@@ -2910,7 +2910,7 @@ namespace Sinoo.BLL
 	                            JOIN dbo.CA01 ON OA01038 = CA01001
                                 JOIN dbo.GA03 ON GA03001=CA01013
                                 JOIN dbo.GA03 P ON GA03.GA03003 = P.GA03001
-	                            JOIN dbo.UA01 ON UA01004 = OA01017 	
+	                            JOIN dbo.UA01 ON UA01005 = OA01017  	
 	                            JOIN dbo.OB01 ON OA01999 = OB01002
 	                            JOIN dbo.OC01 ON OB01999 = OC01003
 	                            WHERE OA01997 = 0 AND OA01003 <> 3  
@@ -2969,7 +2969,7 @@ namespace Sinoo.BLL
 				                               ROW_NUMBER() OVER(PARTITION BY OA01002 ORDER BY OA01002 ASC ) AS NUM
 		                            FROM dbo.OA01  
 		                            JOIN dbo.CA01 ON OA01038 = CA01001
-		                            JOIN dbo.UA01 ON UA01004 = OA01015 	
+		                            JOIN dbo.UA01 ON UA01005 = OA01015  	
 		                            JOIN dbo.OB01 ON OA01999 = OB01002
 		                            JOIN dbo.OC01 ON OB01999 = OC01003
                                     JOIN dbo.GA03 ON GA03001=CA01013
@@ -2990,7 +2990,7 @@ namespace Sinoo.BLL
 	                            JOIN dbo.CA01 ON OA01038 = CA01001
                                 JOIN dbo.GA03 ON GA03001=CA01013
                                 JOIN dbo.GA03 P ON GA03.GA03003 = P.GA03001
-	                            JOIN dbo.UA01 ON UA01004 = OA01017 	
+	                            JOIN dbo.UA01 ON UA01005 = OA01017  	
 	                            JOIN dbo.OB01 ON OA01999 = OB01002
 	                            JOIN dbo.OC01 ON OB01999 = OC01003
 	                            WHERE OA01997 = 0 AND OA01003 <> 3  
@@ -3111,7 +3111,7 @@ namespace Sinoo.BLL
 								                                FROM OA01
 								                                INNER JOIN OB01 on OB01002 = OA01999 
 								                                INNER JOIN OC01 on OC01003 = OB01999
-								                                INNER JOIN UA01 ON UA01004 = OA01015
+								                                INNER JOIN UA01 ON UA01005 = OA01015 
 								                                INNER JOIN CA01 ON CA01001 = OA01038
 								                                LEFT JOIN CB04 ON CB04001 = CA01020
 								                                LEFT JOIN CB02 ON CB02001 = CA01018
@@ -3132,7 +3132,7 @@ namespace Sinoo.BLL
 								                                FROM OA01
 								                                INNER JOIN OB01 on OB01002 = OA01999 
 								                                INNER JOIN OC01 on OC01003 = OB01999
-								                                INNER JOIN UA01 ON UA01004 = OA01015
+								                                INNER JOIN UA01 ON UA01005 = OA01015 
 								                                INNER JOIN CA01 ON CA01001 = OA01038
 								                                LEFT JOIN CB04 ON CB04001 = CA01020
 								                                LEFT JOIN CB02 ON CB02001 = CA01018
@@ -3155,7 +3155,7 @@ namespace Sinoo.BLL
 								                                FROM OA01
 								                                INNER JOIN OB01 on OB01002 = OA01999 
 								                                INNER JOIN OC01 on OC01003 = OB01999
-								                                INNER JOIN UA01 ON UA01004 = OA01017
+								                                INNER JOIN UA01 ON UA01005 = OA01017 
 								                                INNER JOIN CA01 ON CA01001 = OA01038
 								                                LEFT JOIN CB04 ON CB04001 = CA01020
 								                                LEFT JOIN CB02 ON CB02001 = CA01018
@@ -3176,7 +3176,7 @@ namespace Sinoo.BLL
 								                                FROM OA01
 								                                INNER JOIN OB01 on OB01002 = OA01999 
 								                                INNER JOIN OC01 on OC01003 = OB01999
-								                                INNER JOIN UA01 ON UA01004 = OA01017
+								                                INNER JOIN UA01 ON UA01005 = OA01017 
 								                                INNER JOIN CA01 ON CA01001 = OA01038
 								                                LEFT JOIN CB04 ON CB04001 = CA01020
 								                                LEFT JOIN CB02 ON CB02001 = CA01018
@@ -3281,7 +3281,7 @@ namespace Sinoo.BLL
                                   FROM ( SELECT CA01001,CA01003,OA01002,OC01014,OA01022,OB01009,OA01021,OA01016
                                          FROM	OA01
                                          JOIN dbo.CA01 ON OA01038 = CA01001
-                                         JOIN dbo.UA01 ON UA01004 = OA01015
+                                         JOIN dbo.UA01 ON UA01005 = OA01015 
                                          JOIN dbo.OB01 ON OB01002 = OA01999
                                          JOIN dbo.OC01 ON OC01003 = OB01999
                                          WHERE OA01997 = 0 AND OA01003 = 1 
@@ -3296,7 +3296,7 @@ namespace Sinoo.BLL
                                    FROM ( SELECT CA01001,CA01003,OA01002,OC01014,OA01022,OB01009,OA01021,OA01018
                                           FROM	OA01
                                           JOIN dbo.CA01 ON OA01038 = CA01001
-                                          JOIN dbo.UA01 ON UA01004 = OA01017
+                                          JOIN dbo.UA01 ON UA01005 = OA01017 
                                           JOIN dbo.OB01 ON OB01002 = OA01999
                                           JOIN dbo.OC01 ON OC01003 = OB01999 
                                           WHERE OA01997 = 0 AND OA01003 = 1
@@ -3350,7 +3350,7 @@ namespace Sinoo.BLL
                                   FROM ( SELECT * ,row_number() over (partition by OA01001 order by OA01001 desc) as vid
                                          FROM	OA01
                                          JOIN dbo.CA01 ON OA01038 = CA01001
-                                         JOIN dbo.UA01 ON UA01004 = OA01015
+                                         JOIN dbo.UA01 ON UA01005 = OA01015 
                                          JOIN dbo.OB01 ON OB01002 = OA01999
                                          JOIN dbo.OC01 ON OC01003 = OB01999
                                          WHERE OA01997 = 0 AND OA01003 = 1 AND (OA01015 <> '' and OA01015 is not null)
@@ -3365,7 +3365,7 @@ namespace Sinoo.BLL
                                    FROM ( SELECT * ,row_number() over (partition by OA01001 order by OA01001 desc) as vid
                                           FROM	OA01
                                           JOIN dbo.CA01 ON OA01038 = CA01001
-                                          JOIN dbo.UA01 ON UA01004 = OA01017
+                                          JOIN dbo.UA01 ON UA01005 = OA01017 
                                           JOIN dbo.OB01 ON OB01002 = OA01999
                                           JOIN dbo.OC01 ON OC01003 = OB01999
                                           WHERE OA01997 = 0 AND OA01003 = 1 AND (OA01017 <> '' and OA01017 is not null) 
@@ -3445,7 +3445,7 @@ namespace Sinoo.BLL
 											FROM OA01
 											JOIN CA01 ON CA01001 = OA01038
 											LEFT JOIN CB04 ON CB04001 = CA01020
-											JOIN UA01 ON UA01004 = OA01015 
+											JOIN UA01 ON UA01005 = OA01015  
 											JOIN OB01 ON OA01999 = OB01002
 											JOIN OC01 ON OB01999 = OC01003
 											WHERE OA01997 = 0 AND (OA01015 <> '' and OA01015 is not null) and OA01054 = 1 {0}
@@ -3461,7 +3461,7 @@ namespace Sinoo.BLL
 											FROM OA01
 											JOIN CA01 ON CA01001 = OA01038
 											LEFT JOIN CB04 ON CB04001 = CA01020
-											JOIN UA01 ON UA01004 = OA01017
+											JOIN UA01 ON UA01005 = OA01017 
 											JOIN OB01 ON OA01999 = OB01002
 											JOIN OC01 ON OB01999 = OC01003
 											WHERE OA01997 = 0 AND (OA01017 <> '' and OA01017 is not null) and OA01054 = 1 {0}
@@ -3517,7 +3517,7 @@ namespace Sinoo.BLL
 											FROM OA01
 											JOIN CA01 ON CA01001 = OA01038
 											LEFT JOIN CB04 ON CB04001 = CA01020
-											JOIN UA01 ON UA01004 = OA01015 
+											JOIN UA01 ON UA01005 = OA01015  
 											JOIN OB01 ON OA01999 = OB01002
 											JOIN OC01 ON OB01999 = OC01003
 											WHERE OA01997 = 0 AND (OA01015 <> '' and OA01015 is not null) and OA01054 = 1 {0}
@@ -3533,7 +3533,7 @@ namespace Sinoo.BLL
 											FROM OA01
 											JOIN CA01 ON CA01001 = OA01038
 											LEFT JOIN CB04 ON CB04001 = CA01020
-											JOIN UA01 ON UA01004 = OA01017
+											JOIN UA01 ON UA01005 = OA01017 
 											JOIN OB01 ON OA01999 = OB01002
 											JOIN OC01 ON OB01999 = OC01003
 											WHERE OA01997 = 0 AND (OA01017 <> '' and OA01017 is not null) and OA01054 = 1 {0}
@@ -3613,7 +3613,7 @@ namespace Sinoo.BLL
                                                 INNER JOIN OB01 ON OA01999 = OB01002
                                                 INNER JOIN OC01 ON OB01999 = OC01003
                                                 INNER JOIN CA01 ON CA01001 = OA01038                                       
-                                                INNER JOIN UA01 ON UA01004 = OA01015
+                                                INNER JOIN UA01 ON UA01005 = OA01015 
                                                 LEFT JOIN CB04 ON CB04001 = CA01020
                                             WHERE OA01997 = 0 AND  (OA01015 <> '' and OA01015 is not null) {0}
                                         )  B  
@@ -3626,7 +3626,7 @@ namespace Sinoo.BLL
                                             INNER JOIN OB01 ON OA01999 = OB01002
                                             INNER JOIN OC01 ON OB01999 = OC01003
                                             INNER JOIN CA01 ON CA01001 = OA01038                                       
-                                            INNER JOIN UA01 ON UA01004 = OA01017
+                                            INNER JOIN UA01 ON UA01005 = OA01017 
                                             LEFT JOIN CB04 ON CB04001 = CA01020
                                             WHERE OA01997 = 0 AND  (OA01017 <> '' and OA01017 is not null) {0}
                                          ) C  
@@ -3727,7 +3727,7 @@ namespace Sinoo.BLL
                                                             INNER JOIN OB01 ON OA01999 = OB01002
                                                             INNER JOIN OC01 ON OB01999 = OC01003
                                                             INNER JOIN CA01 ON CA01001 = OA01038
-                                                            INNER JOIN UA01 ON UA01004 = OA01017
+                                                            INNER JOIN UA01 ON UA01005 = OA01017 
                                                             LEFT JOIN CB04 ON CB04001 = CA01020
                                                     WHERE     OA01997 = 0
                                                             AND ( OA01017 <> ''
@@ -4427,7 +4427,7 @@ namespace Sinoo.BLL
 	                    INNER JOIN OB01 ON OA01999 = OB01002
 	                    INNER JOIN OC01 ON OB01999 = OC01003
 	                    INNER JOIN CA01 ON CA01001 = OA01038                                       
-	                    INNER JOIN UA01 ON UA01004 = OA01015
+	                    INNER JOIN UA01 ON UA01005 = OA01015 
 	                    LEFT JOIN CB03 ON CB03001 = OA01040
 	                    WHERE OA01997 = 0 AND OA01003 <> 3 AND (OA01015 <> '' and OA01015 is not null)  and OA01002 = '{0}'
 	                    UNION ALL 
@@ -4436,7 +4436,7 @@ namespace Sinoo.BLL
 	                    INNER JOIN OB01 ON OA01999 = OB01002
 	                    INNER JOIN OC01 ON OB01999 = OC01003
 	                    INNER JOIN CA01 ON CA01001 = OA01038                                       
-	                    INNER JOIN UA01 ON UA01004 = OA01017
+	                    INNER JOIN UA01 ON UA01005 = OA01017 
 	                    LEFT JOIN CB03 ON CB03001 = OA01040
 	                    WHERE OA01997 = 0 AND OA01003 <> 3 AND (OA01017 <> '' and OA01017 is not null)  and OA01002 = '{0}'
 	                    UNION ALL 

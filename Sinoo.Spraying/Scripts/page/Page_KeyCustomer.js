@@ -12,7 +12,7 @@
             var strHtml = "<option value=\"\">请选择</option>";
             if ($(List).length > 0) {
                 for (var i = 0; i < $(List).length; i++) {
-                    strHtml += "<option value=\"" + List[i].UA01001 + "\">" + List[i].UA01004 + "</option>";
+                    strHtml += "<option value=\"" + List[i].UA01001 + "\">" + List[i].UA01005 + "</option>";
                 }
             }
             $("#ddlUA01").html(strHtml);
