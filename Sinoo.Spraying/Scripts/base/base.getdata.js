@@ -225,4 +225,36 @@
         });
         return json;
     }
+    ,
+    GetExchangeRate: function () {
+        var json;
+        $.ajax({
+            url: getdata.getControllerUrl() + "CommonHandler.ashx?time=" + new Date().getTime(),
+            async: false,
+            dataType: 'json',
+            type: 'POST',
+            cache: false,
+            success: function (result) {
+                json = result;
+                console.log(result);
+            }
+        });
+        return json;
+    }
+    ,
+    GetExchangeRateByOrderNo: function (orderNo) {
+        var json;
+        $.ajax({
+            url: getdata.getControllerUrl() + "CommonHandler.ashx?time=" + new Date().getTime() + "&orderNo=" + orderNo,
+            async: false,
+            dataType: 'json',
+            type: 'POST',
+            cache: false,
+            success: function (result) {
+                json = result;
+                console.log(result);
+            }
+        });
+        return json;
+    }
 }

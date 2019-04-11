@@ -197,7 +197,7 @@
                                 <i class="icon-file"></i><span>查询结果</span>
                             </div>
                             <div class="control-group control-anniu">
-                                <input type="button" value="  新 增  " id="btnNew" class="btn btn-primary" onclick="return btnNew_onclick()" />
+                                <input type="button" value="  新 增  " id="btnNew" class="btn btn-primary" />
                                 &nbsp; &nbsp;
                             <input type="button" id="btnImport" class="btn btn-primary" value="  导 入  " onclick="Import()" />
                                 &nbsp; &nbsp;

@@ -1,4 +1,6 @@
-﻿$("#form1").validator({
+﻿var getExchangeRate = parseFloat(getdata.GetExchangeRate()); //获取税率
+
+$("#form1").validator({
     rules: {
         txtOA01024: function (elem) {
             return $("#rbtnOA01024Yes").is(":checked");
@@ -154,7 +156,7 @@ function AddProduct(obj, type) {
     $("#txtOA01020").val(money);
 
     if ($("#txtOA01021").val() != "") {    //订单总金额(US$)
-        $("#txtOA01022").val(Number(Number(money / Number($("#txtOA01021").val()) / 1.16)).toFixed(2));  //订单总金额(US$)
+        $("#txtOA01022").val(Number(Number(money / Number($("#txtOA01021").val()) / getExchangeRate)).toFixed(2));  //订单总金额(US$)
     }
 
     //计算总成本
@@ -177,7 +179,7 @@ function AddProduct(obj, type) {
     }
     else {
         if ($("#txtOA01021").val() != "" && $("#txtOA01021").val() != "0" && ($("#txtOA01020").val() != "0" || $("#txtOA01019").val() != "0")) {
-            var num1 = (1 - (Number($("#txtOA01019").val()) * Number($("#txtOA01021").val()) * 1.16 * 1.15) / $("#txtOA01020").val());
+            var num1 = (1 - (Number($("#txtOA01019").val()) * Number($("#txtOA01021").val()) * getExchangeRate * 1.15) / $("#txtOA01020").val());
             if (num1.toString().indexOf('.') > 0) {
                 num1 = num1.toString().substring(0, num1.toString().indexOf('.') + 7);
             } else {
@@ -298,7 +300,7 @@ function RemoveProduct(obj) {
     $("#txtOA01020").val(money);
 
     if ($("#txtOA01021").val() != "") {    //订单总金额(US$)
-        $("#txtOA01022").val(Number(Number(money / Number($("#txtOA01021").val()) / 1.16)).toFixed(2));  //订单总金额(US$)
+        $("#txtOA01022").val(Number(Number(money / Number($("#txtOA01021").val()) / getExchangeRate)).toFixed(2));  //订单总金额(US$)
     }
 
     //计算总成本
@@ -321,7 +323,7 @@ function RemoveProduct(obj) {
     else {
 
         if ($("#txtOA01021").val() != "" && $("#txtOA01021").val() != "0" && ($("#txtOA01020").val() != "0" || $("#txtOA01019").val() != "0")) {
-            var num1 = (1 - (Number($("#txtOA01019").val()) * Number($("#txtOA01021").val()) * 1.16 * 1.15) / $("#txtOA01020").val());
+            var num1 = (1 - (Number($("#txtOA01019").val()) * Number($("#txtOA01021").val()) * getExchangeRate * 1.15) / $("#txtOA01020").val());
             if (num1.toString().indexOf('.') > 0) {
                 num1 = num1.toString().substring(0, num1.toString().indexOf('.') + 7);
             } else {
@@ -346,7 +348,7 @@ function RemoveProduct(obj) {
 
 function checkNum(obj) {
     if ((obj.name == "txtOP01007" || obj.name == "txtOP01009" || obj.name == "txtOP01011" || obj.name == "txtOP01013" || obj.name == "txtOP01017" || obj.name == "txtOP01019" || obj.name == "txtOP01021")
-        && $.trim(obj.value) != ""&& !/^([1-9]\d*|0)(?:\.\d{0,3}[1-9])?$/.test(obj.value)) {
+        && $.trim(obj.value) != "" && !/^([1-9]\d*|0)(?:\.\d{0,3}[1-9])?$/.test(obj.value)) {
         obj.value = "";
         alert("请输入数字!");
         window.setTimeout(function () { obj.focus(); }, 0);
@@ -386,11 +388,11 @@ function Sum(obj) {
 
     if ($.trim(td1.eq(2).children().val()) != "" && $.trim(td1.eq(3).children().val()) != "") {
         td1.eq(4).children().text(Number(Number($.trim(td1.eq(2).children().val())) * Number($.trim(td1.eq(3).children().val()))).toFixed(2)); //含税合计
-        td1.eq(6).children().text(Number((Number($.trim(td1.eq(3).children().val())) / 1.16) * Number($.trim(td1.eq(2).children().val()))).toFixed(2)); //不含税合计
+        td1.eq(6).children().text(Number((Number($.trim(td1.eq(3).children().val())) / getExchangeRate) * Number($.trim(td1.eq(2).children().val()))).toFixed(2)); //不含税合计
         td1.eq(7).children().text(Number((Number($.trim(td1.eq(6).children().text())) * 0.17)).toFixed(2)); //税额
     }
     if ($.trim(td1.eq(3).children().val()) != "") {
-        td1.eq(5).children().text(Number(Number($.trim(td1.eq(3).children().val())) / 1.16).toFixed(2));
+        td1.eq(5).children().text(Number(Number($.trim(td1.eq(3).children().val())) / getExchangeRate).toFixed(2));
     }
     if ($.trim(td1.eq(8).children().val()) != "" && $.trim(td1.eq(3).children().val()) != "") {
         td1.eq(9).children().text(Number(Number($.trim(td1.eq(8).children().val())) * Number($.trim(td1.eq(2).children().val()))).toFixed(2));
@@ -579,10 +581,10 @@ function EditInvoice(obj) {
 
 function USblur() {
     if ($("#txtOA01020").val() != "")
-        $("#txtOA01022").val(Number(Number($("#txtOA01020").val()) / Number($("#txtOA01021").val()) / 1.16).toFixed(2));  //订单总金额(US$)
+        $("#txtOA01022").val(Number(Number($("#txtOA01020").val()) / Number($("#txtOA01021").val()) / getExchangeRate).toFixed(2));  //订单总金额(US$)
 
     if ($("#txtOA01021").val() != "" && $("#txtOA01021").val() != "0" && $("#txtOA01019").val() != "" && ($("#txtOA01020").val() != "0" || $("#txtOA01019").val() != "0")) {    //计算利润率
-        var num1 = (1 - (Number($("#txtOA01019").val()) * Number($("#txtOA01021").val()) * 1.16 * 1.15) / $("#txtOA01020").val());
+        var num1 = (1 - (Number($("#txtOA01019").val()) * Number($("#txtOA01021").val()) * getExchangeRate * 1.15) / $("#txtOA01020").val());
         if (num1.toString().indexOf('.') > 0) {
             num1 = num1.toString().substring(0, num1.toString().indexOf('.') + 7);
         } else {
@@ -719,7 +721,7 @@ function CalculationDebts() {
     $("#TableBodyfapiao tr").each(function () {
         //        if ($(this).children("td").eq(3).children("span").text() == "Y" && $(this).children("td").eq(10).children("span").text() == "Y") {
         //        if ($.trim($(this).children("td").eq(6).children("span").text()) == "Y" || $.trim($(this).children("td").eq(10).children("span").text()) == "Y") {
-        if ($.trim($(this).children("td").eq(6).children("span").text()) == "Y" 
+        if ($.trim($(this).children("td").eq(6).children("span").text()) == "Y"
         || $.trim($(this).children("td").eq(10).children("span").text()) == "Y") {
 
             Debts += Number($("#TableBodymingxi tr").eq(index).children("td").eq(4).children("span").text());

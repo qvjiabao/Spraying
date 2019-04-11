@@ -21,7 +21,7 @@ namespace Sinoo.Spraying
         protected Dictionary<string, string> GetTeamData()
         {
 
-            Dictionary<string,string> table = new Dictionary<string,string>();
+            Dictionary<string, string> table = new Dictionary<string, string>();
             table.Add("", "请选择");
             table.Add("全区域", "AllAera");
             table.Add("北京", "Beijing");
@@ -36,8 +36,7 @@ namespace Sinoo.Spraying
             return table;
         }
 
-
-        public void IsRose()
+        protected void IsRose()
         {
             string strPath = Server.HtmlEncode(Request.FilePath); //请求的虚拟路径
             if (strPath != "/Index.aspx")

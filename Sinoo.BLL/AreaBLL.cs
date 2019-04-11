@@ -20,8 +20,6 @@ namespace Sinoo.BLL
 
         #endregion
 
-        #region 系统区域表
-
         /// <summary>
         /// 获取汇率
         /// </summary>
@@ -35,6 +33,31 @@ namespace Sinoo.BLL
                 object obj = null;
 
                 string strsql = " select top 1 SettingId, Value from Settings order by ModifyOn desc";
+
+                ds = Provider.ReturnDataSetByDataAdapter(strsql, 0, ref obj, null);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+
+            return ds.Tables[0];
+        }
+
+
+        /// <summary>
+        /// 获取汇率
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        public DataTable GetSettings(string orderNo)
+        {
+            DataSet ds;
+            try
+            {
+                object obj = null;
+
+                string strsql = string.Format(" select OA01060 as Value from OA01 where OA01002 = '{0}' ", orderNo);
 
                 ds = Provider.ReturnDataSetByDataAdapter(strsql, 0, ref obj, null);
             }
@@ -67,6 +90,8 @@ namespace Sinoo.BLL
             }
         }
 
+
+        #region 系统区域表
 
         /// <summary>
         /// 查询全部省市

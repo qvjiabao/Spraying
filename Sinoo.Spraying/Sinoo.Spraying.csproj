@@ -671,6 +671,9 @@
     <Compile Include="Handler\BindPowerHandler.ashx.cs">
       <DependentUpon>BindPowerHandler.ashx</DependentUpon>
     </Compile>
+    <Compile Include="Handler\CommonHandler.ashx.cs">
+      <DependentUpon>CommonHandler.ashx</DependentUpon>
+    </Compile>
     <Compile Include="Handler\GetDataHandler.ashx.cs">
       <DependentUpon>GetDataHandler.ashx</DependentUpon>
     </Compile>
@@ -1294,6 +1297,7 @@
     <Content Include="Handler\UserOB02lHandler.ashx" />
     <Content Include="Scripts\page\Page_InvoicesAmountOfMoney.js" />
     <Content Include="packages.config" />
+    <Content Include="Handler\CommonHandler.ashx" />
     <None Include="Properties\PublishProfiles\配置文件1.pubxml" />
     <Content Include="Handler\TipHandler.ashx" />
   </ItemGroup>
