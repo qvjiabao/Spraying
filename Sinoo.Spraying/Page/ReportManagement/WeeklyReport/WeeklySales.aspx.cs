@@ -50,7 +50,7 @@ namespace Sinoo.Spraying.Page.ReportManagement.WeeklyReport
 
             string strWhereAdd = this.GetWhere(bl);  //where语句
             bool blInvoice = (!string.IsNullOrEmpty(this.txtBeginInvoiceTime.Text.Trim()) || !string.IsNullOrEmpty(this.txtEndInvoiceTime.Text.Trim()));
-            DataTable dt = _ReportBLL.SelectWeeklySalesPage(AspNetPager1.PageSize, Index, strWhereAdd, blInvoice,ref RowCount);
+            DataTable dt = _ReportBLL.SelectWeeklySalesPage(AspNetPager1.PageSize, Index, strWhereAdd, blInvoice, ref RowCount);
             if (dt.Rows.Count > 0)
             {
                 DataCount = string.Empty;
@@ -66,6 +66,7 @@ namespace Sinoo.Spraying.Page.ReportManagement.WeeklyReport
                     DataCount = "<tr><td colspan=\"10\">没有符合查询条件的数据</td></tr>";
                 }
             }
+
             rpGA03.DataSource = dt;
             AspNetPager1.RecordCount = Convert.ToInt32(RowCount);
             AspNetPager1.CurrentPageIndex = Index;
@@ -194,19 +195,15 @@ namespace Sinoo.Spraying.Page.ReportManagement.WeeklyReport
                 strWhereAdd += string.Format(" AND OA01044 = {0}", str);
             }
 
-
             UserBase _UserBase = Session["USER_SESSION"] as UserBase;
-            if (_UserBase.UA01024 == 43)  //登录人是销售员只能看到自己的订单  --按销售员查询不好使
+            if (_UserBase.UA01024 == 43) //登录人是销售员只能看到自己的订单  --按销售员查询不好使
             {
-                //strWhereAdd += string.Format(" AND OA01013 = '{0}' ", _UserBase.UA01001);
-                strWhereAdd += string.Format(" AND (OA01013 = '{0}' OR OA01015='{1}' OR OA01017='{1}') ", _UserBase.UA01001, _UserBase.UA01004);
+                strWhereAdd += string.Format(" AND (UA01005='{0}' or OA01013 = '{1}' ) ", _UserBase.UA01005, _UserBase.UA01001);
             }
-            else
+
+            if (!string.IsNullOrEmpty(Request.Form["ddlUA01004"]) && Request.Form["ddlUA01004"] != "")
             {
-                if (!string.IsNullOrEmpty(Request.Form["ddlUA01004"]) && Request.Form["ddlUA01004"] != "")
-                {
-                    strWhereAdd += string.Format(" AND UA01001 = {0}", Request.Form["ddlUA01004"]);
-                }
+                strWhereAdd += string.Format(" AND UA01001 = {0}", Request.Form["ddlUA01004"]);
             }
 
             if (!string.IsNullOrEmpty(Request.Form["ddlUA01013"]) && Request.Form["ddlUA01013"] != "全区域")
@@ -287,7 +284,9 @@ namespace Sinoo.Spraying.Page.ReportManagement.WeeklyReport
             DataSet dt = _ExcelBLL.ExportWeeklySalesPage(strWhereAdd, blInvoice);
             if (dt.Tables[0].Rows.Count > 0)
             {
+
                 this.DownloadFile(dt, "WeeklySales.xls", "WeeklySales.xml");
+
             }
             else
             {

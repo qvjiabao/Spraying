@@ -2745,7 +2745,9 @@ namespace Sinoo.BLL
             try
             {
                 string strSql = string.Empty;
-                strSql = string.Format(@" 
+                if (blInvoice)
+                {
+                    strSql = string.Format(@" 
                              SELECT GA03001,GA03002 ProvinceName, COUNT(distinct CustomerNum) CustomerNum
                                             ,SUM(CASE  WHEN NewCustomerNum = 1 THEN 1 ELSE 0 END ) NewCustomerNum
                                             ,COUNT(distinct OrderNum) OrderNum  ,SUM(OA01022) Amout
@@ -2807,7 +2809,97 @@ namespace Sinoo.BLL
 			                                                 AND  (OA01016 <> 0 OR OA01018<>0)   {0}
                                         ) ABCD 
                     group by GA03001,GA03002", strWhere);
-
+                }
+                else
+                {
+                    strSql =
+                        string.Format(@"SELECT GA03001,GA03002 ProvinceName, COUNT(distinct CustomerNum) CustomerNum
+                                            ,SUM(CASE  WHEN NewCustomerNum = 1 THEN 1 ELSE 0 END) NewCustomerNum
+                                            ,COUNT(distinct OrderNum) OrderNum  ,SUM(OA01022) Amout
+                                        FROM(
+                                            SELECT GA03001, GA03002, CustomerNum, NewCustomerNum, OrderNum, OA01022
+                                            FROM(
+                                                SELECT P.GA03001, P.GA03002,
+                                                       OA01038 AS CustomerNum,
+                                                       OA01044 AS NewCustomerNum,
+                                                       OA01002 AS OrderNum,
+                                                       OA01022, ROW_NUMBER() OVER(PARTITION BY OA01002 ORDER BY OA01009 DESC) NUM
+                                                FROM dbo.OA01
+                                                JOIN dbo.UA01 ON UA01001 = OA01013
+                                                JOIN dbo.CA01 ON OA01038 = CA01001
+                                                JOIN dbo.OB01 ON OA01999 = OB01002
+                                                JOIN dbo.OC01 ON OB01999 = OC01003
+                                                JOIN dbo.GA03 ON GA03001 = CA01013
+                                                JOIN dbo.GA03 P ON GA03.GA03003 = P.GA03001
+                                                WHERE OA01997 = 0 AND OA01003 <> 3
+                                                        AND(OA01015 = '' or OA01015 is null)
+                                                        AND(OA01017 = '' or OA01017 is null)
+                                                        AND  OA01016 = 0 AND OA01018 = 0  {0}
+	                                        ) A
+                                            WHERE A.NUM = 1
+                                            UNION ALL
+                                            SELECT GA03001, GA03002, CustomerNum, NewCustomerNum, OrderNum, OA01022
+                                            FROM(
+                                                    SELECT OA01055 GA03001, OA01057 GA03002,
+                                                           OA01038 AS  CustomerNum,
+                                                           OA01044 AS NewCustomerNum,
+                                                           OA01002 AS OrderNum,
+                                                           OA01022 * OA01016 AS OA01022
+                                                            , ROW_NUMBER() OVER(PARTITION BY OA01002 ORDER BY OA01009 DESC) NUM
+                                                    FROM dbo.OA01
+                                                    JOIN dbo.UA01 ON UA01001 = OA01013
+                                                    JOIN dbo.CA01 ON OA01038 = CA01001
+                                                    JOIN dbo.OB01 ON OA01999 = OB01002
+                                                    JOIN dbo.OC01 ON OB01999 = OC01003
+                                                    JOIN dbo.GA03 ON GA03001 = CA01013
+                                                    JOIN dbo.GA03 P ON GA03.GA03003 = P.GA03001
+                                                    WHERE OA01997 = 0 AND OA01003 <> 3
+                                                        AND(OA01015 <> '' AND OA01015 IS NOT NULL)  {0}
+	                                        ) A
+                                            WHERE A.NUM = 1
+                                            UNION ALL
+                                            SELECT GA03001, GA03002, CustomerNum, NewCustomerNum, OrderNum, OA01022
+                                            FROM(
+                                                  SELECT OA01056 GA03001, OA01058 GA03002,
+                                                         OA01038 AS  CustomerNum,
+                                                         OA01044 AS NewCustomerNum,
+                                                         OA01002 AS OrderNum,
+                                                           OA01022 * OA01018 AS OA01022
+                                                        , ROW_NUMBER() OVER(PARTITION BY OA01002 ORDER BY OA01009 DESC) NUM
+                                                  FROM dbo.OA01
+                                                  JOIN dbo.CA01 ON OA01038 = CA01001
+                                                  JOIN dbo.UA01 ON UA01005 = OA01017
+                                                  JOIN dbo.OB01 ON OA01999 = OB01002
+                                                  JOIN dbo.OC01 ON OB01999 = OC01003
+                                                  JOIN dbo.GA03 ON GA03001 = CA01013
+                                                  JOIN dbo.GA03 P ON GA03.GA03003 = P.GA03001
+                                                  WHERE OA01997 = 0 AND OA01003 <> 3
+                                                           AND(OA01017 <> '' AND OA01017 IS NOT NULL)  {0} 
+                                            ) A
+                                            WHERE A.NUM = 1
+                                            UNION ALL
+                                            SELECT GA03001, GA03002, CustomerNum, NewCustomerNum, OrderNum, OA01022
+                                            FROM(
+                                                  SELECT P.GA03001, P.GA03002,
+                                                         OA01038 AS  CustomerNum,
+                                                         OA01044 AS NewCustomerNum,
+                                                         OA01002 AS OrderNum,
+                                                         OA01022 * (1 - OA01016 - OA01018) AS OA01022
+                                                    , ROW_NUMBER() OVER(PARTITION BY OA01002 ORDER BY OA01009 DESC) NUM
+                                                  FROM dbo.OA01
+                                                  JOIN dbo.CA01 ON OA01038 = CA01001
+                                                  JOIN dbo.UA01 ON UA01001 = OA01013
+                                                  JOIN dbo.OB01 ON OA01999 = OB01002
+                                                  JOIN dbo.OC01 ON OB01999 = OC01003
+                                                  JOIN dbo.GA03 ON GA03001 = CA01013
+                                                  JOIN dbo.GA03 P ON GA03.GA03003 = P.GA03001
+                                                  WHERE OA01997 = 0 AND OA01003 <> 3
+                                                             AND(OA01016 <> 0 OR OA01018 <> 0) {0}
+                                            ) A
+                                            WHERE A.NUM = 1
+                                        ) ABCD group by GA03001, GA03002 ", strWhere);
+                }
+                
                 object obj = null;//用于接收存储过程返回值
                 ds = Provider.ReturnDataSetByDataAdapter(strSql, 0, ref obj, null);
             }
