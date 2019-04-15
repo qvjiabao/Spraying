@@ -57,7 +57,7 @@ namespace Sinoo.BLL
             {
                 object obj = null;
 
-                string strsql = string.Format(" select OA01060 as Value from OA01 where OA01002 = '{0}' ", orderNo);
+                string strsql = string.Format(" select MAX(OA01060) as Value from OA01 where OA01002 = '{0}' ", orderNo);
 
                 ds = Provider.ReturnDataSetByDataAdapter(strsql, 0, ref obj, null);
             }

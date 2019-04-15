@@ -532,7 +532,7 @@ namespace Sinoo.BLL
                                 ,OA01041,OA01042,OA01043,OA01044,OA01045
                                 ,OA01046,OA01047,OA01048,OA01049,OA01050
                                 ,OA01051,OA01997,OA01998,OA01999,OB02002
-                                ,UA01004,UA01005
+                                ,UA01004,UA01005,OA01060
                                 FROM OA01
                                 INNER JOIN OB02 ON OB02001 = OA01025
                                 INNER JOIN UA01 ON UA01001 = OA01013

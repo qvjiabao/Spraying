@@ -356,6 +356,7 @@ namespace Sinoo.Spraying.Page.SalesManagement
             _OrderBase.OA01056 = this.ddlOA01056.SelectedValue;
             _OrderBase.OA01057 = this.ddlOA01055.SelectedItem.Text.Equals("请选择") ? string.Empty : this.ddlOA01055.SelectedItem.Text;
             _OrderBase.OA01058 = this.ddlOA01056.SelectedItem.Text.Equals("请选择") ? string.Empty : this.ddlOA01056.SelectedItem.Text;
+            _OrderBase.OA01060 = Convert.ToDecimal(new OrderBLL().SelectOrderBaseById(_OrderBase.OA01001.ToString()).Rows[0]["OA01060"]);
 
             #endregion
 

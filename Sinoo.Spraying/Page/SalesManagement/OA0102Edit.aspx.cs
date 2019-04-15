@@ -152,6 +152,7 @@ namespace Sinoo.Spraying.Page.SalesManagement
             _OrderBase.OA01049 = this.txtOA01049.Text.Trim();
             _OrderBase.OA01050 = this.txtOA01050.Text.Trim();
             _OrderBase.OA01013 = this.txtOA01013.Value;
+            _OrderBase.OA01060 = Convert.ToDecimal(new OrderBLL().SelectOrderBaseById(_OrderBase.OA01001.ToString()).Rows[0]["OA01060"]);
             if (ddlOA01016.SelectedValue != "")
                 _OrderBase.OA01016 = Convert.ToDecimal(ddlOA01016.SelectedValue);
             if (ddlOA01018.SelectedValue != "")
