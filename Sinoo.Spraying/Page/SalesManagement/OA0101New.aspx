@@ -416,8 +416,8 @@
                                 <table width="100%%" class="table table-bordered table-striped table-hover with-check zhong nomargin">
                                     <thead>
                                         <tr>
-                                            <th width="9%" scope="col">S/N
-                                            </th>
+                 <%--                           <th width="9%" scope="col">S/N
+                                            </th>--%>
                                             <th width="9%" scope="col">Part NO
                                             </th>
                                             <th width="9%" scope="col">Description

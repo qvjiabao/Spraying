@@ -85,6 +85,7 @@ namespace Sinoo.Spraying.Page.SalesManagement
             _OrderBase.OA01025 = Convert.ToInt32(ddlOA01025.SelectedValue);
 
             _OrderBase.OA01052 = (Session["USER_SESSION"] as UserBase).UA01001;
+            _OrderBase.OA01060 = Convert.ToDecimal(new AreaBLL().GetSettings().Rows[0]["Value"]);
             _OrderBase.OA01999 = Guid.NewGuid().ToString();
             if (rbtnOA01005No.Checked)
                 _OrderBase.OA01005 = 0;

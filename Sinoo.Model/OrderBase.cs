@@ -72,9 +72,20 @@ namespace Sinoo.Model
         private string _oa01056;
         private string _oa01057;
         private string _oa01058;
+        private decimal _oa01060;
         private int? _oa01997;
         private DateTime? _oa01998;
         private string _oa01999;
+
+        /// <summary>
+        /// 税率
+        /// </summary>
+        public decimal OA01060
+        {
+            set { _oa01060 = value; }
+            get { return _oa01060; }
+        }
+
         /// <summary>
         /// 订单ID
         /// </summary>
