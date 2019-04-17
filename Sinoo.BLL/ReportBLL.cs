@@ -504,10 +504,8 @@ namespace Sinoo.BLL
                         		FROM dbo.OC01  
                         		JOIN dbo.OB01 ON (OC01003=OB01999) 
                         		JOIN OA01 t1 ON(OB01002=OA01999) 
-                        		WHERE (OC01010<>0 or oc01007<>1) 
-                        		AND oa01999=oa01.OA01999
-                        	    )
-                                AND (OA01003 = 1 OR OA01003 =3)  " + strWhereAdd;
+                        		WHERE oc01007<>1 AND oa01999=oa01.OA01999
+                        	    ) AND (OA01003 = 1 OR OA01003 =3) and OC01010 <> 1 " + strWhereAdd;
 
                 ds = Provider.ReturnDataSetByDataAdapter("PRO_Page", 1, ref obj, new SqlParameter[]{
                 new SqlParameter(){ParameterName=@"PageIndex",Value=PageIndex, DbType=DbType.Int32},
@@ -598,7 +596,7 @@ namespace Sinoo.BLL
                                 INNER JOIN CA01 ON CA01001 = OA01038 
                                 INNER JOIN UA01 ON UA01001 = OA01013
                                 INNER JOIN OC01 ON(OC01003=OB01999) ";
-                string strWhere = string.Format(@" WHERE OB01997 = 0  AND (OA01003 = 1 OR OA01003 =3) 
+                string strWhere = string.Format(@" WHERE OB01997 = 0  AND (OA01003 = 1 OR OA01003 =3)  and OC01010 <> 1 {0}
                                  AND NOT EXISTS(
 		                            SELECT TOP 1 1
 		                            FROM dbo.OC01  
@@ -606,15 +604,7 @@ namespace Sinoo.BLL
 		                            JOIN OA01 t1 ON(OB01002=OA01999) 
                                     INNER JOIN CA01 ON CA01001 = OA01038 
                                     INNER JOIN UA01 ON UA01001 = OA01013
-		                            WHERE (OC01010<>0 or oc01007<>1) 
-		                            AND oa01999=oa01.OA01999 {0} ) 
-                                  AND NOT EXISTS(
-		                              SELECT  TOP 1 1
-		                              FROM dbo.OC01  
-		                              JOIN dbo.OB01 ON (OC01003=OB01999) 
-		                              JOIN OA01 t1 ON(OB01002=OA01999) 
-		                              WHERE t1.OA01999=OA01.OA01999 
-		                              AND OC01010 = 0 AND oc01007 = 0) {0} ", strWhereAdd);
+		                            WHERE oc01007 <> 1 AND oa01999=oa01.OA01999 {0} )  ", strWhereAdd);
 
                 ds = Provider.ReturnDataSetByDataAdapter("PRO_Page", 1, ref obj, new SqlParameter[]{
                 new SqlParameter(){ParameterName=@"PageIndex",Value=PageIndex, DbType=DbType.Int32},
