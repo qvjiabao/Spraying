@@ -680,12 +680,14 @@ namespace Sinoo.BLL
             try
             {
                 System.Text.StringBuilder sb = new StringBuilder();
-                sb.Append("SELECT  UA01001 , UA01004, UA01005    FROM  UA01  WHERE UA01997 = 0 ORDER BY UA01005 ");
+                sb.Append("SELECT  UA01001 , UA01004, UA01005    FROM  UA01  WHERE UA01997 = 0 ");
                                                           
                 if (UA01013 != "全区域")
                 {
                     sb.Append(string.Format(" AND UA01013='{0}'", UA01013));
                 }
+
+                sb.Append(" ORDER BY UA01005 ");
 
                 object obj = null;//用于接收存储过程返回值
                 ds = Provider.ReturnDataSetByDataAdapter(sb.ToString(), 0, ref obj, null);

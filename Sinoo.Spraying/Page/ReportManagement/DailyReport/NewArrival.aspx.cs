@@ -193,11 +193,13 @@ namespace Sinoo.Spraying.Page.ReportManagement.DailyReport
         /// <param name="e"></param>
         protected void Page_Load(object sender, EventArgs e)
         {
+
             if (!IsPostBack)
             {
+
                 this.txtOA01009Start.Text = DateTime.Now.ToString("yyyy-MM-dd");  //到货时间
                 this.txtOA01009End.Text = DateTime.Now.ToString("yyyy-MM-dd");   //到货截至时间
-                
+
                 //获取团队
                 this.ddlUA01013.DataSource = this.GetTeamData();
                 this.ddlUA01013.DataTextField = "Value";
@@ -246,10 +248,7 @@ namespace Sinoo.Spraying.Page.ReportManagement.DailyReport
                 return;
                 
             }
-
-            this.txtOA01009Start.Text = DateTime.Now.ToString("yyyy-MM-dd");  //到货时间
-            this.txtOA01009End.Text = DateTime.Now.ToString("yyyy-MM-dd");   //到货截至时间
-
+           
             InitData(1, false);
         }
 
