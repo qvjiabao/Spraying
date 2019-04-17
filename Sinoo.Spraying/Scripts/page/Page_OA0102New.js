@@ -256,7 +256,7 @@ function Sum(obj) {
     if ($.trim(td1.eq(2).children().val()) != "" && $.trim(td1.eq(3).children().val()) != "") {
         td1.eq(4).children().text(Number(Number($.trim(td1.eq(2).children().val())) * Number($.trim(td1.eq(3).children().val()))).toFixed(2)); //含税合计
         td1.eq(6).children().text(Number((Number($.trim(td1.eq(3).children().val())) / getExchangeRate) * Number($.trim(td1.eq(2).children().val()))).toFixed(2)); //不含税合计
-        td1.eq(7).children().text(Number((Number($.trim(td1.eq(6).children().text())) * 0.17)).toFixed(2)); //税额
+        td1.eq(7).children().text(Number((Number($.trim(td1.eq(6).children().text())) * 0.13)).toFixed(2)); //税额
     }
     if ($.trim(td1.eq(3).children().val()) != "") {
         td1.eq(5).children().text(Number(Number($.trim(td1.eq(3).children().val())) / getExchangeRate).toFixed(2));
