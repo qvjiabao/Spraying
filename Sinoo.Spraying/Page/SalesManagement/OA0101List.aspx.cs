@@ -40,7 +40,7 @@ namespace Sinoo.Spraying.Page.SalesManagement
             }
             if (_UserBase.UA01009 == 1)  //登录人为销售人员只显示自己的销售订单
             {
-                strWhere += string.Format(" AND OA01013 =  '{0}'", _UserBase.UA01001);
+                strWhere += string.Format(" AND (OA01013 =  '{0}' or OA01015 = '{1}' or OA01017 = '{1}')", _UserBase.UA01001, _UserBase.UA01005);
             }
             if (_UserBase.UA01001 == 44)  //陈广琴：订单、退单权限只能看到autojet订单
             {

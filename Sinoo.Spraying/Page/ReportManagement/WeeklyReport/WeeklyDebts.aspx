@@ -58,9 +58,9 @@
                         <div class="control-group">
                             <label>
                                 <span>Delivery Date：</span>
-                                <asp:TextBox ID="txtBeginDeliveryDate" Style="width: 91px;" onclick="WdatePicker({maxDate:'#F{$dp.$D(\'txtEndInvoiceTime\')}'})"
+                                <asp:TextBox ID="txtBeginDeliveryDate" Style="width: 91px;" onclick="WdatePicker({maxDate:'#F{$dp.$D(\'txtEndDeliveryDate\')}'})"
                                     CssClass="Wdate" runat="server"></asp:TextBox>&nbsp;-&nbsp;
-                                <asp:TextBox ID="txtEndDeliveryDate" Style="width: 91px;" onclick="WdatePicker({minDate:'#F{$dp.$D(\'txtBeginInvoiceTime\')}'})"
+                                <asp:TextBox ID="txtEndDeliveryDate" Style="width: 91px;" onclick="WdatePicker({minDate:'#F{$dp.$D(\'txtBeginDeliveryDate\')}'})"
                                     CssClass="Wdate" runat="server"></asp:TextBox>
                             </label>
                         </div>

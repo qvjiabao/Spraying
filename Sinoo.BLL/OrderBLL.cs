@@ -753,7 +753,7 @@ namespace Sinoo.BLL
             DataSet ds;
             try
             {
-                string strColumn = @"*,ROW_NUMBER() OVER(ORDER BY OA01009 DESC ) AS RowNumber";
+                string strColumn = @"*,ROW_NUMBER() OVER(ORDER BY OA01009 DESC,OA01002 DESC ) AS RowNumber";
 
                 string strTableName = string.Format(@" (
                                           SELECT * FROM (

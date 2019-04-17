@@ -2748,11 +2748,11 @@ namespace Sinoo.BLL
                 if (blInvoice)
                 {
                     strSql = string.Format(@" 
-                             SELECT GA03001,GA03002 ProvinceName, COUNT(distinct CustomerNum) CustomerNum
+                             SELECT GA03002 ProvinceName, COUNT(distinct CustomerNum) CustomerNum
                                             ,SUM(CASE  WHEN NewCustomerNum = 1 THEN 1 ELSE 0 END ) NewCustomerNum
                                             ,COUNT(distinct OrderNum) OrderNum  ,SUM(OA01022) Amout
                                         FROM (
-			                                        SELECT P.GA03001,P.GA03002, 
+			                                        SELECT P.GA03002, 
 				                                           OA01038 AS CustomerNum,
 			                                               OA01044 AS NewCustomerNum,
 			                                               OA01002 AS OrderNum,
@@ -2768,7 +2768,7 @@ namespace Sinoo.BLL
 					                                        AND  (OA01017 = '' or OA01017 is null) 
                                                             AND  OA01016 = 0 AND OA01018 = 0  {0}
 	                                          UNION ALL 
-		                                            SELECT OA01055 GA03001,OA01057 GA03002 ,
+		                                            SELECT OA01057 GA03002 ,
 				                                           OA01038 AS  CustomerNum,
 				                                           OA01044 AS NewCustomerNum,
 				                                           OA01002 AS OrderNum,
@@ -2780,7 +2780,7 @@ namespace Sinoo.BLL
 		                                            WHERE OA01997 = 0 AND OA01003 <> 3  
 				                                        AND   (OA01015 <> '' AND OA01015 IS NOT NULL)   {0}
 	                                         UNION ALL 
-	                                              SELECT OA01056 GA03001,OA01058 GA03002 , 
+	                                              SELECT OA01058 GA03002 , 
 				                                         OA01038 AS  CustomerNum,
 				                                         OA01044 AS NewCustomerNum,
 				                                         OA01002 AS OrderNum,
@@ -2793,7 +2793,7 @@ namespace Sinoo.BLL
 	                                              WHERE OA01997 = 0 AND OA01003 <> 3  
 		                                                   AND   (OA01017 <> '' AND OA01017 IS NOT NULL)  {0} 
 	                                         UNION ALL 
-		                                          SELECT P.GA03001,P.GA03002,
+		                                          SELECT P.GA03002,
 				                                         OA01038 AS  CustomerNum,
 				                                         OA01044 AS NewCustomerNum,
 				                                         OA01002 AS OrderNum,
@@ -2808,16 +2808,16 @@ namespace Sinoo.BLL
 		                                          WHERE OA01997 = 0 AND OA01003 <> 3  
 			                                                 AND  (OA01016 <> 0 OR OA01018<>0)   {0}
                                         ) ABCD 
-                    group by GA03001,GA03002", strWhere);
+                    group by GA03002", strWhere);
                 }
                 else
                 {
                     strSql =
-                        string.Format(@"SELECT GA03001,GA03002 ProvinceName, COUNT(distinct CustomerNum) CustomerNum
+                        string.Format(@"SELECT GA03002 ProvinceName, COUNT(distinct CustomerNum) CustomerNum
                                             ,SUM(CASE  WHEN NewCustomerNum = 1 THEN 1 ELSE 0 END) NewCustomerNum
                                             ,COUNT(distinct OrderNum) OrderNum  ,SUM(OA01022) Amout
                                         FROM(
-                                            SELECT GA03001, GA03002, CustomerNum, NewCustomerNum, OrderNum, OA01022
+                                            SELECT GA03002, CustomerNum, NewCustomerNum, OrderNum, OA01022
                                             FROM(
                                                 SELECT P.GA03001, P.GA03002,
                                                        OA01038 AS CustomerNum,
@@ -2838,9 +2838,9 @@ namespace Sinoo.BLL
 	                                        ) A
                                             WHERE A.NUM = 1
                                             UNION ALL
-                                            SELECT GA03001, GA03002, CustomerNum, NewCustomerNum, OrderNum, OA01022
+                                            SELECT GA03002, CustomerNum, NewCustomerNum, OrderNum, OA01022
                                             FROM(
-                                                    SELECT OA01055 GA03001, OA01057 GA03002,
+                                                    SELECT OA01057 GA03002,
                                                            OA01038 AS  CustomerNum,
                                                            OA01044 AS NewCustomerNum,
                                                            OA01002 AS OrderNum,
@@ -2858,9 +2858,9 @@ namespace Sinoo.BLL
 	                                        ) A
                                             WHERE A.NUM = 1
                                             UNION ALL
-                                            SELECT GA03001, GA03002, CustomerNum, NewCustomerNum, OrderNum, OA01022
+                                            SELECT GA03002, CustomerNum, NewCustomerNum, OrderNum, OA01022
                                             FROM(
-                                                  SELECT OA01056 GA03001, OA01058 GA03002,
+                                                  SELECT OA01058 GA03002,
                                                          OA01038 AS  CustomerNum,
                                                          OA01044 AS NewCustomerNum,
                                                          OA01002 AS OrderNum,
@@ -2878,9 +2878,9 @@ namespace Sinoo.BLL
                                             ) A
                                             WHERE A.NUM = 1
                                             UNION ALL
-                                            SELECT GA03001, GA03002, CustomerNum, NewCustomerNum, OrderNum, OA01022
+                                            SELECT GA03002, CustomerNum, NewCustomerNum, OrderNum, OA01022
                                             FROM(
-                                                  SELECT P.GA03001, P.GA03002,
+                                                  SELECT  P.GA03002,
                                                          OA01038 AS  CustomerNum,
                                                          OA01044 AS NewCustomerNum,
                                                          OA01002 AS OrderNum,
@@ -2897,7 +2897,7 @@ namespace Sinoo.BLL
                                                              AND(OA01016 <> 0 OR OA01018 <> 0) {0}
                                             ) A
                                             WHERE A.NUM = 1
-                                        ) ABCD group by GA03001, GA03002 ", strWhere);
+                                        ) ABCD group by GA03002 ", strWhere);
                 }
                 
                 object obj = null;//用于接收存储过程返回值
@@ -3679,7 +3679,8 @@ namespace Sinoo.BLL
                 string strsql = string.Empty;
                 if (blInvoice)
                 {
-                    strsql = string.Format(@"  select OA01001,OA01002,OA01009,OA01013,CA01001,CA01003,UA01004,UA01005,UA01013 ,
+                    strsql = string.Format(@"
+                                     select OA01001,OA01002,OA01009,OA01013,CA01001,CA01003,UA01004,UA01005,UA01013 ,
                                              dbo.FX_GetProvinceIdByCityId(ProvinceId) ProvinceId,dbo.FX_GetProvinceByCityId(ProvinceName) ProvinceName ,
                                              CB04002,OA01021,OA01015,OA01017,OA01044,sum(OA01020) OA01020,sum(OA01022) OA01022
                                        from (
@@ -3736,12 +3737,12 @@ namespace Sinoo.BLL
                                             WHERE OA01997 = 0 AND  (OA01016 <> 0 OR OA01018<>0)  {0}
                                           ) D 
                             ) GP  group by OA01001,OA01002,OA01009,OA01013,CA01001,CA01003,UA01004,UA01005,UA01013 ,
-                                  ProvinceId , ProvinceName,CB04002,OA01021,OA01015,OA01017,OA01044  ", strWhereAdd);
+                                  ProvinceId , ProvinceName,CB04002,OA01021,OA01015,OA01017,OA01044 ", strWhereAdd);
                 }
                 else
                 {
-                    strsql = string.Format(@" 
-                                      select * from (
+                    strsql = string.Format(@"
+                                    select * from (
                                         SELECT *  FROM
                                         (   SELECT OA01001,OA01002,OA01009,OA01013 , 
                                                    CA01001,CA01003,UA01004,UA01005,UA01013 ,
@@ -3750,7 +3751,7 @@ namespace Sinoo.BLL
                                                    CB04002, 
                                                    OA01020,
                                                    OA01021, OA01015,OA01017,
-                                                   CAST(OA01022 as decimal(18,2)) OA01022,OA01044 ,
+                                                   OA01022,OA01044 ,
                                                    ROW_NUMBER() OVER(PARTITION BY OA01002 ORDER BY OA01009 ASC ) AS NUM
                                             FROM OA01 
                                                    INNER JOIN OB01 ON OA01999 = OB01002
@@ -3761,74 +3762,41 @@ namespace Sinoo.BLL
                                             WHERE OA01997 = 0  AND  (OA01015 = '' or OA01015 is null)
                                                 AND  (OA01017 = '' or OA01017 is null)  AND  OA01016 = 0 AND OA01018 = 0 {0}
                                      )  GP  WHERE NUM=1 
-                                     UNION ALL
-                                     SELECT    *
-                                          FROM     ( SELECT    OA01001 ,
-                                                                OA01002 ,
-                                                                OA01009 ,
-                                                                OA01013 ,
-                                                                CA01001 ,
-                                                                CA01003 ,
-                                                                UA01004 ,
-                                                                OA01015 AS UA01005 ,
-                                                                UA01013 ,
-                                                                dbo.FX_GetProvinceIdByCityId(CA01013) ProvinceId ,
-                                                                dbo.FX_GetProvinceByCityId(CA01013) ProvinceName ,
-                                                                CB04002 ,
-                                                               ( OA01020 * ISNULL(OA01016, 0) ) OA01020 ,
-                                                                OA01021 ,
-                                                                UA01005 AS OA01015 ,
-                                                                OA01017 ,
-                                                                ( OA01022 * ISNULL(OA01016, 0) ) OA01022 ,
-                                                                OA01044 ,
-                                                                ROW_NUMBER() OVER ( PARTITION BY OA01002 ORDER BY OA01009 ASC ) AS NUM
-                                                      FROM      OA01
-                                                                INNER JOIN OB01 ON OA01999 = OB01002
-                                                                INNER JOIN OC01 ON OB01999 = OC01003
-                                                                INNER JOIN CA01 ON CA01001 = OA01038
-                                                                INNER JOIN UA01 ON UA01001 = OA01013
-                                                                LEFT JOIN CB04 ON CB04001 = CA01020
-                                                      WHERE     OA01997 = 0
-                                                                AND ( OA01015 <> ''  AND OA01015 IS NOT NULL )
-                                                                AND OA01018 = 0 {0} 
-                                                    ) GP
-                                          WHERE     NUM = 1                                    
                                      UNION ALL 
-
-                                        SELECT    *
-                                              FROM      ( SELECT    OA01001 ,
-                                                            OA01002 ,
-                                                            OA01009 ,
-                                                            OA01013 ,
-                                                            CA01001 ,
-                                                            CA01003 ,
-                                                            UA01004 ,
-                                                            OA01017 AS UA01005 ,
-                                                            UA01013 ,
-                                                            dbo.FX_GetProvinceIdByCityId(CA01013) ProvinceId ,
-                                                            dbo.FX_GetProvinceByCityId(CA01013) ProvinceName ,
-                                                            CB04002 ,
-                                                            ( OA01020 * ISNULL(OA01018, 0) ) OA01020 ,
-                                                            OA01021 ,
-                                                            UA01005 AS OA01015 ,
-                                                            OA01017 ,
-                                                            ( OA01022 * ISNULL(OA01018, 0) ) OA01022 ,
-                                                            OA01044 ,
-                                                            ROW_NUMBER() OVER ( PARTITION BY OA01002 ORDER BY OA01009 ASC ) AS NUM
-                                                    FROM      OA01
-                                                            INNER JOIN OB01 ON OA01999 = OB01002
-                                                            INNER JOIN OC01 ON OB01999 = OC01003
-                                                            INNER JOIN CA01 ON CA01001 = OA01038
-                                                            INNER JOIN UA01 ON UA01005 = OA01017 
-                                                            LEFT JOIN CB04 ON CB04001 = CA01020
-                                                    WHERE     OA01997 = 0
-                                                            AND ( OA01017 <> ''
-                                                                    AND OA01017 IS NOT NULL
-                                                                ) {0}
-                                                ) GP
-                                        WHERE     NUM = 1
-                                  
-                                     UNION ALL
+                                     SELECT *  FROM
+                                     (      SELECT  OA01001,OA01002,OA01009,OA01013 , 
+                                                CA01001,CA01003,UA01004,OA01015 UA01005,UA01013 ,
+                                                dbo.FX_GetProvinceIdByCityId(CA01013) ProvinceId ,
+                                                dbo.FX_GetProvinceByCityId(CA01013) ProvinceName ,
+                                                CB04002,(OA01020* isnull(OA01016,0)) OA01020 ,
+                                                OA01021,OA01015,OA01017,(OA01022*isnull(OA01016,0)) OA01022,OA01044 ,
+                                                ROW_NUMBER() OVER(PARTITION BY OA01002 ORDER BY OA01009 ASC ) AS NUM
+                                            FROM OA01 
+                                                INNER JOIN OB01 ON OA01999 = OB01002
+                                                INNER JOIN OC01 ON OB01999 = OC01003
+                                                INNER JOIN CA01 ON CA01001 = OA01038                                       
+                                                INNER JOIN UA01 ON UA01005 = OA01015 
+                                                LEFT JOIN CB04 ON CB04001 = CA01020
+                                            WHERE OA01997 = 0 AND  (OA01015 <> '' and OA01015 is not null) {0}
+                                    )   GP  WHERE NUM=1 
+                                    UNION ALL 
+                                    SELECT *  FROM
+                                    (       SELECT  OA01001,OA01002,OA01009,OA01013 , 
+                                                    CA01001,CA01003,OA01017 UA01004,UA01005,UA01013 ,
+                                                    dbo.FX_GetProvinceIdByCityId(CA01013) ProvinceId ,
+                                                    dbo.FX_GetProvinceByCityId(CA01013) ProvinceName ,
+                                                    CB04002,(OA01020* isnull(OA01018,0)) OA01020 ,
+                                                    OA01021,OA01015,OA01017,(OA01022*isnull(OA01018,0)) OA01022,OA01044 ,
+                                                    ROW_NUMBER() OVER(PARTITION BY OA01002 ORDER BY OA01009 ASC ) AS NUM
+                                            FROM OA01 
+                                            INNER JOIN OB01 ON OA01999 = OB01002
+                                            INNER JOIN OC01 ON OB01999 = OC01003
+                                            INNER JOIN CA01 ON CA01001 = OA01038                                       
+                                            INNER JOIN UA01 ON UA01005 = OA01017 
+                                            LEFT JOIN CB04 ON CB04001 = CA01020
+                                            WHERE OA01997 = 0 AND  (OA01017 <> '' and OA01017 is not null) {0}
+                                    )   GP  WHERE NUM=1 
+                                     UNION ALL 
                                     
                                     SELECT *  FROM
                                      (      SELECT  OA01001,OA01002,OA01009,OA01013 , 
@@ -3836,8 +3804,7 @@ namespace Sinoo.BLL
                                                 dbo.FX_GetProvinceIdByCityId(CA01013) ProvinceId ,
                                                 dbo.FX_GetProvinceByCityId(CA01013) ProvinceName ,
                                                 CB04002,(OA01020* (1-isnull(OA01016,0)-isnull(OA01018,0))) OA01020 ,
-                                                OA01021,OA01015,OA01017,
-                                                CAST((OA01022*(1-isnull(OA01016,0)-isnull(OA01018,0))) AS DECIMAL(18,2)) OA01022,
+                                                OA01021,OA01015,OA01017,(OA01022*(1-isnull(OA01016,0)-isnull(OA01018,0))) OA01022,
                                                 OA01044 ,
                                                 ROW_NUMBER() OVER(PARTITION BY OA01002 ORDER BY OA01009 ASC ) AS NUM
                                             FROM OA01 
@@ -3848,9 +3815,9 @@ namespace Sinoo.BLL
                                                 LEFT JOIN CB04 ON CB04001 = CA01020
                                             WHERE OA01997 = 0 AND  (OA01016 <> 0 OR OA01018<>0)  {0}
                                     )   GP  WHERE NUM=1 
-                            ) GP 
-                             ", strWhereAdd);
+                            ) GP ", strWhereAdd);
                 }
+
                 ds = Provider.ReturnDataSetByDataAdapter(strsql, 0, ref obj, null);
             }
             catch (Exception ex)

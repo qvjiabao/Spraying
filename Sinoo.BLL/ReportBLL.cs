@@ -3137,11 +3137,11 @@ namespace Sinoo.BLL
 
                     strTableName = string.Format(@"
                         (
-                            SELECT GA03001,GA03002 ProvinceName, COUNT(distinct CustomerNum) CustomerNum
+                            SELECT GA03002 ProvinceName, COUNT(distinct CustomerNum) CustomerNum
                                             ,SUM(CASE  WHEN NewCustomerNum = 1 THEN 1 ELSE 0 END ) NewCustomerNum
                                             ,COUNT(distinct OrderNum) OrderNum  ,SUM(OA01022) Amout
                                         FROM (
-			                                        SELECT P.GA03001,P.GA03002, 
+			                                        SELECT P.GA03002, 
 				                                           OA01038 AS CustomerNum,
 			                                               OA01044 AS NewCustomerNum,
 			                                               OA01002 AS OrderNum,
@@ -3158,7 +3158,7 @@ namespace Sinoo.BLL
 					                                        AND  (OA01017 = '' or OA01017 is null) 
                                                             AND  OA01016 = 0 AND OA01018 = 0  {0}
 	                                          UNION ALL 
-		                                            SELECT OA01055 GA03001,OA01057 GA03002 ,
+		                                            SELECT OA01057 GA03002 ,
 				                                           OA01038 AS CustomerNum,
 				                                           OA01044 AS NewCustomerNum,
 				                                           OA01002 AS OrderNum,
@@ -3173,7 +3173,7 @@ namespace Sinoo.BLL
 		                                            WHERE OA01997 = 0 AND OA01003 <> 3  
 				                                        AND   (OA01015 <> '' AND OA01015 IS NOT NULL)   {0}
 	                                         UNION ALL 
-	                                              SELECT OA01056 GA03001,OA01058 GA03002 , 
+	                                              SELECT OA01058 GA03002 , 
 				                                         OA01038 AS  CustomerNum,
 				                                         OA01044 AS NewCustomerNum,
 				                                         OA01002 AS OrderNum,
@@ -3188,7 +3188,7 @@ namespace Sinoo.BLL
 	                                              WHERE OA01997 = 0 AND OA01003 <> 3  
 		                                                   AND   (OA01017 <> '' AND OA01017 IS NOT NULL)  {0} 
 	                                         UNION ALL 
-		                                          SELECT P.GA03001,P.GA03002,
+		                                          SELECT P.GA03002,
 				                                         OA01038 AS  CustomerNum,
 				                                         OA01044 AS NewCustomerNum,
 				                                         OA01002 AS OrderNum,
@@ -3203,20 +3203,20 @@ namespace Sinoo.BLL
 		                                          WHERE OA01997 = 0 AND OA01003 <> 3  
 			                                                 AND  (OA01016 <> 0 OR OA01018<>0)   {0}
                                         ) ABCD 
-                    group by GA03001,GA03002
+                    group by GA03002
                 ) A", strWhereAdd);
                 }
                 else
                 {
                     strTableName = string.Format(@"
                         (
-                            SELECT GA03001,GA03002 ProvinceName, COUNT(distinct CustomerNum) CustomerNum
+                            SELECT GA03002 ProvinceName, COUNT(distinct CustomerNum) CustomerNum
                                             ,SUM(CASE  WHEN NewCustomerNum = 1 THEN 1 ELSE 0 END ) NewCustomerNum
                                             ,COUNT(distinct OrderNum) OrderNum  ,SUM(OA01022) Amout
                                         FROM (
-	                                        SELECT GA03001,GA03002,CustomerNum,NewCustomerNum,OrderNum,OA01022
+	                                        SELECT GA03002,CustomerNum,NewCustomerNum,OrderNum,OA01022
 	                                        FROM (
-		                                        SELECT P.GA03001,P.GA03002, 
+		                                        SELECT P.GA03002, 
 				                                       OA01038 AS CustomerNum,
 			                                           OA01044 AS NewCustomerNum,
 			                                           OA01002 AS OrderNum,
@@ -3235,7 +3235,7 @@ namespace Sinoo.BLL
 	                                        ) A 
 	                                        WHERE A.NUM = 1 
                                             UNION ALL 
-	                                        SELECT GA03001,GA03002,CustomerNum,NewCustomerNum,OrderNum,OA01022
+	                                        SELECT GA03002,CustomerNum,NewCustomerNum,OrderNum,OA01022
 	                                        FROM (
 		                                            SELECT OA01055 GA03001,OA01057 GA03002 ,
 				                                           OA01038 AS  CustomerNum,
@@ -3255,7 +3255,7 @@ namespace Sinoo.BLL
 	                                        ) A 
 	                                        WHERE A.NUM = 1 
 	                                        UNION ALL 
-	                                        SELECT GA03001,GA03002,CustomerNum,NewCustomerNum,OrderNum,OA01022
+	                                        SELECT GA03002,CustomerNum,NewCustomerNum,OrderNum,OA01022
 	                                        FROM (
 	                                              SELECT OA01056 GA03001,OA01058 GA03002 , 
 				                                         OA01038 AS  CustomerNum,
@@ -3275,7 +3275,7 @@ namespace Sinoo.BLL
                                             ) A 
 	                                        WHERE A.NUM = 1 
 	                                        UNION ALL 
-	                                        SELECT GA03001,GA03002,CustomerNum,NewCustomerNum,OrderNum,OA01022
+	                                        SELECT GA03002,CustomerNum,NewCustomerNum,OrderNum,OA01022
 	                                        FROM (
 		                                          SELECT P.GA03001,P.GA03002,
 				                                         OA01038 AS  CustomerNum,
@@ -3294,7 +3294,7 @@ namespace Sinoo.BLL
 			                                                 AND  (OA01016 <> 0 OR OA01018<>0) {0}
                                             ) A 
 	                                        WHERE A.NUM = 1 
-                                        ) ABCD  group by GA03001,GA03002  ) A", strWhereAdd);
+                                        ) ABCD  group by GA03002  ) A", strWhereAdd);
                 }
 
                 string strWhere = "";
