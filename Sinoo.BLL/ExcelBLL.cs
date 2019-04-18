@@ -1391,203 +1391,168 @@ namespace Sinoo.BLL
                 string strSql = string.Empty;
                 if (blInvoice)
                 {
-                    strSql = string.Format(@"SELECT UA01005,SUM(OA01022)OA01022,count(OA01002) OA01001
-								,SUM(DISTINCT OA01003) OA01003,SUM(DISTINCT OA010031) OA010031
-								, count(DISTINCT OA01038) OA01038,SUM(OA01044) OA01044,SUM(OA01054) OA01054
-							FROM(
-								SELECT * 
-									FROM(
-										SELECT UA01005
-											,SUM(OA01022) OA01022,SUM(CASE WHEN OA01003=1 THEN OA01003 ELSE 0 END) OA01001
-											,COUNT(CASE OA01003 WHEN 2 THEN  OA01003 END) OA01003
-											,COUNT(CASE OA01003 WHEN 3 THEN  OA01003 END) OA010031
-											, OA01038,OA01002
-											,SUM(DISTINCT(CASE WHEN OA01044=1 THEN OA01044 ELSE 0 END )) OA01044
-											,SUM(DISTINCT(CASE WHEN OA01054=1 THEN OA01054 ELSE 0 END )) OA01054
-									   FROM (
-											SELECT  UA01005,round((OB01009/OA01021/OA01060),2) OA01022,OA01003,OA01038,OA01044,OA01054,OA01013,OA01002
-											FROM OA01
-											JOIN CA01 ON CA01001 = OA01038
-											LEFT JOIN CB04 ON CB04001 = CA01020
-											JOIN UA01 ON UA01001 = OA01013 
-											JOIN OB01 ON OA01999 = OB01002
-											JOIN OC01 ON OB01999 = OC01003
-											WHERE OA01997 = 0 AND  (OA01015 = '' or OA01015 is null) {0}
-												AND  (OA01017 = '' or OA01017 is null)  
-                                                AND  OA01016 = 0 AND OA01018 = 0 
-										)A 
-										GROUP BY UA01005,OA01038,OA01002	
-									) A
-									UNION ALL
-									SELECT * 
-										FROM (
-											SELECT UA01005
-											,SUM(OA01022) OA01022,SUM(CASE WHEN OA01003=1 THEN OA01003 ELSE 0 END) OA01001
-											,COUNT(CASE OA01003 WHEN 2 THEN  OA01003 END) OA01003
-											,COUNT(CASE OA01003 WHEN 3 THEN  OA01003 END) OA010031
-											,0 OA01038,OA01002 
-											,0 OA01044
-											,SUM(DISTINCT(CASE WHEN OA01054=1 THEN OA01054 ELSE 0 END )) OA01054
-									   FROM (
-											SELECT  UA01005,round((OB01009/OA01021/OA01060),2)*OA01016 AS OA01022,OA01003,OA01038,OA01044,OA01054,OA01013,OA01002,OA01016
-											FROM OA01
-											JOIN CA01 ON CA01001 = OA01038
-											LEFT JOIN CB04 ON CB04001 = CA01020
-											JOIN UA01 ON UA01005 = OA01015  
-											JOIN OB01 ON OA01999 = OB01002
-											JOIN OC01 ON OB01999 = OC01003
-											WHERE OA01997 = 0 AND (OA01015 <> '' and OA01015 is not null)  {0}
-										) B 
-										GROUP BY UA01005,OA01002	
-									) B
-									UNION ALL
-									SELECT * 
-										FROM (
-											SELECT UA01005
-											,SUM(OA01022) OA01022,SUM(CASE WHEN OA01003=1 THEN OA01003 ELSE 0 END) OA01001
-											,COUNT(CASE OA01003 WHEN 2 THEN  OA01003 END) OA01003
-											,COUNT(CASE OA01003 WHEN 3 THEN  OA01003 END) OA010031
-											,0 OA01038,OA01002 
-											,0 OA01044
-											,SUM(DISTINCT(CASE WHEN OA01054=1 THEN OA01054 ELSE 0 END )) OA01054
-									   FROM (
-											SELECT  UA01005,round((OB01009/OA01021/OA01060),2)*OA01018 AS OA01022,OA01003,OA01038,OA01044,OA01054,OA01013,OA01002,OA01018
-											FROM OA01
-											JOIN CA01 ON CA01001 = OA01038
-											LEFT JOIN CB04 ON CB04001 = CA01020
-											JOIN UA01 ON UA01005 = OA01017 
-											JOIN OB01 ON OA01999 = OB01002
-											JOIN OC01 ON OB01999 = OC01003
-											WHERE OA01997 = 0 AND (OA01017 <> '' and OA01017 is not null) {0}
-										) C 
-										GROUP BY UA01005,OA01002
-									) C
-									UNION ALL
-									SELECT * 
-										FROM (
-											SELECT UA01005
-												,SUM(OA01022) OA01022
-												,SUM(CASE WHEN OA01003=1 THEN OA01003 ELSE 0 END) OA01001
-												,COUNT(CASE OA01003 WHEN 2 THEN  OA01003 END) OA01003
-												,COUNT(CASE OA01003 WHEN 3 THEN  OA01003 END) OA010031
-												, OA01038,OA01002
-												,SUM(DISTINCT(CASE WHEN OA01044=1 THEN OA01044 ELSE 0 END )) OA01044
-											    ,SUM(DISTINCT(CASE WHEN OA01054=1 THEN OA01054 ELSE 0 END )) OA01054
-											FROM (
-												SELECT  UA01005,round((OB01009/OA01021/OA01060),2)*(1-OA01016-OA01018) AS OA01022,OA01003,OA01038,OA01044,OA01054,OA01013,OA01018,OA01016,OA01002
-												FROM OA01
-												JOIN CA01 ON CA01001 = OA01038
-												LEFT JOIN CB04 ON CB04001 = CA01020
-												JOIN UA01 ON UA01001 = OA01013
-												JOIN OB01 ON OA01999 = OB01002
-												JOIN OC01 ON OB01999 = OC01003
-												WHERE OA01997 = 0 AND  (OA01016 <> 0 OR OA01018<>0) {0}
-											) D
-										GROUP BY UA01005,OA01038,OA01002	
-									) D
-								)TOTAL
-							GROUP BY UA01005
-                     ", strWhere);
+                    strSql = string.Format(@"
+                             SELECT UA01005,SUM(OA01022)OA01022,count(distinct OA01002) OA01001
+		                        ,SUM(DISTINCT OA01003) OA01003,SUM(DISTINCT OA010031) OA010031
+		                        , count(DISTINCT OA01038) OA01038,SUM(OA01044) OA01044,sum(OA01054) OA01054
+                        FROM(
+	                        SELECT UA01005,OA01022
+		                        ,CASE WHEN OA01003 = 1 THEN OA01003 ELSE 0 END OA01001
+		                        ,CASE WHEN OA01003 = 2 THEN 1 ELSE 0 END OA01003
+		                        ,CASE WHEN OA01003 = 3 THEN 1 ELSE 0 END OA010031
+		                        , OA01038,OA01002, OA01044,OA01054
+                            FROM (
+		                        SELECT  UA01005,round((OB01009/OA01021/OA01060),2) OA01022,OA01003,OA01038,OA01044,OA01013,OA01002
+			                        ,isnull(OA01054,0) OA01054
+		                        FROM OA01
+		                        JOIN CA01 ON CA01001 = OA01038
+		                        LEFT JOIN CB04 ON CB04001 = CA01020
+		                        JOIN UA01 ON UA01001 = OA01013 
+		                        JOIN OB01 ON OA01999 = OB01002
+		                        JOIN OC01 ON OB01999 = OC01003
+		                        WHERE OA01997 = 0 AND  (OA01015 = '' or OA01015 is null) 
+			                        AND  (OA01017 = '' or OA01017 is null) AND  OA01016 = 0 AND OA01018 = 0 
+			                        {0}
+	                        )A 
+	                        UNION ALL
+	                        SELECT UA01005,OA01022
+		                        ,CASE WHEN OA01003 = 1 THEN OA01003 ELSE 0 END OA01001
+		                        ,CASE WHEN OA01003 = 2 THEN 1 ELSE 0 END OA01003
+		                        ,CASE WHEN OA01003 = 3 THEN 1 ELSE 0 END OA010031
+		                        ,OA01038,OA01002,OA01044,OA01054
+                            FROM (
+		                        SELECT  UA01005,round((OB01009/OA01021/OA01060),2)*OA01016 OA01022,OA01003,OA01038,OA01044,OA01013,OA01002,OA01016
+			                        ,isnull(OA01054,0) OA01054
+		                        FROM OA01
+		                        JOIN CA01 ON CA01001 = OA01038
+		                        LEFT JOIN CB04 ON CB04001 = CA01020
+		                        JOIN UA01 ON UA01005 = OA01015  
+		                        JOIN OB01 ON OA01999 = OB01002
+		                        JOIN OC01 ON OB01999 = OC01003
+		                        WHERE OA01997 = 0 AND (OA01015 <> '' and OA01015 is not null)   
+		                        {0}
+	                        ) B 
+	                        UNION ALL
+	                        SELECT UA01005,OA01022
+		                        ,CASE WHEN OA01003 = 1 THEN OA01003 ELSE 0 END OA01001
+		                        ,CASE WHEN OA01003 = 2 THEN 1 ELSE 0 END OA01003
+		                        ,CASE WHEN OA01003 = 3 THEN 1 ELSE 0 END OA010031
+		                        ,OA01038,OA01002,OA01044,OA01054
+                            FROM (
+		                        SELECT  UA01005,round((OB01009/OA01021/OA01060),2)*OA01018 OA01022,OA01003,OA01038,OA01044,OA01013,OA01002,OA01018
+			                        ,isnull(OA01054,0) OA01054
+		                        FROM OA01
+		                        JOIN CA01 ON CA01001 = OA01038
+		                        LEFT JOIN CB04 ON CB04001 = CA01020
+		                        JOIN UA01 ON UA01005 = OA01017 
+		                        JOIN OB01 ON OA01999 = OB01002
+		                        JOIN OC01 ON OB01999 = OC01003
+		                        WHERE OA01997 = 0 AND (OA01017 <> '' and OA01017 is not null)  
+		                        {0}
+	                        ) C 
+	                        UNION ALL
+	                        SELECT UA01005,OA01022
+		                        ,CASE WHEN OA01003 = 1 THEN OA01003 ELSE 0 END OA01001
+		                        ,CASE WHEN OA01003 = 2 THEN 1 ELSE 0 END OA01003
+		                        ,CASE WHEN OA01003 = 3 THEN 1 ELSE 0 END OA010031
+		                        ,OA01038,OA01002,OA01044,OA01054
+		                        FROM (
+			                        SELECT  UA01005,round((OB01009/OA01021/OA01060),2)*(1-OA01016-OA01018) OA01022,OA01003,OA01038,OA01044,OA01013,OA01018,OA01016,OA01002
+				                        ,isnull(OA01054,0) OA01054
+			                        FROM OA01
+			                        JOIN CA01 ON CA01001 = OA01038
+			                        LEFT JOIN CB04 ON CB04001 = CA01020
+			                        JOIN UA01 ON UA01001 = OA01013
+			                        JOIN OB01 ON OA01999 = OB01002
+			                        JOIN OC01 ON OB01999 = OC01003
+			                        WHERE OA01997 = 0 AND  (OA01016 <> 0 OR OA01018<>0)  
+			                        {0}
+		                    ) D  
+                        )TOTAL
+                        GROUP BY UA01005 ", strWhere);
                 }
                 else
                 {
                     strSql = string.Format(@"
-                                              SELECT UA01005,SUM(OA01022)OA01022,count(OA01002) OA01001
-								,SUM(DISTINCT OA01003) OA01003,SUM(DISTINCT OA010031) OA010031
-								, count(DISTINCT OA01038) OA01038,SUM(OA01044) OA01044,sum(OA01054) OA01054
-							FROM(
-								SELECT * 
-									FROM(
-										SELECT UA01005
-											,SUM(OA01022) OA01022,SUM(CASE WHEN OA01003=1 THEN OA01003 ELSE 0 END) OA01001
-											,COUNT(CASE OA01003 WHEN 2 THEN  OA01003 END) OA01003
-											,COUNT(CASE OA01003 WHEN 3 THEN  OA01003 END) OA010031
-											, OA01038,OA01002
-											,SUM(DISTINCT(CASE WHEN OA01044=1 THEN OA01044 ELSE 0 END )) OA01044,OA01054
-									   FROM (
-											SELECT  UA01005,OA01022,OA01003,OA01038,OA01044,OA01013,OA01002
-												,ROW_NUMBER() OVER(PARTITION BY OA01002 ORDER BY OA01009 ASC ) NUM,isnull(OA01054,0) OA01054
-											FROM OA01
-											JOIN CA01 ON CA01001 = OA01038
-											LEFT JOIN CB04 ON CB04001 = CA01020
-											JOIN UA01 ON UA01001 = OA01013 
-											JOIN OB01 ON OA01999 = OB01002
-											JOIN OC01 ON OB01999 = OC01003
-											WHERE OA01997 = 0 AND  (OA01015 = '' or OA01015 is null) {0}
-												AND  (OA01017 = '' or OA01017 is null)  
-                                                AND  OA01016 = 0 AND OA01018 = 0 
-										)A WHERE NUM = 1 
-										GROUP BY UA01005,OA01038,OA01002,OA01054	
-									) A
-									UNION ALL
-									SELECT * 
-										FROM (
-											SELECT UA01005
-											,SUM(OA01022*OA01016) OA01022,SUM(CASE WHEN OA01003=1 THEN OA01003 ELSE 0 END) OA01001
-											,COUNT(CASE OA01003 WHEN 2 THEN  OA01003 END) OA01003
-											,COUNT(CASE OA01003 WHEN 3 THEN  OA01003 END) OA010031
-											,0 OA01038,OA01002 
-											,0 OA01044,OA01054
-									   FROM (
-											SELECT  UA01005,OA01022,OA01003,OA01038,OA01044,OA01013,OA01002,OA01016
-												,ROW_NUMBER() OVER(PARTITION BY OA01002 ORDER BY OA01009 ASC ) NUM,isnull(OA01054,0) OA01054
-											FROM OA01
-											JOIN CA01 ON CA01001 = OA01038
-											LEFT JOIN CB04 ON CB04001 = CA01020
-											JOIN UA01 ON UA01005 = OA01015  
-											JOIN OB01 ON OA01999 = OB01002
-											JOIN OC01 ON OB01999 = OC01003
-											WHERE OA01997 = 0 AND (OA01015 <> '' and OA01015 is not null)  {0}
-										) B WHERE NUM = 1 
-										GROUP BY UA01005,OA01002,OA01054	
-									) B
-									UNION ALL
-									SELECT * 
-										FROM (
-											SELECT UA01005
-											,SUM(OA01022*OA01018) OA01022,SUM(CASE WHEN OA01003=1 THEN OA01003 ELSE 0 END) OA01001
-											,COUNT(CASE OA01003 WHEN 2 THEN  OA01003 END) OA01003
-											,COUNT(CASE OA01003 WHEN 3 THEN  OA01003 END) OA010031
-											,0 OA01038,OA01002 
-											,0 OA01044,OA01054
-									   FROM (
-											SELECT  UA01005,OA01022,OA01003,OA01038,OA01044,OA01013,OA01002,OA01018
-												,ROW_NUMBER() OVER(PARTITION BY OA01002 ORDER BY OA01009 ASC ) NUM,isnull(OA01054,0) OA01054
-											FROM OA01
-											JOIN CA01 ON CA01001 = OA01038
-											LEFT JOIN CB04 ON CB04001 = CA01020
-											JOIN UA01 ON UA01005 = OA01017 
-											JOIN OB01 ON OA01999 = OB01002
-											JOIN OC01 ON OB01999 = OC01003
-											WHERE OA01997 = 0 AND (OA01017 <> '' and OA01017 is not null) {0}
-										) C WHERE NUM = 1 
-										GROUP BY UA01005,OA01002,OA01054
-									) C
-									UNION ALL
-									SELECT * 
-										FROM (
-											SELECT UA01005
-												,SUM(OA01022*(1-OA01016-OA01018)) OA01022
-												,SUM(CASE WHEN OA01003=1 THEN OA01003 ELSE 0 END) OA01001
-												,COUNT(CASE OA01003 WHEN 2 THEN  OA01003 END) OA01003
-												,COUNT(CASE OA01003 WHEN 3 THEN  OA01003 END) OA010031
-												, OA01038,OA01002
-												,SUM(DISTINCT(CASE WHEN OA01044=1 THEN OA01044 ELSE 0 END )) OA01044,OA01054
-											FROM (
-												SELECT  UA01005,OA01022,OA01003,OA01038,OA01044,OA01013,OA01018,OA01016,OA01002
-													,ROW_NUMBER() OVER(PARTITION BY OA01002 ORDER BY OA01009 ASC ) NUM,isnull(OA01054,0) OA01054
-												FROM OA01
-												JOIN CA01 ON CA01001 = OA01038
-												LEFT JOIN CB04 ON CB04001 = CA01020
-												JOIN UA01 ON UA01001 = OA01013
-												JOIN OB01 ON OA01999 = OB01002
-												JOIN OC01 ON OB01999 = OC01003
-												WHERE OA01997 = 0 AND  (OA01016 <> 0 OR OA01018<>0) {0}
-											) D WHERE NUM = 1 
-										GROUP BY UA01005,OA01038,OA01002,OA01054	
-									) D
-								)TOTAL
-							GROUP BY UA01005
+                     SELECT UA01005,SUM(OA01022)OA01022,count(distinct OA01002) OA01001
+		                        ,SUM(DISTINCT OA01003) OA01003,SUM(DISTINCT OA010031) OA010031
+		                        , count(DISTINCT OA01038) OA01038,SUM(OA01044) OA01044,sum(OA01054) OA01054
+                        FROM(
+	                        SELECT UA01005,OA01022
+		                        ,CASE WHEN OA01003 = 1 THEN OA01003 ELSE 0 END OA01001
+		                        ,CASE WHEN OA01003 = 2 THEN 1 ELSE 0 END OA01003
+		                        ,CASE WHEN OA01003 = 3 THEN 1 ELSE 0 END OA010031
+		                        , OA01038,OA01002, OA01044,OA01054
+                            FROM (
+		                        SELECT  UA01005,OA01022,OA01003,OA01038,OA01044,OA01013,OA01002
+			                        ,ROW_NUMBER() OVER(PARTITION BY OA01002 ORDER BY OA01009 ASC ) NUM
+			                        ,isnull(OA01054,0) OA01054
+		                        FROM OA01
+		                        JOIN CA01 ON CA01001 = OA01038
+		                        LEFT JOIN CB04 ON CB04001 = CA01020
+		                        JOIN UA01 ON UA01001 = OA01013 
+		                        JOIN OB01 ON OA01999 = OB01002
+		                        JOIN OC01 ON OB01999 = OC01003
+		                        WHERE OA01997 = 0 AND  (OA01015 = '' or OA01015 is null) 
+			                        AND  (OA01017 = '' or OA01017 is null) AND  OA01016 = 0 AND OA01018 = 0 
+			                        {0}
+	                        )A WHERE NUM = 1 
+	                        UNION ALL
+	                        SELECT UA01005,OA01022*OA01016 OA01022
+		                        ,CASE WHEN OA01003 = 1 THEN OA01003 ELSE 0 END OA01001
+		                        ,CASE WHEN OA01003 = 2 THEN 1 ELSE 0 END OA01003
+		                        ,CASE WHEN OA01003 = 3 THEN 1 ELSE 0 END OA010031
+		                        ,OA01038,OA01002,OA01044,OA01054
+                            FROM (
+		                        SELECT  UA01005,OA01022,OA01003,OA01038,OA01044,OA01013,OA01002,OA01016
+			                        ,ROW_NUMBER() OVER(PARTITION BY OA01002 ORDER BY OA01009 ASC ) NUM,isnull(OA01054,0) OA01054
+		                        FROM OA01
+		                        JOIN CA01 ON CA01001 = OA01038
+		                        LEFT JOIN CB04 ON CB04001 = CA01020
+		                        JOIN UA01 ON UA01005 = OA01015  
+		                        JOIN OB01 ON OA01999 = OB01002
+		                        JOIN OC01 ON OB01999 = OC01003
+		                        WHERE OA01997 = 0 AND (OA01015 <> '' and OA01015 is not null)   
+		                        {0}
+	                        ) B WHERE NUM = 1 	
+	                        UNION ALL
+	                        SELECT UA01005,OA01022*OA01018 OA01022
+		                        ,CASE WHEN OA01003 = 1 THEN OA01003 ELSE 0 END OA01001
+		                        ,CASE WHEN OA01003 = 2 THEN 1 ELSE 0 END OA01003
+		                        ,CASE WHEN OA01003 = 3 THEN 1 ELSE 0 END OA010031
+		                        ,OA01038,OA01002,OA01044,OA01054
+                            FROM (
+		                        SELECT  UA01005,OA01022,OA01003,OA01038,OA01044,OA01013,OA01002,OA01018
+			                        ,ROW_NUMBER() OVER(PARTITION BY OA01002 ORDER BY OA01009 ASC ) NUM,isnull(OA01054,0) OA01054
+		                        FROM OA01
+		                        JOIN CA01 ON CA01001 = OA01038
+		                        LEFT JOIN CB04 ON CB04001 = CA01020
+		                        JOIN UA01 ON UA01005 = OA01017 
+		                        JOIN OB01 ON OA01999 = OB01002
+		                        JOIN OC01 ON OB01999 = OC01003
+		                        WHERE OA01997 = 0 AND (OA01017 <> '' and OA01017 is not null)  
+		                        {0}
+	                        ) C WHERE NUM = 1 
+	                        UNION ALL
+	                        SELECT UA01005,OA01022*(1-OA01016-OA01018) OA01022
+		                        ,CASE WHEN OA01003 = 1 THEN OA01003 ELSE 0 END OA01001
+		                        ,CASE WHEN OA01003 = 2 THEN 1 ELSE 0 END OA01003
+		                        ,CASE WHEN OA01003 = 3 THEN 1 ELSE 0 END OA010031
+		                        ,OA01038,OA01002,OA01044,OA01054
+		                        FROM (
+			                        SELECT  UA01005,OA01022,OA01003,OA01038,OA01044,OA01013,OA01018,OA01016,OA01002
+				                        ,ROW_NUMBER() OVER(PARTITION BY OA01002 ORDER BY OA01009 ASC ) NUM,isnull(OA01054,0) OA01054
+			                        FROM OA01
+			                        JOIN CA01 ON CA01001 = OA01038
+			                        LEFT JOIN CB04 ON CB04001 = CA01020
+			                        JOIN UA01 ON UA01001 = OA01013
+			                        JOIN OB01 ON OA01999 = OB01002
+			                        JOIN OC01 ON OB01999 = OC01003
+			                        WHERE OA01997 = 0 AND  (OA01016 <> 0 OR OA01018<>0)  
+			                        {0}
+		                    ) D WHERE NUM = 1 
+                        )TOTAL
+                        GROUP BY UA01005
                      ", strWhere);
                 }
                 object obj = null;//用于接收存储过程返回值
@@ -2819,7 +2784,7 @@ namespace Sinoo.BLL
                                         FROM(
                                             SELECT GA03002, CustomerNum, NewCustomerNum, OrderNum, OA01022
                                             FROM(
-                                                SELECT P.GA03001, P.GA03002,
+                                                SELECT P.GA03002,
                                                        OA01038 AS CustomerNum,
                                                        OA01044 AS NewCustomerNum,
                                                        OA01002 AS OrderNum,
