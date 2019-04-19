@@ -627,6 +627,15 @@
                                                 <asp:TextBox ID="txtOP01022" runat="server" CssClass="Wdate" onclick="WdatePicker()"></asp:TextBox>
                                             </td>
                                         </tr>
+                                        <tr>
+                                            <td >
+                                                <center>
+                                                    Remark</center>
+                                            </td>
+                                            <td colspan="3">
+                                                <asp:TextBox ID="txtOP01023" Width="80%" runat="server"></asp:TextBox>
+                                            </td>
+                                        </tr>
                                         <%--<tr>
                                         <td colspan="4" style="text-align: right;">
                                             goods return：

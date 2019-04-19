@@ -36,9 +36,18 @@ namespace Sinoo.Model
         private string _op01020;
         private decimal? _op01021;
         private string _op01022;
+        private string _op01023;
         private int? _op01997;
         private DateTime? _op01998;
         private string _op01999;
+        /// <summary>
+        /// 
+        /// </summary>
+        public string OP01023
+        {
+            set { _op01023 = value; }
+            get { return _op01023; }
+        }
         /// <summary>
         /// 
         /// </summary>

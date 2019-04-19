@@ -187,6 +187,8 @@ namespace Sinoo.Spraying.Page.SalesManagement
                 this.txtOP01021.Text = dtOP01.Rows[0]["OP01021"] is DBNull ? "" : Math.Round(Convert.ToDecimal(dtOP01.Rows[0]["OP01021"]), 2).ToString();
                 this.txtOP01022.Text = dtOP01.Rows[0]["OP01022"].ToString();
 
+                this.txtOP01023.Text = dtOP01.Rows[0]["OP01023"] is DBNull ? "" : dtOP01.Rows[0]["OP01023"].ToString(); ;
+                
                 #endregion
 
                 this.labOP01015.InnerText = dtOP01.Rows[0]["OP01015"] is DBNull ? "" : Math.Round(Convert.ToDecimal(dtOP01.Rows[0]["OP01015"]), 2).ToString();
@@ -531,6 +533,8 @@ namespace Sinoo.Spraying.Page.SalesManagement
             }
 
             #endregion
+
+            _OrderPayment.OP01023 = this.txtOP01023.Text.Trim();
 
             #endregion
 

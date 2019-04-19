@@ -296,6 +296,11 @@ namespace Sinoo.Spraying.Page.SalesManagement
                 _OrderPayment.OP01014 = this.txtOP01014.Text.Trim();
             }
 
+            if (!string.IsNullOrEmpty(this.txtOP01023.Text.Trim()))
+            {
+                _OrderPayment.OP01023 = this.txtOP01023.Text.Trim();
+            }
+
             #region 添加5 6 7付款
 
             if (!string.IsNullOrEmpty(this.txtOP01017.Text.Trim()))

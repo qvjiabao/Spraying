@@ -643,6 +643,15 @@
                                                 <asp:Label ID="labOP01022" runat="server" Text=""></asp:Label>
                                             </td>
                                         </tr>
+                                        <tr>
+                                            <td>
+                                                <center>
+                                                    Remark</center>
+                                            </td>
+                                            <td colspan="3"> 
+                                                <asp:Label ID="labOP01023" runat="server" Text=""></asp:Label>
+                                            </td>
+                                        </tr>
                                         <%--<tr>
                                         <td colspan="4" style="text-align: right;">
                                             goods return：

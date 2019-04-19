@@ -134,7 +134,8 @@ namespace Sinoo.Spraying.Page.SalesManagement
                 this.labOP01020.Text = dtOP01.Rows[0]["OP01020"].ToString();
                 this.labOP01021.Text = dtOP01.Rows[0]["OP01021"] is DBNull ? "" : Math.Round(Convert.ToDecimal(dtOP01.Rows[0]["OP01021"]), 2).ToString();
                 this.labOP01022.Text = dtOP01.Rows[0]["OP01022"].ToString();
-                //this.labOP01006.Text = dtOP01.Rows[0]["OP01006"].ToString();
+                this.labOP01023.Text = dtOP01.Rows[0]["OP01023"] is DBNull ? "" : dtOP01.Rows[0]["OP01023"].ToString(); ;
+
             }
 
             #endregion
