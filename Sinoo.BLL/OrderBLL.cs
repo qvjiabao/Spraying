@@ -1622,14 +1622,14 @@ namespace Sinoo.BLL
             try
             {
                 string strColumn = @"[GA07001] ,[CA01003] ,[GA07006] ,[OA01002],[OA01009]
-		                            , ROW_NUMBER() OVER(ORDER BY GA07001 DESC ) AS RowNumber";
+		                            , ROW_NUMBER() OVER(ORDER BY OA01997 DESC,OA01002 DESC) AS RowNumber";
 
                 string strTableName = @"dbo.GA07
                                         inner join OA01 on OA01001=GA07002
                                         inner join CA01 on CA01001=OA01038
                                         inner join UA01 ON UA01001 = OA01013 
                                        ";
-                string strWhere = @" where GA07997=0 AND GA07008=2 " + strWhereAdd;
+                string strWhere = @" where GA07997=0 AND GA07008=2  " + strWhereAdd;
 
                 ds = Provider.ReturnDataSetByDataAdapter("PRO_Page", 1, ref obj, new SqlParameter[]{
                 new SqlParameter(){ParameterName=@"PageIndex",Value=PageIndex, DbType=DbType.Int32},
