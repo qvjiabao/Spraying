@@ -722,7 +722,7 @@ function CalculationDebts() {
         //        if ($(this).children("td").eq(3).children("span").text() == "Y" && $(this).children("td").eq(10).children("span").text() == "Y") {
         //        if ($.trim($(this).children("td").eq(6).children("span").text()) == "Y" || $.trim($(this).children("td").eq(10).children("span").text()) == "Y") {
         if ($.trim($(this).children("td").eq(6).children("span").text()) == "Y"
-        || $.trim($(this).children("td").eq(10).children("span").text()) == "Y") {
+        || $.trim($(this).children("td").eq(11).children("span").text()) == "Y") {
 
             Debts += Number($("#TableBodymingxi tr").eq(index).children("td").eq(4).children("span").text());
         }

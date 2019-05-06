@@ -703,7 +703,7 @@
         <script src="/Scripts/validator/jquery.validator.js" type="text/javascript"></script>
         <script src="/Scripts/validator/local/zh_CN.js" type="text/javascript"></script>
         <script src="/Scripts/base/base.getdata.js?v=1.0" type="text/javascript"></script>
-        <script src="/Scripts/page/Page_OA0101New.js?v=1.2" type="text/javascript"></script>
+        <script src="/Scripts/page/Page_OA0101New.js?v=1.3" type="text/javascript"></script>
         <script src="/Scripts/My97DatePicker/WdatePicker.js" type="text/javascript"></script>
     </form>
 </body>
