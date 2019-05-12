@@ -1419,7 +1419,7 @@ namespace Sinoo.BLL
 		                        ,CASE WHEN OA01003 = 1 THEN OA01003 ELSE 0 END OA01001
 		                        ,CASE WHEN OA01003 = 2 THEN 1 ELSE 0 END OA01003
 		                        ,CASE WHEN OA01003 = 3 THEN 1 ELSE 0 END OA010031
-		                        ,OA01038,OA01002,OA01044,OA01054
+		                        ,OA01038,OA01002,0 OA01044,OA01054
                             FROM (
 		                        SELECT  UA01005,round((OB01009/OA01021/OA01060),2)*OA01016 OA01022,OA01003,OA01038,OA01044,OA01013,OA01002,OA01016
 			                        ,isnull(OA01054,0) OA01054
@@ -1437,7 +1437,7 @@ namespace Sinoo.BLL
 		                        ,CASE WHEN OA01003 = 1 THEN OA01003 ELSE 0 END OA01001
 		                        ,CASE WHEN OA01003 = 2 THEN 1 ELSE 0 END OA01003
 		                        ,CASE WHEN OA01003 = 3 THEN 1 ELSE 0 END OA010031
-		                        ,OA01038,OA01002,OA01044,OA01054
+		                        ,OA01038,OA01002,0 OA01044,OA01054
                             FROM (
 		                        SELECT  UA01005,round((OB01009/OA01021/OA01060),2)*OA01018 OA01022,OA01003,OA01038,OA01044,OA01013,OA01002,OA01018
 			                        ,isnull(OA01054,0) OA01054
@@ -1502,7 +1502,7 @@ namespace Sinoo.BLL
 		                        ,CASE WHEN OA01003 = 1 THEN OA01003 ELSE 0 END OA01001
 		                        ,CASE WHEN OA01003 = 2 THEN 1 ELSE 0 END OA01003
 		                        ,CASE WHEN OA01003 = 3 THEN 1 ELSE 0 END OA010031
-		                        ,OA01038,OA01002,OA01044,OA01054
+		                        ,OA01038,OA01002,0 OA01044,OA01054
                             FROM (
 		                        SELECT  UA01005,OA01022,OA01003,OA01038,OA01044,OA01013,OA01002,OA01016
 			                        ,ROW_NUMBER() OVER(PARTITION BY OA01002 ORDER BY OA01009 ASC ) NUM,isnull(OA01054,0) OA01054
@@ -1520,7 +1520,7 @@ namespace Sinoo.BLL
 		                        ,CASE WHEN OA01003 = 1 THEN OA01003 ELSE 0 END OA01001
 		                        ,CASE WHEN OA01003 = 2 THEN 1 ELSE 0 END OA01003
 		                        ,CASE WHEN OA01003 = 3 THEN 1 ELSE 0 END OA010031
-		                        ,OA01038,OA01002,OA01044,OA01054
+		                        ,OA01038,OA01002,0 OA01044,OA01054
                             FROM (
 		                        SELECT  UA01005,OA01022,OA01003,OA01038,OA01044,OA01013,OA01002,OA01018
 			                        ,ROW_NUMBER() OVER(PARTITION BY OA01002 ORDER BY OA01009 ASC ) NUM,isnull(OA01054,0) OA01054
