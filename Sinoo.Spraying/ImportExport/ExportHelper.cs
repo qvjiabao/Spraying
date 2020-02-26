@@ -255,9 +255,9 @@ namespace Sinoo.Spraying
                 //列名和列头格式
                 ICell cell = headerRow.CreateCell(columnCount);
                 cell.SetCellValue(XmlTable.Rows[columnCount]["cn"].ToString());
-                headStyle.Alignment = HorizontalAlignment.CENTER;
+                headStyle.Alignment = HorizontalAlignment.Center;
                 //font.FontHeightInPoints = 12;
-                font.Boldweight = (short)FontBoldWeight.BOLD;
+                font.Boldweight = (short)FontBoldWeight.Bold;
                 headStyle.SetFont(font);
                 cell.CellStyle = headStyle;
 

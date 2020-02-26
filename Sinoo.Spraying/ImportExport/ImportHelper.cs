@@ -238,18 +238,18 @@ namespace Sinoo.Spraying
 			{
 				switch (cell.CellType)
 				{
-					case CellType.BLANK:
+					case CellType.Blank:
 						value = DBNull.Value;
 						break;
-					case CellType.BOOLEAN:
+					case CellType.Boolean:
 						value = cell.BooleanCellValue;
 						break;
-					case CellType.NUMERIC:
+					case CellType.Numeric:
 						value = cell.NumericCellValue;
 						if (DateUtil.IsCellDateFormatted(cell))
 							value = DateUtil.GetJavaDate((double)value);
 						break;
-					case CellType.STRING:
+					case CellType.String:
 						if (!string.IsNullOrEmpty(cell.StringCellValue))
 						{
 							value = cell.StringCellValue;
@@ -259,10 +259,10 @@ namespace Sinoo.Spraying
 							value = DBNull.Value;
 						}
 						break;
-					case CellType.ERROR:
+					case CellType.Error:
 						value = cell.ErrorCellValue.ToString();
 						break;
-					case CellType.FORMULA:
+					case CellType.Formula:
 						value = "=" + cell.CellFormula;
 						break;
 					default:
