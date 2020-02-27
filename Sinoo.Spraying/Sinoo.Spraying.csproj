@@ -1299,6 +1299,7 @@
     <Content Include="Scripts\page\Page_InvoicesAmountOfMoney.js" />
     <Content Include="packages.config" />
     <Content Include="Handler\CommonHandler.ashx" />
+    <None Include="Properties\PublishProfiles\CustomProfile.pubxml" />
     <None Include="Properties\PublishProfiles\配置文件1.pubxml" />
     <Content Include="Handler\TipHandler.ashx" />
   </ItemGroup>
