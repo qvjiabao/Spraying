@@ -17,7 +17,7 @@ namespace Sinoo.Spraying.Handler
         public void ProcessRequest(HttpContext context)
         {
             context.Response.ContentType = "text/plain";
-            string value = context.Request.Form[0];
+            string value = string.IsNullOrEmpty(context.Request.Form[0]) ? "" : context.Request.Form[0].Trim();
 
             if (context.Request.Form.Count == 1) return;
 
